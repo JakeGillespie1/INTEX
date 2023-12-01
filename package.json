@@ -1,0 +1,11 @@
+{
+  "name": "intex",
+  "version": "1.0.0",
+  "description": "intex",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "4-15",
+  "license": "ISC"
+}
