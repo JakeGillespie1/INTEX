@@ -25,6 +25,14 @@ let knex = require('knex')({
     },
 });
 
+app.get('/db', (req, res) => {
+    knex.select()
+        .from('country')
+        .then((country) => {
+            res.render('displayCountry', { mycountry: country });
+        });
+});
+
 app.get('/', (req, res) => {
     res.render(path.join(__dirname + '/views/index.ejs'));
 });
