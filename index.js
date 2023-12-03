@@ -37,12 +37,12 @@ app.get('/db', (req, res) => {
     knex.select()
         .from('test')
         .then((test) => {
-            res.render('intexData', { mytest: test });
+            res.render('/views/intexData', { mytest: test });
         });
 });
 
 app.get('/', (req, res) => {
-    res.render(path.join(__dirname + '/views/index.ejs'));
+    res.render(path.join(__dirname + '/views/index'));
 });
 
 app.listen(port, () => console.log('I am listening'));
