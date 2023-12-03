@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Intex Data</title>
+    </head>
+    <body>
+        <table
+            style="
+                width: 100%;
+                background-color: antiquewhite;
+                border: 1px solid black;
+            "
+        >
+            <thead style="background-color: cornflowerblue; color: white">
+                <tr>
+                    <th style="text-align: left">Test</th>
+                    <th style="text-align: left">ID</th>
+                </tr>
+            </thead>
+            <tbody style="font-family: Arial; font-size: 9pt">
+                <% for (let iCount = 0; iCount < mytest.length; iCount++) { %>
+                <tr>
+                    <td><%= mytest[iCount].test %></td>
+                    <td><%= mytest[iCount].id %></td>
+                    <td style="text-align: center">
+                        <form
+                            action="/editCountry/<%= mytest[iCount].country_id %>"
+                            method="GET"
+                        >
+                            <button type="submit">Edit</button>
+                        </form>
+                    </td>
+                    <td style="text-align: center">
+                        <form
+                            action="/deleteCountry/<%= mytest[iCount].country_id %>"
+                            method="POST"
+                        >
+                            <button type="submit">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </body>
+</html>

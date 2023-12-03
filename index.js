@@ -5,6 +5,9 @@ let app = express();
 let path = require('path');
 
 let port = process.env.PORT || 3000;
+let host = process.env.RDS_HOSTNAME || 'localhost';
+let user = process.env.RDS_USERNAME || 'postgres';
+let password = process.env.RDS_PASSWORD || '';
 
 app.use(express.static(path.join(__dirname + '/public')));
 
@@ -20,16 +23,16 @@ let knex = require('knex')({
         host: 'localhost',
         user: 'postgres',
         password: 'Gabriel20!',
-        database: 'bucket_list',
+        database: 'intex',
         port: 5432,
     },
 });
 
 app.get('/db', (req, res) => {
     knex.select()
-        .from('country')
-        .then((country) => {
-            res.render('displayCountry', { mycountry: country });
+        .from('test')
+        .then((test) => {
+            res.render('intexData', { mytest: test });
         });
 });
 
