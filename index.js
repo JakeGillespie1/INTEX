@@ -11,6 +11,7 @@ let host = process.env.RDS_HOSTNAME || 'localhost';
 let user = process.env.RDS_USERNAME || 'postgres';
 let password = process.env.RDS_PASSWORD || 'Gabriel20!';
 let database = process.env.RDS_DB_NAME || 'intex';
+let ssl = process.env.DB_SSL ? { rejectUnauthorized: false } : false;
 
 app.use(express.static(path.join(__dirname + '/public')));
 
@@ -28,6 +29,7 @@ let knex = require('knex')({
         password: password,
         database: database,
         port: rds_port,
+        ssl: ssl,
     },
 });
 
