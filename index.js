@@ -37,7 +37,9 @@ app.get('/db', (req, res) => {
     knex.select()
         .from('test')
         .then((test) => {
-            res.render('/views/intexData', { mytest: test });
+            res.render(path.join(__dirname + '/views/intexData'), {
+                mytest: test,
+            });
         });
 });
 
