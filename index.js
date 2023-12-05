@@ -65,15 +65,18 @@ app.get('/survey', (req, res) => {
 
 app.post("/addRecord", (req, res)=> {
     knex("record").insert({
-      country_name: req.body.country_name.toUpperCase(),
-      popular_site: req.body.popular_site.toUpperCase(),
-      capital: req.body.capital.toUpperCase(),
-      population: req.body.population,
-      visited: req.body.visited ? "Y" : "N",
-      covid_level: req.body.covid_level.toUpperCase()
-   }).then(mycountry => {
-      res.redirect("/");
-   })
+        age: req.body.iAge,
+        gender: req.body.sGender,
+        rel_status: req.body.insertNameHere,
+        occ_status: req.body.insertNameHere,
+        organization: req.body.insertNameHere,
+        org_type: req.body.insertNameHere.toUpperCase(),
+        use_socials: req.body.insertNameHere ? "Y" : "N",
+        socials_used: req.body.insertNameHere,
+        avg_time: req.body.insertNameHere
+    }).then(mycountry => {
+        res.redirect("/");
+    })
  });
  /* We still need to change the variables for the survey above lolz */
 
