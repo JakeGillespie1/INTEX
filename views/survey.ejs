@@ -31,35 +31,6 @@
                         <div class="text-center text-white">
                             <!-- Page heading-->
                             <h1 class="mb-5">Mental Health Survey</h1>
-                            <!-- Signup form-->
-                            <!-- * * * * * * * * * * * * * * *-->
-                            <!-- * * SB Forms Contact Form * *-->
-                            <!-- * * * * * * * * * * * * * * *-->
-                            <!-- This form is pre-integrated with SB Forms.-->
-                            <!-- To make this form functional, sign up at-->
-                            <!-- https://startbootstrap.com/solution/contact-forms-->
-                            <!-- to get an API token!-->
-                            <form class="form-subscribe" id="contactForm" data-sb-form-api-token="API_TOKEN">
-                                <!-- Email address input-->
-                                <div class="row" style="display: flex; justify-content: center;">
-                                </div>
-                                <!-- Submit success message-->
-                                <!---->
-                                <!-- This is what your users will see when the form-->
-                                <!-- has successfully submitted-->
-                                <div class="d-none" id="submitSuccessMessage">
-                                    <div class="text-center mb-3">
-                                        <div class="fw-bolder">Form submission successful!</div>
-                                        <p>To activate this form, sign up at</p>
-                                        <a class="text-white" href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-                                    </div>
-                                </div>
-                                <!-- Submit error message-->
-                                <!---->
-                                <!-- This is what your users will see when there is-->
-                                <!-- an error submitting the form-->
-                                <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
-                            </form>
                         </div>
                     </div>
                 </div>
@@ -94,7 +65,7 @@
             21. Sleep?-->
             <div class="container">
                 <div class="row">
-                    <form>
+                    <form action="/addRecord" method="POST">
                         <label for="iAge">What is your age?</label>
                         <br>
                         <select id="iAge" name="iAge">
@@ -141,21 +112,9 @@
                         <label for="rbRetired">Retired</label>
                         <br>
                         <br>
-                        <label>What type of organization are you affiliated with?</label>
+                        <label for="sGender">What is your gender?</label>
                         <br>
-                        <input type="checkbox" id="cbUniversity" name="organization" value="university">
-                        <label for="cbUniversity">University</label><br>
-                        <input type="checkbox" id="cbSchool" name="organization" value="school">
-                        <label for="cbSchool">School</label><br>
-                        <input type="checkbox" id="cbCompany" name="organization" value="company">
-                        <label for="cbCompany">Company</label><br>
-                        <input type="checkbox" id="cbPrivate" name="organization" value="private">
-                        <label for="cbPrivate">Private</label><br>
-                        <input type="checkbox" id="cbGovernment" name="organization" value="government">
-                        <label for="cbGovernment">Goverment</label><br>
-                        <input type="checkbox" id="cbNA" name="organization" value="NA">
-                        <label for="cbNA">N/A</label><br>
-                        <br><br>
+                        <input type="radio" id="sGender">
                     </form>
                 </div>
             </div>
