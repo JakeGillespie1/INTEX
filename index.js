@@ -35,10 +35,10 @@ let knex = require('knex')({
 
 app.get('/db', (req, res) => {
     knex.select()
-        .from('test')
-        .then((test) => {
+        .from('response')
+        .then((response) => {
             res.render(path.join(__dirname + '/views/intexData'), {
-                mytest: test,
+                mytest: response,
             });
         });
 });
