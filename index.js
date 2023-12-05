@@ -59,4 +59,8 @@ app.get('/contact', (req, res) => {
     res.render(path.join(__dirname + '/views/contact'));
 });
 
+app.get('/survey', (req, res) => {
+    res.render(path.join(__dirname + '/views/survey'));
+});
+
 app.listen(port, () => console.log('I am listening'));
