@@ -70,7 +70,7 @@ app.post("/addRecord", (req, res)=> {
         rel_status: req.body.insertNameHere,
         occ_status: req.body.insertNameHere,
         organization: req.body.insertNameHere,
-        org_type: req.body.insertNameHere.toUpperCase(),
+        org_type: req.body.insertNameHere,
         use_socials: req.body.insertNameHere ? "Y" : "N",
         socials_used: req.body.insertNameHere,
         avg_time: req.body.insertNameHere,
