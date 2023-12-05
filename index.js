@@ -127,7 +127,7 @@ app.post('/userLogin', (req, res) =>
             localStorage.setItem("firstname", first_name);
             localStorage.setItem("lastname", last_name);
 
-            res.redirect(path.join(__dirname + "/views/index"));
+            res.render(path.join(__dirname + "/views/index"));
         } 
         else 
         {
