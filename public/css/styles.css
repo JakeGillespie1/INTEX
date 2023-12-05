@@ -8035,7 +8035,7 @@ textarea.form-control-lg {
 /* rtl:end:remove */
 .text-primary {
   --bs-text-opacity: 1;
-  color: rgba(var(--bs-primary-rgb), var(--bs-text-opacity)) !important;
+  color: #77BE45 !important;
 }
 
 .text-secondary {
@@ -10904,8 +10904,7 @@ header.masthead-custom {
 
 .call-to-action {
   position: relative;
-  background-color: #343a40;
-  background: url("../assets/img/bg-masthead.jpg") no-repeat center center;
+  background-color: #24A5DE;
   background-size: cover;
   padding-top: 7rem;
   padding-bottom: 7rem;
