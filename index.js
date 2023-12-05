@@ -113,10 +113,6 @@ app.post('/addUser', (req, res) => {
 
 app.post('/userLogin', (req, res) => 
 {
-    //grab data from from request body and assign them to variables
-    const sUsername = req.body.useremail;
-    const sPassword = req.body.pword;
-
     //query that searches the database for a matching record, 
     knex('user')
     .where('password', req.body.pword)
