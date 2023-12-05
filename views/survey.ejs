@@ -69,6 +69,7 @@
                         <label for="iAge">What is your age?</label>
                         <br>
                         <select id="iAge" name="iAge">
+                            <option value="" disabled selected>-- Select a number --</option>
                             <script>
                               for (let i = 1; i <= 100; i++) {
                                 document.write(`<option value="${i}">${i}</option>`);
@@ -78,61 +79,99 @@
                         <!--How to limit to 3 characters? and Integers? Sliding bar?-->
                         <br>
                         <br>
-                        <label>What is your gender?</label>
-                        <br>
-                        <input type="radio" id="rbMale" name="gender" value="male">
+                        <!--<input type="radio" id="rbMale" name="sGender" value="Male">
                         <label for="rbMale">Male</label><br>
-                        <input type="radio" id="rbFemale" name="gender" value="female">
+                        <input type="radio" id="rbFemale" name="sGender" value="Female">
                         <label for="rbFemale">Female</label><br>
-                        <input type="radio" id="rbOther" name="gender" value="other">
+                        <input type="radio" id="rbOther" name="sGender" value="Other">
                         <label for="rbOther">Other</label>
+                        -->
+
+                        <div class="text-center">
+                            <div class="gender-container">
+                              <label class="gender-label">What is your gender?</label>
+                          
+                              <div class="gender-options">
+                                <div class="gender-option">
+                                  <input type="radio" id="rbMale" name="sGender" value="Male">
+                                  <label for="rbMale">Male</label>
+                                </div>
+                          
+                                <div class="gender-option">
+                                  <input type="radio" id="rbFemale" name="sGender" value="Female">
+                                  <label for="rbFemale">Female</label>
+                                </div>
+                          
+                                <div class="gender-option">
+                                  <input type="radio" id="rbOther" name="sGender" value="Other">
+                                  <label for="rbOther">Other</label>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+
                         <br>
                         <br>
-                        <label>What is your relationship status?</label>
-                        <br>
-                        <input type="radio" id="rbSingle" name="relationship" value="single">
-                        <label for="rbSingle">Single</label><br>
-                        <input type="radio" id="rbDating" name="relationship" value="dating">
-                        <label for="rbDating">In a relationship</label><br>
-                        <input type="radio" id="rbMarried" name="relationship" value="married">
-                        <label for="rbMarried">Married</label><br>
-                        <input type="radio" id="rbDivorced" name="relationship" value="divorced">
-                        <label for="rbDivorced">Divorced</label>
+                        <div class="text-center">
+                            <div class="gender-container">
+                                <label class="gender-label">What is your relationship status?</label>
+                
+                                <div class="gender-options">
+                                    <div class="gender-option">
+                                        <input type="radio" id="rbSingle" name="sRelationship" value="Single">
+                                        <label for="rbSingle">Single</label>
+                                    </div>
+                                    <div class="gender-option">
+                                        <input type="radio" id="rbDating" name="sRelationship" value="Dating">
+                                        <label for="rbDating">In a relationship</label>
+                                    </div>
+                                    <div class="gender-option">
+                                        <input type="radio" id="rbMarried" name="sRelationship" value="Married">
+                                        <label for="rbMarried">Married</label>
+                                    </div>
+                                    <div class="gender-option">
+                                        <input type="radio" id="rbDivorced" name="sRelationship" value="Divorced">
+                                        <label for="rbDivorced">Divorced</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <br>
                         <br>
                         <label>What is your current occupation?</label>
                         <br>
-                        <input type="radio" id="rbSStudent" name="occupation" value="sstudent">
+                        <input type="radio" id="rbSStudent" name="sOccupation" value="School Student">
                         <label for="rbSStudent">School Student</label><br>
-                        <input type="radio" id="rbUStudent" name="occupation" value="ustudent">
+                        <input type="radio" id="rbUStudent" name="sOccupation" value="University Student">
                         <label for="rbUStudent">In a relationship</label><br>
-                        <input type="radio" id="rbWorker" name="occupation" value="worker">
+                        <input type="radio" id="rbWorker" name="sOccupation" value="Salaried Worker">
                         <label for="rbWorker">Salaried Worker</label><br>
-                        <input type="radio" id="rbRetired" name="occupation" value="retired">
+                        <input type="radio" id="rbRetired" name="sOccupation" value="Retired">
                         <label for="rbRetired">Retired</label>
                         <br>
                         <br>
                         <label>What type organization are you affiliated with?</label>
                         <br>
-                        <input type="checkbox" id="cbUniversity" name="organization" value="university">
+                        <input type="checkbox" id="cbUniversity" name="sOrganization" value="University">
                         <label for="cbUniversity">University</label><br>
-                        <input type="checkbox" id="cbSchool" name="organization" value="school">
+                        <input type="checkbox" id="cbSchool" name="sOrganization" value="School">
                         <label for="cbSchool">School</label><br>
-                        <input type="checkbox" id="cbCompany" name="organization" value="company">
+                        <input type="checkbox" id="cbCompany" name="sOrganization" value="Company">
                         <label for="cbCompany">Company</label><br>
-                        <input type="checkbox" id="cbPrivate" name="organization" value="private">
+                        <input type="checkbox" id="cbPrivate" name="sOrganization" value="Private">
                         <label for="cbPrivate">Private</label><br>
-                        <input type="checkbox" id="cbGov" name="organization" value="government">
+                        <input type="checkbox" id="cbGov" name="sOrganization" value="Government">
                         <label for="cbGov">Government</label><br>
-                        <input type="checkbox" id="cbNA" name="organization" value="na">
+                        <input type="checkbox" id="cbNA" name="sOrganization" value="N/A">
                         <label for="cbNA">N/A</label>
                         <br>
                         <br>
                         <label>Do you use social media?</label>
                         <br>
-                        <input type="radio" id="rbYes" name="UseSM" value="yes">
+                        <input type="radio" id="rbYes" name="UseSM" value="Y">
                         <label for="rbYes">Yes</label><br>
-                        <input type="radio" id="rbNo" name="UseSM" value="no">
+                        <input type="radio" id="rbNo" name="UseSM" value="N">
                         <label for="rbNo">No</label>
                         <br>
                         <br>
@@ -161,6 +200,7 @@
                         <label>What is the average time you spend on social media every day?</label>
                         <br>
                         <select name="avgTime" id="avgTime">
+                            <option value="" disabled selected>-- Choose an option --</option>
                             <option value="less">Less than an hour</option>
                             <option value="oneTwo">Between 1 and 2 hours</option>
                             <option value="twoThree">Between 2 and 3 hours</option>

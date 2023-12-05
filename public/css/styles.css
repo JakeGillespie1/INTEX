@@ -10858,6 +10858,38 @@ textarea.form-control-lg {
   font-size: 4.5rem;
 }
 
+
+
+.text-center {
+  text-align: center;
+}
+
+.gender-container {
+  display: inline-block;
+  text-align: left;
+}
+
+.gender-label {
+  margin-bottom: 8px; /* Adjust as needed */
+}
+
+.gender-options {
+  display: flex;
+  flex-direction: column;
+}
+
+.gender-option {
+  display: flex;
+  align-items: center;
+  margin-bottom: 4px; /* Adjust as needed */
+}
+
+.gender-option input {
+  margin-right: 20px; /* Adjust as needed */
+}
+
+
+
 header.masthead {
   position: relative;
   background-color: #343a40;
