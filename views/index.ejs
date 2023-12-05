@@ -9,21 +9,7 @@
         <!-- load in user data before page load -->
         <script>
             function getName(){
-                document.getElementById("namedisplay").value = localStorage.getItem("useremail");
-                /*
-                localStorage.setItem("first_name", results.first_name)
-                if (localStorage.getItem("firstname") == "")
-                {
-
-                }
-                else
-                {
-                const fName = localStorage.getItem("firstname");
-                const lName = localStorage.getItem("lastname");
-
-                document.getElementById("namedisplay").value = "Welcome " + fName + " " + lName;
-                }
-                */
+                document.getElementById("namedisplay").value = "Welcome " + localStorage.getItem("fullname");
             }
         </script>
         <!-- Favicon-->

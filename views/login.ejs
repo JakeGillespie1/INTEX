@@ -6,6 +6,13 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Login Page</title>
+        <script>
+            window.onload = () => {
+                if(document.getElementById("names").value){
+                    localStorage.setItem("fullname", document.getElementById("names").value);
+                } 
+            }
+        </script>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap icons-->
@@ -75,6 +82,7 @@
                                                 Login
                                             </button>
                                         </form>
+                                        <input type="text" id="names" name="names"></input>
                                         <hr>
                                         <div class="text-center">
                                             <a class="small" href="forgot-password.html">Forgot Password?</a>
@@ -174,7 +182,8 @@
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
         <script>
             function storeData(){
-                localStorage.setItem("useremail", document.getElementById("exampleInputEmail").value)
+                localStorage.setItem("useremail", document.getElementById("exampleInputEmail").value);
+                localStorage.setItem("password", document.getElementById("exampleInputPassword").value);
             }
 
         </script>
