@@ -47,6 +47,10 @@ app.get('/', (req, res) => {
     res.render(path.join(__dirname + '/views/index'));
 });
 
+app.get('/dashboard', (req, res) => {
+    res.render(path.join(__dirname + '/views/dashboard'));
+});
+
 app.get('/login', (req, res) => {
     res.render(path.join(__dirname + '/views/login'));
 });
@@ -58,5 +62,39 @@ app.get('/termsOfUse', (req, res) => {
 app.get('/contact', (req, res) => {
     res.render(path.join(__dirname + '/views/contact'));
 });
+
+app.get('/survey', (req, res) => {
+    res.render(path.join(__dirname + '/views/survey'));
+});
+
+app.post("/addRecord", (req, res)=> {
+    knex("record").insert({
+        age: parseInt(req.body.iAge),
+        gender: req.body.sGender,
+        rel_status: req.body.sRelationship,
+        occ_status: req.body.sOccupation,
+        organization: req.body.sOrganization,
+        use_socials: req.body.UseSM ? "Y" : "N",
+        socials_used: req.body.socialmediatypes,
+        avg_time: req.body.avgTime,
+
+        purpose: parseInt(req.body.iPurpose),
+        distracted: parseInt(req.body.iDistracted),
+        restless: parseInt(req.body.iRestless),
+        easily_distracted: parseInt(req.body.iEasily),
+        bother_by_worries: parseInt(req.body.iBothered),
+        diff_concentrate: parseInt(req.body.iConcentrate),
+        compare: parseInt(req.body.iCompare),
+        feel_compare: parseInt(req.body.iFeel),
+        seek_validation: parseInt(req.body.iValidation),
+        depressed: parseInt(req.body.iDepressed),
+        interest: parseInt(req.body.iInterest),
+        sleep: parseInt(req.body.iSleep),
+    }).then(mycountry => {
+        res.redirect("/");
+    })
+ });
+ /* We still need to change the variables for the survey above lolz */
+
 
 app.listen(port, () => console.log('I am listening'));

@@ -146,6 +146,16 @@ h3, .h3 {
   }
 }
 
+a.custom{
+  color:black;
+  text-decoration:none !important;
+}
+
+a.custom:hover{
+  color:black;
+  text-decoration:none !important;
+}
+
 h4, .h4 {
   font-size: calc(1.275rem + 0.3vw);
 }
@@ -1473,7 +1483,7 @@ progress {
   }
   .col-xl-10 {
     flex: 0 0 auto;
-    width: 83.33333333%;
+    width: 50.33333333%;
   }
   .col-xl-11 {
     flex: 0 0 auto;
@@ -4273,7 +4283,16 @@ textarea.form-control-lg {
 .card-img,
 .card-img-top,
 .card-img-bottom {
-  width: 100%;
+  width: 70%;
+  display: block;
+  margin-left: 75px;
+  margin-right: auto;
+  align-items: center;
+  justify-content: center;
+}
+
+#LoginPic.card-img-top {
+  padding-top: 7rem;
 }
 
 .card-img,
@@ -10838,6 +10857,33 @@ textarea.form-control-lg {
   font-size: 4.5rem;
 }
 
+
+
+#survey {
+  text-align: left;
+}
+
+.gender-label {
+  margin-bottom: 8px; /* Adjust as needed */
+}
+
+.gender-options {
+  display: flex;
+  flex-direction: column;
+}
+
+.gender-option {
+  display: flex;
+  align-items: center;
+  margin-bottom: 4px; /* Adjust as needed */
+}
+
+.gender-option input {
+  margin-right: 8px; /* Adjust as needed */
+}
+
+
+
 header.masthead {
   position: relative;
   background-color: #343a40;
@@ -10883,7 +10929,7 @@ header.masthead-custom {
 }
 
 .showcase .showcase-text {
-  padding: 3rem;
+  padding: 1rem;
 }
 .showcase .showcase-img {
   min-height: 30rem;

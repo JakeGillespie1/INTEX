@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Provo Mental Health Initiative</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" type="text/css" />
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="/css/styles.css" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Navigation-->
+        <nav class="navbar navbar-light bg-light static-top">
+            <div class="container">
+                <a class="navbar-brand" href="/"><img src="/assets/img/provo welcome.png" height="100" alt="Welcome Provo Icon"></a>
+                <a class="btn btn-primary" href="login">Login</a>
+            </div>
+        </nav>
+        <!-- Masthead-->
+        <header class="masthead" id="Login">
+            <div class="container position-relative">
+                <div class="row justify-content-center">
+                    <div class="col-xl-6">
+                        <div class="text-center text-white">
+                            <!-- Page heading-->
+                            <h1 class="mb-5">Mental Health Survey</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Icons Grid-->
+        <section class="features-icons bg-light text-center">
+            <!--Survey Questions
+            1. Take a timestamp
+            2. What is your age? (Input int)
+            3. Gender (Radio buttons - M, F, O)
+            4. Relationship Status (Radio buttons - Single, Relationship, Married, Divorced)
+            5. Occupation Status (Radio/select - School/University Student, Salaried, Retired)
+            6. What type of organization (Select?)
+            7. Do you use social media (Radio - Yes, No)
+            8. What social media do you use? (Checkbox)
+            9. What is the average time (Select)
+
+            These are all scale 1-5
+
+            10. No purpose?
+            11. Distracted?
+            12. Restless?
+            13. Easily distracted?
+            14. Bother by worries?
+            15. Difficult to concentrate?
+            16. Compare?
+            17. Feel about comparisons?
+            18. Seek validation?
+            19. Feel depressed?
+            20. Interest?
+            21. Sleep?-->
+            <div class="container" id="survey">
+                <div class="row">
+                <h3>Personal Information</h3>
+                    <form action="/addRecord" method="POST">
+                        <label for="iAge">What is your age?</label>
+                        <br>
+                        <select id="iAge" name="iAge">
+                            <option value="" disabled selected>-- Select a number --</option>
+                            <script>
+                              for (let i = 1; i <= 100; i++) {
+                                document.write(`<option value="${i}">${i}</option>`);
+                              }
+                            </script>
+                        </select>
+                        <br>
+                        <br>
+                        <label>What is your gender?</label>
+                        <br>
+                        <input type="radio" id="rbMale" name="sGender" value="Male">
+                        <label for="rbMale">Male</label><br>
+                        <input type="radio" id="rbFemale" name="sGender" value="Female">
+                        <label for="rbFemale">Female</label><br>
+                        <input type="radio" id="rbOther" name="sGender" value="Other">
+                        <label for="rbOther">Other</label>
+                        
+                        <br>
+                        <br>
+                        <label>What is your relationship status?</label>
+                        <br>
+                                
+                        <input type="radio" id="rbSingle" name="sRelationship" value="Single">
+                        <label for="rbSingle">Single</label>
+                        <br>        
+                        <input type="radio" id="rbDating" name="sRelationship" value="Dating">
+                        <label for="rbDating">In a relationship</label>
+                        <br>
+                        <input type="radio" id="rbMarried" name="sRelationship" value="Married">
+                        <label for="rbMarried">Married</label>
+                        <br>
+                        <input type="radio" id="rbDivorced" name="sRelationship" value="Divorced">
+                        <label for="rbDivorced">Divorced</label>
+                        <br>
+                        <br>
+                        <label>What is your current occupation?</label>
+                        <br>
+                        <input type="radio" id="rbSStudent" name="sOccupation" value="School Student">
+                        <label for="rbSStudent">School Student</label><br>
+                        <input type="radio" id="rbUStudent" name="sOccupation" value="University Student">
+                        <label for="rbUStudent">In a relationship</label><br>
+                        <input type="radio" id="rbWorker" name="sOccupation" value="Salaried Worker">
+                        <label for="rbWorker">Salaried Worker</label><br>
+                        <input type="radio" id="rbRetired" name="sOccupation" value="Retired">
+                        <label for="rbRetired">Retired</label>
+                        <br>
+                        <br>
+                        <label>What type organization are you affiliated with?</label>
+                        <br>
+                        <input type="checkbox" id="cbUniversity" name="sOrganization" value="University">
+                        <label for="cbUniversity">University</label><br>
+                        <input type="checkbox" id="cbSchool" name="sOrganization" value="School">
+                        <label for="cbSchool">School</label><br>
+                        <input type="checkbox" id="cbCompany" name="sOrganization" value="Company">
+                        <label for="cbCompany">Company</label><br>
+                        <input type="checkbox" id="cbPrivate" name="sOrganization" value="Private">
+                        <label for="cbPrivate">Private</label><br>
+                        <input type="checkbox" id="cbGov" name="sOrganization" value="Government">
+                        <label for="cbGov">Government</label><br>
+                        <input type="checkbox" id="cbNA" name="sOrganization" value="N/A">
+                        <label for="cbNA">N/A</label>
+                        <br>
+                        <br>
+                        <h3>Social Media</h3>
+                        <label>Do you use social media?</label>
+                        <br>
+                        <input type="radio" id="rbYes" name="UseSM" value="Y">
+                        <label for="rbYes">Yes</label><br>
+                        <input type="radio" id="rbNo" name="UseSM" value="N">
+                        <label for="rbNo">No</label>
+                        <br>
+                        <br>
+                        <label>What social media do you use?</label>
+                        <br>
+                        <input type="checkbox" id="cbFacebook" name="socialmediatypes" value="Facebook">
+                        <label for="cbFacebook">Facebook</label><br>
+                        <input type="checkbox" id="cbTwitter" name="socialmediatypes" value="Twitter">
+                        <label for="cbTwitter">Twitter</label><br>
+                        <input type="checkbox" id="cbInstagram" name="socialmediatypes" value="Instagram">
+                        <label for="cbInstagram">Instagram</label><br>
+                        <input type="checkbox" id="cbYouTube" name="socialmediatypes" value="YouTube">
+                        <label for="cbYouTube">YouTube</label><br>
+                        <input type="checkbox" id="cbDiscord" name="socialmediatypes" value="Discord">
+                        <label for="cbDiscord">Discord</label><br>
+                        <input type="checkbox" id="cbReddit" name="socialmediatypes" value="Reddit">
+                        <label for="cbReddit">Reddit</label><br>
+                        <input type="checkbox" id="cbPinterest" name="socialmediatypes" value="Pinterest">
+                        <label for="cbPinterest">Pinterest</label><br>
+                        <input type="checkbox" id="cbSnapchat" name="socialmediatypes" value="Snapchat">
+                        <label for="cbSnapchat">Snapchat</label><br>
+                        <input type="checkbox" id="cbTikTok" name="socialmediatypes" value="TikTok">
+                        <label for="cbTikTok">TikTok</label>
+                        <br>
+                        <br>
+                        <label>What is the average time you spend on social media every day?</label>
+                        <br>
+                        <select name="avgTime" id="avgTime">
+                            <option value="" disabled selected>-- Choose an option --</option>
+                            <option value="less">Less than an hour</option>
+                            <option value="oneTwo">Between 1 and 2 hours</option>
+                            <option value="twoThree">Between 2 and 3 hours</option>
+                            <option value="threeFour">Between 3 and 4 hours</option>
+                            <option value="fourFive">Between 4 and 5 hours</option>
+                            <option value="more">More than 5 hours</option>
+                        </select>
+                        <br>
+                        <br>
+                        <br>
+                        <h6>The following questions will ask you about different aspects of your mental health at this time.</h6>
+                        <h6>Please answer on a scale of 1-5 with 1 being low in occurance and 5 signifying this is something you struggle with often.</h6>
+                        <br>
+                        <label for="iPurpose">How often do you find yourself using Social media without a specific purpose?</label>
+                        <br>
+                        <select id="iPurpose" name="iPurpose">
+                            <option value="" disabled selected>-- Select a number --</option>
+                            <script>
+                              for (let i = 1; i <= 5; i++) {
+                                document.write(`<option value="${i}">${i}</option>`);
+                              }
+                            </script>
+                        </select>
+                        <br>
+                        <br>
+                        <label for="iDistracted">How often do you get distracted by Social media when you are busy doing something?</label>
+                        <br>
+                        <select id="iDistracted" name="iDistracted">
+                            <option value="" disabled selected>-- Select a number --</option>
+                            <script>
+                              for (let i = 1; i <= 5; i++) {
+                                document.write(`<option value="${i}">${i}</option>`);
+                              }
+                            </script>
+                        </select>
+                        <br>
+                        <br>
+                        <label for="iRestless">Do you feel restless if you haven't used Social media in a while?</label>
+                        <br>
+                        <select id="iRestless" name="iRestless">
+                            <option value="" disabled selected>-- Select a number --</option>
+                            <script>
+                              for (let i = 1; i <= 5; i++) {
+                                document.write(`<option value="${i}">${i}</option>`);
+                              }
+                            </script>
+                        </select>
+                        <br>
+                        <br>
+                        <label for="iEasily">How easily distracted are you?</label>
+                        <br>
+                        <select id="iEasily" name="iEasily">
+                            <option value="" disabled selected>-- Select a number --</option>
+                            <script>
+                              for (let i = 1; i <= 5; i++) {
+                                document.write(`<option value="${i}">${i}</option>`);
+                              }
+                            </script>
+                        </select>
+                        <br>
+                        <br>
+                        <label for="iBothered">How much are you bothered by worries?</label>
+                        <br>
+                        <select id="iBothered" name="iBothered">
+                            <option value="" disabled selected>-- Select a number --</option>
+                            <script>
+                              for (let i = 1; i <= 5; i++) {
+                                document.write(`<option value="${i}">${i}</option>`);
+                              }
+                            </script>
+                        </select>
+                        <br>
+                        <br>
+                        <label for="iConcentrate">Do you find it difficult to concentrate on things?</label>
+                        <br>
+                        <select id="iConcentrate" name="iConcentrate">
+                            <option value="" disabled selected>-- Select a number --</option>
+                            <script>
+                              for (let i = 1; i <= 5; i++) {
+                                document.write(`<option value="${i}">${i}</option>`);
+                              }
+                            </script>
+                        </select>
+                        <br>
+                        <br>
+                        <label for="iCompare">How often do you compare yourself to other successful people through the use of social media?</label>
+                        <br>
+                        <select id="iCompare" name="iCompare">
+                            <option value="" disabled selected>-- Select a number --</option>
+                            <script>
+                              for (let i = 1; i <= 5; i++) {
+                                document.write(`<option value="${i}">${i}</option>`);
+                              }
+                            </script>
+                        </select>
+                        <br>
+                        <br>
+                        <label for="iFeel">In reference to the previous question, how do you feel about these comparisons, generally speaking?</label>
+                        <br>
+                        <select id="iFeel" name="iFeel">
+                            <option value="" disabled selected>-- Select a number --</option>
+                            <script>
+                              for (let i = 1; i <= 5; i++) {
+                                document.write(`<option value="${i}">${i}</option>`);
+                              }
+                            </script>
+                        </select>
+                        <br>
+                        <br>
+                        <label for="iValidation">How often do you look to seek validation from features of social media?</label>
+                        <br>
+                        <select id="iValidation" name="iValidation">
+                            <option value="" disabled selected>-- Select a number --</option>
+                            <script>
+                              for (let i = 1; i <= 5; i++) {
+                                document.write(`<option value="${i}">${i}</option>`);
+                              }
+                            </script>
+                        </select>
+                        <br>
+                        <br>
+                        <label for="iDepressed">How often do you feel depressed or down?</label>
+                        <br>
+                        <select id="iDepressed" name="iDepressed">
+                            <option value="" disabled selected>-- Select a number --</option>
+                            <script>
+                              for (let i = 1; i <= 5; i++) {
+                                document.write(`<option value="${i}">${i}</option>`);
+                              }
+                            </script>
+                        </select>
+                        <br>
+                        <br>
+                        <label for="iInterest">How frequently does your interest in daily activities fluctuate?</label>
+                        <br>
+                        <select id="iInterest" name="iInterest">
+                            <option value="" disabled selected>-- Select a number --</option>
+                            <script>
+                              for (let i = 1; i <= 5; i++) {
+                                document.write(`<option value="${i}">${i}</option>`);
+                              }
+                            </script>
+                        </select>
+                        <br>
+                        <br>
+                        <label for="iSleep">How often do you face issues regarding sleep?</label>
+                        <br>
+                        <select id="iSleep" name="iSleep">
+                            <option value="" disabled selected>-- Select a number --</option>
+                            <script>
+                              for (let i = 1; i <= 5; i++) {
+                                document.write(`<option value="${i}">${i}</option>`);
+                              }
+                            </script>
+                        </select>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <button type="submit" class="btn btn-primary" onclick="submitSurvey">Submit Survey</button>
+                        <br>
+                        <p id="submittedSurvey"></p>
+                        <script>
+                            //this should work 
+                            function submitSurvey()
+                            {
+                                document.getElementById("submittedSurvey").innerHTML = "Thank you for your response."
+                            }
+                        </script>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <!-- Image Showcases-->
+        <section class="showcase">
+            <div class="container-fluid p-0">
+            </div>
+        </section>
+        <!-- Testimonials-->
+        <section>
+            
+        </section>
+        <!-- Call to Action-->
+        <section class="call-to-action text-white text-center" id="signup">
+            <div class="container position-relative">
+                <div class="row justify-content-center">
+                    <div class="col-xl-6">
+                        
+                        <!-- Signup form-->
+                        <!-- * * * * * * * * * * * * * * *-->
+                        <!-- * * SB Forms Contact Form * *-->
+                        <!-- * * * * * * * * * * * * * * *-->
+                        <!-- This form is pre-integrated with SB Forms.-->
+                        <!-- To make this form functional, sign up at-->
+                        <!-- https://startbootstrap.com/solution/contact-forms-->
+                        <!-- to get an API token!-->
+                        <form class="form-subscribe" id="contactFormFooter" data-sb-form-api-token="API_TOKEN">
+                            <!-- Email address input-->
+                            
+                            <!-- Submit success message-->
+                            <!---->
+                            <!-- This is what your users will see when the form-->
+                            <!-- has successfully submitted-->
+                            <div class="d-none" id="submitSuccessMessage">
+                                <div class="text-center mb-3">
+                                    <div class="fw-bolder">Form submission successful!</div>
+                                    <p>To activate this form, sign up at</p>
+                                    <a class="text-white" href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                                </div>
+                            </div>
+                            <!-- Submit error message-->
+                            <!---->
+                            <!-- This is what your users will see when there is-->
+                            <!-- an error submitting the form-->
+                            <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Footer-->
+        <footer class="footer bg-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
+                        <ul class="list-inline mb-2">
+                            <li class="list-inline-item"><a href="/">About</a></li>
+                            <li class="list-inline-item">⋅</li>
+                            <li class="list-inline-item"><a href="contact">Contact</a></li>
+                            <li class="list-inline-item">⋅</li>
+                            <li class="list-inline-item"><a href="termsOfUse">Terms of Use</a></li>
+                        </ul>
+                        <p class="text-muted small mb-4 mb-lg-0">&copy; Provo City 2023. All Rights Reserved.</p>
+                    </div>
+                    <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
+                        <ul class="list-inline mb-0">
+                            <li class="list-inline-item me-4">
+                                <a href="https://www.facebook.com/provocity/"><i class="bi-facebook fs-3"></i></a>
+                            </li>
+                            <li class="list-inline-item me-4">
+                                <a href="https://www.youtube.com/@ProvoCityGovernment"><i class="bi-youtube fs-3"></i></a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="https://www.instagram.com/provocity/?hl=en"><i class="bi-instagram fs-3"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    </body>
+</html>
