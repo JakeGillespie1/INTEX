@@ -111,7 +111,8 @@ app.post('/addUser', (req, res) => {
         });
 });
 
-app.post('/userLogin', (req, res) => {
+app.post('/userLogin', (req, res) => 
+{
     //grab data from from request body and assign them to variables
     const sUsername = req.body.useremail;
     const sPassword = req.body.pword;
@@ -133,8 +134,6 @@ app.post('/userLogin', (req, res) => {
             res.status(401).json({message : "Invalid Credentials"})
         }
         });
-    });
-
 });
 
 app.listen(port, () => console.log('I am listening'));
