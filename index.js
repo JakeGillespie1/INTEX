@@ -112,8 +112,28 @@ app.post('/addUser', (req, res) => {
 });
 
 app.post('/userLogin', (req, res) => {
-    knex('user').where('password', req.body.pword).andWhere('email', req.body.useremail).select("password", "email")});
-        
+    //grab data from from request body and assign them to variables
+    const sUsername = req.body.useremail;
+    const sPassword = req.body.pword;
+
+    //query that searches the database for a matching record, 
+    knex('user')
+    .where('password', req.body.pword)
+    .andWhere('email', req.body.useremail)
+    .select("password", "email")
+    .then((results) => {
+        if (results.length > 0)
+        {
+            //user credentials are valid
+            res.status(200).json({message : "Login Successful"});
+        } 
+        else 
+        {
+            //user credentials invalid
+            res.status(401).json({message : "Invalid Credentials"})
+        }
+        });
+    });
 
 });
 
