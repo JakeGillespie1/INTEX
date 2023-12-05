@@ -71,7 +71,7 @@
             1. Take a timestamp
             2. What is your age? (Input int)
             3. Gender (Radio buttons - M, F, O)
-            4. Relationship Staus (Radio buttons - Single, Relationship, Married, Divorced)
+            4. Relationship Status (Radio buttons - Single, Relationship, Married, Divorced)
             5. Occupation Status (Radio/select - School/University Student, Salaried, Retired)
             6. What type of organization (Select?)
             7. Do you use social media (Radio - Yes, No)
@@ -97,16 +97,75 @@
                     <form>
                         <label for="iAge">What is your age?</label>
                         <br>
-                        <input type="number" id="iAge">
+                        <select id="iAge" name="iAge">
+                            <script>
+                              for (let i = 1; i <= 100; i++) {
+                                document.write(`<option value="${i}">${i}</option>`);
+                              }
+                            </script>
+                        </select>
+                        <!--How to limit to 3 characters? and Integers? Sliding bar?-->
                         <br>
                         <br>
-                        <label for="sGender">What is your gender?</label>
+                        <label>What is your gender?</label>
                         <br>
-                        <input type="radio" id="sGender">
+                        <input type="radio" id="rbMale" name="gender" value="male">
+                        <label for="rbMale">Male</label><br>
+                        <input type="radio" id="rbFemale" name="gender" value="female">
+                        <label for="rbFemale">Female</label><br>
+                        <input type="radio" id="rbOther" name="gender" value="other">
+                        <label for="rbOther">Other</label>
+                        <br>
+                        <br>
+                        <label>What is your relationship status?</label>
+                        <br>
+                        <input type="radio" id="rbSingle" name="relationship" value="single">
+                        <label for="rbSingle">Single</label><br>
+                        <input type="radio" id="rbDating" name="relationship" value="dating">
+                        <label for="rbDating">In a relationship</label><br>
+                        <input type="radio" id="rbMarried" name="relationship" value="married">
+                        <label for="rbMarried">Married</label><br>
+                        <input type="radio" id="rbDivorced" name="relationship" value="divorced">
+                        <label for="rbDivorced">Divorced</label>
+                        <br>
+                        <br>
+                        <label>What is your current occupation?</label>
+                        <br>
+                        <input type="radio" id="rbSStudent" name="occupation" value="sstudent">
+                        <label for="rbSStudent">School Student</label><br>
+                        <input type="radio" id="rbUStudent" name="occupation" value="ustudent">
+                        <label for="rbUStudent">In a relationship</label><br>
+                        <input type="radio" id="rbWorker" name="occupation" value="worker">
+                        <label for="rbWorker">Salaried Worker</label><br>
+                        <input type="radio" id="rbRetired" name="occupation" value="retired">
+                        <label for="rbRetired">Retired</label>
+                        <br>
+                        <br>
+                        <label>What type of organization are you affiliated with?</label>
+                        <br>
+                        <input type="checkbox" id="cbUniversity" name="organization" value="university">
+                        <label for="cbUniversity">University</label><br>
+                        <input type="checkbox" id="cbSchool" name="organization" value="school">
+                        <label for="cbSchool">School</label><br>
+                        <input type="checkbox" id="cbCompany" name="organization" value="company">
+                        <label for="cbCompany">Company</label><br>
+                        <input type="checkbox" id="cbPrivate" name="organization" value="private">
+                        <label for="cbPrivate">Private</label><br>
+                        <input type="checkbox" id="cbGovernment" name="organization" value="government">
+                        <label for="cbGovernment">Goverment</label><br>
+                        <input type="checkbox" id="cbNA" name="organization" value="NA">
+                        <label for="cbNA">N/A</label><br>
+                        <br><br>
                     </form>
                 </div>
             </div>
         </section>
+        <script>
+            function showSize(iSize)
+            {
+                document.getElementById('lblSize').innerHTML = iSize;
+            }
+        </script>
         <!-- Image Showcases-->
         <section class="showcase">
             <div class="container-fluid p-0">
