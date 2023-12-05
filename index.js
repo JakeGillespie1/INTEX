@@ -67,34 +67,68 @@ app.get('/survey', (req, res) => {
     res.render(path.join(__dirname + '/views/survey'));
 });
 
-app.post("/addRecord", (req, res)=> {
-    knex("record").insert({
-        age: parseInt(req.body.iAge),
-        gender: req.body.sGender,
-        rel_status: req.body.sRelationship,
-        occ_status: req.body.sOccupation,
-        organization: req.body.sOrganization,
-        use_socials: req.body.UseSM ? "Y" : "N",
-        socials_used: req.body.socialmediatypes,
-        avg_time: req.body.avgTime,
+app.post('/addRecord', (req, res) => {
+    knex('record')
+        .insert({
+            age: parseInt(req.body.iAge),
+            gender: req.body.sGender,
+            rel_status: req.body.sRelationship,
+            occ_status: req.body.sOccupation,
+            organization: req.body.sOrganization,
+            use_socials: req.body.UseSM ? 'Y' : 'N',
+            socials_used: req.body.socialmediatypes,
+            avg_time: req.body.avgTime,
 
-        purpose: parseInt(req.body.iPurpose),
-        distracted: parseInt(req.body.iDistracted),
-        restless: parseInt(req.body.iRestless),
-        easily_distracted: parseInt(req.body.iEasily),
-        bother_by_worries: parseInt(req.body.iBothered),
-        diff_concentrate: parseInt(req.body.iConcentrate),
-        compare: parseInt(req.body.iCompare),
-        feel_compare: parseInt(req.body.iFeel),
-        seek_validation: parseInt(req.body.iValidation),
-        depressed: parseInt(req.body.iDepressed),
-        interest: parseInt(req.body.iInterest),
-        sleep: parseInt(req.body.iSleep),
-    }).then(mycountry => {
-        res.redirect("/");
-    })
- });
- /* We still need to change the variables for the survey above lolz */
+            purpose: parseInt(req.body.iPurpose),
+            distracted: parseInt(req.body.iDistracted),
+            restless: parseInt(req.body.iRestless),
+            easily_distracted: parseInt(req.body.iEasily),
+            bother_by_worries: parseInt(req.body.iBothered),
+            diff_concentrate: parseInt(req.body.iConcentrate),
+            compare: parseInt(req.body.iCompare),
+            feel_compare: parseInt(req.body.iFeel),
+            seek_validation: parseInt(req.body.iValidation),
+            depressed: parseInt(req.body.iDepressed),
+            interest: parseInt(req.body.iInterest),
+            sleep: parseInt(req.body.iSleep),
+        })
+        .then((mycountry) => {
+            res.redirect('/');
+        });
+});
+/* We still need to change the variables for the survey above lolz */
 
+app.post('/addUser', (req, res) => {
+    knex('user')
+        .insert({
+            first_name: req.body.useremail,
+            last_name: req.body.sGender,
+            email: req.body.useremail,
+            password: 'hi',
+        })
+        .then((mycountry) => {
+            res.redirect('/');
+        });
+});
+
+app.post('/userLogin', (req, res) => {
+    knex.select()
+        .from('response')
+        .then((response) => {
+            res.render(path.join(__dirname + '/views/intexData'), {
+                mytest: response,
+            });
+        });
+    knex('user')
+        .insert({
+            first_name: req.body.useremail,
+            last_name: req.body.sGender,
+            email: req.body.useremail,
+            password: 'hi',
+        })
+        .then((mycountry) => {
+            res.redirect('/');
+        });
+});
 
 app.listen(port, () => console.log('I am listening'));
