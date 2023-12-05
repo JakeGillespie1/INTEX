@@ -97,12 +97,20 @@
                     <form>
                         <label for="iAge">What is your age?</label>
                         <br>
-                        <input type="number" id="iAge">
+                        <input type="number" id="iAge" name="iAge">
                         <br>
                         <br>
                         <label for="sGender">What is your gender?</label>
                         <br>
-                        <input type="radio" id="sGender">
+                        <input type="radio" id="sGender" name="sGender">
+                    </form>
+                </div>
+                <div>
+                    <form
+                            action="/addRecord/"
+                            method="POST"
+                    >
+                            <button type="submit">Delete</button>
                     </form>
                 </div>
             </div>
