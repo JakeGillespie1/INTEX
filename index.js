@@ -73,7 +73,20 @@ app.post("/addRecord", (req, res)=> {
         org_type: req.body.insertNameHere.toUpperCase(),
         use_socials: req.body.insertNameHere ? "Y" : "N",
         socials_used: req.body.insertNameHere,
-        avg_time: req.body.insertNameHere
+        avg_time: req.body.insertNameHere,
+
+        purpose: req.body.insertNameHere,
+        distracted: req.body.insertNameHere,
+        restless: req.body.insertNameHere,
+        easily_distracted: req.body.insertNameHere,
+        bother_by_worries: req.body.insertNameHere,
+        diff_concentrate: req.body.insertNameHere,
+        compare: req.body.insertNameHere,
+        feel_compare: req.body.insertNameHere,
+        seek_validation: req.body.insertNameHere,
+        depressed: req.body.insertNameHere,
+        interest: req.body.insertNameHere,
+        sleep: req.body.insertNameHere,
     }).then(mycountry => {
         res.redirect("/");
     })
