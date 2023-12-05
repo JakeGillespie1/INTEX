@@ -15,15 +15,15 @@
         >
             <thead style="background-color: cornflowerblue; color: white">
                 <tr>
-                    <th style="text-align: left">Test</th>
-                    <th style="text-align: left">ID</th>
+                    <th style="text-align: left">Date</th>
+                    <th style="text-align: left">Age</th>
                 </tr>
             </thead>
             <tbody style="font-family: Arial; font-size: 9pt">
                 <% for (let iCount = 0; iCount < mytest.length; iCount++) { %>
                 <tr>
-                    <td><%= mytest[iCount].test %></td>
-                    <td><%= mytest[iCount].id %></td>
+                    <td><%= mytest[iCount].date_stamp %></td>
+                    <td><%= mytest[iCount].age %></td>
                     <td style="text-align: center">
                         <form
                             action="/editCountry/<%= mytest[iCount].country_id %>"
