@@ -10860,12 +10860,7 @@ textarea.form-control-lg {
 
 
 
-.text-center {
-  text-align: center;
-}
-
-.gender-container {
-  display: inline-block;
+#survey {
   text-align: left;
 }
 
@@ -10885,7 +10880,7 @@ textarea.form-control-lg {
 }
 
 .gender-option input {
-  margin-right: 20px; /* Adjust as needed */
+  margin-right: 8px; /* Adjust as needed */
 }
 
 
