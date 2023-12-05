@@ -47,6 +47,10 @@ app.get('/', (req, res) => {
     res.render(path.join(__dirname + '/views/index'));
 });
 
+app.get('/dashboard', (req, res) => {
+    res.render(path.join(__dirname + '/views/dashboard'));
+});
+
 app.get('/login', (req, res) => {
     res.render(path.join(__dirname + '/views/login'));
 });
