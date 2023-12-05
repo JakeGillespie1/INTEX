@@ -112,23 +112,9 @@ app.post('/addUser', (req, res) => {
 });
 
 app.post('/userLogin', (req, res) => {
-    knex.select()
-        .from('response')
-        .then((response) => {
-            res.render(path.join(__dirname + '/views/intexData'), {
-                mytest: response,
-            });
-        });
-    knex('user')
-        .insert({
-            first_name: req.body.useremail,
-            last_name: req.body.sGender,
-            email: req.body.useremail,
-            password: 'hi',
-        })
-        .then((mycountry) => {
-            res.redirect('/');
-        });
+    knex('user').where('password', req.body.pword).andWhere('email', req.body.useremail).select("password", "email")});
+        
+
 });
 
 app.listen(port, () => console.log('I am listening'));
