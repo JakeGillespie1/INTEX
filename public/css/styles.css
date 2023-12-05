@@ -10868,6 +10868,14 @@ header.masthead h1, header.masthead .h1 {
     font-size: 3rem;
   }
 }
+header.masthead-custom {
+  position: relative;
+  background-color: #343a40;
+  background: url("../assets/img/Mountains.jpeg") no-repeat center center;
+  background-size: cover;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
 
 .showcase .showcase-text {
   padding: 3rem;
