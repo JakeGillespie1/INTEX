@@ -1473,7 +1473,7 @@ progress {
   }
   .col-xl-10 {
     flex: 0 0 auto;
-    width: 83.33333333%;
+    width: 50.33333333%;
   }
   .col-xl-11 {
     flex: 0 0 auto;
@@ -4273,7 +4273,16 @@ textarea.form-control-lg {
 .card-img,
 .card-img-top,
 .card-img-bottom {
-  width: 100%;
+  width: 75%;
+  display: block;
+  margin-left: 75px;
+  margin-right: auto;
+  align-items: center;
+  justify-content: center;
+}
+
+#LoginPic.card-img-top {
+  padding-top: 7rem;
 }
 
 .card-img,
@@ -10883,10 +10892,10 @@ header.masthead-custom {
 }
 
 .showcase .showcase-text {
-  padding: 3rem;
+  padding: 1rem;
 }
 .showcase .showcase-img {
-  min-height: 30rem;
+  min-height: 15rem;
   background-size: cover;
 }
 @media (min-width: 768px) {
