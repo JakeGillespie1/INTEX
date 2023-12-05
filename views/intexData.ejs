@@ -23,7 +23,8 @@
                 <% for (let iCount = 0; iCount < mytest.length; iCount++) { %>
                 <tr>
                     <%= let date = new Date(mytest[iCount].date_stamp)%>
-                    <td><%= date %></td>
+                    <%= let datestring = date.toDateString()%>
+                    <td><%= datestring %></td>
                     <td><%= mytest[iCount].age %></td>
                     <td style="text-align: center">
                         <form
