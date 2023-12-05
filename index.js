@@ -128,15 +128,21 @@ app.post('/userLogin', (req, res) => {
                 localStorage.setItem('email', req.body.useremail);
                 localStorage.setItem('firstname', first_name);
                 localStorage.setItem('lastname', last_name);
+            } 
+            else 
+            {
+                //user credentials invalid
+                res.status(401).json({message : "Invalid Credentials"})
+            }
+            });
+    if (localStorage.getItem("firstname") == "")
+    {
 
-            res.redirect("/");
-        } 
-        else 
-        {
-            //user credentials invalid
-            res.status(401).json({message : "Invalid Credentials"})
-        }
-        });
+    }
+    else
+    {
+        res.redirect("/views/index");
+    }
 });
 
 app.listen(port, () => console.log('I am listening'));
