@@ -55,6 +55,10 @@ app.get('/login', (req, res) => {
     res.render(path.join(__dirname + '/views/login'));
 });
 
+app.get('/register', (req, res) => {
+    res.render(path.join(__dirname + '/views/register'));
+});
+
 app.get('/termsOfUse', (req, res) => {
     res.render(path.join(__dirname + '/views/termsOfUse'));
 });
@@ -111,21 +115,19 @@ app.post('/addUser', (req, res) => {
         });
 });
 
-app.post('/userLogin', (req, res) => 
-{
-    //query that searches the database for a matching record, 
+app.post('/userLogin', (req, res) => {
+    //query that searches the database for a matching record,
     knex('user')
-    .where('password', req.body.pword)
-    .andWhere('email', req.body.useremail)
-    .select("password", "email", "first_name", "last_name")
-    .then((results) => {
-        if (results.length > 0)
-        {
-            //user credentials are valid...store info to local storage
-            localStorage.setItem("password", req.body.pword);
-            localStorage.setItem("email", req.body.useremail);
-            localStorage.setItem("firstname", first_name);
-            localStorage.setItem("lastname", last_name);
+        .where('password', req.body.pword)
+        .andWhere('email', req.body.useremail)
+        .select('password', 'email", "first_name", "last_name')
+        .then((results) => {
+            if (results.length > 0) {
+                //user credentials are valid...store info to local storage
+                localStorage.setItem('password', req.body.pword);
+                localStorage.setItem('email', req.body.useremail);
+                localStorage.setItem('firstname', first_name);
+                localStorage.setItem('lastname', last_name);
 
             res.render(path.join(__dirname + "/views/index"));
         } 
