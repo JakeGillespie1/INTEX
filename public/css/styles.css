@@ -10895,7 +10895,7 @@ header.masthead-custom {
   padding: 1rem;
 }
 .showcase .showcase-img {
-  min-height: 15rem;
+  min-height: 30rem;
   background-size: cover;
 }
 @media (min-width: 768px) {
