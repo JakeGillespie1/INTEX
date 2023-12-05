@@ -117,13 +117,16 @@ app.post('/userLogin', (req, res) =>
     knex('user')
     .where('password', req.body.pword)
     .andWhere('email', req.body.useremail)
-    .select("password", "email")
+    .select("password", "email", "first_name", "last_name")
     .then((results) => {
         if (results.length > 0)
         {
-            //user credentials are valid
+            //user credentials are valid...store info to local storage
             localStorage.setItem("password", req.body.pword);
             localStorage.setItem("email", req.body.useremail);
+            localStorage.setItem("firstname", first_name);
+            localStorage.setItem("lastname", last_name);
+
             res.redirect(path.join(__dirname + "/views/index"));
         } 
         else 
