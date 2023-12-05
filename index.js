@@ -122,27 +122,16 @@ app.post('/userLogin', (req, res) => {
         .andWhere('email', req.body.useremail)
         .select('password', 'email", "first_name", "last_name')
         .then((results) => {
-            if (results.length > 0) {
-                //user credentials are valid...store info to local storage
-                localStorage.setItem('password', req.body.pword);
-                localStorage.setItem('email', req.body.useremail);
-                localStorage.setItem('firstname', first_name);
-                localStorage.setItem('lastname', last_name);
-            } 
-            else 
-            {
+            if (results.length == 0) {
                 //user credentials invalid
                 res.status(401).json({message : "Invalid Credentials"})
             }
+            else
+            {
+                res.body.userinfo = JSON.stringify(results);
+            }
             });
-    if (localStorage.getItem("firstname") == "")
-    {
-
-    }
-    else
-    {
         res.redirect("/views/index");
-    }
 });
 
 app.listen(port, () => console.log('I am listening'));
