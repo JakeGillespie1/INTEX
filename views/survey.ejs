@@ -170,7 +170,150 @@
                         </select>
                         <br>
                         <br>
-                        
+                        <label for="iPurpose">How often do you find yourself using Social media without a specific purpose?</label>
+                        <br>
+                        <select id="iPurpose" name="iPurpose">
+                            <option value="" disabled selected>-- Select a number --</option>
+                            <script>
+                              for (let i = 1; i <= 5; i++) {
+                                document.write(`<option value="${i}">${i}</option>`);
+                              }
+                            </script>
+                        </select>
+                        <br>
+                        <br>
+                        <label for="iDistracted">How often do you get distracted by Social media when you are busy doing something?</label>
+                        <br>
+                        <select id="iDistracted" name="iDistracted">
+                            <option value="" disabled selected>-- Select a number --</option>
+                            <script>
+                              for (let i = 1; i <= 5; i++) {
+                                document.write(`<option value="${i}">${i}</option>`);
+                              }
+                            </script>
+                        </select>
+                        <br>
+                        <br>
+                        <label for="iRestless">Do you feel restless if you haven't used Social media in a while?</label>
+                        <br>
+                        <select id="iRestless" name="iRestless">
+                            <option value="" disabled selected>-- Select a number --</option>
+                            <script>
+                              for (let i = 1; i <= 5; i++) {
+                                document.write(`<option value="${i}">${i}</option>`);
+                              }
+                            </script>
+                        </select>
+                        <br>
+                        <br>
+                        <label for="iEasily">On a scale of 1 to 5, how easily distracted are you?</label>
+                        <br>
+                        <select id="iEasily" name="iEasily">
+                            <option value="" disabled selected>-- Select a number --</option>
+                            <script>
+                              for (let i = 1; i <= 5; i++) {
+                                document.write(`<option value="${i}">${i}</option>`);
+                              }
+                            </script>
+                        </select>
+                        <br>
+                        <br>
+                        <label for="iBothered">On a scale of 1 to 5, how much are you bothered by worries?</label>
+                        <br>
+                        <select id="iBothered" name="iBothered">
+                            <option value="" disabled selected>-- Select a number --</option>
+                            <script>
+                              for (let i = 1; i <= 5; i++) {
+                                document.write(`<option value="${i}">${i}</option>`);
+                              }
+                            </script>
+                        </select>
+                        <br>
+                        <br>
+                        <label for="iConcentrate">Do you find it difficult to concentrate on things?</label>
+                        <br>
+                        <select id="iConcentrate" name="iConcentrate">
+                            <option value="" disabled selected>-- Select a number --</option>
+                            <script>
+                              for (let i = 1; i <= 5; i++) {
+                                document.write(`<option value="${i}">${i}</option>`);
+                              }
+                            </script>
+                        </select>
+                        <br>
+                        <br>
+                        <label for="iCompare">On a scale of 1-5, how often do you compare yourself to other successful people through the use of social media?</label>
+                        <br>
+                        <select id="iCompare" name="iCompare">
+                            <option value="" disabled selected>-- Select a number --</option>
+                            <script>
+                              for (let i = 1; i <= 5; i++) {
+                                document.write(`<option value="${i}">${i}</option>`);
+                              }
+                            </script>
+                        </select>
+                        <br>
+                        <br>
+                        <label for="iFeel">Following the previous question, how do you feel about these comparisons, generally speaking?</label>
+                        <br>
+                        <select id="iFeel" name="iFeel">
+                            <option value="" disabled selected>-- Select a number --</option>
+                            <script>
+                              for (let i = 1; i <= 5; i++) {
+                                document.write(`<option value="${i}">${i}</option>`);
+                              }
+                            </script>
+                        </select>
+                        <br>
+                        <br>
+                        <label for="iValidation">How often do you look to seek validation from features of social media?</label>
+                        <br>
+                        <select id="iValidation" name="iValidation">
+                            <option value="" disabled selected>-- Select a number --</option>
+                            <script>
+                              for (let i = 1; i <= 5; i++) {
+                                document.write(`<option value="${i}">${i}</option>`);
+                              }
+                            </script>
+                        </select>
+                        <br>
+                        <br>
+                        <label for="iDepressed">How often do you feel depressed or down?</label>
+                        <br>
+                        <select id="iDepressed" name="iDepressed">
+                            <option value="" disabled selected>-- Select a number --</option>
+                            <script>
+                              for (let i = 1; i <= 5; i++) {
+                                document.write(`<option value="${i}">${i}</option>`);
+                              }
+                            </script>
+                        </select>
+                        <br>
+                        <br>
+                        <label for="iInterest">On a scale of 1 to 5, how frequently does your interest in daily activities fluctuate?</label>
+                        <br>
+                        <select id="iInterest" name="iInterest">
+                            <option value="" disabled selected>-- Select a number --</option>
+                            <script>
+                              for (let i = 1; i <= 5; i++) {
+                                document.write(`<option value="${i}">${i}</option>`);
+                              }
+                            </script>
+                        </select>
+                        <br>
+                        <br>
+                        <label for="iSleep">On a scale of 1 to 5, how often do you face issues regarding sleep?</label>
+                        <br>
+                        <select id="iSleep" name="iSleep">
+                            <option value="" disabled selected>-- Select a number --</option>
+                            <script>
+                              for (let i = 1; i <= 5; i++) {
+                                document.write(`<option value="${i}">${i}</option>`);
+                              }
+                            </script>
+                        </select>
+                        <br>
+                        <br>
                         <br>
                         <br>
                         <button type="submit" class="btn btn-primary">Submit Survey</button>
@@ -178,12 +321,6 @@
                 </div>
             </div>
         </section>
-        <script>
-            function showSize(iSize)
-            {
-                document.getElementById('lblSize').innerHTML = iSize;
-            }
-        </script>
         <!-- Image Showcases-->
         <section class="showcase">
             <div class="container-fluid p-0">
