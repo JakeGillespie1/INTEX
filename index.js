@@ -75,6 +75,7 @@ app.post("/addRecord", (req, res)=> {
       res.redirect("/");
    })
  });
+ /* We still need to change the variables for the survey above lolz */
 
 
 app.listen(port, () => console.log('I am listening'));
