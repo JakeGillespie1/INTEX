@@ -122,7 +122,9 @@ app.post('/userLogin', (req, res) =>
         if (results.length > 0)
         {
             //user credentials are valid
-            res.status(200).json({message : "Login Successful"});
+            localStorage.setItem("password", req.body.pword);
+            localStorage.setItem("email", req.body.useremail);
+            res.redirect(path.join(__dirname + "/views/index"));
         } 
         else 
         {
