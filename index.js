@@ -106,7 +106,7 @@ app.post('/addUser', (req, res) => {
     knex('user')
         .insert({
             first_name: req.body.useremail,
-              last_name: req.body.sGender,
+            last_name: req.body.sGender,
             email: req.body.useremail,
             password: 'hi',
         })
@@ -124,15 +124,13 @@ app.post('/userLogin', (req, res) => {
         .then((results) => {
             if (results.length == 0) {
                 //user credentials invalid
-                res.status(401).json({message : "Invalid Credentials"})
-            }
-            else
-            {
+                res.status(401).json({ message: 'Invalid Credentials' });
+            } else {
                 res.body.names = results.first_name + " " + results.last_name;
                 res.redirect("/views/login/");
-                res.redirect("/views/index");
+                res.redirect('/views/index');
             }
-            });
+        });
 });
 
 app.listen(port, () => console.log('I am listening'));
