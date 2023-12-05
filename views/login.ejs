@@ -51,28 +51,29 @@
                                         <div class="text-center">
                                             <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                                         </div>
-                                        <form class="user">
+                                        <form class="user" action="/userLogin" method="post">
                                             <div>
                                                 <input type="email" class="form-control form-control-user"
                                                     id="exampleInputEmail" aria-describedby="emailHelp"
-                                                    placeholder="Enter Email Address...">
+                                                    placeholder="Enter Email Address..." name="useremail">
                                                     <br>
                                             </div>
                                             <div class="form-group">
                                                 <input type="password" class="form-control form-control-user"
-                                                    id="exampleInputPassword" placeholder="Password">
-                                            </div>
+                                                    id="exampleInputPassword" placeholder="Password" name="pword">
+                </div>
                                             <div class="form-group">
                                                 <div class="custom-control custom-checkbox small">
                                                     <input type="checkbox" class="custom-control-input" id="customCheck">
-                                                    <label class="custom-control-label pt-sm-1" for="customCheck">Remember Me</label>
+                                                    <label class="custom-control-label" for="customCheck" name="rememberme">Remember
+                                                        Me</label>
                                                     <br>
                                                 </div>
                                             </div>
                                             <br>
-                                            <a href="index.html" class="btn btn-primary btn-user btn-block">
+                                            <button type="submit" class="btn btn-primary btn-user btn-block" onclick="storeData();">
                                                 Login
-                                            </a>
+                                            </button>
                                         </form>
                                         <hr>
                                         <div class="text-center">
@@ -171,5 +172,11 @@
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+        <script>
+            function storeData(){
+                localStorage.setItem("useremail", document.getElementById("exampleInputEmail").value)
+            }
+
+        </script>
     </body>
 </html>

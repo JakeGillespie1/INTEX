@@ -6,6 +6,26 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Provo Mental Health Initiative</title>
+        <!-- load in user data before page load -->
+        <script>
+            function getName(){
+                document.getElementById("namedisplay").value = localStorage.getItem("useremail");
+                /*
+                localStorage.setItem("first_name", results.first_name)
+                if (localStorage.getItem("firstname") == "")
+                {
+
+                }
+                else
+                {
+                const fName = localStorage.getItem("firstname");
+                const lName = localStorage.getItem("lastname");
+
+                document.getElementById("namedisplay").value = "Welcome " + fName + " " + lName;
+                }
+                */
+            }
+        </script>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap icons-->
@@ -31,6 +51,8 @@
                         <div class="text-center text-white">
                             <!-- Page heading-->
                             <h1 class="mb-5">Provo Mental Health Initiative</h1>
+                            <form action="/postIndex"></form>
+                            <h3 id = "namedisplay"></h3>
                             <form class="form-subscribe" id="contactForm" data-sb-form-api-token="API_TOKEN">
                                 <!--Survey Button-->
                                 <div class="row" style="display: flex; justify-content: center;">
