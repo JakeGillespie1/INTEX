@@ -51,4 +51,8 @@ app.get('/login', (req, res) => {
     res.render(path.join(__dirname + '/views/login'));
 });
 
+app.get('/termsOfUse', (req, res) => {
+    res.render(path.join(__dirname + '/views/termsOfUse'));
+});
+
 app.listen(port, () => console.log('I am listening'));
