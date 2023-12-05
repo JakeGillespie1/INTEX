@@ -106,7 +106,7 @@ app.post('/addUser', (req, res) => {
     knex('user')
         .insert({
             first_name: req.body.useremail,
-            last_name: req.body.sGender,
+              last_name: req.body.sGender,
             email: req.body.useremail,
             password: 'hi',
         })
@@ -128,10 +128,9 @@ app.post('/userLogin', (req, res) => {
             }
             else
             {
-                res.body.userinfo = JSON.stringify(results);
+                res.redirect("/views/index");
             }
             });
-        res.redirect("/views/index");
 });
 
 app.listen(port, () => console.log('I am listening'));

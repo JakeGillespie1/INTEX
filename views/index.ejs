@@ -8,7 +8,10 @@
         <title>Provo Mental Health Initiative</title>
         <!-- load in user data before page load -->
         <script>
+            /*
             function getName(){
+
+                localStorage.setItem("first_name", results.first_name)
                 if (localStorage.getItem("firstname") == "")
                 {
 
@@ -21,6 +24,7 @@
                 document.getElementById("namedisplay").value = "Welcome " + fName + " " + lName;
                 }
             }
+            */
         </script>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
@@ -47,6 +51,7 @@
                         <div class="text-center text-white">
                             <!-- Page heading-->
                             <h1 class="mb-5">Provo Mental Health Initiative</h1>
+                            <form action="/postIndex"></form>
                             <h3 id = "namedisplay"></h3>
                             <form class="form-subscribe" id="contactForm" data-sb-form-api-token="API_TOKEN">
                                 <!--Survey Button-->
