@@ -2,16 +2,27 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Login Page</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap icons-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" type="text/css" />
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+            rel="stylesheet"
+            type="text/css"
+        />
         <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link
+            href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic"
+            rel="stylesheet"
+            type="text/css"
+        />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="/css/styles.css" rel="stylesheet" />
     </head>
@@ -19,7 +30,12 @@
         <!-- Navigation-->
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
-                <a class="navbar-brand" href="/"><img src="/assets/img/provo welcome.png" height="100" alt="Welcome Provo Icon"></a>
+                <a class="navbar-brand" href="/"
+                    ><img
+                        src="/assets/img/provo welcome.png"
+                        height="100"
+                        alt="Welcome Provo Icon"
+                /></a>
                 <a class="btn btn-primary" href="login">Login</a>
             </div>
         </nav>
@@ -43,44 +59,88 @@
                         <div class="card-body p-0">
                             <!-- Nested Row within Card Body -->
                             <div class="row">
-                                <div class="col-lg-6 d-none d-lg-block bg-login-image">
-                                    <img class="card-img-top" src="assets/favicon.ico" alt="..." height="350" id="LoginPic"/>
+                                <div
+                                    class="col-lg-6 d-none d-lg-block bg-login-image"
+                                >
+                                    <img
+                                        class="card-img-top"
+                                        src="assets/favicon.ico"
+                                        alt="..."
+                                        height="350"
+                                        id="LoginPic"
+                                    />
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="p-5">
                                         <div class="text-center">
-                                            <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                                            <h1 class="h4 text-gray-900 mb-4">
+                                                Welcome Back!
+                                            </h1>
                                         </div>
-                                        <form class="user" action="/userLogin" method="post">
+                                        <form
+                                            class="user"
+                                            action="/userLogin"
+                                            method="post"
+                                        >
                                             <div>
-                                                <input type="email" class="form-control form-control-user"
-                                                    id="exampleInputEmail" aria-describedby="emailHelp"
-                                                    placeholder="Enter Email Address..." name="useremail">
-                                                    <br>
+                                                <input
+                                                    type="email"
+                                                    class="form-control form-control-user"
+                                                    id="exampleInputEmail"
+                                                    aria-describedby="emailHelp"
+                                                    placeholder="Enter Email Address..."
+                                                    name="useremail"
+                                                />
+                                                <br />
                                             </div>
                                             <div class="form-group">
-                                                <input type="password" class="form-control form-control-user"
-                                                    id="exampleInputPassword" placeholder="Password" name="pword">
-                </div>
+                                                <input
+                                                    type="password"
+                                                    class="form-control form-control-user"
+                                                    id="exampleInputPassword"
+                                                    placeholder="Password"
+                                                    name="pword"
+                                                />
+                                            </div>
                                             <div class="form-group">
-                                                <div class="custom-control custom-checkbox small">
-                                                    <input type="checkbox" class="custom-control-input" id="customCheck">
-                                                    <label class="custom-control-label" for="customCheck" name="rememberme">Remember
-                                                        Me</label>
-                                                    <br>
+                                                <div
+                                                    class="custom-control custom-checkbox small"
+                                                >
+                                                    <input
+                                                        type="checkbox"
+                                                        class="custom-control-input"
+                                                        id="customCheck"
+                                                    />
+                                                    <label
+                                                        class="custom-control-label"
+                                                        for="customCheck"
+                                                        name="rememberme"
+                                                        >Remember Me</label
+                                                    >
+                                                    <br />
                                                 </div>
                                             </div>
-                                            <br>
-                                            <button type="submit" class="btn btn-primary btn-user btn-block" onclick="storeData();">
+                                            <br />
+                                            <button
+                                                type="submit"
+                                                class="btn btn-primary btn-user btn-block"
+                                                onclick="storeData();"
+                                            >
                                                 Login
                                             </button>
                                         </form>
-                                        <hr>
+                                        <hr />
                                         <div class="text-center">
-                                            <a class="small" href="forgot-password.html">Forgot Password?</a>
+                                            <a
+                                                class="small"
+                                                href="forgot-password"
+                                                >Forgot Password?</a
+                                            >
                                         </div>
                                         <div class="text-center">
-                                            <a class="small" href="register.html">Create an Account!</a>
+                                            <a class="small" href="register"
+                                                >Create an Account!</a
+                                            >
                                         </div>
                                     </div>
                                 </div>
@@ -90,7 +150,7 @@
                 </div>
             </div>
         </section>
-        
+
         <!-- Call to Action-->
         <section class="call-to-action text-white text-center" id="signup">
             <div class="container position-relative">
@@ -104,12 +164,26 @@
                         <!-- To make this form functional, sign up at-->
                         <!-- https://startbootstrap.com/solution/contact-forms-->
                         <!-- to get an API token!-->
-                        <form class="form-subscribe" id="contactFormFooter" data-sb-form-api-token="API_TOKEN">
+                        <form
+                            class="form-subscribe"
+                            id="contactFormFooter"
+                            data-sb-form-api-token="API_TOKEN"
+                        >
                             <!-- Email address input-->
                             <div class="row">
                                 <div class="col">
-                                    <div class="invalid-feedback text-white" data-sb-feedback="emailAddressBelow:required">Email Address is required.</div>
-                                    <div class="invalid-feedback text-white" data-sb-feedback="emailAddressBelow:email">Email Address Email is not valid.</div>
+                                    <div
+                                        class="invalid-feedback text-white"
+                                        data-sb-feedback="emailAddressBelow:required"
+                                    >
+                                        Email Address is required.
+                                    </div>
+                                    <div
+                                        class="invalid-feedback text-white"
+                                        data-sb-feedback="emailAddressBelow:email"
+                                    >
+                                        Email Address Email is not valid.
+                                    </div>
                                 </div>
                             </div>
                             <!-- Submit success message-->
@@ -118,16 +192,26 @@
                             <!-- has successfully submitted-->
                             <div class="d-none" id="submitSuccessMessage">
                                 <div class="text-center mb-3">
-                                    <div class="fw-bolder">Form submission successful!</div>
+                                    <div class="fw-bolder">
+                                        Form submission successful!
+                                    </div>
                                     <p>To activate this form, sign up at</p>
-                                    <a class="text-white" href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                                    <a
+                                        class="text-white"
+                                        href="https://startbootstrap.com/solution/contact-forms"
+                                        >https://startbootstrap.com/solution/contact-forms</a
+                                    >
                                 </div>
                             </div>
                             <!-- Submit error message-->
                             <!---->
                             <!-- This is what your users will see when there is-->
                             <!-- an error submitting the form-->
-                            <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+                            <div class="d-none" id="submitErrorMessage">
+                                <div class="text-center text-danger mb-3">
+                                    Error sending message!
+                                </div>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -137,26 +221,44 @@
         <footer class="footer bg-light">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
+                    <div
+                        class="col-lg-6 h-100 text-center text-lg-start my-auto"
+                    >
                         <ul class="list-inline mb-2">
-                            <li class="list-inline-item"><a href="/">About</a></li>
+                            <li class="list-inline-item">
+                                <a href="/">About</a>
+                            </li>
                             <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="contact">Contact</a></li>
+                            <li class="list-inline-item">
+                                <a href="contact">Contact</a>
+                            </li>
                             <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="termsOfUse">Terms of Use</a></li>
+                            <li class="list-inline-item">
+                                <a href="termsOfUse">Terms of Use</a>
+                            </li>
                         </ul>
-                        <p class="text-muted small mb-4 mb-lg-0">&copy; Provo City 2023. All Rights Reserved.</p>
+                        <p class="text-muted small mb-4 mb-lg-0">
+                            &copy; Provo City 2023. All Rights Reserved.
+                        </p>
                     </div>
                     <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
                         <ul class="list-inline mb-0">
                             <li class="list-inline-item me-4">
-                                <a href="https://www.facebook.com/provocity/"><i class="bi-facebook fs-3"></i></a>
+                                <a href="https://www.facebook.com/provocity/"
+                                    ><i class="bi-facebook fs-3"></i
+                                ></a>
                             </li>
                             <li class="list-inline-item me-4">
-                                <a href="https://www.youtube.com/@ProvoCityGovernment"><i class="bi-twitter fs-3"></i></a>
+                                <a
+                                    href="https://www.youtube.com/@ProvoCityGovernment"
+                                    ><i class="bi-twitter fs-3"></i
+                                ></a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="https://www.instagram.com/provocity/?hl=en"><i class="bi-instagram fs-3"></i></a>
+                                <a
+                                    href="https://www.instagram.com/provocity/?hl=en"
+                                    ><i class="bi-instagram fs-3"></i
+                                ></a>
                             </li>
                         </ul>
                     </div>
@@ -173,9 +275,15 @@
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
         <script>
-            function storeData(){
-                localStorage.setItem("useremail", document.getElementById("exampleInputEmail").value);
-                localStorage.setItem("password", document.getElementById("exampleInputPassword").value);
+            function storeData() {
+                localStorage.setItem(
+                    'useremail',
+                    document.getElementById('exampleInputEmail').value
+                );
+                localStorage.setItem(
+                    'password',
+                    document.getElementById('exampleInputPassword').value
+                );
             }
         </script>
     </body>
