@@ -119,23 +119,35 @@ app.post('/addRecord', (req, res) => {
 
     //Occupation processing
     if (req.body.avgTime == 'less')
+    {
        dbMin = 0;
        dbMax = 1;
+    }
     else if (req.body.avgTime == 'oneTwo')
+    {
         dbMin = 1;
         dbMax = 2;
+    }
     else if (req.body.avgTime == 'twoThree')
+    {
         dbMin = 2;
         dbMax = 3;
+    }
     else if (req.body.avgTime == 'threeFour')
+    {
         dbMin = 3;
         dbMax = 4;
+    }
     else if (req.body.avgTime == 'fourFive')
+    {
         dbMin = 4;
         dbMax = 5;
+    }
     else if (req.body.avgTime == 'more')
+    {
         dbMin = 5;
         dbMax = null;
+    }
     
     knex('record')
         .insert({
