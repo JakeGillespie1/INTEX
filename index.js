@@ -194,7 +194,7 @@ app.post('/addUser', (req, res) => {
         .then((results) => {
             if (results.length > 0) {
                 // email already in db
-                res.render(path.join(__dirname + '/views/index'), {
+                res.render(path.join(__dirname + '/views/register'), {
                     first_name: req.body.FirstName,
                     last_name: req.body.LastName,
                     email: req.body.Email,
