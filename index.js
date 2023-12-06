@@ -81,20 +81,22 @@ app.post('/addRecord', (req, res) => {
             organization: req.body.sOrganization,
             use_socials: req.body.UseSM ? 'Y' : 'N',
             socials_used: req.body.socialmediatypes,
+            //min_time_online
+            //max_time_online
             avg_time: req.body.avgTime,
 
-            purpose: parseInt(req.body.iPurpose),
-            distracted: parseInt(req.body.iDistracted),
-            restless: parseInt(req.body.iRestless),
-            easily_distracted: parseInt(req.body.iEasily),
-            bother_by_worries: parseInt(req.body.iBothered),
-            diff_concentrate: parseInt(req.body.iConcentrate),
-            compare: parseInt(req.body.iCompare),
-            feel_compare: parseInt(req.body.iFeel),
-            seek_validation: parseInt(req.body.iValidation),
-            depressed: parseInt(req.body.iDepressed),
-            interest: parseInt(req.body.iInterest),
-            sleep: parseInt(req.body.iSleep),
+            frequency_used_with_purpose: parseInt(req.body.iPurpose),
+            frequency_distracted_while_busy: parseInt(req.body.iDistracted),
+            frequency_restless_while_not_online: parseInt(req.body.iRestless),
+            scale_easily_distracted: parseInt(req.body.iEasily),
+            frequency_bothered_by_worries: parseInt(req.body.iBothered),
+            scale_difficulty_concentrating: parseInt(req.body.iConcentrate),
+            frequency_compared_to_successful_people: parseInt(req.body.iCompare),
+            scale_feels_about_comparing_to_successful_people: parseInt(req.body.iFeel),
+            scale_seeking_validation_media_features: parseInt(req.body.iValidation),
+            frequency_depressed_or_down: parseInt(req.body.iDepressed),
+            scale_interest_in_daily_activities: parseInt(req.body.iInterest),
+            scale_sleep_issues: parseInt(req.body.iSleep),
         })
         .then((mycountry) => {
             res.redirect('/');
