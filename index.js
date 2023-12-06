@@ -72,7 +72,7 @@ app.get('/survey', (req, res) => {
 });
 
 app.get('/testingSurvey', (req, res) => {
-    res.render(path.join(__dirname + '/views/testingsSurvey'));
+    res.render(path.join(__dirname + '/views/testingSurvey'));
 });
 
 
