@@ -76,10 +76,10 @@
                         height="100"
                         alt="Welcome Provo Icon"
                 /></a>
-                <div style="display: flex;">
+                <div style="display: flex">
                     <a
                         id="createacc"
-                        style="display: none; margin-right: 5px;"
+                        style="display: none; margin-right: 5px"
                         class="btn btn-warning"
                         href="register"
                         >Create New Account</a
@@ -110,7 +110,9 @@
                             <form action="/postIndex"></form>
                             <% try{ %>
                             <h3>
-                                <%="Welcome " + localStorage.get("first_name") + " " + localStorage.getItem('last_name');%>
+                                <%="Welcome " +
+                                localStorage.getItem("first_name") + " " +
+                                localStorage.getItem('last_name');%>
                             </h3>
                             <p style="display: none" id="first_name_p">
                                 <%=first_name%>
