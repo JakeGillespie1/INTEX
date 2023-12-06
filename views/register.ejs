@@ -60,7 +60,7 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="p-5">
-                                        <form>
+                                        <form action="/addUser" action="POST">
                                             <input class="form-control form-control-user" 
                                             type="text" 
                                             id="FirstName" 
@@ -95,7 +95,15 @@
                                             id="Password2" 
                                             placeholder="Confirm Password"
                                             required>
-                                        <br><br>   
+                                        <br><br>
+                                        <button
+                                        type="submit"
+                                        class="btn btn-primary btn-user btn-block"
+                                        onclick="checkPass();"
+                                        id = "btnSub"
+                                        >
+                                        Create Account
+                                        </button>   
                                         </body>
                                         </form>
                                         <hr />
@@ -247,7 +255,25 @@
             {
                 let dDate = new Date();
                     dDate = dDate.getFullYear().toString();
-                document.getElementById("Copyrite").innerHTML = "&copy; Provo City " + dDate +". All Rights Reserved.";
+                    document.getElementById("Copyrite").innerHTML = "&copy; Provo City " + dDate +". All Rights Reserved.";
+            }
+
+            function checkPass(){
+                let sPass1 = document.getElementById("Password1").value;
+                let sPass2 = document.getElementById("Password2").value;
+
+                if (sPass1 !== sPass2)
+                {
+                    document.getElementById("btnSub").type = "button";
+                    alert("Passwords do not match");
+                    document.getElementById("Password2").value = "";
+                }
+                else
+                {
+                    document.getElementById("btnSub").type = "submit";
+                    alert("Success");
+                     
+                }
             }
         </script>
     </body>
