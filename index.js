@@ -80,62 +80,81 @@ app.post('/addRecord', (req, res) => {
     let dbOccupation = '';
 
     //Gender processing
-    if (req.body.sGender == 'Male')
-       dbGender = "M";
-    else if (req.body.sGender == 'Female')
+    if (req.body.sGender == 'Male') {
+        dbGender = "M";
+    }
+    else if (req.body.sGender == 'Female'){
         dbGender = "F";
-    else if (req.body.sGender == 'Other')
+    }
+    else if (req.body.sGender == 'Other'){
         dbGender = "O";
+    }
 
     //Relationship processing
-    if (req.body.sRelationship == 'Single')
+    if (req.body.sRelationship == 'Single'){
         dbRelationship = 2;
-    else if (req.body.sRelationship == 'Dating')
+    }
+    else if (req.body.sRelationship == 'Dating'){
         dbRelationship = 1;
-    else if (req.body.sRelationship == 'Married')
+    }
+    else if (req.body.sRelationship == 'Married'){
         dbRelationship = 4;
-    else if (req.body.sRelationship == 'Divorced')
+    }
+    else if (req.body.sRelationship == 'Divorced'){
         dbRelationship = 3;
+    }
  
     //Occupation processing
-    if (req.body.sOccupation == 'School Student')
+    if (req.body.sOccupation == 'School Student'){
        dbOccupation = 3;
-    else if (req.body.sOccupation == 'University Student')
+    }
+    else if (req.body.sOccupation == 'University Student'){
         dbOccupation = 1;
-    else if (req.body.sOccupation == 'Salaried Worker')
+    }
+    else if (req.body.sOccupation == 'Salaried Worker'){
         dbOccupation = 2;
-    else if (req.body.sOccupation == 'Retired')
+    }
+    else if (req.body.sOccupation == 'Retired'){
         dbOccupation = 4;
+    }
     
     //I skipped organizaiton becuase you can select multiple lolz I have no idea
 
     //Social media use processing
-    if (req.body.UseSM == 'Y')
+    if (req.body.UseSM == 'Y'){
        dbUseSM = true;
-    else if (req.body.UseSM == 'N')
+    }
+    else if (req.body.UseSM == 'N'){
         dbUseSM = false;
+    }
 
     //I skipped organizaiton becuase you can select multiple lolz I have no idea
 
     //Occupation processing
-    if (req.body.avgTime == 'less')
+    if (req.body.avgTime == 'less'){
        dbMin = 0;
        dbMax = 1;
-    else if (req.body.avgTime == 'oneTwo')
+    }
+    else if (req.body.avgTime == 'oneTwo'){
         dbMin = 1;
         dbMax = 2;
-    else if (req.body.avgTime == 'twoThree')
+    }
+    else if (req.body.avgTime == 'twoThree'){
         dbMin = 2;
         dbMax = 3;
-    else if (req.body.avgTime == 'threeFour')
+    }
+    else if (req.body.avgTime == 'threeFour'){
         dbMin = 3;
         dbMax = 4;
-    else if (req.body.avgTime == 'fourFive')
+    }
+    else if (req.body.avgTime == 'fourFive'){
         dbMin = 4;
         dbMax = 5;
-    else if (req.body.avgTime == 'more')
+    }
+    else if (req.body.avgTime == 'more'){
         dbMin = 5;
         dbMax = null;
+    }
     
     knex('record')
         .insert({
