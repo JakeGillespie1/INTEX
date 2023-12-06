@@ -110,7 +110,7 @@
                             <form action="/postIndex"></form>
                             <% try{ %>
                             <h3>
-                                <%="Welcome " + first_name + " " + last_name;%>
+                                <%="Welcome " + localStorage.get("first_name") + " " + localStorage.getItem('last_name');%>
                             </h3>
                             <p style="display: none" id="first_name_p">
                                 <%=first_name%>
