@@ -263,7 +263,7 @@
                     dDate = dDate.getFullYear().toString();
                     document.getElementById("Copyrite").innerHTML = "&copy; Provo City " + dDate +". All Rights Reserved.";
 
-                if (document.getElementById("emailBroke").value == "message")
+                if (document.getElementById("emailBroke").innerText.includes("message"))
                 {
                     document.getElementById("emailBroke").style.display = "none";
                 }
