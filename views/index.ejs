@@ -59,15 +59,17 @@
                             <!-- Page heading-->
                             <h1 class="mb-5">Provo Mental Health Initiative</h1>
                             <form action="/postIndex"></form>
-                            <% for (let i = 0; iCount < responseObj.length; i++)
-                            { %> <% if (!responseObj[i].first_name) { %>
-                            <h3>Welcome</h3>
-                            <%} else {%>
+                            <% const queryString = window.location.href; let
+                            parts = queryString.split('/'); let login =
+                            parts[parts.length-1]; if (!login) { %>
+                            <h3>Welcome! No login</h3>
+                            <%} else {%> <% for (let i = 0; i <
+                            responseObj.length; i++) { %>
                             <h3>
                                 <%="Welcome " + responseObj[i].first_name + " "
                                 + responseObj[i].last_name;%>
                             </h3>
-                            <%}%> <% } %>
+                            <%} } %>
                             <form
                                 class="form-subscribe"
                                 id="contactForm"

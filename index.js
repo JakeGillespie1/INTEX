@@ -4,7 +4,7 @@ let app = express();
 
 let path = require('path');
 
-let port = process.env.PORT || 3000;
+let port = process.env.PORT || 3001;
 
 let rds_port = process.env.RDS_PORT || 5432;
 let host = process.env.RDS_HOSTNAME || 'localhost';
@@ -43,7 +43,7 @@ app.get('/db', (req, res) => {
         });
 });
 
-app.get('/', (req, res) => {
+app.get('/:login', (req, res) => {
     res.render(path.join(__dirname + '/views/index'));
 });
 
@@ -129,7 +129,7 @@ app.post('/userLogin', (req, res) => {
                 //let sFirstName = results.first_name;
                 //let sLastName = results.last_name;
                 //res.redirect('/', {first_name : sFirstName, last_name : sLastName});
-                res.render(path.join(__dirname + '/views/index'), {
+                res.render(path.join(__dirname + '/views/index/true'), {
                     responseObj: results,
                 });
             }
