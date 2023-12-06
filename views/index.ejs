@@ -18,6 +18,19 @@
                     'last_name',
                     document.getElementById('last_name_p').textContent
                 );
+
+                let fName = localStorage.getItem("first_name");
+                let lName = localStorage.getItem("last_name");
+                if (!fName)
+                {
+                    document.getElementById("btnLogout").style.display = "none"
+                }
+                else
+                {
+                    document.getElementById("loginhref").style.display = "none";
+                    document.getElementById("btnLogout").textContent = "Logout " + fName + " " + lName;
+                    document.getElementById("btnLogout").style.display = "block";
+                }
             }
         </script>
         <title>Provo Mental Health Initiative</title>
@@ -49,7 +62,10 @@
                         height="100"
                         alt="Welcome Provo Icon"
                 /></a>
-                <a class="btn btn-primary" href="login">Login</a>
+                <form action="/" method="GET">
+                    <button type="submit" style="display: none;" class="btn btn-primary" onclick="localStorage.clear();" id="btnLogout"></button>
+                </form>
+                <a class="btn btn-primary" href="login" id="loginhref">Login</a>
             </div>
         </nav>
         <!-- Masthead-->
