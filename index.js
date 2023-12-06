@@ -180,7 +180,8 @@ app.post('/addRecord', (req, res) => {
             scale_sleep_issues: parseInt(req.body.iSleep),
         })
         .then((mytest) => {
-            res.redirect('/');
+            res.redirect('/'),
+            document.getElementById("submittedSurvey").innerHTML = 'Thank you for your response.';
         });
 });
 /* We still need to change the variables for the survey above lolz */
