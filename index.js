@@ -4,7 +4,7 @@ let app = express();
 
 let path = require('path');
 
-let port = process.env.PORT || 3001;
+let port = process.env.PORT || 3000;
 
 let rds_port = process.env.RDS_PORT || 5432;
 let host = process.env.RDS_HOSTNAME || 'localhost';
@@ -56,7 +56,7 @@ app.get('/login', (req, res) => {
 });
 
 app.get('/register', (req, res) => {
-    res.render(path.join(__dirname + '/views/register'));
+    res.render(path.join(__dirname + '/views/register'), {message : message});
 });
 
 app.get('/termsOfUse', (req, res) => {
@@ -76,8 +76,12 @@ app.get('/testing', (req, res) => {
 });
 
 app.post('/addRecord', (req, res) => {
-    let dbGender = '';
-    let dbOccupation = '';
+    let dbGender;
+    let dbRelationship;
+    let dbOccupation;
+    let dbUseSM;
+    let dbMin;
+    let dbMax;
 
     //Gender processing
     if (req.body.sGender == 'Male') {
