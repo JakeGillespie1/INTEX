@@ -26,7 +26,7 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="/css/styles.css" rel="stylesheet" />
     </head>
-    <body>
+    <body onload="setupPage();">
         <!-- Navigation-->
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
@@ -279,7 +279,10 @@
                     document.getElementById('exampleInputPassword').value
                 );
                 localStorage.setItem('login', 'true');
+            }
 
+            function setupPage()
+            {
                 let dDate = new Date();
                     dDate = dDate.getFullYear().toString();
                     document.getElementById("Copyrite").innerHTML = "&copy; Provo City " + dDate +". All Rights Reserved.";
