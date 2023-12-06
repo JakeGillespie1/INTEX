@@ -76,18 +76,80 @@ app.get('/testing', (req, res) => {
 });
 
 app.post('/addRecord', (req, res) => {
+    let dbGender = '';
+    let dbOccupation = '';
+
+    //Gender processing
+    if (req.body.sGender == 'Male')
+       dbGender = "M";
+    else if (req.body.sGender == 'Female')
+        dbGender = "F";
+    else if (req.body.sGender == 'Other')
+        dbGender = "O";
+
+    //Relationship processing
+    if (req.body.sRelationship == 'Single')
+        dbRelationship = 2;
+    else if (req.body.sRelationship == 'Dating')
+        dbRelationship = 1;
+    else if (req.body.sRelationship == 'Married')
+        dbRelationship = 4;
+    else if (req.body.sRelationship == 'Divorced')
+        dbRelationship = 3;
+ 
+    //Occupation processing
+    if (req.body.sOccupation == 'School Student')
+       dbOccupation = 3;
+    else if (req.body.sOccupation == 'University Student')
+        dbOccupation = 1;
+    else if (req.body.sOccupation == 'Salaried Worker')
+        dbOccupation = 2;
+    else if (req.body.sOccupation == 'Retired')
+        dbOccupation = 4;
+    
+    //I skipped organizaiton becuase you can select multiple lolz I have no idea
+
+    //Social media use processing
+    if (req.body.UseSM == 'Y')
+       dbUseSM = true;
+    else if (req.body.UseSM == 'N')
+        dbUseSM = false;
+
+    //I skipped organizaiton becuase you can select multiple lolz I have no idea
+
+    //Occupation processing
+    if (req.body.avgTime == 'less')
+       dbMin = 0;
+       dbMax = 1;
+    else if (req.body.avgTime == 'oneTwo')
+        dbMin = 1;
+        dbMax = 2;
+    else if (req.body.avgTime == 'twoThree')
+        dbMin = 2;
+        dbMax = 3;
+    else if (req.body.avgTime == 'threeFour')
+        dbMin = 3;
+        dbMax = 4;
+    else if (req.body.avgTime == 'fourFive')
+        dbMin = 4;
+        dbMax = 5;
+    else if (req.body.avgTime == 'more')
+        dbMin = 5;
+        dbMax = null;
+    
     knex('record')
         .insert({
             age: parseInt(req.body.iAge),
-            gender: req.body.dbGender,
-            relationship_id: req.body.dbRelationship,
-            occupation_id: req.body.dbOccupation,
+            gender: dbGender,
+            relationship_id: dbRelationship,
+            occupation_id: dbOccupation,
             organization: req.body.sOrganization,
-            use_socials: req.body.UseSM ? 'Y' : 'N',
+            use_socials: dbUseSM,
             socials_used: req.body.socialmediatypes,
             //min_time_online
             //max_time_online
             avg_time: req.body.avgTime,
+            location: "Provo",
 
             frequency_used_with_purpose: parseInt(req.body.iPurpose),
             frequency_distracted_while_busy: parseInt(req.body.iDistracted),
