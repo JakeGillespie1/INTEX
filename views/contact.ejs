@@ -21,10 +21,8 @@
             <div class="container">
                 <a class="navbar-brand" href="/"><img src="/assets/img/provo welcome.png" height="100" alt="Welcome Provo Icon"></a>
                 <a class="btn btn-primary" href="login" id="loginhref">Login</a>
-                <form action="/" method="GET">
-                    <button type="submit" style="display: none;" class="btn btn-primary" onclick="localStorage.clear();" id="btnLogout">Logout</button>
-                </form>
-                <h3 style="display: none;" id="loggedInH3"></h3>
+                <h6 style="display: none;" id="loggedInH3"></h6>
+                <a style="display: none;" class="btn btn-primary" onclick="localStorage.clear(); location.href = 'https://provo.is404.net';" id="btnLogout">Logout</a>
             </div>
         </nav>
         <!-- Masthead-->
