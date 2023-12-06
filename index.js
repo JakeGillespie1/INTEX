@@ -146,6 +146,7 @@ app.post('/userLogin', (req, res) => {
                     first_name: sFirstName,
                     last_name: sLastName,
                     is_admin: isAdmin,
+                    login: 'true',
                 });
             }
         });
