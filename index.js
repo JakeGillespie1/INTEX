@@ -79,7 +79,7 @@ app.post('/addRecord', (req, res) => {
     knex('record')
         .insert({
             age: parseInt(req.body.iAge),
-            gender: req.body.sGender,
+            gender: req.body.dbGender,
             rel_status: req.body.sRelationship,
             occ_status: req.body.sOccupation,
             organization: req.body.sOrganization,

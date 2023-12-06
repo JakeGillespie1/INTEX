@@ -123,9 +123,9 @@
                         <% } %>
                         <br>
                         <br>
+                        
                         <label>What is your relationship status?</label>
                         <br>
-                                
                         <input type="radio" id="rbSingle" name="sRelationship" value="Single">
                         <label for="rbSingle">Single</label>
                         <br>        
@@ -137,6 +137,20 @@
                         <br>
                         <input type="radio" id="rbDivorced" name="sRelationship" value="Divorced">
                         <label for="rbDivorced">Divorced</label>
+
+                        <!-- This part of the code should take the selected 
+                          radio button value and change it to the value
+                          we show it as in the database
+                        -->
+                        <% if (sRelationship == 'Single') { %>
+                          <input type="hidden" name="dbGender" value=2>
+                        <% } else if (sRelationship == 'Dating') { %>
+                          <input type="hidden" name="dbGender" value=1>
+                        <% } else if (sRelationship == 'Married') { %>
+                          <input type="hidden" name="dbGender" value=4>
+                        <% } else if (sRelationship == 'Divorced') { %>
+                          <input type="hidden" name="dbDivorce" value=3>
+                        <% } %>
                         <br>
                         <br>
                         <label>What is your current occupation?</label>
