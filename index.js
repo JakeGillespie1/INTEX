@@ -4,7 +4,7 @@ let app = express();
 
 let path = require('path');
 
-let port = process.env.PORT || 3000;
+let port = process.env.PORT || 3001;
 
 let rds_port = process.env.RDS_PORT || 5432;
 let host = process.env.RDS_HOSTNAME || 'localhost';
@@ -80,41 +80,28 @@ app.post('/addRecord', (req, res) => {
     let dbOccupation = '';
 
     //Gender processing
-    if (req.body.sGender == 'Male')
-       dbGender = "M";
-    else if (req.body.sGender == 'Female')
-        dbGender = "F";
-    else if (req.body.sGender == 'Other')
-        dbGender = "O";
+    if (req.body.sGender == 'Male') dbGender = 'M';
+    else if (req.body.sGender == 'Female') dbGender = 'F';
+    else if (req.body.sGender == 'Other') dbGender = 'O';
 
     //Relationship processing
-    if (req.body.sRelationship == 'Single')
-        dbRelationship = 2;
-    else if (req.body.sRelationship == 'Dating')
-        dbRelationship = 1;
-    else if (req.body.sRelationship == 'Married')
-        dbRelationship = 4;
-    else if (req.body.sRelationship == 'Divorced')
-        dbRelationship = 3;
- 
+    if (req.body.sRelationship == 'Single') dbRelationship = 2;
+    else if (req.body.sRelationship == 'Dating') dbRelationship = 1;
+    else if (req.body.sRelationship == 'Married') dbRelationship = 4;
+    else if (req.body.sRelationship == 'Divorced') dbRelationship = 3;
+
     //Occupation processing
-    if (req.body.sOccupation == 'School Student')
-       dbOccupation = 3;
-    else if (req.body.sOccupation == 'University Student')
-        dbOccupation = 1;
-    else if (req.body.sOccupation == 'Salaried Worker')
-        dbOccupation = 2;
-    else if (req.body.sOccupation == 'Retired')
-        dbOccupation = 4;
-    
+    if (req.body.sOccupation == 'School Student') dbOccupation = 3;
+    else if (req.body.sOccupation == 'University Student') dbOccupation = 1;
+    else if (req.body.sOccupation == 'Salaried Worker') dbOccupation = 2;
+    else if (req.body.sOccupation == 'Retired') dbOccupation = 4;
+
     //I skipped organizaiton becuase you can select multiple lolz I have no idea
 
     //Social media use processing
-    if (req.body.UseSM == 'Y')
-       dbUseSM = true;
-    else if (req.body.UseSM == 'N')
-        dbUseSM = false;
-    
+    if (req.body.UseSM == 'Y') dbUseSM = true;
+    else if (req.body.UseSM == 'N') dbUseSM = false;
+
     knex('record')
         .insert({
             age: parseInt(req.body.iAge),
@@ -127,7 +114,7 @@ app.post('/addRecord', (req, res) => {
             //min_time_online
             //max_time_online
             avg_time: req.body.avgTime,
-            location: "Provo",
+            location: 'Provo',
 
             frequency_used_with_purpose: parseInt(req.body.iPurpose),
             frequency_distracted_while_busy: parseInt(req.body.iDistracted),
@@ -155,6 +142,31 @@ app.post('/addRecord', (req, res) => {
 /* We still need to change the variables for the survey above lolz */
 
 app.post('/addUser', (req, res) => {
+    knex('user')
+        .Where('email', req.body.Email)
+        .then((results) => {
+            if (results.length > 0) {
+                // email already in db
+                res.render(path.join(__dirname + '/views/index'), {
+                    first_name: req.body.FirstName,
+                    last_name: req.body.LastName,
+                    email: req.body.Email,
+                    password: req.body.Password1,
+                    message: 'Error: Email already in use',
+                });
+            } else {
+                // let sFirstName = results[0].first_name;
+                // let sLastName = results[0].last_name;
+                // let isAdmin = results[0].is_admin;
+                // res.render(path.join(__dirname + '/views/index'), {
+                //     first_name: sFirstName,
+                //     last_name: sLastName,
+                //     is_admin: isAdmin,
+                //     login: 'true',
+                // });
+            }
+        });
+
     knex('user')
         .insert({
             first_name: req.body.useremail,
