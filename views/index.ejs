@@ -9,14 +9,16 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <script>
-            window.onload = () => {
-                if ((first_name.value = '')) {
-                    document.getElementById('namedisplay').value = 'Welcome';
-                } else {
-                    document.getElementById('namedisplay').value =
-                        'Welcome ' + first_name + last_name;
-                }
-            };
+            function updateLocalStorage() {
+                localStorage.setItem(
+                    'first_name',
+                    document.getElementById('first_name_p').value
+                );
+                localStorage.setItem(
+                    'last_name',
+                    document.getElementById('last_name_p').value
+                );
+            }
         </script>
         <title>Provo Mental Health Initiative</title>
         <!-- load in user data before page load -->
@@ -37,7 +39,7 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="/css/styles.css" rel="stylesheet" />
     </head>
-    <body>
+    <body onload="updateLocalStorage()">
         <!-- Navigation-->
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
@@ -63,8 +65,12 @@
                             <h3>
                                 <%="Welcome " + first_name + " " + last_name;%>
                             </h3>
-                            <% localStorage.setItem( 'first_name', first_name );
-                            localStorage.setItem( 'last_name', last_name ); %>
+                            <p style="visibility: hidden" id="first_name_p">
+                                <%=first_name%>
+                            </p>
+                            <p style="visibility: hidden" id="last_name_p">
+                                <%=last_name%>
+                            </p>
                             <% }catch(err){ %>
                             <h3>Welcome!</h3>
                             <% } %>
