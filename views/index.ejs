@@ -25,11 +25,15 @@
                         document.getElementById('is_admin_p').textContent
                     );
                     localStorage.setItem('login', 'false');
+
+                    if (localStorage.getItem('is_admin')) {
+                        document.getElementById('createacc').style.display =
+                            'block';
+                    }
                 }
 
                 let fName = localStorage.getItem('first_name');
                 let lName = localStorage.getItem('last_name');
-                let isAdmin = localStorage.getItem('is_admin');
                 if (!fName) {
                     document.getElementById('btnLogout').style.display = 'none';
                     document.getElementById('createacc').style.display = 'none';
@@ -39,8 +43,9 @@
                         'Logout ' + fName + ' ' + lName;
                     document.getElementById('btnLogout').style.display =
                         'block';
-
-                    if (isAdmin) {
+                    document.getElementById('thesillyone').innerHTML =
+                        'Welcome ' + fName + ' ' + lName;
+                    if (localStorage.getItem('is_admin')) {
                         document.getElementById('createacc').style.display =
                             'block';
                     }
@@ -76,10 +81,10 @@
                         height="100"
                         alt="Welcome Provo Icon"
                 /></a>
-                <div style="display: flex;">
+                <div style="display: flex">
                     <a
                         id="createacc"
-                        style="display: none; margin-right: 5px;"
+                        style="display: none; margin-right: 5px"
                         class="btn btn-warning"
                         href="register"
                         >Create New Account</a
@@ -122,7 +127,7 @@
                                 <%=is_admin%>
                             </p>
                             <% }catch(err){ %>
-                            <h3>Welcome!</h3>
+                            <h3 id="thesillyone">Welcome!</h3>
                             <% } %>
                             <form
                                 class="form-subscribe"
@@ -286,9 +291,7 @@
                 <div class="row g-0">
                     <div
                         class="col-lg-6 order-lg-2 text-white showcase-img"
-                        style="
-                            background-image: url('assets/img/bg-showcase-2.jpg');
-                        "
+                        style="background-image: url('assets/img/intex13.png')"
                     ></div>
                     <div class="col-lg-6 order-lg-1 my-auto showcase-text">
                         <h2>Dashboard</h2>
