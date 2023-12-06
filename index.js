@@ -120,14 +120,14 @@ app.post('/userLogin', (req, res) => {
     knex('user')
         .where('password', req.body.pword)
         .andWhere('email', req.body.useremail)
-        .select('password', 'email", "first_name", "last_name')
+        .select('password', 'email', 'first_name', 'last_name')
         .then((results) => {
             if (results.length == 0) {
                 //user credentials invalid
                 res.status(401).json({ message: 'Invalid Credentials' });
             } else {
-                let sFirstName = results.first_name;
-                let sLastName = results.last_name;
+                let sFirstName = results[0].first_name;
+                let sLastName = results[0].last_name;
                 res.render(path.join(__dirname + '/views/index'), {
                     first_name: sFirstName,
                     last_name: sLastName,
