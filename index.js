@@ -147,8 +147,6 @@ app.post('/userLogin', (req, res) => {
                     last_name: sLastName,
                     is_admin: isAdmin,
                 });
-
-                res.redirect('/');
             }
         });
 });
