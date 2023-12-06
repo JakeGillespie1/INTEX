@@ -104,9 +104,9 @@
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
     <script>
         function loggedIn(){
-            let fName = localStorage.getItem(first_name);
-            let lName = localStorage.getItem(last_name);
-            if (localStorage.getItem(first_name) == "")
+            let fName = localStorage.getItem("first_name");
+            let lName = localStorage.getItem("last_name");
+            if (fName == "")
             {
                 document.getElementById("loggedInH3").innerHTML = "";
             }
