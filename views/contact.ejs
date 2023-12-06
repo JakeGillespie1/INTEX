@@ -105,7 +105,7 @@
         function loggedIn(){
             let fName = localStorage.getItem("first_name");
             let lName = localStorage.getItem("last_name");
-            if (fName === null)
+            if (!fName)
             {
                 document.getElementById("btnLogout").style.display = "none"
             }
