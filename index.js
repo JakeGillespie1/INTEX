@@ -128,7 +128,7 @@ app.post('/userLogin', (req, res) => {
             } else {
                 let sFirstName = results.first_name;
                 let sLastName = results.last_name;
-                res.redirect('/views/index', {first_name : sFirstName, last_name : sLastName});
+                res.redirect('/', {first_name : sFirstName, last_name : sLastName});
             }
         });
 });
