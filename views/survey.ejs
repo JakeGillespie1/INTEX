@@ -101,6 +101,7 @@
                         </select>
                         <br>
                         <br>
+                        
                         <label>What is your gender?</label>
                         <br>
                         <input type="radio" id="rbMale" name="sGender" value="Male">
@@ -143,16 +144,17 @@
                           we show it as in the database
                         -->
                         <% if (sRelationship == 'Single') { %>
-                          <input type="hidden" name="dbGender" value=2>
+                          <input type="hidden" name="dbRelationship" value=2>
                         <% } else if (sRelationship == 'Dating') { %>
-                          <input type="hidden" name="dbGender" value=1>
+                          <input type="hidden" name="dbRelationship" value=1>
                         <% } else if (sRelationship == 'Married') { %>
-                          <input type="hidden" name="dbGender" value=4>
+                          <input type="hidden" name="dbRelationship" value=4>
                         <% } else if (sRelationship == 'Divorced') { %>
-                          <input type="hidden" name="dbDivorce" value=3>
+                          <input type="hidden" name="dbRelationship" value=3>
                         <% } %>
                         <br>
                         <br>
+
                         <label>What is your current occupation?</label>
                         <br>
                         <input type="radio" id="rbSStudent" name="sOccupation" value="School Student">
@@ -163,6 +165,20 @@
                         <label for="rbWorker">Salaried Worker</label><br>
                         <input type="radio" id="rbRetired" name="sOccupation" value="Retired">
                         <label for="rbRetired">Retired</label>
+
+                        <!-- This part of the code should take the selected 
+                          radio button value and change it to the value
+                          we show it as in the database
+                        -->
+                        <% if (sRelationship == 'Single') { %>
+                          <input type="hidden" name="dbGender" value=2>
+                        <% } else if (sRelationship == 'Dating') { %>
+                          <input type="hidden" name="dbGender" value=1>
+                        <% } else if (sRelationship == 'Married') { %>
+                          <input type="hidden" name="dbGender" value=4>
+                        <% } else if (sRelationship == 'Divorced') { %>
+                          <input type="hidden" name="dbDivorce" value=3>
+                        <% } %>
                         <br>
                         <br>
                         <label>What type organization are you affiliated with?</label>
