@@ -65,56 +65,28 @@
                                                 Welcome Back!
                                             </h1>
                                         </div>
-                                        <form
-                                            class="user"
-                                            action="/addUser"
-                                            method="post"
-                                        >
-                                            <div>
-                                                <input
-                                                    type="email"
-                                                    class="form-control form-control-user"
-                                                    id="exampleInputEmail"
-                                                    aria-describedby="emailHelp"
-                                                    placeholder="Enter Email Address..."
-                                                    name="useremail"
-                                                />
-                                                <br />
-                                            </div>
-                                            <div class="form-group">
-                                                <input
-                                                    type="password"
-                                                    class="form-control form-control-user"
-                                                    id="exampleInputPassword"
-                                                    placeholder="Password"
-                                                    name="pword"
-                                                />
-                                            </div>
-                                            <div class="form-group">
-                                                <div
-                                                    class="custom-control custom-checkbox small"
-                                                >
-                                                    <input
-                                                        type="checkbox"
-                                                        class="custom-control-input"
-                                                        id="customCheck"
-                                                    />
-                                                    <label
-                                                        class="custom-control-label"
-                                                        for="customCheck"
-                                                        name="rememberme"
-                                                        >Remember Me</label
-                                                    >
-                                                    <br />
-                                                </div>
-                                            </div>
-                                            <br />
-                                            <button
-                                                type="submit"
-                                                class="btn btn-primary btn-user btn-block"
-                                            >
-                                                Login
-                                            </button>
+                                        <form>
+                                            <fieldset id="CustName" style="width: 530px;">
+                                                <legend>Client Name</legend>
+                                                <br>
+                                                <label for="FirstName">First Name: </label>
+                                                    <input type="text" id="FirstName" title="Please Enter First Name" required>
+                                                <br><br>
+                                                <label for="LastName">Last Name: </label>
+                                                    <input type="text" id="LastName" title="Please Enter Last Name" required>
+                                                <br><br>
+                                                <label for="MidInit">Middle Initial: </label>
+                                                    <input type="text" id="MidInit" title="Please Enter Mid Initial" maxlength="1">  
+                                                <br><br>
+                                                    <legend>Select a Gender</legend>
+                                                        <input type="radio" name="sex" id="CustSexM">
+                                                            <label>Male</label>
+                                                        <input type="radio" name="sex" id="CustSexF">
+                                                            <label>Female</label>
+                                                        <input type="radio" name="sex" id="CustSexO">
+                                                            <label>Other</label>
+                                            </fieldset>
+                                        </body>
                                         </form>
                                         <hr />
                                         <div class="text-center">
