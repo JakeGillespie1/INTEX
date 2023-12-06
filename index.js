@@ -80,8 +80,8 @@ app.post('/addRecord', (req, res) => {
         .insert({
             age: parseInt(req.body.iAge),
             gender: req.body.dbGender,
-            rel_status: req.body.sRelationship,
-            occ_status: req.body.sOccupation,
+            relationship_id: req.body.dbRelationship,
+            occupation_id: req.body.dbOccupation,
             organization: req.body.sOrganization,
             use_socials: req.body.UseSM ? 'Y' : 'N',
             socials_used: req.body.socialmediatypes,
