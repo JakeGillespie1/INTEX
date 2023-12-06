@@ -75,7 +75,6 @@ app.get('/testingSurvey', (req, res) => {
     res.render(path.join(__dirname + '/views/testingSurvey'));
 });
 
-
 app.post('/addRecord', (req, res) => {
     knex('record')
         .insert({
@@ -96,9 +95,15 @@ app.post('/addRecord', (req, res) => {
             scale_easily_distracted: parseInt(req.body.iEasily),
             frequency_bothered_by_worries: parseInt(req.body.iBothered),
             scale_difficulty_concentrating: parseInt(req.body.iConcentrate),
-            frequency_compared_to_successful_people: parseInt(req.body.iCompare),
-            scale_feels_about_comparing_to_successful_people: parseInt(req.body.iFeel),
-            scale_seeking_validation_media_features: parseInt(req.body.iValidation),
+            frequency_compared_to_successful_people: parseInt(
+                req.body.iCompare
+            ),
+            scale_feels_about_comparing_to_successful_people: parseInt(
+                req.body.iFeel
+            ),
+            scale_seeking_validation_media_features: parseInt(
+                req.body.iValidation
+            ),
             frequency_depressed_or_down: parseInt(req.body.iDepressed),
             scale_interest_in_daily_activities: parseInt(req.body.iInterest),
             scale_sleep_issues: parseInt(req.body.iSleep),
@@ -142,6 +147,8 @@ app.post('/userLogin', (req, res) => {
                     last_name: sLastName,
                     is_admin: isAdmin,
                 });
+
+                res.redirect('/');
             }
         });
 });
