@@ -156,7 +156,8 @@ app.post('/addRecord', (req, res) => {
         dbMax = null;
     }
     
-    knex('record')
+    knex('response')
+    //does the table name go there^^
         .insert({
             age: parseInt(req.body.iAge),
             gender: dbGender,
@@ -177,14 +178,12 @@ app.post('/addRecord', (req, res) => {
             scale_difficulty_concentrating: parseInt(req.body.iConcentrate),
             frequency_compared_to_successful_people: parseInt(req.body.iCompare),
             scale_feels_about_comparing_to_successful_people: parseInt(req.body.iFeel),
-            scale_seeking_validation_media_features: parseInt(
-                req.body.iValidation
-            ),
+            scale_seeking_validation_media_features: parseInt(req.body.iValidation),
             frequency_depressed_or_down: parseInt(req.body.iDepressed),
             scale_interest_in_daily_activities: parseInt(req.body.iInterest),
             scale_sleep_issues: parseInt(req.body.iSleep),
         })
-        .then((mycountry) => {
+        .then(() => {
             res.redirect('/');
         });
 });
