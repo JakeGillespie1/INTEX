@@ -514,11 +514,8 @@
             //Get Date Value and Validation Set up for Date Field
             function getDate()
             {
-                let HTMLField = document.querySelector("#CustDOB");
                 let dDate = new Date();
                 dDate = dDate.getFullYear().toString() + "-" + (dDate.getMonth()+1).toString().padStart(2,0) + "-" + dDate.getDate().toString().padStart(2,0);
-                HTMLField.value = dDate;
-                HTMLField.max = dDate; 
             }
     </script>
     </body>
