@@ -22,7 +22,7 @@
                 <a class="navbar-brand" href="/"><img src="/assets/img/provo welcome.png" height="100" alt="Welcome Provo Icon"></a>
                 <a class="btn btn-primary" href="login" id="loginhref">Login</a>
                 <form action="/" method="GET">
-                    <button type="submit" style="display: none;" class="btn btn-primary" onclick="localStorage.clear();" id="btnLogout">Logout <%=first_name + " " + last_name%></button>
+                    <button type="submit" style="display: none;" class="btn btn-primary" onclick="localStorage.clear();" id="btnLogout"></button>
                 </form>
             </div>
         </nav>
@@ -111,6 +111,7 @@
             else
             {
                 document.getElementById("loginhref").style.display = "none";
+                document.getElementById("btnLogout").textContent = "Logout " + fName + " " + lName;
                 document.getElementById("btnLogout").style.display = "block";
             }
         }
