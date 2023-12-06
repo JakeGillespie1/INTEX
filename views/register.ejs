@@ -61,10 +61,10 @@
                                 <div class="col-lg-12">
                                     <div class="p-5">
                                         <h1 class="h4 text-gray-900 mb-4" id="emailBroke" style="display: none; color: orange; text-align: center;">
-                                            Error: Email Already in Use
+                                            <%= message %>
                                         </h1>
                                         <h1 class="h4 text-gray-900 mb-4" id="pwBroke" style="display: none; color: orange; text-align: center;">
-                                            Error: Passwords do Not Match
+                                            Error: Passwords do not match
                                         </h1>
                                         <form action="/addUser" method="post">
                                             <input class="form-control form-control-user" 
@@ -262,6 +262,15 @@
                 let dDate = new Date();
                     dDate = dDate.getFullYear().toString();
                     document.getElementById("Copyrite").innerHTML = "&copy; Provo City " + dDate +". All Rights Reserved.";
+
+                if (document.getElementById("emailBroke").value !== "")
+                {
+                    document.getElementById("emailBroke").style.display = "block";
+                }
+                else
+                {
+                    document.getElementById("emailBroke").style.display = "none";
+                }
             }
 
             function checkPass(){
