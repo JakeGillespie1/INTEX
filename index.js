@@ -183,7 +183,7 @@ app.post('/addRecord', (req, res) => {
             scale_interest_in_daily_activities: parseInt(req.body.iInterest),
             scale_sleep_issues: parseInt(req.body.iSleep),
         })
-        .then(() => {
+        .then((myResponses) => {
             res.redirect('/');
         });
 });
