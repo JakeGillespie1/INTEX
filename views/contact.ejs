@@ -20,7 +20,8 @@
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
                 <a class="navbar-brand" href="/"><img src="/assets/img/provo welcome.png" height="100" alt="Welcome Provo Icon"></a>
-                <a class="btn btn-primary" href="login">Login</a>
+                <a class="btn btn-primary" href="login" id="loginhref">Login</a>
+                <button style="display: none;" class="btn btn-primary" onclick="logout();" id="btnLogout">Logout</button>
                 <h3 style="display: none;" id="loggedInH3"></h3>
             </div>
         </nav>
@@ -106,13 +107,18 @@
             if (localStorage.getItem(first_name) == "")
             {
                 document.getElementById("loggedInH3").innerHTML = "";
-                document.getElementById("loggedInH3").style.display = "hidden";
             }
             else
             {
                 document.getElementById("loggedInH3").innerHTML = fName + " " + lName;
+                document.getElementById("loginhref").style.display = "none";
+                document.getElementById("btnLogout").style.display = "block";
                 document.getElementById("loggedInH3").style.display = "block";
             }
+        }
+
+        function logout(){
+            localStorage.clear();
         }
     </script>
     </body>
