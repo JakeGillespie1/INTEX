@@ -2,29 +2,38 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
         <meta name="description" content="" />
         <meta name="author" content="" />
         <script>
             window.onload = () => {
-                if (first_name.value = "")
-                {
-                    document.getElementById("namedisplay").value = "Welcome";
+                if ((first_name.value = '')) {
+                    document.getElementById('namedisplay').value = 'Welcome';
+                } else {
+                    document.getElementById('namedisplay').value =
+                        'Welcome ' + first_name + last_name;
                 }
-                else
-                {
-                    document.getElementById("namedisplay").value = "Welcome " + first_name + last_name;
-                }
-            }
+            };
         </script>
         <title>Provo Mental Health Initiative</title>
         <!-- load in user data before page load -->
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap icons-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" type="text/css" />
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+            rel="stylesheet"
+            type="text/css"
+        />
         <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link
+            href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic"
+            rel="stylesheet"
+            type="text/css"
+        />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="/css/styles.css" rel="stylesheet" />
     </head>
@@ -32,7 +41,12 @@
         <!-- Navigation-->
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
-                <a class="navbar-brand" href="/"><img src="/assets/img/provo welcome.png" height="100" alt="Welcome Provo Icon"></a>
+                <a class="navbar-brand" href="/"
+                    ><img
+                        src="/assets/img/provo welcome.png"
+                        height="100"
+                        alt="Welcome Provo Icon"
+                /></a>
                 <a class="btn btn-primary" href="login">Login</a>
             </div>
         </nav>
@@ -45,21 +59,39 @@
                             <!-- Page heading-->
                             <h1 class="mb-5">Provo Mental Health Initiative</h1>
                             <form action="/postIndex"></form>
-                                <%
-                                if (first_name == "")
-                                {
-                                %>
-                                    <h3><%="Welcome";%></h3>
-                                <%}%>
-                                <%
-                                else
-                                {%>
-                                    <h3><%="Welcome " + first_name + " " + last_name;%></h3>
-                                <%}%>
-                            <form class="form-subscribe" id="contactForm" data-sb-form-api-token="API_TOKEN">
+                            <% for (let i = 0; iCount < responseObj.length; i++)
+                            { %> <% if (!responseObj[i].first_name) { %>
+                            <h3>Welcome</h3>
+                            <%} else {%>
+                            <h3>
+                                <%="Welcome " + responseObj[i].first_name + " "
+                                + responseObj[i].last_name;%>
+                            </h3>
+                            <%}%> <% } %>
+                            <form
+                                class="form-subscribe"
+                                id="contactForm"
+                                data-sb-form-api-token="API_TOKEN"
+                            >
                                 <!--Survey Button-->
-                                <div class="row" style="display: flex; justify-content: center;">
-                                    <div class="col-auto"><a href="survey"><button class="btn btn-primary btn-lg" id="surveyButton" type="button">Take Survey Now</button></a></div>
+                                <div
+                                    class="row"
+                                    style="
+                                        display: flex;
+                                        justify-content: center;
+                                    "
+                                >
+                                    <div class="col-auto">
+                                        <a href="survey"
+                                            ><button
+                                                class="btn btn-primary btn-lg"
+                                                id="surveyButton"
+                                                type="button"
+                                            >
+                                                Take Survey Now
+                                            </button></a
+                                        >
+                                    </div>
                                 </div>
                             </form>
                         </div>
@@ -72,29 +104,59 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-4">
-                        <a class="link custom" href="https://www.provo.org/community/covey-center-for-the-arts/what-s-happening/events">
-                            <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-                                <div class="features-icons-icon d-flex"><i class="bi bi-calendar-event m-auto text-primary"></i></div>
+                        <a
+                            class="link custom"
+                            href="https://www.provo.org/community/covey-center-for-the-arts/what-s-happening/events"
+                        >
+                            <div
+                                class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3"
+                            >
+                                <div class="features-icons-icon d-flex">
+                                    <i
+                                        class="bi bi-calendar-event m-auto text-primary"
+                                    ></i>
+                                </div>
                                 <h3>Community Events</h3>
-                                <p class="lead mb-0">Gather together to enjoy the great city we all share!</p>
+                                <p class="lead mb-0">
+                                    Gather together to enjoy the great city we
+                                    all share!
+                                </p>
                             </div>
                         </a>
                     </div>
                     <div class="col-lg-4">
                         <a class="link custom" href="#socialscroll">
-                            <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-                                <div class="features-icons-icon d-flex"><i class="bi bi-people m-auto text-primary"></i></div>
+                            <div
+                                class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3"
+                            >
+                                <div class="features-icons-icon d-flex">
+                                    <i
+                                        class="bi bi-people m-auto text-primary"
+                                    ></i>
+                                </div>
                                 <h3>Social Media</h3>
-                                <p class="lead mb-0">Follow us on social media for event information.</p>
+                                <p class="lead mb-0">
+                                    Follow us on social media for event
+                                    information.
+                                </p>
                             </div>
                         </a>
                     </div>
                     <div class="col-lg-4">
                         <a class="link custom" href="dashboard">
-                            <div class="features-icons-item mx-auto mb-0 mb-lg-3">
-                                <div class="features-icons-icon d-flex"><i class="bi bi-layout-wtf m-auto text-primary"></i></div>
+                            <div
+                                class="features-icons-item mx-auto mb-0 mb-lg-3"
+                            >
+                                <div class="features-icons-icon d-flex">
+                                    <i
+                                        class="bi bi-layout-wtf m-auto text-primary"
+                                    ></i>
+                                </div>
                                 <h3>Dashboard</h3>
-                                <p class="lead mb-0">Use our dashboard to learn more about mental health in our community.</p>
+                                <p class="lead mb-0">
+                                    Use our dashboard to learn more about mental
+                                    health in our community.
+                                </p>
                             </div>
                         </a>
                     </div>
@@ -105,55 +167,94 @@
         <section class="showcase">
             <div class="container-fluid p-0">
                 <div class="row g-0">
-                    <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('assets/img/bg-showcase-1.jpg')"></div>
+                    <div
+                        class="col-lg-6 order-lg-2 text-white showcase-img"
+                        style="
+                            background-image: url('assets/img/bg-showcase-1.jpg');
+                        "
+                    ></div>
                     <div class="col-lg-6 order-lg-1 my-auto showcase-text">
                         <h2>Community Events</h2>
-                        <p class="lead mb-0">Come together with other members of the Provo community to enjoy the wonderful town we get to call home!</p>
-                        <br>
-                        <a class="btn btn-primary" href="https://www.provo.org/community/covey-center-for-the-arts/what-s-happening/events">See More</a>
+                        <p class="lead mb-0">
+                            Come together with other members of the Provo
+                            community to enjoy the wonderful town we get to call
+                            home!
+                        </p>
+                        <br />
+                        <a
+                            class="btn btn-primary"
+                            href="https://www.provo.org/community/covey-center-for-the-arts/what-s-happening/events"
+                            >See More</a
+                        >
                     </div>
                 </div>
                 <div class="row g-0">
-                    <div class="col-lg-6 text-white showcase-img" style="background-image: url('assets/img/bg-showcase-2.jpg')"></div>
+                    <div
+                        class="col-lg-6 text-white showcase-img"
+                        style="
+                            background-image: url('assets/img/bg-showcase-2.jpg');
+                        "
+                    ></div>
                     <div class="col-lg-6 my-auto showcase-text">
                         <h2>Social Media</h2>
-                        <p class="lead mb-0">Follow us on Facebook, Instagram, and YouTube for information on upcoming events and daily messages!</p>
-                        <br>
+                        <p class="lead mb-0">
+                            Follow us on Facebook, Instagram, and YouTube for
+                            information on upcoming events and daily messages!
+                        </p>
+                        <br />
                         <div class="col-lg-6 my-auto">
                             <ul class="list-inline mb-0">
                                 <li class="list-inline-item me-4">
-                                    <a href="https://www.facebook.com/provocity/"><i class="bi-facebook fs-1"></i></a>
+                                    <a
+                                        href="https://www.facebook.com/provocity/"
+                                        ><i class="bi-facebook fs-1"></i
+                                    ></a>
                                 </li>
                                 <li class="list-inline-item me-4">
-                                    <a href="https://www.youtube.com/@ProvoCityGovernment"><i class="bi-youtube fs-1"></i></a>
+                                    <a
+                                        href="https://www.youtube.com/@ProvoCityGovernment"
+                                        ><i class="bi-youtube fs-1"></i
+                                    ></a>
                                 </li>
                                 <li class="list-inline-item">
-                                    <a href="https://www.instagram.com/provocity/?hl=en"><i class="bi-instagram fs-1"></i></a>
+                                    <a
+                                        href="https://www.instagram.com/provocity/?hl=en"
+                                        ><i class="bi-instagram fs-1"></i
+                                    ></a>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 <div class="row g-0">
-                    <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('assets/img/bg-showcase-3.jpg')"></div>
+                    <div
+                        class="col-lg-6 order-lg-2 text-white showcase-img"
+                        style="
+                            background-image: url('assets/img/bg-showcase-3.jpg');
+                        "
+                    ></div>
                     <div class="col-lg-6 order-lg-1 my-auto showcase-text">
                         <h2>Dashboard</h2>
-                        <p class="lead mb-0">Explore our dashboard to learn more about people in our community and how social media impacts mental health.</p>
-                        <br>
-                        <a class="btn btn-primary" href="dashboard">View Dashboard</a>
+                        <p class="lead mb-0">
+                            Explore our dashboard to learn more about people in
+                            our community and how social media impacts mental
+                            health.
+                        </p>
+                        <br />
+                        <a class="btn btn-primary" href="dashboard"
+                            >View Dashboard</a
+                        >
                     </div>
                 </div>
             </div>
-            <br>
-            <br>
+            <br />
+            <br />
         </section>
         <!-- Blue line -->
         <section class="call-to-action text-white text-center" id="signup">
             <div class="container position-relative">
                 <div class="row justify-content-center">
-                    <div class="col-xl-6">
-                        
-                    </div>
+                    <div class="col-xl-6"></div>
                 </div>
             </div>
         </section>
@@ -161,26 +262,44 @@
         <footer class="footer bg-light">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
+                    <div
+                        class="col-lg-6 h-100 text-center text-lg-start my-auto"
+                    >
                         <ul class="list-inline mb-2">
-                            <li class="list-inline-item"><a href="/">About</a></li>
+                            <li class="list-inline-item">
+                                <a href="/">About</a>
+                            </li>
                             <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="contact">Contact</a></li>
+                            <li class="list-inline-item">
+                                <a href="contact">Contact</a>
+                            </li>
                             <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="termsOfUse">Terms of Use</a></li>
+                            <li class="list-inline-item">
+                                <a href="termsOfUse">Terms of Use</a>
+                            </li>
                         </ul>
-                        <p class="text-muted small mb-4 mb-lg-0">&copy; Provo City 2023. All Rights Reserved.</p>
+                        <p class="text-muted small mb-4 mb-lg-0">
+                            &copy; Provo City 2023. All Rights Reserved.
+                        </p>
                     </div>
                     <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
                         <ul class="list-inline mb-0">
                             <li class="list-inline-item me-4">
-                                <a href="https://www.facebook.com/provocity/"><i class="bi-facebook fs-3"></i></a>
+                                <a href="https://www.facebook.com/provocity/"
+                                    ><i class="bi-facebook fs-3"></i
+                                ></a>
                             </li>
                             <li class="list-inline-item me-4">
-                                <a href="https://www.youtube.com/@ProvoCityGovernment"><i class="bi-youtube fs-3"></i></a>
+                                <a
+                                    href="https://www.youtube.com/@ProvoCityGovernment"
+                                    ><i class="bi-youtube fs-3"></i
+                                ></a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="https://www.instagram.com/provocity/?hl=en"><i class="bi-instagram fs-3"></i></a>
+                                <a
+                                    href="https://www.instagram.com/provocity/?hl=en"
+                                    ><i class="bi-instagram fs-3"></i
+                                ></a>
                             </li>
                         </ul>
                     </div>

@@ -126,9 +126,12 @@ app.post('/userLogin', (req, res) => {
                 //user credentials invalid
                 res.status(401).json({ message: 'Invalid Credentials' });
             } else {
-                let sFirstName = results.first_name;
-                let sLastName = results.last_name;
-                res.redirect('/', {first_name : sFirstName, last_name : sLastName});
+                //let sFirstName = results.first_name;
+                //let sLastName = results.last_name;
+                //res.redirect('/', {first_name : sFirstName, last_name : sLastName});
+                res.render(path.join(__dirname + '/views/index'), {
+                    responseObj: results,
+                });
             }
         });
 });
