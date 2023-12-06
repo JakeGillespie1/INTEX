@@ -154,7 +154,7 @@ app.post('/addRecord', (req, res) => {
             relationship_id: dbRelationship,
             occupation_id: dbOccupation,
             organization: req.body.sOrganization,
-            use_socials: dbUseSM,
+            social_media_user: dbUseSM,
             socials_used: req.body.socialmediatypes,
             min_time_online: dbMin,
             max_time_online: dbMax,
@@ -169,7 +169,7 @@ app.post('/addRecord', (req, res) => {
             frequency_compared_to_successful_people: parseInt(
                 req.body.iCompare
             ),
-            scale_feels_about_comparing_to_successful_people: parseInt(
+            scale_feel_about_comparing_to_successful_people: parseInt(
                 req.body.iFeel
             ),
             scale_seeking_validation_media_features: parseInt(
