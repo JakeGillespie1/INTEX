@@ -12,11 +12,11 @@
             function updateLocalStorage() {
                 localStorage.setItem(
                     'first_name',
-                    document.getElementById('first_name_p').value
+                    document.getElementById('first_name_p').textContent
                 );
                 localStorage.setItem(
                     'last_name',
-                    document.getElementById('last_name_p').value
+                    document.getElementById('last_name_p').textContent
                 );
             }
         </script>
@@ -65,10 +65,10 @@
                             <h3>
                                 <%="Welcome " + first_name + " " + last_name;%>
                             </h3>
-                            <p style="visibility: hidden" id="first_name_p">
+                            <p style="visibility: none" id="first_name_p">
                                 <%=first_name%>
                             </p>
-                            <p style="visibility: hidden" id="last_name_p">
+                            <p style="visibility: none" id="last_name_p">
                                 <%=last_name%>
                             </p>
                             <% }catch(err){ %>
