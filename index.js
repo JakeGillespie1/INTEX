@@ -180,7 +180,7 @@ app.post('/addRecord', (req, res) => {
             scale_sleep_issues: parseInt(req.body.iSleep),
         })
         .then(() => {
-            res.render(path.join(__dirname + '/views/index'));
+            res.render(path.join(__dirname + '/views/testing'));
         });
 });
 /* We still need to change the variables for the survey above lolz */
