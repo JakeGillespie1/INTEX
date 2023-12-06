@@ -76,88 +76,78 @@ app.get('/testing', (req, res) => {
 });
 
 app.post('/addRecord', (req, res) => {
-    let dbGender = '';
-    let dbOccupation = '';
+    let dbGender;
+    let dbRelationship;
+    let dbOccupation;
+    let dbUseSM;
+    let dbMin;
+    let dbMax;
 
     //Gender processing
     if (req.body.sGender == 'Male') {
-        dbGender = "M";
-    }
-    else if (req.body.sGender == 'Female'){
-        dbGender = "F";
-    }
-    else if (req.body.sGender == 'Other'){
-        dbGender = "O";
+        dbGender = 'M';
+    } else if (req.body.sGender == 'Female') {
+        dbGender = 'F';
+    } else if (req.body.sGender == 'Other') {
+        dbGender = 'O';
     }
 
     //Relationship processing
-    if (req.body.sRelationship == 'Single'){
+    if (req.body.sRelationship == 'Single') {
         dbRelationship = 2;
-    }
-    else if (req.body.sRelationship == 'Dating'){
+    } else if (req.body.sRelationship == 'Dating') {
         dbRelationship = 1;
-    }
-    else if (req.body.sRelationship == 'Married'){
+    } else if (req.body.sRelationship == 'Married') {
         dbRelationship = 4;
-    }
-    else if (req.body.sRelationship == 'Divorced'){
+    } else if (req.body.sRelationship == 'Divorced') {
         dbRelationship = 3;
     }
- 
+
     //Occupation processing
-    if (req.body.sOccupation == 'School Student'){
-       dbOccupation = 3;
-    }
-    else if (req.body.sOccupation == 'University Student'){
+    if (req.body.sOccupation == 'School Student') {
+        dbOccupation = 3;
+    } else if (req.body.sOccupation == 'University Student') {
         dbOccupation = 1;
-    }
-    else if (req.body.sOccupation == 'Salaried Worker'){
+    } else if (req.body.sOccupation == 'Salaried Worker') {
         dbOccupation = 2;
-    }
-    else if (req.body.sOccupation == 'Retired'){
+    } else if (req.body.sOccupation == 'Retired') {
         dbOccupation = 4;
     }
-    
+
     //I skipped organizaiton becuase you can select multiple lolz I have no idea
 
     //Social media use processing
-    if (req.body.UseSM == 'Y'){
-       dbUseSM = true;
-    }
-    else if (req.body.UseSM == 'N'){
+    if (req.body.UseSM == 'Y') {
+        dbUseSM = true;
+    } else if (req.body.UseSM == 'N') {
         dbUseSM = false;
     }
 
     //I skipped organizaiton becuase you can select multiple lolz I have no idea
 
     //Occupation processing
-    if (req.body.avgTime == 'less'){
-       dbMin = 0;
-       dbMax = 1;
-    }
-    else if (req.body.avgTime == 'oneTwo'){
+    if (req.body.avgTime == 'less') {
+        dbMin = 0;
+        dbMax = 1;
+    } else if (req.body.avgTime == 'oneTwo') {
         dbMin = 1;
         dbMax = 2;
-    }
-    else if (req.body.avgTime == 'twoThree'){
+    } else if (req.body.avgTime == 'twoThree') {
         dbMin = 2;
         dbMax = 3;
-    }
-    else if (req.body.avgTime == 'threeFour'){
+    } else if (req.body.avgTime == 'threeFour') {
         dbMin = 3;
         dbMax = 4;
-    }
-    else if (req.body.avgTime == 'fourFive'){
+    } else if (req.body.avgTime == 'fourFive') {
         dbMin = 4;
         dbMax = 5;
-    }
-    else if (req.body.avgTime == 'more'){
+    } else if (req.body.avgTime == 'more') {
         dbMin = 5;
         dbMax = null;
     }
-    
+
     knex('response')
-    //does the table name go there^^
+        //does the table name go there^^
         .insert({
             age: parseInt(req.body.iAge),
             gender: dbGender,
@@ -168,7 +158,7 @@ app.post('/addRecord', (req, res) => {
             //socials_used: req.body.socialmediatypes,
             min_time_online: dbMin,
             max_time_online: dbmax,
-            location: "Provo",
+            location: 'Provo',
 
             frequency_used_with_purpose: parseInt(req.body.iPurpose),
             frequency_distracted_while_busy: parseInt(req.body.iDistracted),
@@ -176,14 +166,20 @@ app.post('/addRecord', (req, res) => {
             scale_easily_distracted: parseInt(req.body.iEasily),
             frequency_bothered_by_worries: parseInt(req.body.iBothered),
             scale_difficulty_concentrating: parseInt(req.body.iConcentrate),
-            frequency_compared_to_successful_people: parseInt(req.body.iCompare),
-            scale_feels_about_comparing_to_successful_people: parseInt(req.body.iFeel),
-            scale_seeking_validation_media_features: parseInt(req.body.iValidation),
+            frequency_compared_to_successful_people: parseInt(
+                req.body.iCompare
+            ),
+            scale_feels_about_comparing_to_successful_people: parseInt(
+                req.body.iFeel
+            ),
+            scale_seeking_validation_media_features: parseInt(
+                req.body.iValidation
+            ),
             frequency_depressed_or_down: parseInt(req.body.iDepressed),
             scale_interest_in_daily_activities: parseInt(req.body.iInterest),
             scale_sleep_issues: parseInt(req.body.iSleep),
         })
-        .then((myResponses) => {
+        .then((mytest) => {
             res.redirect('/');
         });
 });
@@ -191,15 +187,40 @@ app.post('/addRecord', (req, res) => {
 
 app.post('/addUser', (req, res) => {
     knex('user')
-        .insert({
-            first_name: req.body.useremail,
-            last_name: req.body.sGender,
-            email: req.body.useremail,
-            password: 'hi',
-        })
-        .then((mycountry) => {
-            res.redirect('/');
+        .Where('email', req.body.Email)
+        .then((results) => {
+            if (results.length > 0) {
+                // email already in db
+                res.render(path.join(__dirname + '/views/index'), {
+                    first_name: req.body.FirstName,
+                    last_name: req.body.LastName,
+                    email: req.body.Email,
+                    password: req.body.Password1,
+                    message: 'Error: Email already in use',
+                });
+            } else {
+                // let sFirstName = results[0].first_name;
+                // let sLastName = results[0].last_name;
+                // let isAdmin = results[0].is_admin;
+                // res.render(path.join(__dirname + '/views/index'), {
+                //     first_name: sFirstName,
+                //     last_name: sLastName,
+                //     is_admin: isAdmin,
+                //     login: 'true',
+                // });
+            }
         });
+
+    // knex('user')
+    //     .insert({
+    //         first_name: req.body.useremail,
+    //         last_name: req.body.sGender,
+    //         email: req.body.useremail,
+    //         password: 'hi',
+    //     })
+    //     .then((mytest) => {
+    //         res.redirect('/');
+    //     });
 });
 
 app.post('/userLogin', (req, res) => {
