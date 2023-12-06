@@ -10,9 +10,6 @@
         <meta name="author" content="" />
         <script>
             function updateLocalStorage() {
-                let sEmail = localStorage.getItem("useremail");
-                if (!sEmail)
-                {
                     localStorage.setItem(
                         'first_name',
                         document.getElementById('first_name_p').textContent
@@ -21,7 +18,6 @@
                         'last_name',
                         document.getElementById('last_name_p').textContent
                     );
-                }
 
                 let fName = localStorage.getItem("first_name");
                 let lName = localStorage.getItem("last_name");
