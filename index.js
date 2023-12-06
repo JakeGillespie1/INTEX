@@ -76,8 +76,12 @@ app.get('/testing', (req, res) => {
 });
 
 app.post('/addRecord', (req, res) => {
-    let dbGender = '';
-    let dbOccupation = '';
+    let dbGender;
+    let dbRelationship;
+    let dbOccupation;
+    let dbUseSM;
+    let dbMin;
+    let dbMax;
 
     //Gender processing
     if (req.body.sGender == 'Male') {
