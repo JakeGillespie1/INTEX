@@ -24,7 +24,6 @@
                         'is_admin',
                         document.getElementById('is_admin_p').textContent
                     );
-                    localStorage.setItem('login', 'false');
                 }
 
                 let fName = localStorage.getItem('first_name');
@@ -47,7 +46,10 @@
                             'block';
                     }
                 }
-                location.href = 'https://provo.is404.net';
+                if (login == 'true') {
+                    location.href = 'https://provo.is404.net';
+                    localStorage.setItem('login', 'false');
+                }
             }
         </script>
         <title>Provo Mental Health Initiative</title>
