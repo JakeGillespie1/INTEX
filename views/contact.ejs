@@ -107,14 +107,13 @@
             let lName = localStorage.getItem("last_name");
             if (fName == "")
             {
-                document.getElementById("loggedInH3").innerHTML = "";
+
             }
             else
             {
                 document.getElementById("loggedInH3").innerHTML = fName + " " + lName;
                 document.getElementById("loginhref").style.display = "none";
                 document.getElementById("btnLogout").style.display = "block";
-                document.getElementById("loggedInH3").style.display = "block";
             }
         }
     </script>
