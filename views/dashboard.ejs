@@ -105,6 +105,7 @@
             function loggedIn(){
                 let fName = localStorage.getItem("first_name");
                 let lName = localStorage.getItem("last_name");
+                let isAdmin = localStorage.getItem('is_admin');
                 if (!fName)
                 {
                     document.getElementById("btnLogout").style.display = "none"
