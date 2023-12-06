@@ -128,7 +128,7 @@ app.post('/userLogin', (req, res) => {
             } else {
                 let sFirstName = results.first_name;
                 let sLastName = results.last_name;
-                res.render(path.join(__dirname + '/views/index/true'), {
+                res.render(path.join(__dirname + '/views/index'), {
                     first_name: sFirstName,
                     last_name: sLastName,
                 });
