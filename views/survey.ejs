@@ -88,7 +88,7 @@
             <div class="container" id="survey">
                 <div class="row">
                 <h3>Personal Information</h3>
-                    <form action="/addRecord" method="POST">
+                    <form action="/addRecord" method="POST" id="surveyForm">
                         <label for="iAge">What is your age?</label>
                         <br>
                         <select id="iAge" name="iAge">
@@ -359,6 +359,7 @@
                             function submitSurvey()
                             {
                                 document.getElementById("submittedSurvey").innerHTML = "Thank you for your response."
+                                document.getElementById('surveyForm').reset();
                             }
                         </script>
                     </form>
