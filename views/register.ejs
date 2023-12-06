@@ -26,7 +26,7 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="/css/styles.css" rel="stylesheet" />
     </head>
-    <body>
+    <body onload="setupPage();">
         <!-- Navigation-->
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
@@ -44,7 +44,7 @@
                 <div class="row justify-content-center">
                     <div class="col-xl-6">
                         <div class="text-center text-white">
-                            <h1 class="mb-5">Register</h1>
+                            <h1 class="mb-5">Registration Form</h1>
                         </div>
                     </div>
                 </div>
@@ -60,32 +60,42 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="p-5">
-                                        <div class="text-center">
-                                            <h1 class="h4 text-gray-900 mb-4">
-                                                Fart Face
-                                            </h1>
-                                        </div>
                                         <form>
-                                            <fieldset id="CustName">
-                                                <legend>Client Name</legend>
-                                                <br>
-                                                <label for="FirstName">First Name: </label>
-                                                    <input type="text" id="FirstName" title="Please Enter First Name" required>
-                                                <br><br>
-                                                <label for="LastName">Last Name: </label>
-                                                    <input type="text" id="LastName" title="Please Enter Last Name" required>
-                                                <br><br>
-                                                <label for="MidInit">Middle Initial: </label>
-                                                    <input type="text" id="MidInit" title="Please Enter Mid Initial" maxlength="1">  
-                                                <br><br>
-                                                    <legend>Select a Gender</legend>
-                                                        <input type="radio" name="sex" id="CustSexM">
-                                                            <label>Male</label>
-                                                        <input type="radio" name="sex" id="CustSexF">
-                                                            <label>Female</label>
-                                                        <input type="radio" name="sex" id="CustSexO">
-                                                            <label>Other</label>
-                                            </fieldset>
+                                            <input class="form-control form-control-user" 
+                                            type="text" 
+                                            id="FirstName" 
+                                            placeholder="First Name"
+                                            name="FirstName"
+                                            required>
+                                        <br><br>
+                                            <input class="form-control form-control-user" 
+                                            type="text" 
+                                            id="LastName" 
+                                            placeholder="Last Name" 
+                                            name="LastName"
+                                            required>
+                                        <br><br>
+                                            <input class="form-control form-control-user" 
+                                            type="text" 
+                                            id="Email" 
+                                            placeholder="Email" 
+                                            name="Email"
+                                            aria-describedby="emailHelp" 
+                                            required>
+                                        <br><br>
+                                            <input class="form-control form-control-user" 
+                                            type="text" 
+                                            id="Password1" 
+                                            placeholder="Password"
+                                            name="Password1" 
+                                            required>
+                                        <br><br>
+                                            <input class="form-control form-control-user" 
+                                            type="text" 
+                                            id="Password2" 
+                                            placeholder="Confirm Password"
+                                            required>
+                                        <br><br>   
                                         </body>
                                         </form>
                                         <hr />
@@ -196,8 +206,7 @@
                                 <a href="termsOfUse">Terms of Use</a>
                             </li>
                         </ul>
-                        <p class="text-muted small mb-4 mb-lg-0">
-                            &copy; Provo City 2023. All Rights Reserved.
+                        <p class="text-muted small mb-4 mb-lg-0" id = Copyrite>
                         </p>
                     </div>
                     <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
@@ -233,5 +242,13 @@
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+        <script>
+            function setupPage()
+            {
+                let dDate = new Date();
+                    dDate = dDate.getFullYear().toString();
+                document.getElementById("Copyrite").innerHTML = "&copy; Provo City " + dDate +". All Rights Reserved.";
+            }
+        </script>
     </body>
 </html>

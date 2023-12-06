@@ -50,6 +50,10 @@
                             'block';
                     }
                 }
+
+                let dDate = new Date();
+                    dDate = dDate.getFullYear().toString();
+                    document.getElementById("Copyrite").innerHTML = "&copy; Provo City " + dDate +". All Rights Reserved.";
             }
         </script>
         <title>Provo Mental Health Initiative</title>
@@ -338,8 +342,7 @@
                                 <a href="termsOfUse">Terms of Use</a>
                             </li>
                         </ul>
-                        <p class="text-muted small mb-4 mb-lg-0">
-                            &copy; Provo City 2023. All Rights Reserved.
+                        <p class="text-muted small mb-4 mb-lg-0" id="Copyrite">
                         </p>
                     </div>
                     <div class="col-lg-6 h-100 text-center text-lg-end my-auto">

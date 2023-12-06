@@ -424,7 +424,7 @@
                             <li class="list-inline-item">⋅</li>
                             <li class="list-inline-item"><a href="termsOfUse">Terms of Use</a></li>
                         </ul>
-                        <p class="text-muted small mb-4 mb-lg-0">&copy; Provo City 2023. All Rights Reserved.</p>
+                        <p class="text-muted small mb-4 mb-lg-0" id="Copyrite"></p>
                     </div>
                     <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
                         <ul class="list-inline mb-0">
@@ -469,16 +469,16 @@
                         document.getElementById('createacc').style.display =
                             'block';  
                     }
+              let dDate = new Date();
+                dDate = dDate.getFullYear().toString();
+                document.getElementById("Copyrite").innerHTML = "&copy; Provo City " + dDate +". All Rights Reserved.";
           }
         }
             //Get Date Value and Validation Set up for Date Field
             function getDate()
             {
-                let HTMLField = document.querySelector("#CustDOB");
-                let dDate = new Date();
-                dDate = dDate.getFullYear().toString() + "-" + (dDate.getMonth()+1).toString().padStart(2,0) + "-" + dDate.getDate().toString().padStart(2,0);
-                HTMLField.value = dDate;
-                HTMLField.max = dDate; 
+                let dataDate = new Date();
+                dataDate = dataDate.getFullYear().toString() + "-" + (dDate.getMonth()+1).toString().padStart(2,0) + "-" + dDate.getDate().toString().padStart(2,0);
             }
     </script>
     </body>
