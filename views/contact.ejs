@@ -15,12 +15,13 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="/css/styles.css" rel="stylesheet" />
     </head>
-    <body>
+    <body onload="loggedIn();">
         <!-- Navigation-->
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
                 <a class="navbar-brand" href="/"><img src="/assets/img/provo welcome.png" height="100" alt="Welcome Provo Icon"></a>
                 <a class="btn btn-primary" href="login">Login</a>
+                <h3 style="display: none;" id="loggedInH3"></h3>
             </div>
         </nav>
         <!-- Masthead-->
@@ -98,5 +99,21 @@
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    <script>
+        function loggedIn(){
+            let fName = localStorage.getItem(first_name);
+            let lName = localStorage.getItem(last_name);
+            if (localStorage.getItem(first_name) == "")
+            {
+                document.getElementById("loggedInH3").innerHTML = "";
+                document.getElementById("loggedInH3").style.display = "hidden";
+            }
+            else
+            {
+                document.getElementById("loggedInH3").innerHTML = fName + " " + lName;
+                document.getElementById("loggedInH3").style.display = "block";
+            }
+        }
+    </script>
     </body>
 </html>
