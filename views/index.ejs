@@ -111,7 +111,7 @@
                             <h1 class="mb-5">Provo Mental Health Initiative</h1>
                             <form action="/postIndex"></form>
                             <% try{ %>
-                            <h3 id="thesillyone">
+                            <h3>
                                 <%="Welcome " + first_name + " " + last_name;%>
                             </h3>
                             <p style="display: none" id="first_name_p">
@@ -124,7 +124,7 @@
                                 <%=is_admin%>
                             </p>
                             <% }catch(err){ %>
-                            <h3>Welcome!</h3>
+                            <h3 id="thesillyone">Welcome!</h3>
                             <% } %>
                             <form
                                 class="form-subscribe"
