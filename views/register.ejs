@@ -60,7 +60,13 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="p-5">
-                                        <form>
+                                        <h1 class="h4 text-gray-900 mb-4" id="emailBroke" style="display: none; color: orange; text-align: center;">
+                                            <%= message %>
+                                        </h1>
+                                        <h1 class="h4 text-gray-900 mb-4" id="pwBroke" style="display: none; color: orange; text-align: center;">
+                                            Error: Passwords do not match
+                                        </h1>
+                                        <form action="/addUser" method="post">
                                             <input class="form-control form-control-user" 
                                             type="text" 
                                             id="FirstName" 
@@ -84,18 +90,26 @@
                                             required>
                                         <br><br>
                                             <input class="form-control form-control-user" 
-                                            type="text" 
+                                            type="password" 
                                             id="Password1" 
                                             placeholder="Password"
                                             name="Password1" 
                                             required>
                                         <br><br>
                                             <input class="form-control form-control-user" 
-                                            type="text" 
+                                            type="password" 
                                             id="Password2" 
                                             placeholder="Confirm Password"
                                             required>
-                                        <br><br>   
+                                        <br><br>
+                                        <button
+                                        type="submit"
+                                        class="btn btn-primary btn-user btn-block"
+                                        onclick="checkPass();"
+                                        id = "btnSub"
+                                        >
+                                        Create Account
+                                        </button>   
                                         </body>
                                         </form>
                                         <hr />
@@ -247,7 +261,33 @@
             {
                 let dDate = new Date();
                     dDate = dDate.getFullYear().toString();
-                document.getElementById("Copyrite").innerHTML = "&copy; Provo City " + dDate +". All Rights Reserved.";
+                    document.getElementById("Copyrite").innerHTML = "&copy; Provo City " + dDate +". All Rights Reserved.";
+
+                if (document.getElementById("emailBroke").value !== "")
+                {
+                    document.getElementById("emailBroke").style.display = "block";
+                }
+                else
+                {
+                    document.getElementById("emailBroke").style.display = "none";
+                }
+            }
+
+            function checkPass(){
+                let sPass1 = document.getElementById("Password1").value;
+                let sPass2 = document.getElementById("Password2").value;
+
+                if (sPass1 !== sPass2)
+                {
+                    document.getElementById("btnSub").type = "button";
+                    document.getElementById("Password2").value = "";
+                    document.getElementById("pwBroke").style.display = "block";
+                }
+                else
+                {
+                    document.getElementById("btnSub").type = "submit";
+                    document.getElementById("pwBroke").style.display = "none";
+                }
             }
         </script>
     </body>
