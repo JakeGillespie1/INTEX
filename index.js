@@ -36,6 +36,7 @@ let knex = require('knex')({
 app.get('/db', (req, res) => {
     knex.select()
         .from('response')
+        .orderBy('location', 'desc')
         .then((response) => {
             res.render(path.join(__dirname + '/views/intexData'), {
                 mytest: response,
@@ -56,7 +57,9 @@ app.get('/login', (req, res) => {
 });
 
 app.get('/register', (req, res) => {
-    res.render(path.join(__dirname + '/views/register'), {message : 'message'});
+    res.render(path.join(__dirname + '/views/register'), {
+        message: 'message',
+    });
 });
 
 app.get('/termsOfUse', (req, res) => {
@@ -180,7 +183,7 @@ app.post('/addRecord', (req, res) => {
             scale_sleep_issues: parseInt(req.body.iSleep),
         })
         .then(() => {
-            res.render(path.join(__dirname + '/views/index'));
+            res.render(path.join(__dirname + '/views/testing'));
         });
 });
 /* We still need to change the variables for the survey above lolz */
@@ -191,7 +194,7 @@ app.post('/addUser', (req, res) => {
         .then((results) => {
             if (results.length > 0) {
                 // email already in db
-                res.render(path.join(__dirname + '/views/index'), {
+                res.render(path.join(__dirname + '/views/register'), {
                     first_name: req.body.FirstName,
                     last_name: req.body.LastName,
                     email: req.body.Email,
