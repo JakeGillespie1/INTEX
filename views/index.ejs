@@ -45,6 +45,10 @@
                         'block';
                     document.getElementById('thesillyone').innerHTML =
                         'Welcome ' + fName + ' ' + lName;
+                    if (localStorage.getItem('is_admin')) {
+                        document.getElementById('createacc').style.display =
+                            'block';
+                    }
                 }
             }
         </script>
