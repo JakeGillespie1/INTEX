@@ -157,7 +157,7 @@ app.post('/addRecord', (req, res) => {
             use_socials: dbUseSM,
             //socials_used: req.body.socialmediatypes,
             min_time_online: dbMin,
-            max_time_online: dbmax,
+            max_time_online: dbMax,
             location: 'Provo',
 
             frequency_used_with_purpose: parseInt(req.body.iPurpose),
@@ -181,7 +181,7 @@ app.post('/addRecord', (req, res) => {
         })
         .then((mytest) => {
             res.redirect('/'),
-            document.getElementById("submittedSurvey").innerHTML = 'Thank you for your response.';
+            document.getElementById("submittedSurvey").innerHTML ="Thank you for your response.";
         });
 });
 /* We still need to change the variables for the survey above lolz */
