@@ -105,13 +105,11 @@
         function loggedIn(){
             let fName = localStorage.getItem("first_name");
             let lName = localStorage.getItem("last_name");
-            if (fName == "")
+            if (!fName)
             {
-
             }
             else
             {
-                document.getElementById("loggedInH3").innerHTML = fName + " " + lName;
                 document.getElementById("loginhref").style.display = "none";
                 document.getElementById("btnLogout").style.display = "block";
             }
