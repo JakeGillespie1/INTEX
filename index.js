@@ -36,6 +36,7 @@ let knex = require('knex')({
 app.get('/db', (req, res) => {
     knex.select()
         .from('response')
+        .orderBy('location', 'desc')
         .then((response) => {
             res.render(path.join(__dirname + '/views/intexData'), {
                 mytest: response,
@@ -56,7 +57,9 @@ app.get('/login', (req, res) => {
 });
 
 app.get('/register', (req, res) => {
-    res.render(path.join(__dirname + '/views/register'), {message : 'message'});
+    res.render(path.join(__dirname + '/views/register'), {
+        message: 'message',
+    });
 });
 
 app.get('/termsOfUse', (req, res) => {
