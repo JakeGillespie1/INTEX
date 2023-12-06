@@ -66,7 +66,6 @@
                                         class="card-img-top"
                                         src="assets/favicon.ico"
                                         alt="..."
-                                        height="350"
                                         id="LoginPic"
                                     />
                                 </div>
@@ -232,8 +231,10 @@
                                 <a href="termsOfUse">Terms of Use</a>
                             </li>
                         </ul>
-                        <p class="text-muted small mb-4 mb-lg-0" id="Copyrite">
-                        </p>
+                        <p
+                            class="text-muted small mb-4 mb-lg-0"
+                            id="Copyrite"
+                        ></p>
                     </div>
                     <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
                         <ul class="list-inline mb-0">
@@ -281,11 +282,11 @@
                 localStorage.setItem('login', 'true');
             }
 
-            function setupPage()
-            {
+            function setupPage() {
                 let dDate = new Date();
-                    dDate = dDate.getFullYear().toString();
-                    document.getElementById("Copyrite").innerHTML = "&copy; Provo City " + dDate +". All Rights Reserved.";
+                dDate = dDate.getFullYear().toString();
+                document.getElementById('Copyrite').innerHTML =
+                    '&copy; Provo City ' + dDate + '. All Rights Reserved.';
             }
         </script>
     </body>
