@@ -188,7 +188,7 @@ app.post('/addRecord', (req, res) => {
 
 app.post('/addUser', (req, res) => {
     knex('user')
-        .Where('email', req.body.Email)
+        .where('email', req.body.Email)
         .then((results) => {
             if (results.length > 0) {
                 // email already in db
