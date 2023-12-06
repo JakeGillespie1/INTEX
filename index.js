@@ -162,12 +162,11 @@ app.post('/addRecord', (req, res) => {
             gender: dbGender,
             relationship_id: dbRelationship,
             occupation_id: dbOccupation,
-            organization: req.body.sOrganization,
+            //organization: req.body.sOrganization,
             use_socials: dbUseSM,
-            socials_used: req.body.socialmediatypes,
-            //min_time_online
-            //max_time_online
-            avg_time: req.body.avgTime,
+            //socials_used: req.body.socialmediatypes,
+            min_time_online: dbMin,
+            max_time_online: dbmax,
             location: "Provo",
 
             frequency_used_with_purpose: parseInt(req.body.iPurpose),
@@ -176,12 +175,8 @@ app.post('/addRecord', (req, res) => {
             scale_easily_distracted: parseInt(req.body.iEasily),
             frequency_bothered_by_worries: parseInt(req.body.iBothered),
             scale_difficulty_concentrating: parseInt(req.body.iConcentrate),
-            frequency_compared_to_successful_people: parseInt(
-                req.body.iCompare
-            ),
-            scale_feels_about_comparing_to_successful_people: parseInt(
-                req.body.iFeel
-            ),
+            frequency_compared_to_successful_people: parseInt(req.body.iCompare),
+            scale_feels_about_comparing_to_successful_people: parseInt(req.body.iFeel),
             scale_seeking_validation_media_features: parseInt(
                 req.body.iValidation
             ),
