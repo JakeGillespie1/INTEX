@@ -104,6 +104,20 @@ body {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+div.myTableauViz {
+  width: 100%; /* Use a percentage width */
+  max-width: 1650px; /* Set a maximum width if needed */
+  margin: 0 auto; /* Center the element horizontally */
+}
+.tab-content {
+  background: rgb(254, 254, 254);
+  line-height: 25px;
+  border-left: none;
+  border-right: none;
+  padding: 30px 10%; /* Centered padding */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
 hr {
   margin: 1rem 0;
   color: inherit;
@@ -4283,7 +4297,7 @@ textarea.form-control-lg {
 .card-img,
 .card-img-top,
 .card-img-bottom {
-  width: 70%;
+  width: 75%;
   display: block;
   margin-left: 75px;
   margin-right: auto;
