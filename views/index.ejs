@@ -5,6 +5,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
+        <script>
+            window.onload = () => {
+                if (first_name.value = "")
+                {
+                    document.getElementById("namedisplay").value = "Welcome";
+                }
+                else
+                {
+                    document.getElementById("namedisplay").value = "Welcome " + first_name + last_name;
+                }
+            }
+        </script>
         <title>Provo Mental Health Initiative</title>
         <!-- load in user data before page load -->
         <!-- Favicon-->
