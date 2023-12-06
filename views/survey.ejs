@@ -110,6 +110,17 @@
                         <input type="radio" id="rbOther" name="sGender" value="Other">
                         <label for="rbOther">Other</label>
 
+                        <!-- This part of the code should take the selected 
+                          radio button value and change it to the value
+                          we show it as in the database
+                        -->
+                        <% if (sGender == 'Male') { %>
+                          <input type="hidden" name="dbGender" value="M">
+                        <% } else if (sGender == 'Female') { %>
+                          <input type="hidden" name="dbGender" value="F">
+                        <% } else if (sGender == 'Other') { %>
+                          <input type="hidden" name="dbGender" value="O">
+                        <% } %>
                         <br>
                         <br>
                         <label>What is your relationship status?</label>

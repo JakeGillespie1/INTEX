@@ -25,11 +25,15 @@
                         document.getElementById('is_admin_p').textContent
                     );
                     localStorage.setItem('login', 'false');
+
+                    if (localStorage.getItem('is_admin')) {
+                        document.getElementById('createacc').style.display =
+                            'block';
+                    }
                 }
 
                 let fName = localStorage.getItem('first_name');
                 let lName = localStorage.getItem('last_name');
-                let isAdmin = localStorage.getItem('is_admin');
                 if (!fName) {
                     document.getElementById('btnLogout').style.display = 'none';
                     document.getElementById('createacc').style.display = 'none';
@@ -41,8 +45,7 @@
                         'block';
                     document.getElementById('thesillyone').innerHTML =
                         'Welcome ' + fName + ' ' + lName;
-
-                    if (isAdmin) {
+                    if (localStorage.getItem('is_admin')) {
                         document.getElementById('createacc').style.display =
                             'block';
                     }
