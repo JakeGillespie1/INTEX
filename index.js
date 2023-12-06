@@ -153,9 +153,9 @@ app.post('/addRecord', (req, res) => {
             gender: dbGender,
             relationship_id: dbRelationship,
             occupation_id: dbOccupation,
-            //organization: req.body.sOrganization,
+            organization: req.body.sOrganization,
             use_socials: dbUseSM,
-            //socials_used: req.body.socialmediatypes,
+            socials_used: req.body.socialmediatypes,
             min_time_online: dbMin,
             max_time_online: dbMax,
             location: 'Provo',
@@ -180,8 +180,7 @@ app.post('/addRecord', (req, res) => {
             scale_sleep_issues: parseInt(req.body.iSleep),
         })
         .then((mytest) => {
-            res.redirect('/'),
-            document.getElementById("submittedSurvey").innerHTML ="Thank you for your response.";
+            res.redirect('/')
         });
 });
 /* We still need to change the variables for the survey above lolz */
