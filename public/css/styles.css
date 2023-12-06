@@ -112,8 +112,6 @@ div.myTableauViz {
 .tab-content {
   background: rgb(254, 254, 254);
   line-height: 25px;
-  border-top: 5px solid #006950;
-  border-bottom: 5px solid #006950;
   border-left: none;
   border-right: none;
   padding: 30px 10%; /* Centered padding */
