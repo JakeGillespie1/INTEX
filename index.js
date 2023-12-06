@@ -71,6 +71,11 @@ app.get('/survey', (req, res) => {
     res.render(path.join(__dirname + '/views/survey'));
 });
 
+app.get('/testingSurvey', (req, res) => {
+    res.render(path.join(__dirname + '/views/testingsSurvey'));
+});
+
+
 app.post('/addRecord', (req, res) => {
     knex('record')
         .insert({
