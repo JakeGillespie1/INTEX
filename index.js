@@ -120,7 +120,7 @@ app.post('/userLogin', (req, res) => {
     knex('user')
         .where('password', req.body.pword)
         .andWhere('email', req.body.useremail)
-        .select('password', 'email', 'first_name', 'last_name')
+        .select('password', 'email', 'first_name', 'last_name', 'is_admin')
         .then((results) => {
             if (results.length == 0) {
                 //user credentials invalid
@@ -128,9 +128,12 @@ app.post('/userLogin', (req, res) => {
             } else {
                 let sFirstName = results[0].first_name;
                 let sLastName = results[0].last_name;
+                let isAdmin = results[0].is_admin;
+
                 res.render(path.join(__dirname + '/views/index'), {
                     first_name: sFirstName,
                     last_name: sLastName,
+                    is_admin: isAdmin,
                 });
             }
         });
