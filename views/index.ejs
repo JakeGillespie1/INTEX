@@ -11,7 +11,7 @@
         <script>
             function updateLocalStorage() {
                 let login = localStorage.getItem('login');
-                if (login) {
+                if (login == 'true') {
                     localStorage.setItem(
                         'first_name',
                         document.getElementById('first_name_p').textContent
@@ -20,7 +20,7 @@
                         'last_name',
                         document.getElementById('last_name_p').textContent
                     );
-                    localStorage.setItem('login', false);
+                    localStorage.setItem('login', 'false');
                 }
 
                 let fName = localStorage.getItem('first_name');
