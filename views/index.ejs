@@ -46,9 +46,9 @@
                             <h1 class="mb-5">Provo Mental Health Initiative</h1>
                             <form action="/postIndex"></form>
                             <h3 id = "namedisplay">
-                            <%= if (first_name = ""){%>
+                            <%=if (first_name = ""){%>
                                 <%="Welcome";}%>
-                            <%  else{%>
+                            <%else{%>
                                 <%="Welcome " + first_name + " " + last_name;}%>
                             </h3>
                             <form class="form-subscribe" id="contactForm" data-sb-form-api-token="API_TOKEN">
