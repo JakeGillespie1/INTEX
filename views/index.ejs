@@ -32,6 +32,7 @@
                 let isAdmin = localStorage.getItem('is_admin');
                 if (!fName) {
                     document.getElementById('btnLogout').style.display = 'none';
+                    document.getElementById('createacc').style.display = 'none';
                 } else {
                     document.getElementById('loginhref').style.display = 'none';
                     document.getElementById('btnLogout').textContent =
@@ -39,7 +40,7 @@
                     document.getElementById('btnLogout').style.display =
                         'block';
 
-                    if (isAdmin == 'true') {
+                    if (isAdmin) {
                         document.getElementById('createacc').style.display =
                             'block';
                     }
