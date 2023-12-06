@@ -183,7 +183,7 @@ app.post('/addRecord', (req, res) => {
             scale_interest_in_daily_activities: parseInt(req.body.iInterest),
             scale_sleep_issues: parseInt(req.body.iSleep),
         })
-        .then((myResponses) => {
+        .then((mytest) => {
             res.redirect('/');
         });
 });
@@ -197,7 +197,7 @@ app.post('/addUser', (req, res) => {
             email: req.body.useremail,
             password: 'hi',
         })
-        .then((mycountry) => {
+        .then((mytest) => {
             res.redirect('/');
         });
 });
