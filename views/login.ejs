@@ -137,11 +137,6 @@
                                                 >Forgot Password?</a
                                             >
                                         </div>
-                                        <div class="text-center">
-                                            <a class="small" href="register"
-                                                >Create an Account!</a
-                                            >
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -284,6 +279,7 @@
                     'password',
                     document.getElementById('exampleInputPassword').value
                 );
+                localStorage.setItem('login', 'true');
             }
         </script>
     </body>

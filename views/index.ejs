@@ -10,14 +10,41 @@
         <meta name="author" content="" />
         <script>
             function updateLocalStorage() {
-                localStorage.setItem(
-                    'first_name',
-                    document.getElementById('first_name_p').textContent
-                );
-                localStorage.setItem(
-                    'last_name',
-                    document.getElementById('last_name_p').textContent
-                );
+                let login = localStorage.getItem('login');
+                if (login == 'true') {
+                    localStorage.setItem(
+                        'first_name',
+                        document.getElementById('first_name_p').textContent
+                    );
+                    localStorage.setItem(
+                        'last_name',
+                        document.getElementById('last_name_p').textContent
+                    );
+                    localStorage.setItem(
+                        'is_admin',
+                        document.getElementById('is_admin_p').textContent
+                    );
+                    localStorage.setItem('login', 'false');
+                }
+
+                let fName = localStorage.getItem('first_name');
+                let lName = localStorage.getItem('last_name');
+                let isAdmin = localStorage.getItem('is_admin');
+                if (!fName) {
+                    document.getElementById('btnLogout').style.display = 'none';
+                    document.getElementById('createacc').style.display = 'none';
+                } else {
+                    document.getElementById('loginhref').style.display = 'none';
+                    document.getElementById('btnLogout').textContent =
+                        'Logout ' + fName + ' ' + lName;
+                    document.getElementById('btnLogout').style.display =
+                        'block';
+
+                    if (isAdmin) {
+                        document.getElementById('createacc').style.display =
+                            'block';
+                    }
+                }
             }
         </script>
         <title>Provo Mental Health Initiative</title>
@@ -49,7 +76,27 @@
                         height="100"
                         alt="Welcome Provo Icon"
                 /></a>
-                <a class="btn btn-primary" href="login">Login</a>
+                <div style="display: flex;">
+                    <a
+                        id="createacc"
+                        style="display: none; margin-right: 5px;"
+                        class="btn btn-warning"
+                        href="register"
+                        >Create New Account</a
+                    >
+                    <form action="/" method="GET">
+                        <button
+                            type="submit"
+                            style="display: none"
+                            class="btn btn-primary"
+                            onclick="localStorage.clear();"
+                            id="btnLogout"
+                        ></button>
+                    </form>
+                    <a class="btn btn-primary" href="login" id="loginhref"
+                        >Login</a
+                    >
+                </div>
             </div>
         </nav>
         <!-- Masthead-->
@@ -70,6 +117,9 @@
                             </p>
                             <p style="display: none" id="last_name_p">
                                 <%=last_name%>
+                            </p>
+                            <p style="display: none" id="is_admin_p">
+                                <%=is_admin%>
                             </p>
                             <% }catch(err){ %>
                             <h3>Welcome!</h3>
