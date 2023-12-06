@@ -179,8 +179,8 @@ app.post('/addRecord', (req, res) => {
             scale_interest_in_daily_activities: parseInt(req.body.iInterest),
             scale_sleep_issues: parseInt(req.body.iSleep),
         })
-        .then((mytest) => {
-            res.redirect('/')
+        .then(() => {
+            res.render(path.join(__dirname + '/views/index'));
         });
 });
 /* We still need to change the variables for the survey above lolz */
