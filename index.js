@@ -207,16 +207,16 @@ app.post('/addUser', (req, res) => {
             }
         });
 
-    knex('user')
-        .insert({
-            first_name: req.body.useremail,
-            last_name: req.body.sGender,
-            email: req.body.useremail,
-            password: 'hi',
-        })
-        .then((mycountry) => {
-            res.redirect('/');
-        });
+    // knex('user')
+    //     .insert({
+    //         first_name: req.body.useremail,
+    //         last_name: req.body.sGender,
+    //         email: req.body.useremail,
+    //         password: 'hi',
+    //     })
+    //     .then((mycountry) => {
+    //         res.redirect('/');
+    //     });
 });
 
 app.post('/userLogin', (req, res) => {
