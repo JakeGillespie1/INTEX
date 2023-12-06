@@ -39,6 +39,8 @@
                         'Logout ' + fName + ' ' + lName;
                     document.getElementById('btnLogout').style.display =
                         'block';
+                    document.getElementById('thesillyone').innerHTML = 
+                        "Welcome " + fName + " " + lName;
 
                     if (isAdmin) {
                         document.getElementById('createacc').style.display =
@@ -109,7 +111,7 @@
                             <h1 class="mb-5">Provo Mental Health Initiative</h1>
                             <form action="/postIndex"></form>
                             <% try{ %>
-                            <h3>
+                            <h3 id="thesillyone">
                                 <%="Welcome " + first_name + " " + last_name';%>
                             </h3>
                             <p style="display: none" id="first_name_p">
