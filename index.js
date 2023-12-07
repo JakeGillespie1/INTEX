@@ -150,7 +150,7 @@ app.post('/addRecord', (req, res) => {
     }
 
     let dataDate = new Date();
-    dataDate = dataDate.getFullYear().toString() + "-" + (dDate.getMonth()+1).toString().padStart(2,0) + "-" + dDate.getDate().toString().padStart(2,0);
+    dataDate = dataDate.getFullYear().toString() + "-" + (dataDate.getMonth()+1).toString().padStart(2,0) + "-" + dataDate.getDate().toString().padStart(2,0);
 
     let dataTime = dataDate.getHours().toString() + ":" + dataDate.getMinutes().toString() + ":" +dataDate.getSeconds().toString();
     
