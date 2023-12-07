@@ -61,18 +61,19 @@
                         action="/db"
                         method="get"
                     >
-                        <div class="col-11">
-                            <select class="form-select form-select-lg mb-3" id="responseSelector" name="responseSelector">
+                        <div class="col-8">
+                            <select class="form-select form-select-sm" id="responseSelector" name="responseSelector">
                                 <option value="all">View All</option>
                                 <% mytest.forEach(response => { %>
                                     <option value="<%= response.response_id %>"><%= response.response_id %></option>
                                 <% }); %>
                             </select>
                         </div>
-                        <div class="col-1"><button type="submit" class="btn btn-primary">Find Record</button></div>
+                        <div class="col-2"><button type="submit" class="btn btn-primary">Find Record</button></div>
                     </form>
                 </div>
             <table
+            class="table table-striped"
                 style="
                     width: 100%;
                     background-color: RGBA(248, 249, 250, var(--bs-bg-opacity, 1));
