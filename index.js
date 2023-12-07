@@ -252,6 +252,24 @@ app.post('/addRecord', (req, res) => {
         });
 });
 
+app.post('/emailPW' , (req, res) => {
+    knex('user')
+    .where('email', req.body.Email)
+    .then((results) => {
+        if (results.length == 0) {
+            // email not in db
+            res.render(path.join(__dirname + '/views/forgotPasswordEmail'), {
+                message: 'Error: User email does not exist',
+            })
+        } else{
+            knex('user')
+            .then(() => {
+                res.render(path.join(__dirname + '/views/testing2'));
+            });
+        }
+});
+
+
 app.post('/addUser', (req, res) => {
     knex('user')
         .where('email', req.body.Email)
