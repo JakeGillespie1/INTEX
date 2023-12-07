@@ -201,27 +201,34 @@ app.post('/addRecord', (req, res) => {
             frequency_depressed_or_down: parseInt(req.body.iDepressed),
             scale_interest_in_daily_activities: parseInt(req.body.iInterest),
             scale_sleep_issues: parseInt(req.body.iSleep),
-        });
+        })
+        .then(() => {
+            let responseID;
+            knex.select()
+                .from('response')
+                .orderBy('response_id', 'desc')
+                .then((response) => {
+                    responseID = response[0].response_id;
 
-    let responseID;
-    knex.select()
-        .from('response')
-        .orderBy('response_id', 'desc')
-        .then((response) => {
-            responseID = response[0].response_id;
+                    let currSocials = req.body.socialmediatypes || [];
 
-            let currSocials = req.body.socialmediatypes || [];
-
-            for (let iCount = 0; iCount < currSocials.length; iCount++) {
-                knex('platform_response')
-                    .insert({
-                        platform_id: currSocials[iCount],
-                        response_id: responseID,
-                    })
-                    .then(() => {
-                        res.render(path.join(__dirname + '/views/testing2'));
-                    });
-            }
+                    for (
+                        let iCount = 0;
+                        iCount < currSocials.length;
+                        iCount++
+                    ) {
+                        knex('platform_response')
+                            .insert({
+                                platform_id: currSocials[iCount],
+                                response_id: responseID,
+                            })
+                            .then(() => {
+                                res.render(
+                                    path.join(__dirname + '/views/testing2')
+                                );
+                            });
+                    }
+                });
         });
 });
 /* We still need to change the variables for the survey above lolz */
