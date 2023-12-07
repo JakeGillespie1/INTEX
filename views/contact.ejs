@@ -150,6 +150,10 @@
     <script>
         /*Confirms admin or logged-in status, grabs the date for the copyright tag*/
         function loggedIn(){
+            let dDate = new Date();
+                    dDate = dDate.getFullYear().toString();
+                    document.getElementById("Copyrite").innerHTML = "&copy; Provo City " + dDate +". All Rights Reserved.";
+
             if (localStorage.getItem('is_admin').includes("true")) {
                     document.getElementById('createacc').style.display =
                         'block';}
@@ -165,10 +169,6 @@
                         'Logout ' + fName + ' ' + lName;
                     document.getElementById('btnLogout').style.display =
                         'block';}
-
-            let dDate = new Date();
-                    dDate = dDate.getFullYear().toString();
-                    document.getElementById("Copyrite").innerHTML = "&copy; Provo City " + dDate +". All Rights Reserved.";
         }
     </script>
     </body>
