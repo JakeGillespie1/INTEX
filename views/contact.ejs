@@ -15,6 +15,7 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="/css/styles.css" rel="stylesheet" />
     </head>
+    <!-- Page setup and login confirmation -->
     <body onload="loggedIn();">
         <!-- Navigation-->
         <nav class="navbar navbar-light bg-light static-top">
@@ -128,6 +129,7 @@
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
     <script>
+        /*Confirms admin or logged-in status, grabs the date for the copyright tag*/
         function loggedIn(){
             if (localStorage.getItem('is_admin').includes("true")) {
                     document.getElementById('createacc').style.display =
