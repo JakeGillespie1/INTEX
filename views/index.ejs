@@ -11,7 +11,7 @@
         <script>
             function updateLocalStorage() {
 
-                if (localStorage.getItem('is_admin')) {
+                if (localStorage.getItem('is_admin').includes("true")) {
                     document.getElementById('createacc').style.display =
                         'block';}
 
