@@ -30,7 +30,7 @@
                         'Welcome ' + fName + ' ' + lName;
                     document.getElementById('thesillyone').innerHTML =
                         'block';
-                    if (localStorage.getItem('is_admin')) {
+                    if (localStorage.getItem('is_admin').includes("false")) {
                         document.getElementById('createacc').style.display =
                             'block';
                     }
