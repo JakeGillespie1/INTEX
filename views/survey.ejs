@@ -86,7 +86,7 @@
         <div class="master-div-style">
             <div id="survey">
                 <!--Personal Info-->
-                <h3 class="text-center">Personal Information</h3>
+                <h3 class="text-center" style="padding-bottom: 20px;">Personal Information</h3>
                 <form action="/addRecord" method="POST" id="surveyForm">
                     <div class="form-rows">
                         <div class="labels">
@@ -580,7 +580,7 @@
                                 >
                             </div>
                             <div class="fields">
-                                <select id="iCompare" name="iCompare">
+                                <select id="iCompare" name="iCompare" class="dropdowncustom">
                                     <option value="" disabled selected>
                                         -- Select a number --
                                     </option>
@@ -604,7 +604,7 @@
                                 >
                             </div>
                             <div class="fields">
-                                <select id="iFeel" name="iFeel">
+                                <select id="iFeel" name="iFeel" class="dropdowncustom">
                                     <option value="" disabled selected>
                                         -- Select a number --
                                     </option>
@@ -618,84 +618,99 @@
                                 </select>
                             </div>
                         </div>
-                        
-                        <label for="iValidation"
-                            >How often do you look to seek validation from
-                            features of social media?</label
-                        >
-                        <br />
-                        <select id="iValidation" name="iValidation">
-                            <option value="" disabled selected>
-                                -- Select a number --
-                            </option>
-                            <script>
-                                for (let i = 1; i <= 5; i++) {
-                                    document.write(
-                                        `<option value="${i}">${i}</option>`
-                                    );
-                                }
-                            </script>
-                        </select>
-                        <br />
-                        <br />
-                        <label for="iDepressed"
-                            >How often do you feel depressed or down?</label
-                        >
-                        <br />
-                        <select id="iDepressed" name="iDepressed">
-                            <option value="" disabled selected>
-                                -- Select a number --
-                            </option>
-                            <script>
-                                for (let i = 1; i <= 5; i++) {
-                                    document.write(
-                                        `<option value="${i}">${i}</option>`
-                                    );
-                                }
-                            </script>
-                        </select>
-                        <br />
-                        <br />
-                        <label for="iInterest"
-                            >How frequently does your interest in daily
-                            activities fluctuate?</label
-                        >
-                        <br />
-                        <select id="iInterest" name="iInterest">
-                            <option value="" disabled selected>
-                                -- Select a number --
-                            </option>
-                            <script>
-                                for (let i = 1; i <= 5; i++) {
-                                    document.write(
-                                        `<option value="${i}">${i}</option>`
-                                    );
-                                }
-                            </script>
-                        </select>
-                        <br />
-                        <br />
-                        <label for="iSleep"
-                            >How often do you face issues regarding
-                            sleep?</label
-                        >
-                        <br />
-                        <select id="iSleep" name="iSleep">
-                            <option value="" disabled selected>
-                                -- Select a number --
-                            </option>
-                            <script>
-                                for (let i = 1; i <= 5; i++) {
-                                    document.write(
-                                        `<option value="${i}">${i}</option>`
-                                    );
-                                }
-                            </script>
-                        </select>
-                        <br />
-                        <br />
-                        <br />
-                        <br />
+
+                        <div class="form-rows">
+                            <div class="labels">
+                                <label for="iValidation"
+                                    >How often do you look to seek validation from
+                                    features of social media?</label
+                                >
+                            </div>
+                            <div class="fields">
+                                <select id="iValidation" name="iValidation" class="dropdowncustom">
+                                    <option value="" disabled selected>
+                                        -- Select a number --
+                                    </option>
+                                    <script>
+                                        for (let i = 1; i <= 5; i++) {
+                                            document.write(
+                                                `<option value="${i}">${i}</option>`
+                                            );
+                                        }
+                                    </script>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-rows">
+                            <div class="labels">
+                                <label for="iDepressed"
+                                    >How often do you feel depressed or down?</label
+                                >
+                            </div>
+                            <div class="fields">
+                                <select id="iDepressed" name="iDepressed" class="dropdowncustom">
+                                    <option value="" disabled selected>
+                                        -- Select a number --
+                                    </option>
+                                    <script>
+                                        for (let i = 1; i <= 5; i++) {
+                                            document.write(
+                                                `<option value="${i}">${i}</option>`
+                                            );
+                                        }
+                                    </script>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-rows">
+                            <div class="labels">
+                                <label for="iInterest"
+                                    >How frequently does your interest in daily
+                                    activities fluctuate?</label
+                                >
+                            </div>
+                            <div class="fields">
+                                <select id="iInterest" name="iInterest" class="dropdowncustom">
+                                    <option value="" disabled selected>
+                                        -- Select a number --
+                                    </option>
+                                    <script>
+                                        for (let i = 1; i <= 5; i++) {
+                                            document.write(
+                                                `<option value="${i}">${i}</option>`
+                                            );
+                                        }
+                                    </script>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-rows">
+                            <div class="labels">
+                                <label for="iSleep"
+                                    >How often do you face issues regarding
+                                    sleep?</label
+                                >
+                            </div>
+                            <div class="fields">
+                                <select id="iSleep" name="iSleep" class="dropdowncustom">
+                                    <option value="" disabled selected>
+                                        -- Select a number --
+                                    </option>
+                                    <script>
+                                        for (let i = 1; i <= 5; i++) {
+                                            document.write(
+                                                `<option value="${i}">${i}</option>`
+                                            );
+                                        }
+                                    </script>
+                                </select>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="text-center">
                         <button
                             type="submit"
                             class="btn btn-primary"
@@ -704,6 +719,7 @@
                             Submit Survey
                         </button>
                         <br />
+                        </div>
                         <p id="submittedSurvey"></p>
                         <script>
                             //this should work
@@ -715,6 +731,7 @@
                             }
                         </script>
                         </form>
+                        </div>
                     </div>
             </div>
         </div>
