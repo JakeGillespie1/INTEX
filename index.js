@@ -34,26 +34,52 @@ let knex = require('knex')({
 });
 
 app.get('/db', (req, res) => {
-    knex.select()
-        .from('response')
-        .orderBy('response_id', 'desc')
-        .join(
-            'occupation_status',
-            'response.occupation_id',
-            '=',
-            'occupation_status.occupation_id'
-        )
-        .join(
-            'relationship_status',
-            'response.relationship_id',
-            '=',
-            'relationship_status.relationship_id'
-        )
-        .then((response) => {
-            res.render(path.join(__dirname + '/views/intexData'), {
-                mytest: response,
+    let selector_id = req.body.responseSelector;
+
+    if (!selector_id || selector_id == 'all') {
+        knex.select()
+            .from('response')
+            .orderBy('response_id', 'desc')
+            .join(
+                'occupation_status',
+                'response.occupation_id',
+                '=',
+                'occupation_status.occupation_id'
+            )
+            .join(
+                'relationship_status',
+                'response.relationship_id',
+                '=',
+                'relationship_status.relationship_id'
+            )
+            .then((response) => {
+                res.render(path.join(__dirname + '/views/intexData'), {
+                    mytest: response,
+                });
             });
-        });
+    } else if (selector_id != 'all') {
+        knex.select()
+            .from('response')
+            .orderBy('response_id', 'desc')
+            .join(
+                'occupation_status',
+                'response.occupation_id',
+                '=',
+                'occupation_status.occupation_id'
+            )
+            .join(
+                'relationship_status',
+                'response.relationship_id',
+                '=',
+                'relationship_status.relationship_id'
+            )
+            .where(('response_id', selector_id))
+            .then((response) => {
+                res.render(path.join(__dirname + '/views/intexData'), {
+                    mytest: response,
+                });
+            });
+    }
 });
 
 app.get('/', (req, res) => {
@@ -262,7 +288,7 @@ app.get('/forgotPW', (req, res) => {
 app.post('/updatePW', (req, res) => {
     knex('user')
         .where('email', req.body.Email)
-        .update({password : req.body.Password1})
+        .update({ password: req.body.Password1 })
         .then(() => {
             res.render(path.join(__dirname + '/views/testing2'));
         });
@@ -282,9 +308,7 @@ app.post('/emailPW', (req, res) => {
                 );
             } else {
                 knex('user').then(() => {
-                    res.render(
-                        path.join(__dirname + '/views/resetPassword')
-                    );
+                    res.render(path.join(__dirname + '/views/resetPassword'));
                 });
             }
         });
