@@ -69,6 +69,8 @@
                                         <h1 class="h4 text-gray-900 mb-4" id="pwBroke" style="display: none; color: orange; text-align: center;">
                                             Error: Passwords do not match
                                         </h1>
+                                        <!-- Input boxes for users. -->
+                                        <!-- First and last name input. When a user types their name it will auto-capitalize the first letter. -->
                                         <form action="/addUser" method="post">
                                             <input class="form-control form-control-user" 
                                             type="text" 
@@ -88,6 +90,7 @@
                                             onkeyup="properCaseInsert(this);"
                                             required>
                                         <br><br>
+                                        <!-- Email input -->
                                             <input class="form-control form-control-user" 
                                             type="text" 
                                             id="Email" 
@@ -97,6 +100,7 @@
                                             maxlength="50"
                                             required>
                                         <br><br>
+                                        <!-- Password inputs. Only password 1 is sent to the server -->
                                             <input class="form-control form-control-user" 
                                             type="password" 
                                             id="Password1" 
@@ -112,6 +116,7 @@
                                             maxlength="30"
                                             required>
                                         <br><br>
+                                        <!-- Submit button -->
                                         <button
                                         type="submit"
                                         class="btn btn-primary btn-user btn-block"
@@ -123,19 +128,6 @@
                                         </body>
                                         </form>
                                         <hr />
-                                        <div class="text-center">
-                                            <a
-                                                class="small"
-                                                href="forgot-password"
-                                                >Forgot Password?</a
-                                            >
-                                        </div>
-                                        <div class="text-center">
-                                            <a class="small" href="register"
-                                                >Create an Account!</a
-                                            >
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -210,6 +202,7 @@
                 </div>
             </div>
         </section>
+
         <!-- Footer-->
         <footer class="footer bg-light">
             <div class="container">
@@ -267,6 +260,10 @@
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
         <script>
+            /*This funciton will set up the page.
+            Page setup includes determining the proper buttons to display based on login information,
+            grabbing the current year to display on the copyright,
+            and setting up the email error message.*/
             function setupPage()
             {
                 let dDate = new Date();
@@ -282,7 +279,8 @@
                     document.getElementById("emailBroke").style.display = "block";
                 }
             }
-
+            
+            /*This function is for email and password validation*/
             function checkPass(){
                 let sPass1 = document.getElementById("Password1").value;
                 let sPass2 = document.getElementById("Password2").value;
