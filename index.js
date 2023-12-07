@@ -238,23 +238,6 @@ app.post('/addRecord', (req, res) => {
                     );
 
                     res.render(path.join(__dirname + '/views/testing2'));
-
-                    // for (
-                    //     let iCount = 0;
-                    //     iCount < currSocials.length;
-                    //     iCount++
-                    // ) {
-                    //     knex('platform_response')
-                    //         .insert({
-                    //             platform_id: currSocials[iCount],
-                    //             response_id: responseID,
-                    //         })
-                    //         .then(() => {
-                    //             res.render(
-                    //                 path.join(__dirname + '/views/testing2')
-                    //             );
-                    //         });
-                    // }
                 });
         });
 });
