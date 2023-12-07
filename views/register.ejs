@@ -76,7 +76,7 @@
                                             placeholder="First Name"
                                             name="FirstName"
                                             maxlength="30"
-                                            onkeyup= this.value = "toString(properCaseInsert(this.value));"
+                                            onkeyup= "properCaseInsert(this);"
                                             required>
                                         <br><br>
                                             <input class="form-control form-control-user" 
@@ -85,7 +85,7 @@
                                             placeholder="Last Name" 
                                             name="LastName"
                                             maxlength="30"
-                                            onkeyup="this.value = toString(properCaseInsert(this.value));"
+                                            onkeyup="properCaseInsert(this);"
                                             required>
                                         <br><br>
                                             <input class="form-control form-control-user" 
@@ -313,14 +313,12 @@
                 }
             }
 
-            function properCaseInsert(word)
+            function properCaseInsert(oValue)
             {
-                if (word.length === 1)
+                if (oValue.value.length === 1)
                 {
-                    return word.toUpperCase();
+                    oValue.value = oValue.value.charAt(0).toUpperCase();
                 }
-                else
-                {return;}
             }
         </script>
     </body>
