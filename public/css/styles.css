@@ -112,7 +112,7 @@
 .labels {
   display: inline-block;
   text-align: right;
-  width: 49%;
+  width: 50%;
   padding: 5px;
   vertical-align: top;
   margin-top: 10px;
@@ -139,10 +139,6 @@
   margin-left: 20px;
   display: block;
   padding-bottom: 10px;
-}
-.user-selection {
-  float: left;
-  margin-right: 5px;
 }
 
 

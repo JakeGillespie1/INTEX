@@ -53,23 +53,24 @@
             </div>
         </nav>
     <body>
-        <div class="row justify-content-center">
+        <div style="display: flex;">
             <div class="col-1"></div>
             <div class="col-10">
-                <div class="row justify-content-center">
+                <div class="justify-content-center">
                     <form
                         action="/db"
                         method="get"
                     >
-                        <div class="col-8">
-                            <select class="form-select form-select-sm" id="responseSelector" name="responseSelector">
-                                <option value="all">View All</option>
-                                <% mytest.forEach(response => { %>
-                                    <option value="<%= response.response_id %>"><%= response.response_id %></option>
-                                <% }); %>
-                            </select>
-                        </div>
-                        <div class="col-2"><button type="submit" class="btn btn-primary">Find Record</button></div>
+                    <div class="col-5">
+                        <select class="form-select form-select-sm" id="responseSelector" name="responseSelector">
+                            <option value="all">View All</option>
+                            <% mytest.forEach(response => { %>
+                                <option value="<%= response.response_id %>"><%= response.response_id %></option>
+                            <% }); %>
+                        </select>
+                    </div>
+                    <div class="col-2"><button type="submit" class="btn btn-primary">Find Record</button></div>
+
                     </form>
                 </div>
             <table
