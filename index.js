@@ -221,13 +221,11 @@ app.post('/addRecord', (req, res) => {
                         );
                     }
 
-                    for (
-                        let iCount = 0;
-                        iCount < currSocials.length;
-                        iCount++
-                    ) {
-                        fetchLatestResponseID(currSocials[iCount]);
-                    }
+                    Promise.all(
+                        currSocials.map((currPlatform) =>
+                            fetchLatestResponseID(currPlatform)
+                        )
+                    );
 
                     res.render(path.join(__dirname + '/views/testing2'));
 
