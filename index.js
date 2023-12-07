@@ -241,7 +241,6 @@ app.post('/addRecord', (req, res) => {
                 });
         });
 });
-/* We still need to change the variables for the survey above lolz */
 
 app.post('/addUser', (req, res) => {
     knex('user')
