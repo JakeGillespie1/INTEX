@@ -266,10 +266,6 @@ app.post('/updatePW', (req, res) => {
         .then(() => {
             res.render(path.join(__dirname + '/views/testing2'));
         })
-        .catch((error) => {
-            console.error(error);
-            res.status(500).send('Internal Server Error');
-        });
 });
 
 app.post('/emailPW', (req, res) => {
