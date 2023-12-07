@@ -307,12 +307,10 @@ app.post('/emailPW', (req, res) => {
                     }
                 );
             } else {
-                knex('user').then(() => {
-                    res.render(path.join(__dirname + '/views/resetPassword'));
-                });
+                    res.redirect(path.join(__dirname + '/views/resetPassword'));
             }
+        }); 
         });
-});
 
 app.post('/addUser', (req, res) => {
     knex('user')
