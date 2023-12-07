@@ -5,7 +5,7 @@ let app = express();
 
 let path = require('path');
 
-let port = process.env.PORT || 3000;
+let port = process.env.PORT || 3001;
 
 let rds_port = process.env.RDS_PORT || 5432;
 let host = process.env.RDS_HOSTNAME || 'localhost';
@@ -35,8 +35,8 @@ let knex = require('knex')({
 });
 
 app.get('/db', (req, res) => {
-    let selector_id = req.body.responseSelector || 'all';
-
+    let selector_id = req.query.responseSelector || 'all';
+    console.log('HEYHEYHEYHEY HEYHEYHEYHEY', selector_id);
     if (selector_id == 'all' || selector_id == 'View All') {
         knex.select()
             .from('response')
