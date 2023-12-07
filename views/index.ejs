@@ -10,27 +10,10 @@
         <meta name="author" content="" />
         <script>
             function updateLocalStorage() {
-                let login = localStorage.getItem('login');
-                if (login == 'true') {
-                    localStorage.setItem(
-                        'first_name',
-                        document.getElementById('first_name_p').textContent
-                    );
-                    localStorage.setItem(
-                        'last_name',
-                        document.getElementById('last_name_p').textContent
-                    );
-                    localStorage.setItem(
-                        'is_admin',
-                        document.getElementById('is_admin_p').textContent
-                    );
-                    localStorage.setItem('login', 'false');
 
-                    if (localStorage.getItem('is_admin')) {
-                        document.getElementById('createacc').style.display =
-                            'block';
-                    }
-                }
+                if (localStorage.getItem('is_admin').includes("true")) {
+                    document.getElementById('createacc').style.display =
+                        'block';}
 
                 let fName = localStorage.getItem('first_name');
                 let lName = localStorage.getItem('last_name');
@@ -45,10 +28,9 @@
                         'block';
                     document.getElementById('thesillyone').innerHTML =
                         'Welcome ' + fName + ' ' + lName;
-                    if (localStorage.getItem('is_admin')) {
-                        document.getElementById('createacc').style.display =
-                            'block';
-                    }
+                    document.getElementById('thesillyone').style.display =
+                        'block';
+                    
                 }
 
                 let dDate = new Date();
@@ -117,22 +99,7 @@
                             <!-- Page heading-->
                             <h1 class="mb-5">Provo Mental Health Initiative</h1>
                             <form action="/postIndex"></form>
-                            <% try{ %>
-                            <h3>
-                                <%="Welcome " + first_name + " " + last_name;%>
-                            </h3>
-                            <p style="display: none" id="first_name_p">
-                                <%=first_name%>
-                            </p>
-                            <p style="display: none" id="last_name_p">
-                                <%=last_name%>
-                            </p>
-                            <p style="display: none" id="is_admin_p">
-                                <%=is_admin%>
-                            </p>
-                            <% }catch(err){ %>
-                            <h3 id="thesillyone">Welcome!</h3>
-                            <% } %>
+                            <h3 id="thesillyone" style="display: none;">Welcome!</h3>
                             <form
                                 class="form-subscribe"
                                 id="contactForm"

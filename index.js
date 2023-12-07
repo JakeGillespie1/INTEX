@@ -4,7 +4,7 @@ let app = express();
 
 let path = require('path');
 
-let port = process.env.PORT || 3000;
+let port = process.env.PORT || 3001;
 
 let rds_port = process.env.RDS_PORT || 5432;
 let host = process.env.RDS_HOSTNAME || 'localhost';
@@ -36,7 +36,7 @@ let knex = require('knex')({
 app.get('/db', (req, res) => {
     knex.select()
         .from('response')
-        .orderBy('location', 'desc')
+        .orderBy('response_id', 'desc')
         .then((response) => {
             res.render(path.join(__dirname + '/views/intexData'), {
                 mytest: response,
@@ -76,6 +76,10 @@ app.get('/survey', (req, res) => {
 
 app.get('/testing', (req, res) => {
     res.render(path.join(__dirname + '/views/testing'));
+});
+
+app.get('/testing2', (req, res) => {
+    res.render(path.join(__dirname + '/views/testing2'));
 });
 
 app.post('/addRecord', (req, res) => {
@@ -149,16 +153,32 @@ app.post('/addRecord', (req, res) => {
         dbMax = null;
     }
 
+    let dataDate = new Date();
+    dataDate =
+        dataDate.getFullYear().toString() +
+        '-' +
+        (dataDate.getMonth() + 1).toString().padStart(2, 0) +
+        '-' +
+        dataDate.getDate().toString().padStart(2, 0);
+
+    let dataDate2 = new Date();
+    let dataTime =
+        dataDate2.getHours().toString() +
+        ':' +
+        dataDate2.getMinutes().toString() +
+        ':' +
+        dataDate2.getSeconds().toString();
+
     knex('response')
         //does the table name go there^^
         .insert({
+            date_stamp: dataDate,
+            time_stamp: dataTime,
             age: parseInt(req.body.iAge),
             gender: dbGender,
             relationship_id: dbRelationship,
             occupation_id: dbOccupation,
-            organization: req.body.sOrganization,
             social_media_user: dbUseSM,
-            socials_used: req.body.socialmediatypes,
             min_time_online: dbMin,
             max_time_online: dbMax,
             location: 'Provo',
@@ -183,7 +203,42 @@ app.post('/addRecord', (req, res) => {
             scale_sleep_issues: parseInt(req.body.iSleep),
         })
         .then(() => {
-            res.render(path.join(__dirname + '/views/testing'));
+            let responseID;
+            knex.select()
+                .from('response')
+                .orderBy('response_id', 'desc')
+                .then((response) => {
+                    responseID = response[0].response_id;
+
+                    let currSocials = req.body.socialmediatypes || [];
+                    let currOrgs = req.body.sOrganization || [];
+
+                    async function createPlatResponse(currPlatform) {
+                        await knex('platform_response').insert({
+                            platform_id: currPlatform,
+                            response_id: responseID,
+                        });
+                    }
+
+                    async function createOrgResponse(currOrg) {
+                        await knex('organization_response').insert({
+                            org_id: currOrg,
+                            response_id: responseID,
+                        });
+                    }
+
+                    Promise.all(
+                        currSocials.map((currPlatform) =>
+                            createPlatResponse(currPlatform)
+                        )
+                    );
+
+                    Promise.all(
+                        currOrgs.map((currOrg) => createOrgResponse(currOrg))
+                    );
+
+                    res.render(path.join(__dirname + '/views/testing2'));
+                });
         });
 });
 /* We still need to change the variables for the survey above lolz */
@@ -202,28 +257,19 @@ app.post('/addUser', (req, res) => {
                     message: 'Error: Email already in use',
                 });
             } else {
-                // let sFirstName = results[0].first_name;
-                // let sLastName = results[0].last_name;
-                // let isAdmin = results[0].is_admin;
-                // res.render(path.join(__dirname + '/views/index'), {
-                //     first_name: sFirstName,
-                //     last_name: sLastName,
-                //     is_admin: isAdmin,
-                //     login: 'true',
-                // });
+                knex('user')
+                    .insert({
+                        first_name: req.body.FirstName,
+                        last_name: req.body.LastName,
+                        email: req.body.Email,
+                        password: req.body.Password1,
+                        is_admin: false,
+                    })
+                    .then(() => {
+                        res.render(path.join(__dirname + '/views/testing2'));
+                    });
             }
         });
-
-    // knex('user')
-    //     .insert({
-    //         first_name: req.body.useremail,
-    //         last_name: req.body.sGender,
-    //         email: req.body.useremail,
-    //         password: 'hi',
-    //     })
-    //     .then((mytest) => {
-    //         res.redirect('/');
-    //     });
 });
 
 app.post('/userLogin', (req, res) => {
@@ -241,7 +287,7 @@ app.post('/userLogin', (req, res) => {
                 let sLastName = results[0].last_name;
                 let isAdmin = results[0].is_admin;
 
-                res.render(path.join(__dirname + '/views/index'), {
+                res.render(path.join(__dirname + '/views/testing'), {
                     first_name: sFirstName,
                     last_name: sLastName,
                     is_admin: isAdmin,
