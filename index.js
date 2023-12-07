@@ -34,9 +34,10 @@ let knex = require('knex')({
 });
 
 app.get('/db', (req, res) => {
-    async function getResponses() {
-        return await knex
-            .select()
+    let selector_id = req.body.responseSelector || 'all';
+
+    if (selector_id == 'all') {
+        knex.select()
             .from('response')
             .orderBy('response_id', 'desc')
             .join(
@@ -50,52 +51,35 @@ app.get('/db', (req, res) => {
                 'response.relationship_id',
                 '=',
                 'relationship_status.relationship_id'
-            );
+            )
+            .then((response) => {
+                res.render(path.join(__dirname + '/views/intexData'), {
+                    mytest: response,
+                });
+            });
+    } else {
+        knex.select()
+            .from('response')
+            .orderBy('response_id', 'desc')
+            .join(
+                'occupation_status',
+                'response.occupation_id',
+                '=',
+                'occupation_status.occupation_id'
+            )
+            .join(
+                'relationship_status',
+                'response.relationship_id',
+                '=',
+                'relationship_status.relationship_id'
+            )
+            .where({ response_id: selector_id })
+            .then((response) => {
+                res.render(path.join(__dirname + '/views/intexData'), {
+                    mytest: response,
+                });
+            });
     }
-
-    async function processData() {
-        let responses = await getResponses();
-
-        responses = responses.map((currResponse) => {
-            if (
-                currResponse.min_time_online.includes(0) &&
-                currResponse.max_time_online.includes(1)
-            ) {
-                currResponse.time_online = 'Less than an hour';
-            } else if (
-                currResponse.min_time_online.includes(1) &&
-                currResponse.max_time_online.includes(2)
-            ) {
-                currResponse.time_online = 'Between 1 and 2 hours';
-            } else if (
-                currResponse.min_time_online.includes(2) &&
-                currResponse.max_time_online.includes(3)
-            ) {
-                currResponse.time_online = 'Between 2 and 3 hours';
-            } else if (
-                currResponse.min_time_online.includes(3) &&
-                currResponse.max_time_online.includes(4)
-            ) {
-                currResponse.time_online = 'Between 3 and 4 hours';
-            } else if (
-                currResponse.min_time_online.includes(4) &&
-                currResponse.max_time_online.includes(5)
-            ) {
-                currResponse.time_online = 'Between 4 and 5 hours';
-            } else if (
-                currResponse.min_time_online.includes(5) &&
-                !currResponse.max_time_online
-            ) {
-                currResponse.time_online = 'More than 5 hours';
-            }
-        });
-
-        res.render(path.join(__dirname + '/views/intexData'), {
-            mytest: responses,
-        });
-    }
-
-    processData();
 });
 
 app.get('/', (req, res) => {
@@ -139,6 +123,10 @@ app.get('/testing', (req, res) => {
 app.get('/testing2', (req, res) => {
     res.render(path.join(__dirname + '/views/testing2'));
 });
+
+app.get('/resetPassword', (req,res) => {
+    res.render(path.join(__dirname + '/views/resetPassword'));
+})
 
 app.post('/addRecord', (req, res) => {
     let dbGender;
@@ -304,7 +292,7 @@ app.get('/forgotPW', (req, res) => {
 app.post('/updatePW', (req, res) => {
     knex('user')
         .where('email', req.body.Email)
-        .update('password', req.body.Password1)
+        .update({ password: req.body.Password1 })
         .then(() => {
             res.render(path.join(__dirname + '/views/testing2'));
         });
@@ -323,9 +311,7 @@ app.post('/emailPW', (req, res) => {
                     }
                 );
             } else {
-                knex('user').then(() => {
-                    res.render(path.join(__dirname + '/views/resetEmailSuccess'));
-                });
+                res.render(path.join(__dirname + '/views/bridgeToPassword'));
             }
         });
 });
