@@ -296,7 +296,7 @@ app.post('/updatePW', (req, res) => {
     .where('email', req.body.nameemail)
     .update({ password : req.body.Password1})
     .then(userInfo => {
-        res.render("/views/testing2")
+        res.render(path.join(__dirname + '/views/testing2'));
     });
     });
 
