@@ -48,6 +48,10 @@ app.get('/', (req, res) => {
     res.render(path.join(__dirname + '/views/index'));
 });
 
+app.get('/forgotPasswordEmail', (req, res) => {
+    res.render(path.join(__dirname + '/views/forgotPasswordEmail'))
+})
+
 app.get('/dashboard', (req, res) => {
     res.render(path.join(__dirname + '/views/dashboard'));
 });
