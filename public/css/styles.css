@@ -8026,6 +8026,12 @@ textarea.form-control-lg {
 .text-center {
   text-align: center !important;
 }
+.text-center-padded {
+  text-align: center !important;
+  padding-left: 30px !important;
+  padding-right: 30px !important;
+  padding-bottom: 50px !important;
+}
 
 .text-decoration-none {
   text-decoration: none !important;
