@@ -57,7 +57,7 @@ app.get('/db', (req, res) => {
                     mytest: response,
                 });
             });
-    } else if (selector_id != 'all') {
+    } else {
         knex.select()
             .from('response')
             .orderBy('response_id', 'desc')
@@ -73,7 +73,7 @@ app.get('/db', (req, res) => {
                 '=',
                 'relationship_status.relationship_id'
             )
-            .where(('response_id', selector_id))
+            .where({ response_id: selector_id })
             .then((response) => {
                 res.render(path.join(__dirname + '/views/intexData'), {
                     mytest: response,
@@ -307,7 +307,7 @@ app.post('/emailPW', (req, res) => {
                     }
                 );
             } else {
-                    res.render(path.join(__dirname + '/views/bridgeToPassword'));
+                res.render(path.join(__dirname + '/views/bridgeToPassword'));
             }
         });
 });
