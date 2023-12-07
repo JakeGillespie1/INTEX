@@ -360,6 +360,15 @@ th {
   border-width: 0;
 }
 
+tbody tr:nth-child(even) {
+  background-color: RGBA(248, 249, 250, var(--bs-bg-opacity, 1)); /* Change to your desired background color */
+}
+
+/* Style the odd rows */
+tbody tr:nth-child(odd) {
+  background-color: #ffffff; /* Change to your desired background color */
+}
+
 label {
   display: inline-block;
 }
