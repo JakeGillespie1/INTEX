@@ -91,11 +91,6 @@
   }
 }
 
-section {
-  text-align: center;
-  background-color: #a9d7e9;
-}
-
 .master-div-style {
   margin: auto;
   width: 800px;
@@ -6784,6 +6779,11 @@ textarea.form-control-lg {
 .text-bg-light {
   color: #000 !important;
   background-color: RGBA(248, 249, 250, var(--bs-bg-opacity, 1)) !important;
+}
+
+.text-bg-custom {
+  color: #000 !important;
+  background-color: RGBA(36, 165, 222, var(--bs-bg-opacity, 1)) !important;
 }
 
 .text-bg-dark {
