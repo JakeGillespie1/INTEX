@@ -203,26 +203,26 @@ app.post('/addRecord', (req, res) => {
             scale_sleep_issues: parseInt(req.body.iSleep),
         });
 
-        let responseID;
-        knex.select()
-            .from('response')
-            .orderBy('response_id', 'desc')
-            .then((response) => {
-                responseID = response[0].response_id;
-            });
+    let responseID;
+    knex.select()
+        .from('response')
+        .orderBy('response_id', 'desc')
+        .then((response) => {
+            responseID = response[0].response_id;
+        });
 
-        let currSocials = req.body.socialmediatypes || [];
+    let currSocials = req.body.socialmediatypes || [];
 
-        for (let iCount = 0; iCount < currSocials.length; iCount++) {
+    for (let iCount = 0; iCount < currSocials.length; iCount++) {
         knex('platform_response')
-            .insert ({
+            .insert({
                 platform_id: currSocials[iCount],
                 response_id: responseID,
             })
             .then(() => {
                 res.render(path.join(__dirname + '/views/testing2'));
             });
-        };
+    }
 });
 /* We still need to change the variables for the survey above lolz */
 
