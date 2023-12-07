@@ -259,6 +259,15 @@ app.get("/forgotPW", (req, res) => {
     });
 });
 
+app.post("/updatePW", (req, res) => {
+    knex('user')
+    .where('email', req.body.Email)
+    .update({password : req.body.Password1})
+    .then((updatedRows) => {
+    res.render(path.join(__dirname + '/views/testing2'));
+})
+});
+
 app.post('/emailPW', (req, res) => {
     knex('user')
         .where('email', req.body.useremail)
@@ -273,7 +282,7 @@ app.post('/emailPW', (req, res) => {
                 );
             } else {
                 knex('user').then(() => {
-                    res.redirect(path.join(__dirname + '/views/resetPassword'));
+                    res.render(path.join(__dirname + '/views/resetPassword'));
                 });
             }
         });
