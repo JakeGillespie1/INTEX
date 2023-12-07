@@ -20,7 +20,7 @@
                 var selectedResponseId = this.value;
         
               // Hide all rows
-              document.querySelectorAll('#dataTable tbody tr').forEach(function (row) {
+              document.querySelectorAll('#intexDataTable tbody tr').forEach(function (row) {
                 row.style.display = 'none';
               });
         
@@ -69,6 +69,7 @@
                 background-color: RGBA(248, 249, 250, var(--bs-bg-opacity, 1));
                 border: 1px solid black;
             "
+            id="intexDataTable"
         >
             <thead style="background-color: #24A5DE; color: white">
                 <tr>
