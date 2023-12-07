@@ -44,6 +44,8 @@
                     document.getElementById('btnLogout').style.display =
                         'block';
                     document.getElementById('thesillyone').innerHTML =
+                        'block';
+                    document.getElementById('thesillyone').innerHTML =
                         'Welcome ' + fName + ' ' + lName;
                     if (localStorage.getItem('is_admin')) {
                         document.getElementById('createacc').style.display =
@@ -117,22 +119,7 @@
                             <!-- Page heading-->
                             <h1 class="mb-5">Provo Mental Health Initiative</h1>
                             <form action="/postIndex"></form>
-                            <% try{ %>
-                            <h3>
-                                <%="Welcome " + first_name + " " + last_name;%>
-                            </h3>
-                            <p style="display: none" id="first_name_p">
-                                <%=first_name%>
-                            </p>
-                            <p style="display: none" id="last_name_p">
-                                <%=last_name%>
-                            </p>
-                            <p style="display: none" id="is_admin_p">
-                                <%=is_admin%>
-                            </p>
-                            <% }catch(err){ %>
-                            <h3 id="thesillyone">Welcome!</h3>
-                            <% } %>
+                            <h3 id="thesillyone" style="display: none;">Welcome!</h3>
                             <form
                                 class="form-subscribe"
                                 id="contactForm"
