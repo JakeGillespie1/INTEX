@@ -202,28 +202,21 @@ app.post('/addUser', (req, res) => {
                     message: 'Error: Email already in use',
                 });
             } else {
-                // let sFirstName = results[0].first_name;
-                // let sLastName = results[0].last_name;
-                // let isAdmin = results[0].is_admin;
-                // res.render(path.join(__dirname + '/views/index'), {
-                //     first_name: sFirstName,
-                //     last_name: sLastName,
-                //     is_admin: isAdmin,
-                //     login: 'true',
-                // });
+                knex('user')
+                    .insert({
+                        first_name: req.body.FirstName,
+                        last_name: req.body.LastName,
+                        email: req.body.Email,
+                        password: req.body.Password1,
+                        is_admin: false
+                    })
+                    .then(() => {
+                        res.render(path.join(__dirname + '/views/testing'));
+                    });
             }
         });
 
-    // knex('user')
-    //     .insert({
-    //         first_name: req.body.useremail,
-    //         last_name: req.body.sGender,
-    //         email: req.body.useremail,
-    //         password: 'hi',
-    //     })
-    //     .then((mytest) => {
-    //         res.redirect('/');
-    //     });
+
 });
 
 app.post('/userLogin', (req, res) => {
