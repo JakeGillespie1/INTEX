@@ -26,6 +26,7 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="/css/styles.css" rel="stylesheet" />
     </head>
+    <!-- Onload call set up page function -->
     <body onload="setupPage();">
         <!-- Navigation-->
         <nav class="navbar navbar-light bg-light static-top">
@@ -279,15 +280,17 @@
                     document.getElementById("emailBroke").style.display = "block";
                 }
             }
-            
+
             /*This function is for email and password validation*/
             function checkPass(){
                 let sPass1 = document.getElementById("Password1").value;
                 let sPass2 = document.getElementById("Password2").value;
                 let sEmail = document.getElementById("Email").value;
 
+                //Email validation (very simple)
                 if (sEmail.includes("@") && sEmail.includes("."))
                 {
+                    //Password validation
                     if (sPass1 !== sPass2)
                         {
                             document.getElementById("btnSub").type = "button";
@@ -311,6 +314,7 @@
                 }
             }
 
+            /*This function auto-converts the first letter of a user's first and last name to upper case*/
             function properCaseInsert(oValue)
             {
                 if (oValue.value.length === 1)
