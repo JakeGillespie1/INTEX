@@ -201,10 +201,8 @@ app.post('/addRecord', (req, res) => {
             frequency_depressed_or_down: parseInt(req.body.iDepressed),
             scale_interest_in_daily_activities: parseInt(req.body.iInterest),
             scale_sleep_issues: parseInt(req.body.iSleep),
-        })
-        .then(() => {
-            res.render(path.join(__dirname + '/views/testing2'));
         });
+
         let responseID;
         knex.select()
             .from('response')
@@ -221,7 +219,10 @@ app.post('/addRecord', (req, res) => {
                 platform_id: currSocials[iCount],
                 response_id: responseID,
             })
-        }
+            .then(() => {
+                res.render(path.join(__dirname + '/views/testing2'));
+            });
+        };
 });
 /* We still need to change the variables for the survey above lolz */
 
