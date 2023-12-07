@@ -44,65 +44,67 @@
             </div>
         </nav>
     <body>
-        <div class="col-1"></div>
-        <div class="col-10">
-            <form
-                action="/db"
-                method="get"
+        <div class="row justify-content-center"></div>
+            <div class="col-1"></div>
+            <div class="col-10">
+                <form
+                    action="/db"
+                    method="get"
+                >
+                    <select id="responseSelector">
+                        <option value="all">View All</option>
+                        <% mytest.forEach(response => { %>
+                            <option value="<%= response.response_id %>"><%= response.response_id %></option>
+                        <% }); %>
+                    </select>
+                    <button type="submit" class="btn btn-primary">Find Record</button>
+                </form>
+            <table
+                style="
+                    width: 100%;
+                    background-color: RGBA(248, 249, 250, var(--bs-bg-opacity, 1));
+                    border: 1px solid black;
+                "
+                id="intexDataTable"
             >
-                <select id="responseSelector">
-                    <option value="all">View All</option>
-                    <% mytest.forEach(response => { %>
-                        <option value="<%= response.response_id %>"><%= response.response_id %></option>
-                    <% }); %>
-                </select>
-                <button type="submit" class="btn btn-primary">Find Record</button>
-            </form>
-        <table
-            style="
-                width: 100%;
-                background-color: RGBA(248, 249, 250, var(--bs-bg-opacity, 1));
-                border: 1px solid black;
-            "
-            id="intexDataTable"
-        >
-            <thead style="background-color: #24A5DE; color: white">
-                <tr>
-                    <th style="text-align: left">Record Number</th>
-                    <th style="text-align: left">Date</th>
-                    <th style="text-align: left">Age</th>
-                    <th style="text-align: left">Gender</th>
-                    <th style="text-align: left">Relationship ID</th>
-                    <th style="text-align: left">Relationship Description</th>
-                    <th style="text-align: left">Occupation ID</th>
-                    <th style="text-align: left">Occupation Description</th>
-                    <th style="text-align: left">Social Media User</th>
-                    <th style="text-align: left">Min Time Online</th>
-                    <th style="text-align: left">Max Time Online</th>
-                    <th style="text-align: left">Location</th>
-                </tr>
-            </thead>
-            <tbody style="font-family: Arial; font-size: 9pt">
-                <% for (let iCount = 0; iCount < mytest.length; iCount++) { %>
-                <tr>
-                    <td><%= mytest[iCount].response_id %></td>
-                    <td><%= mytest[iCount].date_stamp.toDateString() %></td>
-                    <td><%= mytest[iCount].age %></td>
-                    <td><%= mytest[iCount].gender %></td>
-                    <td><%= mytest[iCount].relationship_id %></td>
-                    <td><%= mytest[iCount].relationship_status_desc %></td>
-                    <td><%= mytest[iCount].occupation_id %></td>
-                    <td><%= mytest[iCount].occupation_desc %></td>
-                    <td><%= mytest[iCount].social_media_user %></td>
-                    <td><%= mytest[iCount].min_time_online %></td>
-                    <td><%= mytest[iCount].max_time_online %></td>
-                    <td><%= mytest[iCount].location %></td>
-                </tr>
-                <% } %>
-            </tbody>
-        </table>
+                <thead style="background-color: #24A5DE; color: white">
+                    <tr>
+                        <th style="text-align: left">Record Number</th>
+                        <th style="text-align: left">Date</th>
+                        <th style="text-align: left">Age</th>
+                        <th style="text-align: left">Gender</th>
+                        <th style="text-align: left">Relationship ID</th>
+                        <th style="text-align: left">Relationship Description</th>
+                        <th style="text-align: left">Occupation ID</th>
+                        <th style="text-align: left">Occupation Description</th>
+                        <th style="text-align: left">Social Media User</th>
+                        <th style="text-align: left">Min Time Online</th>
+                        <th style="text-align: left">Max Time Online</th>
+                        <th style="text-align: left">Location</th>
+                    </tr>
+                </thead>
+                <tbody style="font-family: Arial; font-size: 9pt">
+                    <% for (let iCount = 0; iCount < mytest.length; iCount++) { %>
+                    <tr>
+                        <td><%= mytest[iCount].response_id %></td>
+                        <td><%= mytest[iCount].date_stamp.toDateString() %></td>
+                        <td><%= mytest[iCount].age %></td>
+                        <td><%= mytest[iCount].gender %></td>
+                        <td><%= mytest[iCount].relationship_id %></td>
+                        <td><%= mytest[iCount].relationship_status_desc %></td>
+                        <td><%= mytest[iCount].occupation_id %></td>
+                        <td><%= mytest[iCount].occupation_desc %></td>
+                        <td><%= mytest[iCount].social_media_user %></td>
+                        <td><%= mytest[iCount].min_time_online %></td>
+                        <td><%= mytest[iCount].max_time_online %></td>
+                        <td><%= mytest[iCount].location %></td>
+                    </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-1"></div>
     </div>
-    <div class="col-1"></div>
         <br>
         <br>
         <br>
