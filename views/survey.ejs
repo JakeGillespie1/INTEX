@@ -81,24 +81,22 @@
             </div>
         </header>
         <!-- Icons Grid-->
-        <section class="features-icons text-center">
+        <div style="background-color: #a9d7e9;" class="features-icons">
         <!--Survey-->
         <div class="master-div-style">
             <div id="survey">
-                <div>
-                    <!--Personal Info-->
-                    <h3 class="text-center">Personal Information</h3>
-                    <form action="/addRecord" method="POST" id="surveyForm">
-                        <div class="form-rows">
-                            <div class="labels">
-                                <label for="iAge">What is your age?</label>
-                            </div>
-                        <select id="iAge" name="iAge" class="dropdowncustom">
-                            <div class="fields">
-                            <option value="" disabled selected>
-                                -- Select a number --
-                            </option>
-                            </div>
+                <!--Personal Info-->
+                <h3 class="text-center">Personal Information</h3>
+                <form action="/addRecord" method="POST" id="surveyForm">
+                    <div class="form-rows">
+                        <div class="labels">
+                            <label for="iAge">What is your age?</label>
+                        </div>
+                        <div class="fields">
+                            <select id="iAge" name="iAge" class="dropdowncustom">
+                                <option value="" disabled selected>
+                                    -- Select a number --
+                                </option>
                             <script>
                                 for (let i = 1; i <= 100; i++) {
                                     document.write(
@@ -106,72 +104,95 @@
                                     );
                                 }
                             </script>
-                        </select>
+                            </select>
                         </div>
-                        <br />
-                        <br />
+                    </div>
 
-                        <label>What is your gender?</label>
-                        <br />
-                        <input
-                            type="radio"
-                            id="rbMale"
-                            name="sGender"
-                            value="Male"
-                        />
-                        <label for="rbMale">Male</label><br />
-                        <input
-                            type="radio"
-                            id="rbFemale"
-                            name="sGender"
-                            value="Female"
-                        />
-                        <label for="rbFemale">Female</label><br />
-                        <input
-                            type="radio"
-                            id="rbOther"
-                            name="sGender"
-                            value="Other"
-                        />
-                        <label for="rbOther">Other</label>
-                        <br />
-                        <br />
+                    <div class="form-rows">
+                        <div class="labels">
+                            <label>What is your gender?</label>
+                        </div>
+                        <div class="fields" style="padding-top: 20px;">
+                            <ul style="list-style: none;">
+                                <li class="radio">
+                                    <input
+                                        type="radio"
+                                        id="rbMale"
+                                        name="sGender"
+                                        value="Male"
+                                        class="user-selection"
+                                    />
+                                    <label>Male</label>
+                                </li>
+                                <li class="radio">
+                                    <input
+                                        type="radio"
+                                        id="rbFemale"
+                                        name="sGender"
+                                        value="Female"
+                                        class="user-selection"
+                                    />
+                                    <label for="rbFemale">Female</label>
+                                </li>
+                                <li class="radio">
+                                    <input
+                                        type="radio"
+                                        id="rbOther"
+                                        name="sGender"
+                                        value="Other"
+                                        class="user-selection"
+                                    />
+                                    <label for="rbOther">Other</label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
 
-                        <label>What is your relationship status?</label>
-                        <br />
-                        <input
-                            type="radio"
-                            id="rbSingle"
-                            name="sRelationship"
-                            value="Single"
-                        />
-                        <label for="rbSingle">Single</label>
-                        <br />
-                        <input
-                            type="radio"
-                            id="rbDating"
-                            name="sRelationship"
-                            value="Dating"
-                        />
-                        <label for="rbDating">In a relationship</label>
-                        <br />
-                        <input
-                            type="radio"
-                            id="rbMarried"
-                            name="sRelationship"
-                            value="Married"
-                        />
-                        <label for="rbMarried">Married</label>
-                        <br />
-                        <input
-                            type="radio"
-                            id="rbDivorced"
-                            name="sRelationship"
-                            value="Divorced"
-                        />
-                        <label for="rbDivorced">Divorced</label>
-                        <br />
-                        <br />
+                    <div class="form-rows">
+                        <div class="labels">
+                            <label>What is your relationship status?</label>
+                        </div>
+                        <div class="fields" style="padding-top: 20px;">
+                            <ul style="list-style: none;">
+                                <li class="radio">
+                                    <input
+                                        type="radio"
+                                        id="rbSingle"
+                                        name="sRelationship"
+                                        value="Single"
+                                    />
+                                    <label for="rbSingle">Single</label>
+                                </li>
+                                <li class="radio">
+                                    <input
+                                        type="radio"
+                                        id="rbDating"
+                                        name="sRelationship"
+                                        value="Dating"
+                                    />
+                                    <label for="rbDating">In a relationship</label>
+                                </li>
+                                <li class="radio">
+                                    <input
+                                        type="radio"
+                                        id="rbMarried"
+                                        name="sRelationship"
+                                        value="Married"
+                                    />
+                                    <label for="rbMarried">Married</label>
+                                </li>
+                                <li class="radio">
+                                    <input
+                                        type="radio"
+                                        id="rbDivorced"
+                                        name="sRelationship"
+                                        value="Divorced"
+                                    />
+                                    <label for="rbDivorced">Divorced</label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
 
                         <label>What is your current occupation?</label>
                         <br />
@@ -609,65 +630,13 @@
                                 document.getElementById('surveyForm').reset();
                             }
                         </script>
-                        </div>
-                    </form>
-                </div>
+                        </form>
+                    </div>
             </div>
-        </section>
+        </div>
         <!-- Image Showcases-->
         <section class="showcase">
             <div class="container-fluid p-0"></div>
-        </section>
-        <!-- Call to Action-->
-        <section class="call-to-action text-white text-center" id="mainblue">
-            <div class="container position-relative">
-                <div class="row justify-content-center">
-                    <div class="col-xl-6">
-                        <!-- Signup form-->
-                        <!-- * * * * * * * * * * * * * * *-->
-                        <!-- * * SB Forms Contact Form * *-->
-                        <!-- * * * * * * * * * * * * * * *-->
-                        <!-- This form is pre-integrated with SB Forms.-->
-                        <!-- To make this form functional, sign up at-->
-                        <!-- https://startbootstrap.com/solution/contact-forms-->
-                        <!-- to get an API token!-->
-                        <form
-                            class="form-subscribe"
-                            id="contactFormFooter"
-                            data-sb-form-api-token="API_TOKEN"
-                        >
-                            <!-- Email address input-->
-
-                            <!-- Submit success message-->
-                            <!---->
-                            <!-- This is what your users will see when the form-->
-                            <!-- has successfully submitted-->
-                            <div class="d-none" id="submitSuccessMessage">
-                                <div class="text-center mb-3">
-                                    <div class="fw-bolder">
-                                        Form submission successful!
-                                    </div>
-                                    <p>To activate this form, sign up at</p>
-                                    <a
-                                        class="text-white"
-                                        href="https://startbootstrap.com/solution/contact-forms"
-                                        >https://startbootstrap.com/solution/contact-forms</a
-                                    >
-                                </div>
-                            </div>
-                            <!-- Submit error message-->
-                            <!---->
-                            <!-- This is what your users will see when there is-->
-                            <!-- an error submitting the form-->
-                            <div class="d-none" id="submitErrorMessage">
-                                <div class="text-center text-danger mb-3">
-                                    Error sending message!
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
         </section>
         
         <!-- Footer-->
