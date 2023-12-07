@@ -36,7 +36,7 @@ let knex = require('knex')({
 app.get('/db', (req, res) => {
     let selector_id = req.body.responseSelector || 'all';
 
-    if (selector_id == 'all') {
+    if (selector_id == 'all' || selector_id == 'View All') {
         knex.select()
             .from('response')
             .orderBy('response_id', 'desc')
@@ -57,28 +57,29 @@ app.get('/db', (req, res) => {
                     mytest: response,
                 });
             });
-    } else if (selector_id != 'all') {
-    knex.select()
-        .from('response')
-        .orderBy('response_id', 'desc')
-        .join(
-            'occupation_status',
-            'response.occupation_id',
-            '=',
-            'occupation_status.occupation_id'
-        )
-        .join(
-            'relationship_status',
-            'response.relationship_id',
-            '=',
-            'relationship_status.relationship_id'
-        )
-            .where(('response_id', selector_id))
-        .then((response) => {
-            res.render(path.join(__dirname + '/views/intexData'), {
-                mytest: response,
+    } else {
+        selector_id = parseInt(selector_id);
+        knex.select()
+            .from('response')
+            .orderBy('response_id', 'desc')
+            .join(
+                'occupation_status',
+                'response.occupation_id',
+                '=',
+                'occupation_status.occupation_id'
+            )
+            .join(
+                'relationship_status',
+                'response.relationship_id',
+                '=',
+                'relationship_status.relationship_id'
+            )
+            .where({ response_id: selector_id })
+            .then((response) => {
+                res.render(path.join(__dirname + '/views/intexData'), {
+                    mytest: response,
+                });
             });
-        });
     }
 });
 
@@ -122,6 +123,10 @@ app.get('/testing', (req, res) => {
 
 app.get('/testing2', (req, res) => {
     res.render(path.join(__dirname + '/views/testing2'));
+});
+
+app.get('/resetPassword', (req, res) => {
+    res.render(path.join(__dirname + '/views/resetPassword'));
 });
 
 app.post('/addRecord', (req, res) => {
@@ -285,13 +290,12 @@ app.get('/forgotPW', (req, res) => {
     });
 });
 
-app.post('/updatePW', (req, res) => {
-    knex('user')
-        .where('email', req.body.Email)
-        .update({ password: req.body.Password1 })
-        .then(() => {
-            res.render(path.join(__dirname + '/views/testing2'));
-        });
+app.post('/updatePW', async (req, res) => {
+    await knex('user')
+    .where('email', req.body.Email)
+    .update({ password: Password1 });
+
+    res.render(path.join(__dirname + '/views/testing2'));    
 });
 
 app.post('/emailPW', (req, res) => {
@@ -307,7 +311,7 @@ app.post('/emailPW', (req, res) => {
                     }
                 );
             } else {
-                    res.render(path.join(__dirname + '/views/bridgeToPassword'));
+                res.render(path.join(__dirname + '/views/bridgeToPassword'));
             }
         });
 });
