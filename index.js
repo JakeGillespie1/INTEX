@@ -262,7 +262,7 @@ app.get('/forgotPW', (req, res) => {
 app.post('/updatePW', (req, res) => {
     knex('user')
         .where('email', req.body.Email)
-        .update('password', req.body.Password1)
+        .update({password : req.body.Password1})
         .then(() => {
             res.render(path.join(__dirname + '/views/testing2'));
         });
