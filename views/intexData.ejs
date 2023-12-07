@@ -16,8 +16,8 @@
         <link href="/css/styles.css" rel="stylesheet" />
 
         <script>
-            document.getElementById('responseSelector').addEventListener('change', function () {
-                var selectedResponseId = this.value;
+            function onFilterButtonClick() {
+                var selectedResponseId = document.getElementById.responseSelector.value;
         
               // Hide all rows
               document.querySelectorAll('#intexDataTable tbody tr').forEach(function (row) {
@@ -26,7 +26,7 @@
         
               // Show the selected row
               document.getElementById(selectedResponseId).style.display = 'table-row';
-            });
+            };
           </script>
     </head>
     <body onload="loggedIn();">
