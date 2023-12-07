@@ -12,6 +12,9 @@
         <script>
             //Admin displays
             function updateLocalStorage() {
+                let dDate = new Date();
+                    dDate = dDate.getFullYear().toString();
+                    document.getElementById("Copyrite").innerHTML = "&copy; Provo City " + dDate +". All Rights Reserved.";
 
                 if (localStorage.getItem('is_admin').includes("true")) {
                     document.getElementById('createacc').style.display =
@@ -34,10 +37,6 @@
                         'block';
                     
                 }
-
-                let dDate = new Date();
-                    dDate = dDate.getFullYear().toString();
-                    document.getElementById("Copyrite").innerHTML = "&copy; Provo City " + dDate +". All Rights Reserved.";
             }
         </script>
         <title>Provo Mental Health Initiative</title>
