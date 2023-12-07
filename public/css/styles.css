@@ -113,7 +113,7 @@ section {
   text-align: right !important;
   width: 40%;
   padding: 5px;
-  vertical-align: top;
+  vertical-align: top !important;
   margin-top: 10px;
 }
 .fields {
@@ -127,6 +127,14 @@ section {
   width: 280px;
   padding: 5px;
   margin: 10px;
+  border: 1px solid #c0c0c0;
+  border-radius: 4px;
+}
+.dropdowncustom {
+  height: 35px;
+  width: 200x;
+  padding: 5px;
+  margin: 15px 10px 10px 10px;
   border: 1px solid #c0c0c0;
   border-radius: 4px;
 }
@@ -6776,11 +6784,6 @@ textarea.form-control-lg {
 .text-bg-light {
   color: #000 !important;
   background-color: RGBA(248, 249, 250, var(--bs-bg-opacity, 1)) !important;
-}
-
-.text-bg-custom {
-  color: #000 !important;
-  background-color: RGBA(36, 165, 222, var(--bs-bg-opacity, 1)) !important;
 }
 
 .text-bg-dark {
