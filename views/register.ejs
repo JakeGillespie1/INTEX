@@ -26,6 +26,7 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="/css/styles.css" rel="stylesheet" />
     </head>
+    <!-- Onload call set up page function -->
     <body onload="setupPage();">
         <!-- Navigation-->
         <nav class="navbar navbar-light bg-light static-top">
@@ -69,6 +70,8 @@
                                         <h1 class="h4 text-gray-900 mb-4" id="pwBroke" style="display: none; color: orange; text-align: center;">
                                             Error: Passwords do not match
                                         </h1>
+                                        <!-- Input boxes for users. -->
+                                        <!-- First and last name input. When a user types their name it will auto-capitalize the first letter. -->
                                         <form action="/addUser" method="post">
                                             <input class="form-control form-control-user" 
                                             type="text" 
@@ -88,6 +91,7 @@
                                             onkeyup="properCaseInsert(this);"
                                             required>
                                         <br><br>
+                                        <!-- Email input -->
                                             <input class="form-control form-control-user" 
                                             type="text" 
                                             id="Email" 
@@ -97,6 +101,7 @@
                                             maxlength="50"
                                             required>
                                         <br><br>
+                                        <!-- Password inputs. Only password 1 is sent to the server -->
                                             <input class="form-control form-control-user" 
                                             type="password" 
                                             id="Password1" 
@@ -112,6 +117,7 @@
                                             maxlength="30"
                                             required>
                                         <br><br>
+                                        <!-- Submit button -->
                                         <button
                                         type="submit"
                                         class="btn btn-primary btn-user btn-block"
@@ -123,19 +129,6 @@
                                         </body>
                                         </form>
                                         <hr />
-                                        <div class="text-center">
-                                            <a
-                                                class="small"
-                                                href="forgot-password"
-                                                >Forgot Password?</a
-                                            >
-                                        </div>
-                                        <div class="text-center">
-                                            <a class="small" href="register"
-                                                >Create an Account!</a
-                                            >
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -144,72 +137,73 @@
             </div>
         </section>
 
-        <!-- Call to Action-->
-        <section class="call-to-action text-white text-center" id="signup">
-            <div class="container position-relative">
-                <div class="row justify-content-center">
-                    <div class="col-xl-6">
-                        <!-- Signup form-->
-                        <!-- * * * * * * * * * * * * * * *-->
-                        <!-- * * SB Forms Contact Form * *-->
-                        <!-- * * * * * * * * * * * * * * *-->
-                        <!-- This form is pre-integrated with SB Forms.-->
-                        <!-- To make this form functional, sign up at-->
-                        <!-- https://startbootstrap.com/solution/contact-forms-->
-                        <!-- to get an API token!-->
-                        <form
-                            class="form-subscribe"
-                            id="contactFormFooter"
-                            data-sb-form-api-token="API_TOKEN"
-                        >
-                            <!-- Email address input-->
-                            <div class="row">
-                                <div class="col">
-                                    <div
-                                        class="invalid-feedback text-white"
-                                        data-sb-feedback="emailAddressBelow:required"
-                                    >
-                                        Email Address is required.
+                <!-- Call to Action-->
+                <section class="call-to-action text-white text-center" id="signup">
+                    <div class="container position-relative">
+                        <div class="row justify-content-center">
+                            <div class="col-xl-6">
+                                <!-- Signup form-->
+                                <!-- * * * * * * * * * * * * * * *-->
+                                <!-- * * SB Forms Contact Form * *-->
+                                <!-- * * * * * * * * * * * * * * *-->
+                                <!-- This form is pre-integrated with SB Forms.-->
+                                <!-- To make this form functional, sign up at-->
+                                <!-- https://startbootstrap.com/solution/contact-forms-->
+                                <!-- to get an API token!-->
+                                <form
+                                    class="form-subscribe"
+                                    id="contactFormFooter"
+                                    data-sb-form-api-token="API_TOKEN"
+                                >
+                                    <!-- Email address input-->
+                                    <div class="row">
+                                        <div class="col">
+                                            <div
+                                                class="invalid-feedback text-white"
+                                                data-sb-feedback="emailAddressBelow:required"
+                                            >
+                                                Email Address is required.
+                                            </div>
+                                            <div
+                                                class="invalid-feedback text-white"
+                                                data-sb-feedback="emailAddressBelow:email"
+                                            >
+                                                Email Address Email is not valid.
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div
-                                        class="invalid-feedback text-white"
-                                        data-sb-feedback="emailAddressBelow:email"
-                                    >
-                                        Email Address Email is not valid.
+                                    <!-- Submit success message-->
+                                    <!---->
+                                    <!-- This is what your users will see when the form-->
+                                    <!-- has successfully submitted-->
+                                    <div class="d-none" id="submitSuccessMessage">
+                                        <div class="text-center mb-3">
+                                            <div class="fw-bolder">
+                                                Form submission successful!
+                                            </div>
+                                            <p>To activate this form, sign up at</p>
+                                            <a
+                                                class="text-white"
+                                                href="https://startbootstrap.com/solution/contact-forms"
+                                                >https://startbootstrap.com/solution/contact-forms</a
+                                            >
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            <!-- Submit success message-->
-                            <!---->
-                            <!-- This is what your users will see when the form-->
-                            <!-- has successfully submitted-->
-                            <div class="d-none" id="submitSuccessMessage">
-                                <div class="text-center mb-3">
-                                    <div class="fw-bolder">
-                                        Form submission successful!
+                                    <!-- Submit error message-->
+                                    <!---->
+                                    <!-- This is what your users will see when there is-->
+                                    <!-- an error submitting the form-->
+                                    <div class="d-none" id="submitErrorMessage">
+                                        <div class="text-center text-danger mb-3">
+                                            Error sending message!
+                                        </div>
                                     </div>
-                                    <p>To activate this form, sign up at</p>
-                                    <a
-                                        class="text-white"
-                                        href="https://startbootstrap.com/solution/contact-forms"
-                                        >https://startbootstrap.com/solution/contact-forms</a
-                                    >
-                                </div>
+                                </form>
                             </div>
-                            <!-- Submit error message-->
-                            <!---->
-                            <!-- This is what your users will see when there is-->
-                            <!-- an error submitting the form-->
-                            <div class="d-none" id="submitErrorMessage">
-                                <div class="text-center text-danger mb-3">
-                                    Error sending message!
-                                </div>
-                            </div>
-                        </form>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </section>
+                </section>
+
         <!-- Footer-->
         <footer class="footer bg-light">
             <div class="container">
@@ -267,6 +261,10 @@
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
         <script>
+            /*This funciton will set up the page.
+            Page setup includes determining the proper buttons to display based on login information,
+            grabbing the current year to display on the copyright,
+            and setting up the email error message.*/
             function setupPage()
             {
                 let dDate = new Date();
@@ -283,13 +281,16 @@
                 }
             }
 
+            /*This function is for email and password validation*/
             function checkPass(){
                 let sPass1 = document.getElementById("Password1").value;
                 let sPass2 = document.getElementById("Password2").value;
                 let sEmail = document.getElementById("Email").value;
 
+                //Email validation (very simple)
                 if (sEmail.includes("@") && sEmail.includes("."))
                 {
+                    //Password validation
                     if (sPass1 !== sPass2)
                         {
                             document.getElementById("btnSub").type = "button";
@@ -313,6 +314,7 @@
                 }
             }
 
+            /*This function auto-converts the first letter of a user's first and last name to upper case*/
             function properCaseInsert(oValue)
             {
                 if (oValue.value.length === 1)
