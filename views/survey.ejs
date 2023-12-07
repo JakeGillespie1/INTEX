@@ -504,101 +504,121 @@
                             </div>
                         </div>
                         
-                        <label for="iEasily"
-                            >How easily distracted are you?</label
-                        >
-                        <br />
-                        <select id="iEasily" name="iEasily">
-                            <option value="" disabled selected>
-                                -- Select a number --
-                            </option>
-                            <script>
-                                for (let i = 1; i <= 5; i++) {
-                                    document.write(
-                                        `<option value="${i}">${i}</option>`
-                                    );
-                                }
-                            </script>
-                        </select>
-                        <br />
-                        <br />
-                        <label for="iBothered"
-                            >How much are you bothered by worries?</label
-                        >
-                        <br />
-                        <select id="iBothered" name="iBothered">
-                            <option value="" disabled selected>
-                                -- Select a number --
-                            </option>
-                            <script>
-                                for (let i = 1; i <= 5; i++) {
-                                    document.write(
-                                        `<option value="${i}">${i}</option>`
-                                    );
-                                }
-                            </script>
-                        </select>
-                        <br />
-                        <br />
-                        <label for="iConcentrate"
-                            >Do you find it difficult to concentrate on
-                            things?</label
-                        >
-                        <br />
-                        <select id="iConcentrate" name="iConcentrate">
-                            <option value="" disabled selected>
-                                -- Select a number --
-                            </option>
-                            <script>
-                                for (let i = 1; i <= 5; i++) {
-                                    document.write(
-                                        `<option value="${i}">${i}</option>`
-                                    );
-                                }
-                            </script>
-                        </select>
-                        <br />
-                        <br />
-                        <label for="iCompare"
-                            >How often do you compare yourself to other
-                            successful people through the use of social
-                            media?</label
-                        >
-                        <br />
-                        <select id="iCompare" name="iCompare">
-                            <option value="" disabled selected>
-                                -- Select a number --
-                            </option>
-                            <script>
-                                for (let i = 1; i <= 5; i++) {
-                                    document.write(
-                                        `<option value="${i}">${i}</option>`
-                                    );
-                                }
-                            </script>
-                        </select>
-                        <br />
-                        <br />
-                        <label for="iFeel"
-                            >In reference to the previous question, how do you
-                            feel about these comparisons, generally
-                            speaking?</label
-                        >
-                        <br />
-                        <select id="iFeel" name="iFeel">
-                            <option value="" disabled selected>
-                                -- Select a number --
-                            </option>
-                            <script>
-                                for (let i = 1; i <= 5; i++) {
-                                    document.write(
-                                        `<option value="${i}">${i}</option>`
-                                    );
-                                }
-                            </script>
-                        </select>
-                        <br />
-                        <br />
+                        <div class="form-rows">
+                            <div class="labels">
+                                <label for="iEasily"
+                                    >How easily distracted are you?</label
+                                >
+                            </div>
+                            <div class="fields">
+                                <select id="iEasily" name="iEasily" class="dropdowncustom">
+                                    <option value="" disabled selected>
+                                        -- Select a number --
+                                    </option>
+                                    <script>
+                                        for (let i = 1; i <= 5; i++) {
+                                            document.write(
+                                                `<option value="${i}">${i}</option>`
+                                            );
+                                        }
+                                    </script>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-rows">
+                            <div class="labels">
+                                <label for="iBothered"
+                                    >How much are you bothered by worries?</label
+                                >
+                            </div>
+                            <div class="fields">
+                                <select id="iBothered" name="iBothered" class="dropdowncustom">
+                                    <option value="" disabled selected>
+                                        -- Select a number --
+                                    </option>
+                                    <script>
+                                        for (let i = 1; i <= 5; i++) {
+                                            document.write(
+                                                `<option value="${i}">${i}</option>`
+                                            );
+                                        }
+                                    </script>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-rows">
+                            <div class="labels">
+                                <label for="iConcentrate"
+                                    >Do you find it difficult to concentrate on
+                                    things?</label
+                                >
+                            </div>
+                            <div class="fields">
+                                <select id="iConcentrate" name="iConcentrate" class="dropdowncustom">
+                                    <option value="" disabled selected>
+                                        -- Select a number --
+                                    </option>
+                                    <script>
+                                        for (let i = 1; i <= 5; i++) {
+                                            document.write(
+                                                `<option value="${i}">${i}</option>`
+                                            );
+                                        }
+                                    </script>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-rows">
+                            <div class="labels">
+                                <label for="iCompare"
+                                    >How often do you compare yourself to other
+                                    successful people through the use of social
+                                    media?</label
+                                >
+                            </div>
+                            <div class="fields">
+                                <select id="iCompare" name="iCompare">
+                                    <option value="" disabled selected>
+                                        -- Select a number --
+                                    </option>
+                                    <script>
+                                        for (let i = 1; i <= 5; i++) {
+                                            document.write(
+                                                `<option value="${i}">${i}</option>`
+                                            );
+                                        }
+                                    </script>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-rows">
+                            <div class="labels">
+                                <label for="iFeel"
+                                    >In reference to the previous question, how do you
+                                    feel about these comparisons, generally
+                                    speaking?</label
+                                >
+                            </div>
+                            <div class="fields">
+                                <select id="iFeel" name="iFeel">
+                                    <option value="" disabled selected>
+                                        -- Select a number --
+                                    </option>
+                                    <script>
+                                        for (let i = 1; i <= 5; i++) {
+                                            document.write(
+                                                `<option value="${i}">${i}</option>`
+                                            );
+                                        }
+                                    </script>
+                                </select>
+                            </div>
+                        </div>
+                        
                         <label for="iValidation"
                             >How often do you look to seek validation from
                             features of social media?</label
