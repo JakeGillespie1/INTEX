@@ -34,7 +34,7 @@ let knex = require('knex')({
 });
 
 app.get('/db', (req, res) => {
-    let selector_id = req.body.responseSelector || 'all';
+    let selector_id = req.query.responseSelector || 'all';
 
     if (selector_id == 'all' || selector_id == 'View All') {
         knex.select()
@@ -292,9 +292,9 @@ app.get('/forgotPW', (req, res) => {
 
 app.post('/updatePW', (req, res) => {
     knex('user')
-    .where('email', "=", req.body.Email)
-    .update({ password : req.body.Password1})
-    });
+        .where('email', '=', req.body.Email)
+        .update({ password: req.body.Password1 });
+});
 
 app.post('/emailPW', (req, res) => {
     knex('user')
