@@ -239,12 +239,12 @@ app.post('/userLogin', (req, res) => {
                 let sLastName = results[0].last_name;
                 let isAdmin = results[0].is_admin;
 
-                res.render(path.join(__dirname + '/views/index'), {
+                res.render(path.join(__dirname + '/views/testing'), {
                     first_name: sFirstName,
                     last_name: sLastName,
                     is_admin: isAdmin,
                     login: 'true',
-                });
+                })
             }
         });
 });
