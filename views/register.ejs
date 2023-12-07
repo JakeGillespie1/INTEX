@@ -76,7 +76,7 @@
                                             placeholder="First Name"
                                             name="FirstName"
                                             maxlength="30"
-                                            onkeyup="properCaseInsert(this.value);"
+                                            onkeyup= this.value = "toString(properCaseInsert(this.value));"
                                             required>
                                         <br><br>
                                             <input class="form-control form-control-user" 
@@ -85,7 +85,7 @@
                                             placeholder="Last Name" 
                                             name="LastName"
                                             maxlength="30"
-                                            onkeyup="properCaseInsert(this.value);"
+                                            onkeyup="this.value = toString(properCaseInsert(this.value));"
                                             required>
                                         <br><br>
                                             <input class="form-control form-control-user" 
