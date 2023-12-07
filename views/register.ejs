@@ -63,6 +63,9 @@
                                         <h1 class="h4 text-gray-900 mb-4" id="emailBroke" style="display: none; color: orange; text-align: center;">
                                             <%= message %>
                                         </h1>
+                                        <h1 class="h4 text-gray-900 mb-4" id="emailBroke2" style="display: none; color: orange; text-align: center;">
+                                            Error: Invalid email
+                                        </h1>
                                         <h1 class="h4 text-gray-900 mb-4" id="pwBroke" style="display: none; color: orange; text-align: center;">
                                             Error: Passwords do not match
                                         </h1>
@@ -281,18 +284,30 @@
             function checkPass(){
                 let sPass1 = document.getElementById("Password1").value;
                 let sPass2 = document.getElementById("Password2").value;
+                let sEmail = document.getElementById("Email").value;
 
-                if (sPass1 !== sPass2)
+                if (sEmail.includes("@") && sEmail.includes("."))
                 {
-                    document.getElementById("btnSub").type = "button";
-                    document.getElementById("Password2").value = "";
-                    document.getElementById("pwBroke").style.display = "block";
-                    document.getElementById("emailBroke").style.display = "none";
+                    if (sPass1 !== sPass2)
+                        {
+                            document.getElementById("btnSub").type = "button";
+                            document.getElementById("Password2").value = "";
+                            document.getElementById("pwBroke").style.display = "block";
+                            document.getElementById("emailBroke").style.display = "none";
+                            document.getElementById("emailBroke2").style.display = "none";
+                        }
+                        else
+                        {
+                            document.getElementById("btnSub").type = "submit";
+                            document.getElementById("pwBroke").style.display = "none";
+                        }
                 }
                 else
                 {
-                    document.getElementById("btnSub").type = "submit";
+                    document.getElementById("btnSub").type = "button";
+                    document.getElementById("Email").value = "";
                     document.getElementById("pwBroke").style.display = "none";
+                    document.getElementById("emailBroke2").style.display = "block";
                 }
             }
         </script>
