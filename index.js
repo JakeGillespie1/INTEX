@@ -4,7 +4,7 @@ let app = express();
 
 let path = require('path');
 
-let port = process.env.PORT || 3000;
+let port = process.env.PORT || 3001;
 
 let rds_port = process.env.RDS_PORT || 5432;
 let host = process.env.RDS_HOSTNAME || 'localhost';
@@ -150,11 +150,17 @@ app.post('/addRecord', (req, res) => {
     }
 
     let dataDate = new Date();
-    dataDate = dataDate.getFullYear().toString() + "-" + (dDate.getMonth()+1).toString().padStart(2,0) + "-" + dDate.getDate().toString().padStart(2,0);
+    dataDate = dataDate.getFullYear().toString() + "-" + (dataDate.getMonth()+1).toString().padStart(2,0) + "-" + dataDate.getDate().toString().padStart(2,0);
 
-    let dataTime = dataDate.getHours().toString() + ":" + dataDate.getMinutes().toString() + ":" +dataDate.getSeconds().toString();
-    
-        knex('response')
+    let dataDate2 = new Date();
+    let dataTime =
+        dataDate2.getHours().toString() +
+        ':' +
+        dataDate2.getMinutes().toString() +
+        ':' +
+        dataDate2.getSeconds().toString();
+
+    knex('response')
         //does the table name go there^^
         .insert({
             date_stamp: dataDate,
@@ -213,15 +219,13 @@ app.post('/addUser', (req, res) => {
                         last_name: req.body.LastName,
                         email: req.body.Email,
                         password: req.body.Password1,
-                        is_admin: false
+                        is_admin: false,
                     })
                     .then(() => {
                         res.render(path.join(__dirname + '/views/testing'));
                     });
             }
         });
-
-
 });
 
 app.post('/userLogin', (req, res) => {
