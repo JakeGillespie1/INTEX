@@ -221,7 +221,7 @@ app.post('/addRecord', (req, res) => {
                     }
 
                     async function createOrgResponse(currOrg) {
-                        await knex('org_response').insert({
+                        await knex('organization_response').insert({
                             org_id: currOrg,
                             response_id: responseID,
                         });
