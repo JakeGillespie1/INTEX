@@ -78,6 +78,10 @@ app.get('/testing', (req, res) => {
     res.render(path.join(__dirname + '/views/testing'));
 });
 
+app.get('/testing2', (req, res) => {
+    res.render(path.join(__dirname + '/views/testing2'));
+});
+
 app.post('/addRecord', (req, res) => {
     let dbGender;
     let dbRelationship;
@@ -244,7 +248,7 @@ app.post('/addUser', (req, res) => {
                         is_admin: false,
                     })
                     .then(() => {
-                        res.render(path.join(__dirname + '/views/testing'));
+                        res.render(path.join(__dirname + '/views/testing2'));
                     });
             }
         });
