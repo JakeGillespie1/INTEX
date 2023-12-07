@@ -44,6 +44,11 @@
             </div>
         </nav>
     <body>
+        <select id="responseSelector">
+            <% mytest.forEach(response_id => { %>
+                <option value="<%= response.id %>"><%= response.id %></option>
+            <% }); %>
+        </select>
         <table
             style="
                 width: 100%;

@@ -137,16 +137,12 @@ app.post('/addRecord', (req, res) => {
         dbOccupation = 4;
     }
 
-    //I skipped organizaiton becuase you can select multiple lolz I have no idea
-
     //Social media use processing
     if (req.body.UseSM == 'Y') {
         dbUseSM = true;
     } else if (req.body.UseSM == 'N') {
         dbUseSM = false;
     }
-
-    //I skipped organizaiton becuase you can select multiple lolz I have no idea
 
     //Occupation processing
     if (req.body.avgTime == 'less') {
@@ -186,7 +182,6 @@ app.post('/addRecord', (req, res) => {
         dataDate2.getSeconds().toString();
 
     knex('response')
-        //does the table name go there^^
         .insert({
             date_stamp: dataDate,
             time_stamp: dataTime,
