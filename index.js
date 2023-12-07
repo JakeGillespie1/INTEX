@@ -215,8 +215,8 @@ app.post('/addRecord', (req, res) => {
 
         let currSocials = req.body.socialmediatypes || [];
 
-        for (let iCount = 0; iCount < currSocials; iCount++) {
-        knex(platform_response)
+        for (let iCount = 0; iCount < currSocials.length; iCount++) {
+        knex('platform_response')
             .insert ({
                 platform_id: currSocials[iCount],
                 response_id: responseID,
