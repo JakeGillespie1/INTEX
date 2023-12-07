@@ -112,7 +112,7 @@
                         <div class="labels">
                             <label>What is your gender?</label>
                         </div>
-                        <div class="fields" style="padding-top: 20px;">
+                        <div class="fields" style="padding-top: 15px;">
                             <ul style="list-style: none;">
                                 <li class="radio">
                                     <input
@@ -120,7 +120,6 @@
                                         id="rbMale"
                                         name="sGender"
                                         value="Male"
-                                        class="user-selection"
                                     />
                                     <label>Male</label>
                                 </li>
@@ -130,7 +129,6 @@
                                         id="rbFemale"
                                         name="sGender"
                                         value="Female"
-                                        class="user-selection"
                                     />
                                     <label for="rbFemale">Female</label>
                                 </li>
@@ -140,7 +138,6 @@
                                         id="rbOther"
                                         name="sGender"
                                         value="Other"
-                                        class="user-selection"
                                     />
                                     <label for="rbOther">Other</label>
                                 </li>
@@ -152,7 +149,7 @@
                         <div class="labels">
                             <label>What is your relationship status?</label>
                         </div>
-                        <div class="fields" style="padding-top: 20px;">
+                        <div class="fields" style="padding-top: 15px;">
                             <ul style="list-style: none;">
                                 <li class="radio">
                                     <input
@@ -194,157 +191,216 @@
                         </div>
                     </div>
 
-                        <label>What is your current occupation?</label>
-                        <br />
-                        <input
-                            type="radio"
-                            id="rbSStudent"
-                            name="sOccupation"
-                            value="School Student"
-                        />
-                        <label for="rbSStudent">School Student</label><br />
-                        <input
-                            type="radio"
-                            id="rbUStudent"
-                            name="sOccupation"
-                            value="University Student"
-                        />
-                        <label for="rbUStudent">University Student</label><br />
-                        <input
-                            type="radio"
-                            id="rbWorker"
-                            name="sOccupation"
-                            value="Salaried Worker"
-                        />
-                        <label for="rbWorker">Salaried Worker</label><br />
-                        <input
-                            type="radio"
-                            id="rbRetired"
-                            name="sOccupation"
-                            value="Retired"
-                        />
-                        <label for="rbRetired">Retired</label>
-                        <br />
-                        <br />
-                        <label
-                            >What type organization are you affiliated
-                            with?</label
-                        >
-                        <br />
-                        <input
-                            type="checkbox"
-                            id="cbUniversity"
-                            name="sOrganization"
-                            value="5"
-                        />
-                        <label for="cbUniversity">University</label><br />
-                        <input
-                            type="checkbox"
-                            id="cbSchool"
-                            name="sOrganization"
-                            value="4"
-                        />
-                        <label for="cbSchool">School</label><br />
-                        <input
-                            type="checkbox"
-                            id="cbCompany"
-                            name="sOrganization"
-                            value="1"
-                        />
-                        <label for="cbCompany">Company</label><br />
-                        <input
-                            type="checkbox"
-                            id="cbPrivate"
-                            name="sOrganization"
-                            value="2"
-                        />
-                        <label for="cbPrivate">Private</label><br />
-                        <input
-                            type="checkbox"
-                            id="cbGov"
-                            name="sOrganization"
-                            value="3"
-                        />
-                        <label for="cbGov">Government</label><br />
-                        <br />
-                        <br />
-                        <!--Social Media Info-->
-                        <h3>Social Media</h3>
-                        <label>Do you use social media?</label>
-                        <br />
-                        <input type="radio" id="rbYes" name="UseSM" value="Y" />
-                        <label for="rbYes">Yes</label><br />
-                        <input type="radio" id="rbNo" name="UseSM" value="N" />
-                        <label for="rbNo">No</label>
-                        <br />
-                        <br />
-                        <label>What social media do you use?</label>
-                        <br />
-                        <input
-                            type="checkbox"
-                            id="cbFacebook"
-                            name="socialmediatypes"
-                            value="3"
-                        />
-                        <label for="cbFacebook">Facebook</label><br />
-                        <input
-                            type="checkbox"
-                            id="cbTwitter"
-                            name="socialmediatypes"
-                            value="9"
-                        />
-                        <label for="cbTwitter">Twitter</label><br />
-                        <input
-                            type="checkbox"
-                            id="cbInstagram"
-                            name="socialmediatypes"
-                            value="4"
-                        />
-                        <label for="cbInstagram">Instagram</label><br />
-                        <input
-                            type="checkbox"
-                            id="cbYouTube"
-                            name="socialmediatypes"
-                            value="8"
-                        />
-                        <label for="cbYouTube">YouTube</label><br />
-                        <input
-                            type="checkbox"
-                            id="cbDiscord"
-                            name="socialmediatypes"
-                            value="1"
-                        />
-                        <label for="cbDiscord">Discord</label><br />
-                        <input
-                            type="checkbox"
-                            id="cbReddit"
-                            name="socialmediatypes"
-                            value="2"
-                        />
-                        <label for="cbReddit">Reddit</label><br />
-                        <input
-                            type="checkbox"
-                            id="cbPinterest"
-                            name="socialmediatypes"
-                            value="5"
-                        />
-                        <label for="cbPinterest">Pinterest</label><br />
-                        <input
-                            type="checkbox"
-                            id="cbSnapchat"
-                            name="socialmediatypes"
-                            value="7"
-                        />
-                        <label for="cbSnapchat">Snapchat</label><br />
-                        <input
-                            type="checkbox"
-                            id="cbTikTok"
-                            name="socialmediatypes"
-                            value="6"
-                        />
-                        <label for="cbTikTok">TikTok</label>
-                        <br />
-                        <br />
+                    <div class="form-rows">
+                        <div class="labels">
+                            <label>What is your current occupation?</label>
+                        </div>
+                        <div class="fields" style="padding-top: 17px;">
+                            <ul style="list-style: none;">
+                                <li class="radio">
+                                    <input
+                                        type="radio"
+                                        id="rbSStudent"
+                                        name="sOccupation"
+                                        value="School Student"
+                                    />
+                                    <label for="rbSStudent">School Student</label><br />
+                                </li>
+                                <li class="radio">
+                                    <input
+                                        type="radio"
+                                        id="rbUStudent"
+                                        name="sOccupation"
+                                        value="University Student"
+                                    />
+                                    <label for="rbUStudent">University Student</label><br />
+                                </li>
+                                <li class="radio">
+                                    <input
+                                        type="radio"
+                                        id="rbWorker"
+                                        name="sOccupation"
+                                        value="Salaried Worker"
+                                    />
+                                    <label for="rbWorker">Salaried Worker</label><br />
+                                <li class="radio">
+                                    <input
+                                        type="radio"
+                                        id="rbRetired"
+                                        name="sOccupation"
+                                        value="Retired"
+                                    />
+                                    <label for="rbRetired">Retired</label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="form-rows">
+                        <div class="labels">
+                            <label>What type organization are you affiliated with?</label>
+                        </div>
+                        <div class="fields" style="padding-top: 17px;">
+                            <ul style="list-style: none;">
+                                <li class="radio">
+                                    <input
+                                    type="checkbox"
+                                    id="cbUniversity"
+                                    name="sOrganization"
+                                    value="5"
+                                    />
+                                    <label for="cbUniversity">University</label><br />
+                                </li>
+                                <li class="radio">
+                                    <input
+                                        type="checkbox"
+                                        id="cbSchool"
+                                        name="sOrganization"
+                                        value="4"
+                                    />
+                                    <label for="cbSchool">School</label><br />
+                                </li>
+                                <li class="radio">
+                                    <input
+                                        type="checkbox"
+                                        id="cbCompany"
+                                        name="sOrganization"
+                                        value="1"
+                                    />
+                                    <label for="cbCompany">Company</label><br />
+                                </li>
+                                <li class="radio">
+                                    <input
+                                        type="checkbox"
+                                        id="cbPrivate"
+                                        name="sOrganization"
+                                        value="2"
+                                    />
+                                    <label for="cbPrivate">Private</label><br />
+                                </li>
+                                <li class="radio">
+                                    <input
+                                        type="checkbox"
+                                        id="cbGov"
+                                        name="sOrganization"
+                                        value="3"
+                                    />
+                                    <label for="cbGov">Government</label><br />
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!--Social Media Info-->
+                    <h3 class="text-center" style="padding-top: 75px;">Social Media</h3>
+                    <div class="form-rows">
+                        <div class="labels">
+                            <label>Do you use social media?</label>
+                        </div>
+                        <div class="fields" style="padding-top: 17px;">
+                            <ul style="list-style: none;">
+                                <li class="radio">
+                                    <input type="radio" id="rbYes" name="UseSM" value="Y" />
+                                    <label for="rbYes">Yes</label><br />
+                                </li>
+                                <li class="radio">
+                                    <input type="radio" id="rbNo" name="UseSM" value="N" />
+                                    <label for="rbNo">No</label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="form-rows">
+                        <div class="labels">
+                            <label>What social media do you use?</label>
+                        </div>
+                        <div class="fields" style="padding-top: 17px;">
+                            <ul style="list-style: none;">
+                                <li class="radio">
+                                    <input
+                                        type="checkbox"
+                                        id="cbFacebook"
+                                        name="socialmediatypes"
+                                        value="3"
+                                    />
+                                    <label for="cbFacebook">Facebook</label><br />
+                                </li>
+                                <li class="radio">
+                                    <input
+                                        type="checkbox"
+                                        id="cbTwitter"
+                                        name="socialmediatypes"
+                                        value="9"
+                                    />
+                                    <label for="cbTwitter">Twitter</label><br />
+                                </li>
+                                <li class="radio">
+                                    <input
+                                        type="checkbox"
+                                        id="cbInstagram"
+                                        name="socialmediatypes"
+                                        value="4"
+                                    />
+                                    <label for="cbInstagram">Instagram</label><br />
+                                </li>
+                                <li class="radio">
+                                    <input
+                                        type="checkbox"
+                                        id="cbYouTube"
+                                        name="socialmediatypes"
+                                        value="8"
+                                    />
+                                    <label for="cbYouTube">YouTube</label><br />
+                                </li>
+                                <li class="radio">
+                                    <input
+                                        type="checkbox"
+                                        id="cbDiscord"
+                                        name="socialmediatypes"
+                                        value="1"
+                                    />
+                                    <label for="cbDiscord">Discord</label><br />
+                                </li>
+                                <li class="radio">
+                                    <input
+                                        type="checkbox"
+                                        id="cbReddit"
+                                        name="socialmediatypes"
+                                        value="2"
+                                    />
+                                    <label for="cbReddit">Reddit</label><br />
+                                </li>
+                                <li class="radio">
+                                    <input
+                                        type="checkbox"
+                                        id="cbPinterest"
+                                        name="socialmediatypes"
+                                        value="5"
+                                    />
+                                    <label for="cbPinterest">Pinterest</label><br />
+                                </li>
+                                <li class="radio">
+                                    <input
+                                        type="checkbox"
+                                        id="cbSnapchat"
+                                        name="socialmediatypes"
+                                        value="7"
+                                    />
+                                    <label for="cbSnapchat">Snapchat</label><br />
+                                </li>
+                                <li class="radio">
+                                    <input
+                                        type="checkbox"
+                                        id="cbTikTok"
+                                        name="socialmediatypes"
+                                        value="6"
+                                    />
+                                    <label for="cbTikTok">TikTok</label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+
                         <label
                             >What is the average time you spend on social media
                             every day?</label
