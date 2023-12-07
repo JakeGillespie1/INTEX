@@ -291,6 +291,10 @@ app.post('/updatePW', (req, res) => {
         .update({ password: req.body.Password1 })
         .then(() => {
             res.render(path.join(__dirname + '/views/testing2'));
+        })
+        .catch((error) => {
+            console.error(error);
+            res.status(500).send('Internal Server Error');
         });
 });
 
