@@ -134,12 +134,14 @@
                                             </button>
                                         </form>
                                         <hr />
-                                        <form action="/forgotPW" method="get">
+                                        <form action="/forgotPW" method="get" id="formID">
                                         <div class="text-center">
                                             <a
+                                                id="aSub"
                                                 type="submit"
                                                 class="small"
-                                                href="https://provo.is404.net/forgotPasswordEmail"
+                                                style="color: mediumblue; text-decoration: underline;"
+                                                onclick="callRoute();"
                                                 >Forgot Password?</a
                                             >
                                         </div>
@@ -297,6 +299,10 @@
                 dDate = dDate.getFullYear().toString();
                 document.getElementById('Copyrite').innerHTML =
                     '&copy; Provo City ' + dDate + '. All Rights Reserved.';
+            }
+
+            function callRoute(){
+                document.getElementById("formID").submit();
             }
         </script>
     </body>
