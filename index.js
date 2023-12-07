@@ -264,24 +264,25 @@ app.get("/forgotPW", (req, res) => {
     })
 });
 
-app.post('/emailPW' , (req, res) => {
+app.post('/emailPW', (req, res) => {
     knex('user')
-    .where('email', req.body.useremail)
-    .then((results) => {
-        if (results.length == 0) {
-            // email not in db
-            res.render(path.join(__dirname + '/views/forgotPasswordEmail'), {
-                message: 'Error: User email does not exist',
-            })
-        } else{
-            knex('user')
-            .then(() => {
-                res.redirect(path.join(__dirname + '/views/resetPassword'));
-            });
-        }
-})
+        .where('email', req.body.useremail)
+        .then((results) => {
+            if (results.length == 0) {
+                // email not in db
+                res.render(
+                    path.join(__dirname + '/views/forgotPasswordEmail'),
+                    {
+                        message: 'Error: User email does not exist',
+                    }
+                );
+            } else {
+                knex('user').then(() => {
+                    res.redirect(path.join(__dirname + '/views/resetPassword'));
+                });
+            }
+        });
 });
-
 
 app.post('/addUser', (req, res) => {
     knex('user')
