@@ -717,6 +717,11 @@
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
         <script>
             function loggedIn() {
+                let dDate = new Date();
+                dDate = dDate.getFullYear().toString();
+                document.getElementById('Copyrite').innerHTML =
+                    '&copy; Provo City ' + dDate + '. All Rights Reserved.';
+
                 if (localStorage.getItem('is_admin').includes('true')) {
                     document.getElementById('createacc').style.display =
                         'block';
@@ -734,11 +739,6 @@
                     document.getElementById('btnLogout').style.display =
                         'block';
                 }
-
-                let dDate = new Date();
-                dDate = dDate.getFullYear().toString();
-                document.getElementById('Copyrite').innerHTML =
-                    '&copy; Provo City ' + dDate + '. All Rights Reserved.';
             }
             //Get Date Value and Validation Set up for Date Field
             function getDate() {
