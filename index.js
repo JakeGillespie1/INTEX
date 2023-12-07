@@ -307,7 +307,7 @@ app.post('/emailPW', (req, res) => {
                     }
                 );
             } else {
-                    res.redirect(path.join(__dirname + '/views/resetPassword'));
+                    res.render(path.join(__dirname + '/views/bridgeToPassword'));
             }
         }); 
         });
