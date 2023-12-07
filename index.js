@@ -1,4 +1,5 @@
 const express = require('express');
+const { userInfo } = require('os');
 
 let app = express();
 
@@ -292,12 +293,15 @@ app.get('/forgotPW', (req, res) => {
 
 app.post('/updatePW', (req, res) => {
     knex('user')
-        .where('email', '=', req.body.Email)
-        .update({ password: req.body.Password1 });
-});
+    .where('email', req.body.nameemail)
+    .update({ password : req.body.Password1})
+    .then(userInfo => {
+        res.redirect("/views/testing2")
+    });
+    });
 
 app.post('/emailPW', (req, res) => {
-    knex('user')
+    knex.select('password', 'email').from('user')
         .where('email', req.body.useremail)
         .then((results) => {
             if (results.length == 0) {
@@ -309,7 +313,7 @@ app.post('/emailPW', (req, res) => {
                     }
                 );
             } else {
-                res.render(path.join(__dirname + '/views/bridgeToPassword'));
+                res.render(path.join(__dirname + '/views/resetPassword'), {userInfo : results});
             }
         });
 });
