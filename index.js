@@ -34,26 +34,64 @@ let knex = require('knex')({
 });
 
 app.get('/db', (req, res) => {
-    knex.select()
-        .from('response')
-        .orderBy('response_id', 'desc')
-        .join(
-            'occupation_status',
-            'response.occupation_id',
-            '=',
-            'occupation_status.occupation_id'
-        )
-        .join(
-            'relationship_status',
-            'response.relationship_id',
-            '=',
-            'relationship_status.relationship_id'
-        )
-        .then((response) => {
-            res.render(path.join(__dirname + '/views/intexData'), {
-                mytest: response,
-            });
-        });
+    async function getResponses() {
+        return await knex
+            .select()
+            .from('response')
+            .orderBy('response_id', 'desc')
+            .join(
+                'occupation_status',
+                'response.occupation_id',
+                '=',
+                'occupation_status.occupation_id'
+            )
+            .join(
+                'relationship_status',
+                'response.relationship_id',
+                '=',
+                'relationship_status.relationship_id'
+            );
+    }
+
+    let responses = getResponses();
+
+    responses = responses.map((currResponse) => {
+        if (
+            currResponse.min_time_online == 0 &&
+            currResponse.max_time_online == 1
+        ) {
+            currResponse.time_online = 'Less than an hour';
+        } else if (
+            currResponse.min_time_online == 1 &&
+            currResponse.max_time_online == 2
+        ) {
+            currResponse.time_online = 'Between 1 and 2 hours';
+        } else if (
+            currResponse.min_time_online == 2 &&
+            currResponse.max_time_online == 3
+        ) {
+            currResponse.time_online = 'Between 2 and 3 hours';
+        } else if (
+            currResponse.min_time_online == 3 &&
+            currResponse.max_time_online == 4
+        ) {
+            currResponse.time_online = 'Between 3 and 4 hours';
+        } else if (
+            currResponse.min_time_online == 4 &&
+            currResponse.max_time_online == 5
+        ) {
+            currResponse.time_online = 'Between 4 and 5 hours';
+        } else if (
+            currResponse.min_time_online == 5 &&
+            !currResponse.max_time_online
+        ) {
+            currResponse.time_online = 'More than 5 hours';
+        }
+    });
+
+    res.render(path.join(__dirname + '/views/intexData'), {
+        mytest: responses,
+    });
 });
 
 app.get('/', (req, res) => {
@@ -137,16 +175,12 @@ app.post('/addRecord', (req, res) => {
         dbOccupation = 4;
     }
 
-    //I skipped organizaiton becuase you can select multiple lolz I have no idea
-
     //Social media use processing
     if (req.body.UseSM == 'Y') {
         dbUseSM = true;
     } else if (req.body.UseSM == 'N') {
         dbUseSM = false;
     }
-
-    //I skipped organizaiton becuase you can select multiple lolz I have no idea
 
     //Occupation processing
     if (req.body.avgTime == 'less') {
@@ -186,7 +220,6 @@ app.post('/addRecord', (req, res) => {
         dataDate2.getSeconds().toString();
 
     knex('response')
-        //does the table name go there^^
         .insert({
             date_stamp: dataDate,
             time_stamp: dataTime,
@@ -258,7 +291,7 @@ app.post('/addRecord', (req, res) => {
         });
 });
 
-app.get("/forgotPW", (req, res) => {
+app.get('/forgotPW', (req, res) => {
     res.render(path.join(__dirname + '/views/forgotPasswordEmail'), {
         message: 'message',
     });

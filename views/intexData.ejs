@@ -14,6 +14,20 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="/css/styles.css" rel="stylesheet" />
+
+        <script>
+            document.getElementById('responseSelector').addEventListener('change', function () {
+              var selectedResponseId = this.value;
+        
+              // Hide all rows
+              document.querySelectorAll('#dataTable tbody tr').forEach(function (row) {
+                row.style.display = 'none';
+              });
+        
+              // Show the selected row
+              document.getElementById(selectedResponseId).style.display = 'table-row';
+            });
+          </script>
     </head>
     <body onload="loggedIn();">
         <!-- Navigation-->
@@ -44,6 +58,11 @@
             </div>
         </nav>
     <body>
+        <select id="responseSelector">
+            <% mytest.forEach(response => { %>
+                <option value="<%= response.response.id %>"><%= response.response.id %></option>
+            <% }); %>
+        </select>
         <table
             style="
                 width: 100%;
@@ -62,8 +81,9 @@
                     <th style="text-align: left">Occupation ID</th>
                     <th style="text-align: left">Occupation Description</th>
                     <th style="text-align: left">Social Media User</th>
-                    <th style="text-align: left">Min Time Online</th>
-                    <th style="text-align: left">Max Time Online</th>
+                    <th style="text-align: left">Time Online</th>
+                    <!--<th style="text-align: left">Min Time Online</th>
+                    <th style="text-align: left">Max Time Online</th>-->
                     <th style="text-align: left">Location</th>
                 </tr>
             </thead>
@@ -79,8 +99,9 @@
                     <td><%= mytest[iCount].occupation_id %></td>
                     <td><%= mytest[iCount].occupation_desc %></td>
                     <td><%= mytest[iCount].social_media_user %></td>
-                    <td><%= mytest[iCount].min_time_online %></td>
-                    <td><%= mytest[iCount].max_time_online %></td>
+                    <td><%= mytest[iCount].time_online %></td>
+                    <!--<td><%= mytest[iCount].min_time_online %></td>
+                    <td><%= mytest[iCount].max_time_online %></td>-->
                     <td><%= mytest[iCount].location %></td>
                 </tr>
                 <% } %>
