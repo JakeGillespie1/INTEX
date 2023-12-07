@@ -14,20 +14,6 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="/css/styles.css" rel="stylesheet" />
-
-        <script>
-            function onFilterButtonClick() {
-                var selectedResponseId = document.getElementById.responseSelector.value;
-        
-              // Hide all rows
-              document.querySelectorAll('#intexDataTable tbody tr').forEach(function (row) {
-                row.style.display = 'none';
-              });
-        
-              // Show the selected row
-              document.getElementById(selectedResponseId).style.display = 'table-row';
-            };
-          </script>
     </head>
     <body onload="loggedIn();">
         <!-- Navigation-->
