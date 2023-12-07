@@ -318,6 +318,23 @@ app.post('/emailPW', (req, res) => {
         });
 });
 
+/*Admin Update Users*/
+app.post('/updateUserAdmin', (req, res) => {
+    knex('user')
+    .where('email', req.body.nameemail)
+    .update({ password : req.body.Password1})
+    .then(userInfoAdmin => {
+        res.render(path.join(__dirname + '/views/userData'));
+    });
+    });
+
+app.get('/showUsers', (req, res) => {
+    knex.select('*').from('user')
+        .then((results) => {
+            res.render(path.join(__dirname + '/views/userData'), {userInfoAdmin : results});
+        });
+});
+
 app.post('/addUser', (req, res) => {
     knex('user')
         .where('email', req.body.Email)

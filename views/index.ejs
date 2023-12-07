@@ -18,7 +18,10 @@
 
                 if (localStorage.getItem('is_admin').includes("true")) {
                     document.getElementById('createacc').style.display =
-                        'block';}
+                        'block';
+                    document.getElementById('btnUsers').style.display =
+                        'block';
+                }
 
                 let fName = localStorage.getItem('first_name');
                 let lName = localStorage.getItem('last_name');
@@ -82,6 +85,15 @@
                         href="register"
                         >Create New Account</a
                     >
+                    <form action="/showUsers" method="GET">
+                    <button
+                    type="submit"
+                    style="display: none; margin-right: 10px"
+                    class="btn btn-warning"
+                    id = "btnUsers"
+                    >View User Records</button
+                    >
+                    </form>
                     <form action="/" method="GET">
                         <button
                             type="submit"
