@@ -152,12 +152,13 @@ app.post('/addRecord', (req, res) => {
     let dataDate = new Date();
     dataDate = dataDate.getFullYear().toString() + "-" + (dataDate.getMonth()+1).toString().padStart(2,0) + "-" + dataDate.getDate().toString().padStart(2,0);
 
+    let dataDate2 = new Date();
     let dataTime =
-        dataDate.getHours().toString() +
+        dataDate2.getHours().toString() +
         ':' +
-        dataDate.getMinutes().toString() +
+        dataDate2.getMinutes().toString() +
         ':' +
-        dataDate.getSeconds().toString();
+        dataDate2.getSeconds().toString();
 
     knex('response')
         //does the table name go there^^
