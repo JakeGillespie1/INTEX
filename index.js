@@ -175,16 +175,12 @@ app.post('/addRecord', (req, res) => {
         dbOccupation = 4;
     }
 
-    //I skipped organizaiton becuase you can select multiple lolz I have no idea
-
     //Social media use processing
     if (req.body.UseSM == 'Y') {
         dbUseSM = true;
     } else if (req.body.UseSM == 'N') {
         dbUseSM = false;
     }
-
-    //I skipped organizaiton becuase you can select multiple lolz I have no idea
 
     //Occupation processing
     if (req.body.avgTime == 'less') {
@@ -224,7 +220,6 @@ app.post('/addRecord', (req, res) => {
         dataDate2.getSeconds().toString();
 
     knex('response')
-        //does the table name go there^^
         .insert({
             date_stamp: dataDate,
             time_stamp: dataTime,
@@ -302,6 +297,15 @@ app.get('/forgotPW', (req, res) => {
     });
 });
 
+app.post("/updatePW", (req, res) => {
+    knex('user')
+    .where('email', req.body.Email)
+    .update({password : req.body.Password1})
+    .then((updatedRows) => {
+    res.render(path.join(__dirname + '/views/testing2'));
+})
+});
+
 app.post('/emailPW', (req, res) => {
     knex('user')
         .where('email', req.body.useremail)
@@ -316,7 +320,7 @@ app.post('/emailPW', (req, res) => {
                 );
             } else {
                 knex('user').then(() => {
-                    res.redirect(path.join(__dirname + '/views/resetPassword'));
+                    res.render(path.join(__dirname + '/views/resetPassword'));
                 });
             }
         });
