@@ -10979,6 +10979,17 @@ header.masthead-custom {
   padding-top: 7rem;
   padding-bottom: 7rem;
 }
+
+#loginblue {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+#mainblue {
+  padding-top: 5rem;
+  padding-bottom: 2rem;
+}
+
 .call-to-action:before {
   content: "";
   position: absolute;
