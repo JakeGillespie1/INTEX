@@ -37,6 +37,12 @@ app.get('/db', (req, res) => {
     knex.select()
         .from('response')
         .orderBy('response_id', 'desc')
+        .join(
+            'occupation_status',
+            'response.occupation_id',
+            '=',
+            'occupation_status.occupation_id'
+        )
         .then((response) => {
             res.render(path.join(__dirname + '/views/intexData'), {
                 mytest: response,
@@ -46,6 +52,10 @@ app.get('/db', (req, res) => {
 
 app.get('/', (req, res) => {
     res.render(path.join(__dirname + '/views/index'));
+});
+
+app.get('/forgotPasswordEmail', (req, res) => {
+    res.render(path.join(__dirname + '/views/forgotPasswordEmail'));
 });
 
 app.get('/dashboard', (req, res) => {
