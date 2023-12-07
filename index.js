@@ -260,7 +260,7 @@ app.post('/addRecord', (req, res) => {
 
 app.post('/emailPW' , (req, res) => {
     knex('user')
-    .where('email', req.body.Email)
+    .where('email', req.body.useremail)
     .then((results) => {
         if (results.length == 0) {
             // email not in db
@@ -270,7 +270,7 @@ app.post('/emailPW' , (req, res) => {
         } else{
             knex('user')
             .then(() => {
-                res.render(path.join(__dirname + '/views/testing2'));
+                res.redirect(path.join(__dirname + '/views/resetPassword'));
             });
         }
 });
