@@ -261,7 +261,7 @@ app.post('/addRecord', (req, res) => {
 app.get("/forgotPW", (req, res) => {
     res.render(path.join(__dirname + '/views/forgotPasswordEmail'), {
         message: 'message',
-    })
+    });
 });
 
 app.post('/emailPW', (req, res) => {
