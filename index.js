@@ -203,7 +203,7 @@ app.post('/addRecord', (req, res) => {
             scale_sleep_issues: parseInt(req.body.iSleep),
         })
         .then(() => {
-            res.render(path.join(__dirname + '/views/testing'));
+            res.render(path.join(__dirname + '/views/testing2'));
         });
         let responseID;
         knex.select()
@@ -248,7 +248,7 @@ app.post('/addUser', (req, res) => {
                         is_admin: false,
                     })
                     .then(() => {
-                        res.render(path.join(__dirname + '/views/testing2'));
+                        res.render(path.join(__dirname + '/views/testing'));
                     });
             }
         });
