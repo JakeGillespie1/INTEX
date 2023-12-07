@@ -50,52 +50,47 @@ app.get('/db', (req, res) => {
                 'response.relationship_id',
                 '=',
                 'relationship_status.relationship_id'
-            );
+            )
+            .then((responseData) => {
+                let responses = responseData.map((currResponse) => {
+                    if (
+                        currResponse.min_time_online.includes(0) &&
+                        currResponse.max_time_online.includes(1)
+                    ) {
+                        currResponse.time_online = 'Less than an hour';
+                    } else if (
+                        currResponse.min_time_online.includes(1) &&
+                        currResponse.max_time_online.includes(2)
+                    ) {
+                        currResponse.time_online = 'Between 1 and 2 hours';
+                    } else if (
+                        currResponse.min_time_online.includes(2) &&
+                        currResponse.max_time_online.includes(3)
+                    ) {
+                        currResponse.time_online = 'Between 2 and 3 hours';
+                    } else if (
+                        currResponse.min_time_online.includes(3) &&
+                        currResponse.max_time_online.includes(4)
+                    ) {
+                        currResponse.time_online = 'Between 3 and 4 hours';
+                    } else if (
+                        currResponse.min_time_online.includes(4) &&
+                        currResponse.max_time_online.includes(5)
+                    ) {
+                        currResponse.time_online = 'Between 4 and 5 hours';
+                    } else if (
+                        currResponse.min_time_online.includes(5) &&
+                        !currResponse.max_time_online
+                    ) {
+                        currResponse.time_online = 'More than 5 hours';
+                    }
+                });
+
+                res.render(path.join(__dirname + '/views/intexData'), {
+                    mytest: responses,
+                });
+            });
     }
-
-    async function processData() {
-        let responses = await getResponses();
-
-        responses = responses.map((currResponse) => {
-            if (
-                currResponse.min_time_online.includes(0) &&
-                currResponse.max_time_online.includes(1)
-            ) {
-                currResponse.time_online = 'Less than an hour';
-            } else if (
-                currResponse.min_time_online.includes(1) &&
-                currResponse.max_time_online.includes(2)
-            ) {
-                currResponse.time_online = 'Between 1 and 2 hours';
-            } else if (
-                currResponse.min_time_online.includes(2) &&
-                currResponse.max_time_online.includes(3)
-            ) {
-                currResponse.time_online = 'Between 2 and 3 hours';
-            } else if (
-                currResponse.min_time_online.includes(3) &&
-                currResponse.max_time_online.includes(4)
-            ) {
-                currResponse.time_online = 'Between 3 and 4 hours';
-            } else if (
-                currResponse.min_time_online.includes(4) &&
-                currResponse.max_time_online.includes(5)
-            ) {
-                currResponse.time_online = 'Between 4 and 5 hours';
-            } else if (
-                currResponse.min_time_online.includes(5) &&
-                !currResponse.max_time_online
-            ) {
-                currResponse.time_online = 'More than 5 hours';
-            }
-        });
-
-        res.render(path.join(__dirname + '/views/intexData'), {
-            mytest: responses,
-        });
-    }
-
-    processData();
 });
 
 app.get('/', (req, res) => {
@@ -324,7 +319,9 @@ app.post('/emailPW', (req, res) => {
                 );
             } else {
                 knex('user').then(() => {
-                    res.render(path.join(__dirname + '/views/resetEmailSuccess'));
+                    res.render(
+                        path.join(__dirname + '/views/resetEmailSuccess')
+                    );
                 });
             }
         });
