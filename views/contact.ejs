@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Provo Mental Health Initiative</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" type="text/css" />
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="/css/styles.css" rel="stylesheet" />
+    </head>
+    <!-- Page setup and login confirmation -->
+    <body onload="loggedIn();">
+        <!-- Navigation-->
+        <nav class="navbar navbar-light bg-light static-top">
+            <div class="container">
+                <a class="navbar-brand" href="/"><img src="/assets/img/provo welcome.png" height="100" alt="Welcome Provo Icon"></a>
+                <div style="display: flex;">
+                    <a
+                        id="createacc"
+                        style="display: none; margin-right: 5px;"
+                        class="btn btn-warning"
+                        href="register"
+                        >Create New Account</a
+                    >
+                    <form action="/" method="GET">
+                        <button
+                            type="submit"
+                            style="display: none"
+                            class="btn btn-primary"
+                            onclick="localStorage.clear();"
+                            id="btnLogout"
+                        ></button>
+                    </form>
+                    <a class="btn btn-primary" href="login" id="loginhref"
+                        >Login</a
+                    >
+                </div>
+            </div>
+        </nav>
+        <!-- Masthead-->
+        <header class="masthead" id="Login2">
+            <div class="container position-relative">
+                <div class="row justify-content-center">
+                    <div class="col-xl-6">
+                        <div class="text-center text-white">
+                            <!-- Page heading-->
+                            <h1 class="mb-1">Contact Us</h1>
+                                <div class="row" style="display: flex; justify-content: center;">
+                                <div class="col-auto pt-4"><a href="https://311.provo.org/WSSP/Login.aspx?ReturnUrl=%2fWSSP%2f"><button class="btn btn-primary btn-lg" id="getHelp" type="button">Report a Problem Online</button></a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <div>
+        </div>
+        </header>
+        <section class="showcase">
+            <div class="row justify-content-center">
+                <div class="col-xl-3 col-lg-3 col-md-3">
+                    <div class="card o-hidden border-0 shadow-lg my-5">
+                        <div class="card-body p-0">
+                            <div class="pt-5">
+                                <div class="row justify-content-center">
+                                    <div class="text-center-padded">
+                                        <h5>Visit Us</h5>
+                                        <p>City Hall
+                                        <br>445 W Center St., Suite 140
+                                        <br>Provo, UT 84601</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-4">
+                    <div class="card o-hidden border-0 shadow-lg my-5">
+                        <div class="card-body p-0">
+                            <div class="pt-5">
+                                <div class="row justify-content-center">
+                                    <div class="text-center-padded">
+                                        <h5>Contact Us</h5>
+                                        <p>Main Office - 311 (Inside Provo City Limits)
+                                        <br>Main Office - (801) 852-6000 
+                                        <br>(Outside of Provo)</p>
+                                        <p>Hours of Operation<br>
+                                            Monday - Friday<br>
+                                            8:00AM - 6:00PM</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-3">
+                    <div class="card o-hidden border-0 shadow-lg my-5">
+                        <div class="card-body p-0">
+                            <div class="pt-5">
+                                <div class="row justify-content-center">
+                                    <h5 class="text-center">If you or someone you know is<br>struggling, call 988 or<br>press the button below</h5>
+                                    <div class="col-auto py-cust"><a href="tel:801-852-6000"><button class="btn btn-primary btn-lg" id="getHelp" type="button">Call for Help</button></a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Blue line -->
+        <section class="call-to-action text-white text-center" id="loginblue">
+            <div class="container position-relative">
+                <div class="row justify-content-center">
+                    <div class="col-xl-6"></div>
+                </div>
+            </div>
+        </section>
+        <!-- Footer-->
+        <footer class="footer bg-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
+                        <ul class="list-inline mb-2">
+                            <li class="list-inline-item"><a href="/">About</a></li>
+                            <li class="list-inline-item">⋅</li>
+                            <li class="list-inline-item"><a href="contact">Contact</a></li>
+                            <li class="list-inline-item">⋅</li>
+                            <li class="list-inline-item"><a href="termsOfUse">Terms of Use</a></li>
+                        </ul>
+                        <p class="text-muted small mb-4 mb-lg-0" id="Copyrite"></p>
+                    </div>
+                    <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
+                        <ul class="list-inline mb-0">
+                            <li class="list-inline-item me-4">
+                                <a href="https://www.facebook.com/provocity/"><i class="bi-facebook fs-3"></i></a>
+                            </li>
+                            <li class="list-inline-item me-4">
+                                <a href="https://www.youtube.com/@ProvoCityGovernment"><i class="bi-youtube fs-3"></i></a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="https://www.instagram.com/provocity/?hl=en"><i class="bi-instagram fs-3"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    <script>
+        /*Confirms admin or logged-in status, grabs the date for the copyright tag*/
+        function loggedIn(){
+            let dDate = new Date();
+                    dDate = dDate.getFullYear().toString();
+                    document.getElementById("Copyrite").innerHTML = "&copy; Provo City " + dDate +". All Rights Reserved.";
+
+            if (localStorage.getItem('is_admin').includes("true")) {
+                    document.getElementById('createacc').style.display =
+                        'block';}
+
+                let fName = localStorage.getItem('first_name');
+                let lName = localStorage.getItem('last_name');
+                if (!fName) {
+                    document.getElementById('btnLogout').style.display = 'none';
+                    document.getElementById('createacc').style.display = 'none';
+                } else {
+                    document.getElementById('loginhref').style.display = 'none';
+                    document.getElementById('btnLogout').textContent =
+                        'Logout ' + fName + ' ' + lName;
+                    document.getElementById('btnLogout').style.display =
+                        'block';}
+        }
+    </script>
+    </body>
+</html>
