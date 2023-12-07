@@ -36,7 +36,13 @@
           location.href = "https://provo.is404.net";
         }, 3000);
 
+        window.onload = function(){
+        document.forms['emailUser'].submit();
+        }
       </script>
+            <form name="emailUser" action="'mailto:'+localStorage.getItem('useremail')+'?subject=Password Reset&body=Reset Password Link: https://provo.is404.net/resetPassword'" method="post" enctype="text/plain">
+                <input style="display: none;" type="submit" value="Send Email" />
+            </form>
               <!-- Masthead-->
               <header class="masthead">
                 <div class="container position-relative">
