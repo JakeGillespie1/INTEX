@@ -34,9 +34,9 @@ let knex = require('knex')({
 });
 
 app.get('/db', (req, res) => {
-    let selector_id = req.body.responseSelector;
+    let selector_id = req.body.responseSelector || 'all';
 
-    if (!selector_id || selector_id == 'all') {
+    if (selector_id == 'all') {
         knex.select()
             .from('response')
             .orderBy('response_id', 'desc')
@@ -291,7 +291,7 @@ app.post('/updatePW', (req, res) => {
         .update({ password: req.body.Password1 })
         .then(() => {
             res.render(path.join(__dirname + '/views/testing2'));
-        })
+        });
 });
 
 app.post('/emailPW', (req, res) => {
@@ -309,8 +309,8 @@ app.post('/emailPW', (req, res) => {
             } else {
                     res.render(path.join(__dirname + '/views/bridgeToPassword'));
             }
-        }); 
         });
+});
 
 app.post('/addUser', (req, res) => {
     knex('user')
