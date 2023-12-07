@@ -56,18 +56,22 @@
         <div class="row justify-content-center">
             <div class="col-1"></div>
             <div class="col-10">
-                <form
-                    action="/db"
-                    method="get"
-                >
-                    <select class="dropdown" id="responseSelector" name="responseSelector">
-                        <option value="all">View All</option>
-                        <% mytest.forEach(response => { %>
-                            <option value="<%= response.response_id %>"><%= response.response_id %></option>
-                        <% }); %>
-                    </select>
-                    <button type="submit" class="btn btn-primary">Find Record</button>
-                </form>
+                <div class="row justify-content-center">
+                    <form
+                        action="/db"
+                        method="get"
+                    >
+                        <div class="col-11">
+                            <select class="form-select form-select-lg mb-3" id="responseSelector" name="responseSelector">
+                                <option value="all">View All</option>
+                                <% mytest.forEach(response => { %>
+                                    <option value="<%= response.response_id %>"><%= response.response_id %></option>
+                                <% }); %>
+                            </select>
+                        </div>
+                        <div class="col-1"><button type="submit" class="btn btn-primary">Find Record</button></div>
+                    </form>
+                </div>
             <table
                 style="
                     width: 100%;
