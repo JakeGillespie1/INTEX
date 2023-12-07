@@ -30,11 +30,12 @@
 </head>
 <body onload="gatherLocal();">
     <script>
-        // Wait for 5000 milliseconds (5 seconds) before redirecting
+        // Wait for 3000 milliseconds (3 seconds) before redirecting
         setTimeout(function() {
           location.href = "https://provo.is404.net";
         }, 3000);
 
+        /*Function gathers needed localstorage data to use on other pages*/
         function gatherLocal(){
             let login = localStorage.getItem('login');
             if (login == 'true') {
