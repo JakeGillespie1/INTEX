@@ -44,14 +44,20 @@
             </div>
         </nav>
     <body>
+        <div class="col-1"></div>
         <div class="col-10">
-        <select id="responseSelector">
-            <option value="all">View All</option>
-            <% mytest.forEach(response => { %>
-                <option value="<%= response.response_id %>"><%= response.response_id %></option>
-            <% }); %>
-        </select>
-        <button type="button" class="btn btn-primary" onclick="onFilterButtonClick()">Find Record</button>
+            <form
+                action="/db"
+                method="get"
+            >
+                <select id="responseSelector">
+                    <option value="all">View All</option>
+                    <% mytest.forEach(response => { %>
+                        <option value="<%= response.response_id %>"><%= response.response_id %></option>
+                    <% }); %>
+                </select>
+                <button type="submit" class="btn btn-primary">Find Record</button>
+            </form>
         <table
             style="
                 width: 100%;
@@ -96,6 +102,7 @@
             </tbody>
         </table>
     </div>
+    <div class="col-1"></div>
         <br>
         <br>
         <br>
