@@ -211,20 +211,30 @@ app.post('/addRecord', (req, res) => {
                     responseID = response[0].response_id;
 
                     let currSocials = req.body.socialmediatypes || [];
+                    let currOrgs = req.body.sOrganization || [];
 
-                    async function fetchLatestResponseID(currPlatform) {
-                        const response = await knex('platform_response').insert(
-                            {
-                                platform_id: currPlatform,
-                                response_id: responseID,
-                            }
-                        );
+                    async function createPlatResponse(currPlatform) {
+                        await knex('platform_response').insert({
+                            platform_id: currPlatform,
+                            response_id: responseID,
+                        });
+                    }
+
+                    async function createOrgResponse(currOrg) {
+                        await knex('platform_response').insert({
+                            org_id: currOrg,
+                            response_id: responseID,
+                        });
                     }
 
                     Promise.all(
                         currSocials.map((currPlatform) =>
-                            fetchLatestResponseID(currPlatform)
+                            createPlatResponse(currPlatform)
                         )
+                    );
+
+                    Promise.all(
+                        currOrgs.map((currOrg) => createOrgResponse(currOrg))
                     );
 
                     res.render(path.join(__dirname + '/views/testing2'));
