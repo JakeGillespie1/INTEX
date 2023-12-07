@@ -60,33 +60,10 @@
         </header>
         <!-- Icons Grid-->
         <section class="features-icons bg-light text-center">
-            <!--Survey Questions
-            1. Take a timestamp
-            2. What is your age? (Input int)
-            3. Gender (Radio buttons - M, F, O)
-            4. Relationship Status (Radio buttons - Single, Relationship, Married, Divorced)
-            5. Occupation Status (Radio/select - School/University Student, Salaried, Retired)
-            6. What type of organization (Select?)
-            7. Do you use social media (Radio - Yes, No)
-            8. What social media do you use? (Checkbox)
-            9. What is the average time (Select)
-
-            These are all scale 1-5
-
-            10. No purpose?
-            11. Distracted?
-            12. Restless?
-            13. Easily distracted?
-            14. Bother by worries?
-            15. Difficult to concentrate?
-            16. Compare?
-            17. Feel about comparisons?
-            18. Seek validation?
-            19. Feel depressed?
-            20. Interest?
-            21. Sleep?-->
+        <!--Survey-->
             <div class="container" id="survey">
                 <div class="row">
+                    <!--Personal Info-->
                 <h3>Personal Information</h3>
                     <form action="/addRecord" method="POST" id="surveyForm">
                         <label for="iAge">What is your age?</label>
@@ -157,6 +134,7 @@
                         <label for="cbNA">N/A</label>
                         <br>
                         <br>
+                        <!--Social Media info-->
                         <h3>Social Media</h3>
                         <label>Do you use social media?</label>
                         <br>
@@ -202,6 +180,7 @@
                         <br>
                         <br>
                         <br>
+                        <!--Mental Health Questions-->
                         <h6>The following questions will ask you about different aspects of your mental health at this time.</h6>
                         <h6>Please answer on a scale of 1-5 with 1 being low in occurance and 5 signifying this is something you struggle with often.</h6>
                         <br>
@@ -355,7 +334,6 @@
                         <br>
                         <p id="submittedSurvey"></p>
                         <script>
-                            //this should work 
                             function submitSurvey()
                             {
                                 document.getElementById("submittedSurvey").innerHTML = "Thank you for your response."
@@ -370,10 +348,6 @@
         <section class="showcase">
             <div class="container-fluid p-0">
             </div>
-        </section>
-        <!-- Testimonials-->
-        <section>
-            
         </section>
         <!-- Call to Action-->
         <section class="call-to-action text-white text-center" id="signup">
