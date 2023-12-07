@@ -43,6 +43,12 @@ app.get('/db', (req, res) => {
             '=',
             'occupation_status.occupation_id'
         )
+        .join(
+            'relationship_status',
+            'response.relationship_id',
+            '=',
+            'relationship_status.relationship_id'
+        )
         .then((response) => {
             res.render(path.join(__dirname + '/views/intexData'), {
                 mytest: response,
