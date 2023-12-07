@@ -35,7 +35,7 @@ let knex = require('knex')({
 
 app.get('/db', (req, res) => {
     let selector_id = req.query.responseSelector || 'all';
-
+    console.log('HEYHEYHEYHEY HEYHEYHEYHEY', selector_id);
     if (selector_id == 'all' || selector_id == 'View All') {
         knex.select()
             .from('response')
