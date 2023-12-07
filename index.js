@@ -124,6 +124,10 @@ app.get('/testing2', (req, res) => {
     res.render(path.join(__dirname + '/views/testing2'));
 });
 
+app.get('/resetPassword', (req,res) => {
+    res.render(path.join(__dirname + '/views/resetPassword'));
+})
+
 app.post('/addRecord', (req, res) => {
     let dbGender;
     let dbRelationship;
