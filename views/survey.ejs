@@ -75,18 +75,21 @@
             </div>
         </header>
         <!-- Icons Grid-->
-        <section class="features-icons bg-light text-center">
+        <section class="features-icons bg-custom text-center">
         <!--Survey-->
-        <div>
-            <div class="container" id="survey">
-                <div class="row">
+        <div class="master-div-style">
+            <div id="survey">
+                <div>
                     <!--Personal Info-->
                     <h3>Personal Information</h3>
                     <form action="/addRecord" method="POST" id="surveyForm">
-                        <label for="iAge">What is your age?</label>
-                        <br />
+                        <div class="form-rows">
+                            <div class="labels">
+                                <label for="iAge">What is your age?</label>
+                            </div>
                         <select id="iAge" name="iAge">
-                            <option value="" disabled selected>
+                            <div class="fields">
+                            <option value="" disabled selected class="input-fields">
                                 -- Select a number --
                             </option>
                             <script>
@@ -97,6 +100,7 @@
                                 }
                             </script>
                         </select>
+                        </div>
                         <br />
                         <br />
 
@@ -598,9 +602,9 @@
                                 document.getElementById('surveyForm').reset();
                             }
                         </script>
+                        </div>
                     </form>
                 </div>
-            </div>
             </div>
         </section>
         <!-- Image Showcases-->

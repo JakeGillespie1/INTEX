@@ -58,27 +58,27 @@ app.get('/db', (req, res) => {
                 });
             });
     } else if (selector_id != 'all') {
-        knex.select()
-            .from('response')
-            .orderBy('response_id', 'desc')
-            .join(
-                'occupation_status',
-                'response.occupation_id',
-                '=',
-                'occupation_status.occupation_id'
-            )
-            .join(
-                'relationship_status',
-                'response.relationship_id',
-                '=',
-                'relationship_status.relationship_id'
-            )
+    knex.select()
+        .from('response')
+        .orderBy('response_id', 'desc')
+        .join(
+            'occupation_status',
+            'response.occupation_id',
+            '=',
+            'occupation_status.occupation_id'
+        )
+        .join(
+            'relationship_status',
+            'response.relationship_id',
+            '=',
+            'relationship_status.relationship_id'
+        )
             .where(('response_id', selector_id))
-            .then((response) => {
-                res.render(path.join(__dirname + '/views/intexData'), {
-                    mytest: response,
-                });
+        .then((response) => {
+            res.render(path.join(__dirname + '/views/intexData'), {
+                mytest: response,
             });
+        });
     }
 });
 
