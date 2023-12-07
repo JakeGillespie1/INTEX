@@ -248,7 +248,7 @@ app.post('/addUser', (req, res) => {
                         is_admin: false,
                     })
                     .then(() => {
-                        res.render(path.join(__dirname + '/views/testing'));
+                        res.render(path.join(__dirname + '/views/testing2'));
                     });
             }
         });
