@@ -290,13 +290,11 @@ app.get('/forgotPW', (req, res) => {
     });
 });
 
-app.post('/updatePW', async (req, res) => {
-    await knex('user')
-    .where('email', req.body.Email)
-    .update({ password: Password1 });
-
-    res.render(path.join(__dirname + '/views/testing2'));    
-});
+app.post('/updatePW', (req, res) => {
+    knex('user')
+    .where('email', "=", req.body.Email)
+    .update({ password : req.body.Password1})
+    });
 
 app.post('/emailPW', (req, res) => {
     knex('user')
