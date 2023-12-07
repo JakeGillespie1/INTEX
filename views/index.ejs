@@ -10,27 +10,10 @@
         <meta name="author" content="" />
         <script>
             function updateLocalStorage() {
-                let login = localStorage.getItem('login');
-                if (login == 'true') {
-                    localStorage.setItem(
-                        'first_name',
-                        document.getElementById('first_name_p').textContent
-                    );
-                    localStorage.setItem(
-                        'last_name',
-                        document.getElementById('last_name_p').textContent
-                    );
-                    localStorage.setItem(
-                        'is_admin',
-                        document.getElementById('is_admin_p').textContent
-                    );
-                    localStorage.setItem('login', 'false');
 
-                    if (localStorage.getItem('is_admin')) {
-                        document.getElementById('createacc').style.display =
-                            'block';
-                    }
-                }
+                if (localStorage.getItem('is_admin')) {
+                    document.getElementById('createacc').style.display =
+                        'block';}
 
                 let fName = localStorage.getItem('first_name');
                 let lName = localStorage.getItem('last_name');
