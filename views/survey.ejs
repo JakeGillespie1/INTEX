@@ -81,23 +81,24 @@
             </div>
         </header>
         <!-- Icons Grid-->
-        <section class="features-icons bg-custom text-center">
+        <section class="features-icons text-center">
         <!--Survey-->
         <div class="master-div-style">
             <div id="survey">
                 <div>
                     <!--Personal Info-->
-                    <h3>Personal Information</h3>
+                    <h3 class="text-center">Personal Information</h3>
                     <form action="/addRecord" method="POST" id="surveyForm">
                         <div class="form-rows">
                             <div class="labels">
                                 <label for="iAge">What is your age?</label>
                             </div>
-                        <select id="iAge" name="iAge">
+                        <select id="iAge" name="iAge" class="dropdowncustom">
                             <div class="fields">
-                            <option value="" disabled selected class="input-fields">
+                            <option value="" disabled selected>
                                 -- Select a number --
                             </option>
+                            </div>
                             <script>
                                 for (let i = 1; i <= 100; i++) {
                                     document.write(

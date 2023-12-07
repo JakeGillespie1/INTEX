@@ -60,7 +60,7 @@
                     action="/db"
                     method="get"
                 >
-                    <select id="responseSelector">
+                    <select class="dropdown" id="responseSelector">
                         <option value="all">View All</option>
                         <% mytest.forEach(response => { %>
                             <option value="<%= response.response_id %>"><%= response.response_id %></option>
