@@ -36,7 +36,7 @@ let knex = require('knex')({
 app.get('/db', (req, res) => {
     let selector_id = req.body.responseSelector || 'all';
 
-    if (selector_id == 'all') {
+    if (selector_id == 'all' || selector_id == 'View All') {
         knex.select()
             .from('response')
             .orderBy('response_id', 'desc')
