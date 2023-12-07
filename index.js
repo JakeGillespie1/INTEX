@@ -273,6 +273,7 @@ app.post('/emailPW' , (req, res) => {
                 res.redirect(path.join(__dirname + '/views/resetPassword'));
             });
         }
+})
 });
 
 
