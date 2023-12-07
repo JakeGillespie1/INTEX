@@ -149,9 +149,16 @@ app.post('/addRecord', (req, res) => {
         dbMax = null;
     }
 
-    knex('response')
+    let dataDate = new Date();
+    dataDate = dataDate.getFullYear().toString() + "-" + (dDate.getMonth()+1).toString().padStart(2,0) + "-" + dDate.getDate().toString().padStart(2,0);
+
+    let dataTime = dataDate.getHours().toString() + ":" + dataDate.getMinutes().toString() + ":" +dataDate.getSeconds().toString();
+    
+        knex('response')
         //does the table name go there^^
         .insert({
+            date_stamp: dataDate,
+            time_stamp: dataTime,
             age: parseInt(req.body.iAge),
             gender: dbGender,
             relationship_id: dbRelationship,
