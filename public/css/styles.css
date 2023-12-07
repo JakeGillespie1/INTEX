@@ -91,6 +91,20 @@
   }
 }
 
+section {
+  text-align: center;
+  background-color: #a9d7e9;
+}
+
+.master-div-style {
+  margin: auto;
+  width: 800px;
+  background-color: #f3f3f3;
+  border-radius: 10px;
+  padding: 20px 10px 10px 10px;
+}
+
+
 body {
   margin: 0;
   font-family: var(--bs-body-font-family);
@@ -10915,8 +10929,6 @@ textarea.form-control-lg {
 .gender-option input {
   margin-right: 8px; /* Adjust as needed */
 }
-
-
 
 header.masthead {
   position: relative;
