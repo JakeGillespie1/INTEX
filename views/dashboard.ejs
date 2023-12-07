@@ -15,6 +15,7 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="/css/styles.css" rel="stylesheet" />
     </head>
+    <!-- Function that ensures the page is set up properly based on login credentials -->
     <body onload="loggedIn();">
         <!-- Navigation-->
         <nav class="navbar navbar-light bg-light static-top">
@@ -114,7 +115,7 @@
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
         <script>
-            //Admin displays
+            //Admin displays and date information for copyright tag
             function loggedIn(){
                 if (localStorage.getItem('is_admin').includes("true")) {
                     document.getElementById('createacc').style.display =
