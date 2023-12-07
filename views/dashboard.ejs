@@ -15,6 +15,7 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="/css/styles.css" rel="stylesheet" />
     </head>
+    <!-- Function that ensures the page is set up properly based on login credentials -->
     <body onload="loggedIn();">
         <!-- Navigation-->
         <nav class="navbar navbar-light bg-light static-top">
@@ -66,6 +67,14 @@
             <div>
                 <button onclick="window.location.href='https://provo.is404.net/db'" id="dbBut" type="button" class="btn btn-info" style="margin: 0 auto; display: none;">View Full Data Set</button>
             </div>
+        <!-- Blue line -->
+        <section class="call-to-action text-white text-center" id="mainblue">
+            <div class="container position-relative">
+                <div class="row justify-content-center">
+                    <div class="col-xl-6"></div>
+                </div>
+            </div>
+        </section>
         <!-- Footer-->
         <footer class="footer bg-light">
             <div class="container">
@@ -106,7 +115,7 @@
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
         <script>
-            //Admin displays
+            //Admin displays and date information for copyright tag
             function loggedIn(){
                 if (localStorage.getItem('is_admin').includes("true")) {
                     document.getElementById('createacc').style.display =
