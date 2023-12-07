@@ -8026,6 +8026,12 @@ textarea.form-control-lg {
 .text-center {
   text-align: center !important;
 }
+.text-center-padded {
+  text-align: center !important;
+  padding-left: 30px !important;
+  padding-right: 30px !important;
+  padding-bottom: 50px !important;
+}
 
 .text-decoration-none {
   text-decoration: none !important;
@@ -10911,6 +10917,11 @@ header.masthead {
   padding-top: 4rem;
   padding-bottom: 6rem;
 }
+#Login2.masthead {
+  height: 275px;
+  padding-top: 4rem;
+  padding-bottom: 6rem;
+}
 header.masthead:before {
   content: "";
   position: absolute;
@@ -10974,6 +10985,17 @@ header.masthead-custom {
   padding-top: 7rem;
   padding-bottom: 7rem;
 }
+
+#loginblue {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+#mainblue {
+  padding-top: 5rem;
+  padding-bottom: 2rem;
+}
+
 .call-to-action:before {
   content: "";
   position: absolute;
