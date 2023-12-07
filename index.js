@@ -36,7 +36,7 @@ let knex = require('knex')({
 app.get('/db', (req, res) => {
     knex.select()
         .from('response')
-        .orderBy('location', 'desc')
+        .orderBy('response_id', 'desc')
         .then((response) => {
             res.render(path.join(__dirname + '/views/intexData'), {
                 mytest: response,
@@ -150,7 +150,12 @@ app.post('/addRecord', (req, res) => {
     }
 
     let dataDate = new Date();
-    dataDate = dataDate.getFullYear().toString() + "-" + (dataDate.getMonth()+1).toString().padStart(2,0) + "-" + dataDate.getDate().toString().padStart(2,0);
+    dataDate =
+        dataDate.getFullYear().toString() +
+        '-' +
+        (dataDate.getMonth() + 1).toString().padStart(2, 0) +
+        '-' +
+        dataDate.getDate().toString().padStart(2, 0);
 
     let dataDate2 = new Date();
     let dataTime =
@@ -195,6 +200,13 @@ app.post('/addRecord', (req, res) => {
         })
         .then(() => {
             res.render(path.join(__dirname + '/views/testing'));
+        });
+    let responseID;
+    knex.select()
+        .from('response')
+        .orderBy('response_id', 'desc')
+        .then((response) => {
+            responseID = response[0].response_id;
         });
 });
 /* We still need to change the variables for the survey above lolz */
@@ -248,7 +260,7 @@ app.post('/userLogin', (req, res) => {
                     last_name: sLastName,
                     is_admin: isAdmin,
                     login: 'true',
-                })
+                });
             }
         });
 });
