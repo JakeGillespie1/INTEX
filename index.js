@@ -382,7 +382,7 @@ app.post('/updateUserAdmin', (req, res) => {
             is_admin: req.body.isadmin
         })
         .then((userInfoAdmin) => {
-            res.render(path.join(__dirname + '/views/userData'));
+            res.render(path.join(__dirname + '/views/testing2'));
         });
 });
 
