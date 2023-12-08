@@ -392,7 +392,7 @@ app.post('/showUser', (req, res) => {
     console.log('INTEXAS',req.body.userid);
     knex.select('*')
         .from('user')
-        .where('user_id', parseInt(req.body.userid))
+        .where('user_id', req.body.userid)
         .then((results) => {
             res.render(path.join(__dirname + '/views/userPage'), {
                 userInfoAdmin: results,

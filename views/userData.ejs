@@ -101,11 +101,11 @@
                                                         <% }); %>
                                                     </select>
                                                     <% }; %>
-                                                    <button type="submit" id=btnFilter class="btn btn-primary"><% if (userInfoAdmin.length > 1){ %>View Record<%} else {%>Back to All Records<%}%></button>
+                                                    <button type="submit" id=btnFilter onclick="storeID();" class="btn btn-primary"><% if (userInfoAdmin.length > 1){ %>View Record<%} else {%>Back to All Records<%}%></button>
                                                 </form>
                                                 <form action="/showUser" method="post">
                                                 <% if (userInfoAdmin.length == 1) { %>    
-                                                    <button type="submit" id="editUser" class="btn btn-primary">Edit User</button>
+                                                    <button type="submit" id="editUser" onclick="updateUserID();" class="btn btn-primary">Edit User</button>
                                                 <% }; %>
                                             </div>
                                         </div>
@@ -132,7 +132,7 @@
                                             <tbody style="font-family: Arial; font-size: 9pt">
                                                 <% for (let iCount = 0; iCount < userInfoAdmin.length; iCount++) { %>
                                                 <tr>
-                                                    <td name="userid"><%= parseInt(userInfoAdmin[iCount].user_id) %></td>
+                                                    <td id="userid" name="userid"><%= userInfoAdmin[iCount].user_id %></td>
                                                     <td><%= userInfoAdmin[iCount].first_name%></td>
                                                     <td><%= userInfoAdmin[iCount].last_name %></td>
                                                     <td><%= userInfoAdmin[iCount].email%></td>
@@ -314,6 +314,16 @@
             {
                 document.getElementById("editUser").style.display = "none";
             }
+        }
+
+        function updateUserID(){
+            document.getElementById("userid").innerText = localStorage.getItem(userid)
+        }
+
+        function storeID(){
+            localStorage.setItem(
+                userid, parseInt(document.getElementById("responseSelector").value)
+            );
         }
         </script>
     </body>
