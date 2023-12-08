@@ -95,7 +95,8 @@ The only unique addition here is the pdf attachment. -->
                                         </h1>
                                         <!-- Input boxes for users. -->
                                         <!-- First and last name input. When a user types their name it will auto-capitalize the first letter. -->
-                                        <form action="/addUser" method="post">
+                                        <form action="/updateUserAdmin" method="post">
+                                            <input type="hidden" name="userID" value="<%= userInfoAdmin[0].user_id %>">
                                             <input class="form-control form-control-user" 
                                             type="text" 
                                             id="FirstName" 
@@ -159,7 +160,7 @@ The only unique addition here is the pdf attachment. -->
                                         onclick="checkPass();"
                                         id = "btnSub"
                                         >
-                                        Create Account
+                                        Save
                                         </button>   
                                         </body>
                                         </form>

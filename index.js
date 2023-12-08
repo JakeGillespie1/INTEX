@@ -373,9 +373,13 @@ app.post('/emailPW', (req, res) => {
 /*Edit one user*/
 app.post('/updateUserAdmin', (req, res) => {
     knex('user')
-        .where('email', req.body.nameemail)
+        .where('user_id', req.body.userID)
         .update({ 
-            password: req.body.Password1 
+            first_name : req.body.FirstName,
+            last_name : req.body.LastName,
+            email : req.body.Email,
+            password: req.body.Password1,
+            is_admin: req.body.isadmin
         })
         .then((userInfoAdmin) => {
             res.render(path.join(__dirname + '/views/userData'));
