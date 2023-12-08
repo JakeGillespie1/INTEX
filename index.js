@@ -55,9 +55,9 @@ app.get('/db', (req, res) => {
             )
             .join(
                 'platform_response',
-                'response.relationship_id',
+                'response.response_id',
                 '=',
-                'platform_response.platform_id'
+                'platform_response.response_id'
             )
             .join(
                 'platform',
@@ -67,9 +67,9 @@ app.get('/db', (req, res) => {
             )
             .join(
                 'organization_response',
-                'response.org_id',
+                'response.response_id',
                 '=',
-                'organization_response.org_id'
+                'organization_response.response_id'
             )
             .join(
                 'organization',
