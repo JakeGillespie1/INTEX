@@ -1,5 +1,7 @@
 # INTEX
 
+#Go to test branch to see final project
+
 #URL: https://protectingprovo.is404.net/
 
 # Admin username: gabrieljosephlarson@gmail.com
