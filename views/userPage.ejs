@@ -131,14 +131,14 @@ The only unique addition here is the pdf attachment. -->
                                             required>
                                         <br><br>
                                         <!-- Radio Buttons -->
-                                        <input class="form-control form-control-user" 
+                                        <input 
                                         type="radio" 
                                         id="radiotrue" 
                                         name="isadmin" 
                                         value = "True">
                                         <label for="radiotrue">True</label>
                                         <br>
-                                        <input class="form-control form-control-user" 
+                                        <input 
                                         type="radio" 
                                         id="radiofalse" 
                                         name="isadmin" 
@@ -227,6 +227,15 @@ The only unique addition here is the pdf attachment. -->
                         'Logout ' + fName + ' ' + lName;
                     document.getElementById('btnLogout').style.display =
                         'block';}
+            }
+
+            /*This function auto-converts the first letter of a user's first and last name to upper case*/
+            function properCaseInsert(oValue)
+            {
+                if (oValue.value.length === 1)
+                {
+                    oValue.value = oValue.value.charAt(0).toUpperCase();
+                }
             }
         </script>
     </body>
