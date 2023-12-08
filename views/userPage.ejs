@@ -32,13 +32,6 @@ The only unique addition here is the pdf attachment. -->
                     <a class="btn btn-secondary" href="dashboard"
                         >Dashboard</a
                     >
-                    <a
-                        id="createacc"
-                        style="display: none; margin-right: 10px;"
-                        class="btn btn-warning"
-                        href="register"
-                        >Create New Account</a
-                    >
                     <form action="/showUsers" method="GET">
                         <button
                         type="submit"
@@ -212,8 +205,6 @@ The only unique addition here is the pdf attachment. -->
                     document.getElementById("Copyrite").innerHTML = "&copy; Provo City " + dDate +". All Rights Reserved.";
                     
                 if (localStorage.getItem('is_admin').includes("true")) {
-                    document.getElementById('createacc').style.display =
-                        'block';
                     document.getElementById('btnUsers').style.display =
                         'block';}
 
@@ -221,7 +212,6 @@ The only unique addition here is the pdf attachment. -->
                 let lName = localStorage.getItem('last_name');
                 if (!fName) {
                     document.getElementById('btnLogout').style.display = 'none';
-                    document.getElementById('createacc').style.display = 'none';
                 } else {
                     document.getElementById('loginhref').style.display = 'none';
                     document.getElementById('btnLogout').textContent =
