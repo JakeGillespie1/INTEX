@@ -73,9 +73,13 @@
                     <% if (mytest.length > 1) { %>
                     <select class="form-select form-select-sm" id="responseSelector" name="responseSelector">
                         <option value="all">View All</option>
-                        <% mytest.forEach(response => { %>
+                        <% 
+                            let currResponse = ''; mytest.forEach(response => { 
+                                if(currResponse != response.response_id) {
+                        %>
                             <option value="<%= response.response_id %>"><%= response.response_id %></option>
-                        <% }); %>
+                        <%  currResponse = response.response_id
+                        }});%>
                     </select>
                     <% }; %>
                     <br />
