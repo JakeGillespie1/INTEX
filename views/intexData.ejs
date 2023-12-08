@@ -19,11 +19,13 @@
         <!-- Navigation-->
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
-                <a class="navbar-brand" href="/"><img src="/assets/img/provo welcome.png" height="100" alt="Welcome Provo Icon"></a>
-                <div style="display: flex;">
-                    <a class="btn btn-secondary" href="/"
-                        >Home</a
-                    >
+                <a class="navbar-brand" href="/"
+                    ><img
+                        src="/assets/img/provo welcome.png"
+                        height="100"
+                        alt="Welcome Provo Icon"
+                /></a>
+                <div style="display: flex">
                     <a class="btn btn-secondary" href="survey"
                         >Survey</a
                     >
@@ -32,19 +34,21 @@
                     >
                     <a
                         id="createacc"
-                        style="display: none; margin-right: 10px;"
+                        style="display: none; margin-right: 10px"
                         class="btn btn-warning"
                         href="register"
                         >Create New Account</a
                     >
+                    </form>
                     <form action="/showUsers" method="GET">
-                        <button
-                        type="submit"
-                        style="display: none; margin-right: 10px"
-                        class="btn btn-warning"
-                        id = "btnUsers"
-                        >View User Records</button
-                        >
+                    <button
+                    type="submit"
+                    style="display: none; margin-right: 10px"
+                    class="btn btn-warning"
+                    id = "btnUsers"
+                    >View User Records</button
+                    >
+                    </form>
                     <form action="/" method="GET">
                         <button
                             type="submit"
@@ -60,7 +64,13 @@
                 </div>
             </div>
         </nav>
-    <body>
+        <section class="call-to-action text-white text-center" id="mainblue">
+            <div class="container position-relative">
+                <div class="row justify-content-center">
+                    <div class="col-xl-6"></div>
+                </div>
+            </div>
+        </section>
         <br />
         <div class="row justify-content-md-center">
             <div class="col-5 text-center">
@@ -68,15 +78,20 @@
                 action="/db"
                 method="get"
                 >
-                    <% if (mytest.length > 1) { %>
+                    <% if (mytest.length > 100) { %>
                     <select class="form-select form-select-sm" id="responseSelector" name="responseSelector">
                         <option value="all">View All</option>
-                        <% mytest.forEach(response => { %>
+                        <% 
+                            let currResponse = ''; mytest.forEach(response => { 
+                                if(currResponse != response.response_id) {
+                        %>
                             <option value="<%= response.response_id %>"><%= response.response_id %></option>
-                        <% }); %>
+                        <%  currResponse = response.response_id
+                        }});%>
                     </select>
                     <% }; %>
-                    <button type="submit" class="btn btn-primary"><% if (mytest.length > 1){ %>View Record<%} else {%>Back to All Records<%}%></button>
+                    <br />
+                    <button type="submit" class="btn btn-primary"><% if (mytest.length > 100){ %>View Record<%} else {%>Back to All Records<%}%></button>
                 </form>
             </div>
         </div>
@@ -101,6 +116,8 @@
                         <th style="text-align: left">Social Media User</th>
                         <th style="text-align: left">Min Time Online</th>
                         <th style="text-align: left">Max Time Online</th>
+                        <th style="text-align: left">Platform</th>
+                        <th style="text-align: left">Organization</th>
                         <th style="text-align: left">Location</th>
                     </tr>
                 </thead>
@@ -118,6 +135,8 @@
                         <td><%= mytest[iCount].social_media_user %></td>
                         <td><%= mytest[iCount].min_time_online %></td>
                         <td><%= mytest[iCount].max_time_online %></td>
+                        <td><%= mytest[iCount].platform_name %></td>
+                        <td><%= mytest[iCount].org_name %></td>
                         <td><%= mytest[iCount].location %></td>
                     </tr>
                     <% } %>

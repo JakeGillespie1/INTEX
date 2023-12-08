@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<!-- For comments on page functionality, see contact.ejs. The functionality is the same here as it is there.
+The only unique addition here is the pdf attachment. -->
 <html lang="en">
     <head>
         <meta charset="utf-8" />
@@ -15,7 +17,6 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="/css/styles.css" rel="stylesheet" />
     </head>
-    <!-- Page setup and login confirmation -->
     <body onload="loggedIn();">
         <!-- Navigation-->
         <nav class="navbar navbar-light bg-light static-top">
@@ -63,82 +64,104 @@
             </div>
         </nav>
         <!-- Masthead-->
-        <header class="masthead" id="Login2">
+        <header class="masthead" id="Login">
             <div class="container position-relative">
                 <div class="row justify-content-center">
                     <div class="col-xl-6">
                         <div class="text-center text-white">
-                            <!-- Page heading-->
-                            <h1 class="mb-1">Contact Us</h1>
-                                <div class="row" style="display: flex; justify-content: center;">
-                                <div class="col-auto pt-4"><a href="https://311.provo.org/WSSP/Login.aspx?ReturnUrl=%2fWSSP%2f"><button class="btn btn-primary btn-lg" id="getHelp" type="button">Report a Problem Online</button></a></div>
-                            </div>
+                            <h1 class="mb-1">Terms of Use</h1>
                         </div>
                     </div>
                 </div>
             </div>
-        <div>
-        </div>
         </header>
-        <!-- Card 1, holds Visit Us -->
+        <!-- Image Showcases-->
         <section class="showcase">
             <div class="row justify-content-center">
-                <div class="col-xl-3 col-lg-3 col-md-3">
+                <div class="col-xl-10 col-lg-12 col-md-9">
                     <div class="card o-hidden border-0 shadow-lg my-5">
                         <div class="card-body p-0">
-                            <div class="pt-5">
-                                <div class="row justify-content-center">
-                                    <div class="text-center-padded">
-                                        <h5>Visit Us</h5>
-                                        <p>City Hall
-                                        <br>445 W Center St., Suite 140
-                                        <br>Provo, UT 84601</p>
+                            <!-- Nested Row within Card Body -->
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="p-5">
+                                        <!-- Input boxes for users. -->
+                                        <!-- First and last name input. When a user types their name it will auto-capitalize the first letter. -->
+                                        <form action="/updateUserAdmin" method="post">
+                                            <input type="hidden" name="userID" value="<%= userInfoAdmin[0].user_id %>">
+                                            <input class="form-control form-control-user" 
+                                            type="text" 
+                                            id="FirstName" 
+                                            placeholder="First Name"
+                                            name="FirstName"
+                                            maxlength="30"
+                                            onkeyup= "properCaseInsert(this);"
+                                            value = "<%= userInfoAdmin[0].first_name %>"
+                                            required>
+                                        <br><br>
+                                            <input class="form-control form-control-user" 
+                                            type="text" 
+                                            id="LastName" 
+                                            placeholder="Last Name" 
+                                            name="LastName"
+                                            maxlength="30"
+                                            onkeyup="properCaseInsert(this);"
+                                            value = "<%= userInfoAdmin[0].last_name %>"
+                                            required>
+                                        <br><br>
+                                        <!-- Email input -->
+                                            <input class="form-control form-control-user" 
+                                            type="text" 
+                                            id="Email" 
+                                            placeholder="Email" 
+                                            name="Email"
+                                            aria-describedby="emailHelp" 
+                                            maxlength="50"
+                                            value = "<%= userInfoAdmin[0].email %>"
+                                            required>
+                                        <br><br>
+                                        <!-- Password inputs. Only password 1 is sent to the server -->
+                                            <input class="form-control form-control-user" 
+                                            type="text" 
+                                            id="Password1" 
+                                            placeholder="Password"
+                                            name="Password1" 
+                                            maxlength="30"
+                                            value = "<%= userInfoAdmin[0].password %>"
+                                            required>
+                                        <br><br>
+                                        <!-- Radio Buttons -->
+                                        <input 
+                                        type="radio" 
+                                        id="radiotrue" 
+                                        name="isadmin" 
+                                        value = "True">
+                                        <label for="radiotrue">True</label>
+                                        <br>
+                                        <input 
+                                        type="radio" 
+                                        id="radiofalse" 
+                                        name="isadmin" 
+                                        value = "False">
+                                        <label for="radiofalse">False</label>
+                                    <br><br>
+                                        <!-- Submit button -->
+                                        <button
+                                        type="submit"
+                                        class="btn btn-primary btn-user btn-block"
+                                        onclick="checkPass();"
+                                        id = "btnSub"
+                                        >
+                                        Save
+                                        </button>   
+                                        </body>
+                                        </form>
+                                        <hr />
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <!-- Card 2, holds Contact Us -->
-                <div class="col-xl-4 col-lg-4 col-md-4">
-                    <div class="card o-hidden border-0 shadow-lg my-5">
-                        <div class="card-body p-0">
-                            <div class="pt-5">
-                                <div class="row justify-content-center">
-                                    <div class="text-center-padded">
-                                        <h5>Contact Us</h5>
-                                        <p>Main Office - 311 (Inside Provo City Limits)
-                                        <br>Main Office - (801) 852-6000 
-                                        <br>(Outside of Provo)</p>
-                                        <p>Hours of Operation<br>
-                                            Monday - Friday<br>
-                                            8:00AM - 6:00PM</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Card 3, holds suicide hotline -->
-                <div class="col-xl-3 col-lg-3 col-md-3">
-                    <div class="card o-hidden border-0 shadow-lg my-5">
-                        <div class="card-body p-0">
-                            <div class="pt-5">
-                                <div class="row justify-content-center">
-                                    <h5 class="text-center">If you or someone you know is<br>struggling, call 988 or<br>press the button below</h5>
-                                    <div class="col-auto py-cust"><a href="tel:801-852-6000"><button class="btn btn-primary btn-lg" id="getHelp" type="button">Call for Help</button></a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Blue line -->
-        <section class="call-to-action text-white text-center" id="loginblue">
-            <div class="container position-relative">
-                <div class="row justify-content-center">
-                    <div class="col-xl-6"></div>
                 </div>
             </div>
         </section>
@@ -181,14 +204,13 @@
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-    <script>
-        /*Confirms admin or logged-in status, grabs the date for the copyright tag*/
-        function loggedIn(){
-            let dDate = new Date();
+        <script>
+            function loggedIn(){
+                let dDate = new Date();
                     dDate = dDate.getFullYear().toString();
                     document.getElementById("Copyrite").innerHTML = "&copy; Provo City " + dDate +". All Rights Reserved.";
-
-            if (localStorage.getItem('is_admin').includes("true")) {
+                    
+                if (localStorage.getItem('is_admin').includes("true")) {
                     document.getElementById('createacc').style.display =
                         'block';
                     document.getElementById('btnUsers').style.display =
@@ -205,7 +227,16 @@
                         'Logout ' + fName + ' ' + lName;
                     document.getElementById('btnLogout').style.display =
                         'block';}
-        }
-    </script>
+            }
+
+            /*This function auto-converts the first letter of a user's first and last name to upper case*/
+            function properCaseInsert(oValue)
+            {
+                if (oValue.value.length === 1)
+                {
+                    oValue.value = oValue.value.charAt(0).toUpperCase();
+                }
+            }
+        </script>
     </body>
 </html>

@@ -114,12 +114,6 @@
                                                         class="custom-control-input"
                                                         id="customCheck"
                                                     />
-                                                    <label
-                                                        class="custom-control-label"
-                                                        for="customCheck"
-                                                        name="rememberme"
-                                                        >Remember Me</label
-                                                    >
                                                     <br />
                                                 </div>
                                             </div>
@@ -133,17 +127,24 @@
                                             </button>
                                         </form>
                                         <hr />
-                                        <form action="/forgotPW" method="get" id="formID">
-                                        <div class="text-center">
-                                            <a
-                                                id="aSub"
-                                                type="submit"
-                                                class="small"
-                                                style="color: mediumblue; text-decoration: underline;"
-                                                onclick="callRoute();"
-                                                >Forgot Password?</a
-                                            >
-                                        </div>
+                                        <form
+                                            action="/forgotPW"
+                                            method="get"
+                                            id="formID"
+                                        >
+                                            <div class="text-center">
+                                                <a
+                                                    id="aSub"
+                                                    type="submit"
+                                                    class="small"
+                                                    style="
+                                                        color: mediumblue;
+                                                        text-decoration: underline;
+                                                    "
+                                                    onclick="callRoute();"
+                                                    >Forgot Password?</a
+                                                >
+                                            </div>
                                         </form>
                                     </div>
                                 </div>
@@ -300,8 +301,8 @@
                     '&copy; Provo City ' + dDate + '. All Rights Reserved.';
             }
 
-            function callRoute(){
-                document.getElementById("formID").submit();
+            function callRoute() {
+                document.getElementById('formID').submit();
             }
         </script>
     </body>

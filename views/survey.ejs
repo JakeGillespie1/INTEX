@@ -59,6 +59,7 @@
                             id = "btnUsers"
                             >View User Records</button
                             >
+                        </form>
                         <form action="/" method="GET">
                             <button
                                 type="submit"
@@ -88,7 +89,7 @@
                 </div>
             </div>
         </header>
-        <!-- Icons Grid-->
+        <!-- Set background color for survey -->
         <div style="background-color: #a9d7e9;" class="features-icons">
         <!--Survey-->
         <div class="master-div-style">
@@ -101,7 +102,7 @@
                             <label for="iAge">What is your age?</label>
                         </div>
                         <div class="fields">
-                            <select id="iAge" name="iAge" class="dropdowncustom">
+                            <select id="iAge" name="iAge" class="dropdowncustom" required>
                                 <option value="" disabled selected>
                                     -- Select a number --
                                 </option>
@@ -128,6 +129,7 @@
                                         id="rbMale"
                                         name="sGender"
                                         value="Male"
+                                        required
                                     />
                                     <label>Male</label>
                                 </li>
@@ -174,6 +176,7 @@
                                         id="rbDating"
                                         name="sRelationship"
                                         value="Dating"
+                                        required
                                     />
                                     <label for="rbDating">In a relationship</label>
                                 </li>
@@ -211,6 +214,7 @@
                                         id="rbSStudent"
                                         name="sOccupation"
                                         value="School Student"
+                                        required
                                     />
                                     <label for="rbSStudent">School Student</label><br />
                                 </li>
@@ -307,7 +311,7 @@
                         <div class="fields" style="padding-top: 17px;">
                             <ul style="list-style: none;">
                                 <li class="radio">
-                                    <input type="radio" id="rbYes" name="UseSM" value="Y" />
+                                    <input type="radio" id="rbYes" name="UseSM" value="Y" required/>
                                     <label for="rbYes">Yes</label><br />
                                 </li>
                                 <li class="radio">
@@ -416,7 +420,7 @@
                             >
                         </div>
                         <div class="fields">
-                            <select name="avgTime" id="avgTime" class="dropdowncustom">
+                            <select name="avgTime" id="avgTime" class="dropdowncustom" required>
                                 <option value="" disabled selected>
                                     -- Choose an option --
                                 </option>
@@ -454,7 +458,7 @@
                                 >
                             </div>
                             <div class="fields">
-                                <select id="iPurpose" name="iPurpose" class="dropdowncustom">
+                                <select id="iPurpose" name="iPurpose" class="dropdowncustom" required>
                                     <option value="" disabled selected>
                                         -- Select a number --
                                     </option>
@@ -475,7 +479,7 @@
                                     when you are busy doing something?</label
                                 >
                             </div>
-                                <select id="iDistracted" name="iDistracted" class="dropdowncustom">
+                                <select id="iDistracted" name="iDistracted" class="dropdowncustom" required>
                                     <option value="" disabled selected>
                                         -- Select a number --
                                     </option>
@@ -497,7 +501,7 @@
                                 >
                             </div>
                             <div class="fields">
-                                <select id="iRestless" name="iRestless" class="dropdowncustom">
+                                <select id="iRestless" name="iRestless" class="dropdowncustom" required>
                                     <option value="" disabled selected>
                                         -- Select a number --
                                     </option>
@@ -519,7 +523,7 @@
                                 >
                             </div>
                             <div class="fields">
-                                <select id="iEasily" name="iEasily" class="dropdowncustom">
+                                <select id="iEasily" name="iEasily" class="dropdowncustom" required>
                                     <option value="" disabled selected>
                                         -- Select a number --
                                     </option>
@@ -541,7 +545,7 @@
                                 >
                             </div>
                             <div class="fields">
-                                <select id="iBothered" name="iBothered" class="dropdowncustom">
+                                <select id="iBothered" name="iBothered" class="dropdowncustom" required>
                                     <option value="" disabled selected>
                                         -- Select a number --
                                     </option>
@@ -564,7 +568,7 @@
                                 >
                             </div>
                             <div class="fields">
-                                <select id="iConcentrate" name="iConcentrate" class="dropdowncustom">
+                                <select id="iConcentrate" name="iConcentrate" class="dropdowncustom" required>
                                     <option value="" disabled selected>
                                         -- Select a number --
                                     </option>
@@ -588,7 +592,7 @@
                                 >
                             </div>
                             <div class="fields">
-                                <select id="iCompare" name="iCompare" class="dropdowncustom">
+                                <select id="iCompare" name="iCompare" class="dropdowncustom" required>
                                     <option value="" disabled selected>
                                         -- Select a number --
                                     </option>
@@ -612,7 +616,7 @@
                                 >
                             </div>
                             <div class="fields">
-                                <select id="iFeel" name="iFeel" class="dropdowncustom">
+                                <select id="iFeel" name="iFeel" class="dropdowncustom" required>
                                     <option value="" disabled selected>
                                         -- Select a number --
                                     </option>
@@ -635,7 +639,7 @@
                                 >
                             </div>
                             <div class="fields">
-                                <select id="iValidation" name="iValidation" class="dropdowncustom">
+                                <select id="iValidation" name="iValidation" class="dropdowncustom" required>
                                     <option value="" disabled selected>
                                         -- Select a number --
                                     </option>
@@ -657,7 +661,7 @@
                                 >
                             </div>
                             <div class="fields">
-                                <select id="iDepressed" name="iDepressed" class="dropdowncustom">
+                                <select id="iDepressed" name="iDepressed" class="dropdowncustom" required>
                                     <option value="" disabled selected>
                                         -- Select a number --
                                     </option>
@@ -680,7 +684,7 @@
                                 >
                             </div>
                             <div class="fields">
-                                <select id="iInterest" name="iInterest" class="dropdowncustom">
+                                <select id="iInterest" name="iInterest" class="dropdowncustom" required>
                                     <option value="" disabled selected>
                                         -- Select a number --
                                     </option>
@@ -703,7 +707,7 @@
                                 >
                             </div>
                             <div class="fields">
-                                <select id="iSleep" name="iSleep" class="dropdowncustom">
+                                <select id="iSleep" name="iSleep" class="dropdowncustom" required>
                                     <option value="" disabled selected>
                                         -- Select a number --
                                     </option>
@@ -719,23 +723,39 @@
                         </div>
                         <br>
                         <div class="text-center">
-                        <button
-                            type="submit"
-                            class="btn btn-primary"
-                            onclick="submitSurvey"
-                        >
-                            Submit Survey
-                        </button>
-                        <br />
+                            <div id="errorMessage" style="color: red; display: none;">*All required fields are not filled in</div>
+                            <button
+                                type="submit"
+                                class="btn btn-primary"
+                                onclick="submitSurvey()"
+                            >
+                                Submit Survey
+                            </button>
+                            <br />
                         </div>
-                        <p id="submittedSurvey"></p>
                         <script>
-                            //this should work
+                            //function to submit survey
+                            //also checks if all required fields have been filled
                             function submitSurvey() {
-                                document.getElementById(
-                                    'submittedSurvey'
-                                ).innerHTML = 'Thank you for your response.';
-                                document.getElementById('surveyForm').reset();
+                                if (validateForm()) {
+                                    document.getElementById('submittedSurvey').innerHTML = 'Survey submitted!';
+                                    document.getElementById('surveyForm').reset();
+                                }
+
+                            
+                            }
+
+                            function validateForm() {
+                                var elements = document.querySelectorAll('.dropdowncustom');
+                                for (var i = 0; i < elements.length; i++) {
+                                    if (elements[i].value === "") {
+                                        document.getElementById('errorMessage').style.display = 'block';
+                                        return false;
+                                    }
+                                }
+
+                                document.getElementById('errorMessage').style.display = 'none';
+                                return true;
                             }
                         </script>
                         </form>
@@ -744,10 +764,13 @@
             </div>
         </div>
         <!-- Image Showcases-->
-        <section class="showcase">
-            <div class="container-fluid p-0"></div>
+        <section class="call-to-action text-white text-center" id="mainblue">
+            <div class="container position-relative">
+                <div class="row justify-content-center">
+                    <div class="col-xl-6"></div>
+                </div>
+            </div>
         </section>
-        
         <!-- Footer-->
         <footer class="footer bg-light">
             <div class="container">

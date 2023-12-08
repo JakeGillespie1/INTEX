@@ -36,11 +36,9 @@ let knex = require('knex')({
 
 app.get('/db', (req, res) => {
     let selector_id = req.query.responseSelector || 'all';
-    console.log('HEYHEYHEYHEY HEYHEYHEYHEY', selector_id);
     if (selector_id == 'all' || selector_id == 'View All') {
         knex.select()
             .from('response')
-            .orderBy('response_id', 'desc')
             .join(
                 'occupation_status',
                 'response.occupation_id',
@@ -53,6 +51,31 @@ app.get('/db', (req, res) => {
                 '=',
                 'relationship_status.relationship_id'
             )
+            .join(
+                'platform_response',
+                'response.response_id',
+                '=',
+                'platform_response.response_id'
+            )
+            .join(
+                'platform',
+                'platform_response.platform_id',
+                '=',
+                'platform.platform_id'
+            )
+            .join(
+                'organization_response',
+                'response.response_id',
+                '=',
+                'organization_response.response_id'
+            )
+            .join(
+                'organization',
+                'organization_response.org_id',
+                '=',
+                'organization.org_id'
+            )
+            .orderBy('response.response_id', 'desc')
             .then((response) => {
                 res.render(path.join(__dirname + '/views/intexData'), {
                     mytest: response,
@@ -60,9 +83,10 @@ app.get('/db', (req, res) => {
             });
     } else {
         selector_id = parseInt(selector_id);
+        console.log('HEY', selector_id);
+        knex.select();
         knex.select()
             .from('response')
-            .orderBy('response_id', 'desc')
             .join(
                 'occupation_status',
                 'response.occupation_id',
@@ -75,7 +99,32 @@ app.get('/db', (req, res) => {
                 '=',
                 'relationship_status.relationship_id'
             )
-            .where({ response_id: selector_id })
+            .join(
+                'platform_response',
+                'response.response_id',
+                '=',
+                'platform_response.response_id'
+            )
+            .join(
+                'platform',
+                'platform_response.platform_id',
+                '=',
+                'platform.platform_id'
+            )
+            .join(
+                'organization_response',
+                'response.response_id',
+                '=',
+                'organization_response.response_id'
+            )
+            .join(
+                'organization',
+                'organization_response.org_id',
+                '=',
+                'organization.org_id'
+            )
+            .orderBy('response.response_id', 'desc')
+            .where('response.response_id', '=', selector_id)
             .then((response) => {
                 res.render(path.join(__dirname + '/views/intexData'), {
                     mytest: response,
@@ -293,15 +342,16 @@ app.get('/forgotPW', (req, res) => {
 
 app.post('/updatePW', (req, res) => {
     knex('user')
-    .where('email', req.body.nameemail)
-    .update({ password : req.body.Password1})
-    .then(userInfo => {
-        res.render(path.join(__dirname + '/views/testing2'));
-    });
-    });
+        .where('email', req.body.nameemail)
+        .update({ password: req.body.Password1 })
+        .then((userInfo) => {
+            res.render(path.join(__dirname + '/views/testing2'));
+        });
+});
 
 app.post('/emailPW', (req, res) => {
-    knex.select('password', 'email').from('user')
+    knex.select('password', 'email')
+        .from('user')
         .where('email', req.body.useremail)
         .then((results) => {
             if (results.length == 0) {
@@ -313,26 +363,63 @@ app.post('/emailPW', (req, res) => {
                     }
                 );
             } else {
-                res.render(path.join(__dirname + '/views/resetPassword'), {userInfo : results});
+                res.render(path.join(__dirname + '/views/resetPassword'), {
+                    userInfo: results,
+                });
             }
         });
 });
 
 /*Admin Update Users*/
+/*Edit one user*/
 app.post('/updateUserAdmin', (req, res) => {
     knex('user')
-    .where('email', req.body.nameemail)
-    .update({ password : req.body.Password1})
-    .then(userInfoAdmin => {
-        res.render(path.join(__dirname + '/views/userData'));
-    });
-    });
-
-app.get('/showUsers', (req, res) => {
-    knex.select('*').from('user')
-        .then((results) => {
-            res.render(path.join(__dirname + '/views/userData'), {userInfoAdmin : results});
+        .where('user_id', parseInt(req.body.userID))
+        .update({
+            first_name: req.body.FirstName,
+            last_name: req.body.LastName,
+            email: req.body.Email,
+            password: req.body.Password1,
+            is_admin: req.body.isadmin,
+        })
+        .then((userInfoAdmin) => {
+            res.render(path.join(__dirname + '/views/testing2'));
         });
+});
+
+/*Select one user*/
+app.get('/showUser/:userid', (req, res) => {
+    knex.select('*')
+        .from('user')
+        .where('user_id', parseInt(req.params.userid))
+        .then((results) => {
+            res.render(path.join(__dirname + '/views/userPage'), {
+                userInfoAdmin: results,
+            });
+        });
+});
+
+/*Show all users*/
+app.get('/showUsers', (req, res) => {
+    let selector_id = req.query.responseSelector || 'all';
+    if (selector_id == 'all') {
+        knex.select('*')
+            .from('user')
+            .then((results) => {
+                res.render(path.join(__dirname + '/views/userData'), {
+                    userInfoAdmin: results,
+                });
+            });
+    } else {
+        knex.select('*')
+            .from('user')
+            .where({ user_id: parseInt(selector_id) })
+            .then((results) => {
+                res.render(path.join(__dirname + '/views/userData'), {
+                    userInfoAdmin: results,
+                });
+            });
+    }
 });
 
 app.post('/addUser', (req, res) => {
