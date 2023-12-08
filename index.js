@@ -391,7 +391,7 @@ app.post('/updateUserAdmin', (req, res) => {
 app.post('/showUser', (req, res) => {
     knex.select('*')
         .from('user')
-        .where('user_id', req.body.user_id)
+        .where('user_id', req.body.userid)
         .then((results) => {
             res.render(path.join(__dirname + '/views/userPage'), {
                 userInfoAdmin: results,
