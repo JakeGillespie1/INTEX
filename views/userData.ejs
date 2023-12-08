@@ -96,7 +96,7 @@
                                                     <% if (userInfoAdmin.length > 1) { %>
                                                     <select class="form-select form-select-sm" id="responseSelector" name="responseSelector">
                                                         <option value="all">View All</option>
-                                                        <% mytest.forEach(response => { %>
+                                                        <% userInfoAdmin.forEach(response => { %>
                                                             <option value="<%= userInfoAdmin.user_id %>"><%= userInfoAdmin.user_id %></option>
                                                         <% }); %>
                                                     </select>
