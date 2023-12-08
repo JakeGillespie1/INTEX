@@ -105,20 +105,31 @@
             >
                 <thead style="background-color: #24A5DE; color: white">
                     <tr>
-                        <th style="text-align: left">Record Number</th>
+                        <th style="text-align: left">ID</th>
                         <th style="text-align: left">Date</th>
+                        <th style="text-align: left">Time</th>
                         <th style="text-align: left">Age</th>
-                        <th style="text-align: left">Gender</th>
-                        <th style="text-align: left">Relationship ID</th>
-                        <th style="text-align: left">Relationship Description</th>
-                        <th style="text-align: left">Occupation ID</th>
-                        <th style="text-align: left">Occupation Description</th>
-                        <th style="text-align: left">Social Media User</th>
-                        <th style="text-align: left">Min Time Online</th>
-                        <th style="text-align: left">Max Time Online</th>
+                        <th style="text-align: left">Sex</th>
+                        <th style="text-align: left">Relationship</th>
+                        <th style="text-align: left">Location</th>
+                        <th style="text-align: left">Occupation</th>
+                        <th style="text-align: left">Social Media</th>
                         <th style="text-align: left">Platform</th>
                         <th style="text-align: left">Organization</th>
-                        <th style="text-align: left">Location</th>
+                        <th title="Min Time Online" style="text-decoration: underline; text-align: left">#</th>
+                        <th title="Max Time Online" style="text-decoration: underline; text-align: left">#</th>
+                        <th title="Freq Used with Purpose" style="text-decoration: underline; text-align: left">#</th>
+                        <th title="Freq Distracted while Busy" style="text-decoration: underline; text-align: left">#</th>
+                        <th title="Freq Restless while not Online" style="text-decoration: underline; text-align: left">#</th>
+                        <th title="Easily Distracted" style="text-decoration: underline; text-align: left">#</th>
+                        <th title="Freq Bothered by Worries" style="text-decoration: underline; text-align: left">#</th>
+                        <th title="Difficulty Concentrating" style="text-decoration: underline; text-align: left">#</th>
+                        <th title="Freq Compared to Successful People" style="text-decoration: underline; text-align: left">#</th>
+                        <th title="Feeling about Compared to Successful People" style="text-decoration: underline; text-align: left">#</th>
+                        <th title="Seeking Validation Media" style="text-decoration: underline; text-align: left">#</th>
+                        <th title="Freq Depressed Down" style="text-decoration: underline; text-align: left">#</th>
+                        <th title="Interest Daily Activities" style="text-decoration: underline; text-align: left">#</th>
+                        <th title="Sleep Issues" style="text-decoration: underline; text-align: left">#</th>
                     </tr>
                 </thead>
                 <tbody style="font-family: Arial; font-size: 9pt">
@@ -126,18 +137,29 @@
                     <tr>
                         <td><%= mytest[iCount].response_id %></td>
                         <td><%= mytest[iCount].date_stamp.toDateString() %></td>
+                        <td><%= mytest[iCount].time_stamp %></td>
                         <td><%= mytest[iCount].age %></td>
                         <td><%= mytest[iCount].gender %></td>
-                        <td><%= mytest[iCount].relationship_id %></td>
                         <td><%= mytest[iCount].relationship_status_desc %></td>
-                        <td><%= mytest[iCount].occupation_id %></td>
+                        <td><%= mytest[iCount].location %></td>
                         <td><%= mytest[iCount].occupation_desc %></td>
                         <td><%= mytest[iCount].social_media_user %></td>
-                        <td><%= mytest[iCount].min_time_online %></td>
-                        <td><%= mytest[iCount].max_time_online %></td>
                         <td><%= mytest[iCount].platform_name %></td>
                         <td><%= mytest[iCount].org_name %></td>
-                        <td><%= mytest[iCount].location %></td>
+                        <td><%= mytest[iCount].min_time_online %></td>
+                        <td><%= mytest[iCount].max_time_online %></td>
+                        <td><%= mytest[iCount].frequency_used_with_purpose %></td>
+                        <td><%= mytest[iCount].frequency_distracted_while_busy %></td>
+                        <td><%= mytest[iCount].frequency_restless_while_not_online %></td>
+                        <td><%= mytest[iCount].scale_easily_distracted %></td>
+                        <td><%= mytest[iCount].frequency_bothered_by_worries %></td>
+                        <td><%= mytest[iCount].scale_difficulty_concentrating %></td>
+                        <td><%= mytest[iCount].frequency_compared_to_successful_people %></td>
+                        <td><%= mytest[iCount].scale_feel_about_comparing_to_successful_people %></td>
+                        <td><%= mytest[iCount].scale_seeking_validation_media_features %></td>
+                        <td><%= mytest[iCount].frequency_depressed_or_down %></td>
+                        <td><%= mytest[iCount].scale_interest_in_daily_activities %></td>
+                        <td><%= mytest[iCount].scale_sleep_issues %></td>
                     </tr>
                     <% } %>
                 </tbody>
