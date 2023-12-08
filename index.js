@@ -389,10 +389,10 @@ app.post('/updateUserAdmin', (req, res) => {
 
 /*Select one user*/
 app.get('/showUser/:userid', (req, res) => {
-    console.log('INTEXAS',req.query.userid);
+    console.log('INTEXAS', toString(req.params.userid));
     knex.select('*')
         .from('user')
-        .where('user_id', parseInt(req.query.userid))
+        .where('user_id', parseInt(req.params.userid))
         .then((results) => {
             res.render(path.join(__dirname + '/views/userPage'), {
                 userInfoAdmin: results,
