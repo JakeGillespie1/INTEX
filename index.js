@@ -124,7 +124,7 @@ app.get('/db', (req, res) => {
                 'organization.org_id'
             )
             .orderBy('response.response_id', 'desc')
-            .where('response.response_id', '=', 'selector_id')
+            .where('response.response_id', '=', selector_id)
             .then((response) => {
                 res.render(path.join(__dirname + '/views/intexData'), {
                     mytest: response,
