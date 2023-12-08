@@ -1,6 +1,11 @@
 # INTEX
 
-# wannaspritecranberry
+#Go to test branch to see final project
+
+#URL: https://protectingprovo.is404.net/
+
+# Admin username: gabrieljosephlarson@gmail.com
+# Admin password: wannaspritecranberry
 
 # cmd to create zip: git archive HEAD -o v4.zip
 

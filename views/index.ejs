@@ -13,14 +13,14 @@
             //Admin displays
             function updateLocalStorage() {
                 let dDate = new Date();
-                    dDate = dDate.getFullYear().toString();
-                    document.getElementById("Copyrite").innerHTML = "&copy; Provo City " + dDate +". All Rights Reserved.";
+                dDate = dDate.getFullYear().toString();
+                document.getElementById('Copyrite').innerHTML =
+                    '&copy; Provo City ' + dDate + '. All Rights Reserved.';
 
-                if (localStorage.getItem('is_admin').includes("true")) {
+                if (localStorage.getItem('is_admin').includes('true')) {
                     document.getElementById('createacc').style.display =
                         'block';
-                    document.getElementById('btnUsers').style.display =
-                        'block';
+                    document.getElementById('btnUsers').style.display = 'block';
                 }
 
                 let fName = localStorage.getItem('first_name');
@@ -38,7 +38,6 @@
                         'Welcome ' + fName + ' ' + lName;
                     document.getElementById('thesillyone').style.display =
                         'block';
-                    
                 }
             }
         </script>
@@ -72,12 +71,8 @@
                         alt="Welcome Provo Icon"
                 /></a>
                 <div style="display: flex">
-                    <a class="btn btn-secondary" href="survey"
-                        >Survey</a
-                    >
-                    <a class="btn btn-secondary" href="dashboard"
-                        >Dashboard</a
-                    >
+                    <a class="btn btn-secondary" href="survey">Survey</a>
+                    <a class="btn btn-secondary" href="dashboard">Dashboard</a>
                     <a
                         id="createacc"
                         style="display: none; margin-right: 10px"
@@ -86,13 +81,14 @@
                         >Create New Account</a
                     >
                     <form action="/showUsers" method="GET">
-                    <button
-                    type="submit"
-                    style="display: none; margin-right: 10px"
-                    class="btn btn-warning"
-                    id = "btnUsers"
-                    >View User Records</button
-                    >
+                        <button
+                            type="submit"
+                            style="display: none; margin-right: 10px"
+                            class="btn btn-warning"
+                            id="btnUsers"
+                        >
+                            View User Records
+                        </button>
                     </form>
                     <form action="/" method="GET">
                         <button
@@ -118,7 +114,9 @@
                             <!-- Page heading-->
                             <h1 class="mb-5">Provo Mental Health Initiative</h1>
                             <form action="/postIndex"></form>
-                            <h3 id="thesillyone" style="display: none;">Welcome!</h3>
+                            <h3 id="thesillyone" style="display: none">
+                                Welcome!
+                            </h3>
                             <form
                                 class="form-subscribe"
                                 id="contactForm"
@@ -328,8 +326,10 @@
                                 <a href="termsOfUse">Terms of Use</a>
                             </li>
                         </ul>
-                        <p class="text-muted small mb-4 mb-lg-0" id="Copyrite">
-                        </p>
+                        <p
+                            class="text-muted small mb-4 mb-lg-0"
+                            id="Copyrite"
+                        ></p>
                     </div>
                     <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
                         <ul class="list-inline mb-0">
