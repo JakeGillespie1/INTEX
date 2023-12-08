@@ -335,7 +335,7 @@ app.post('/updateUserAdmin', (req, res) => {
 /*Select one user*/
 app.get('/showUser', (req, res) => {
     knex.select('*').from('user')
-    .where('email', req.body.)
+    .where('email', req.body.email)
         .then((results) => {
             res.render(path.join(__dirname + '/views/userPage'), {userInfoAdmin : results});
         });
