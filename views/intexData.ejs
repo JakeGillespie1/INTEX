@@ -21,13 +21,30 @@
             <div class="container">
                 <a class="navbar-brand" href="/"><img src="/assets/img/provo welcome.png" height="100" alt="Welcome Provo Icon"></a>
                 <div style="display: flex;">
+                    <a class="btn btn-secondary" href="/"
+                        >Home</a
+                    >
+                    <a class="btn btn-secondary" href="survey"
+                        >Survey</a
+                    >
+                    <a class="btn btn-secondary" href="dashboard"
+                        >Dashboard</a
+                    >
                     <a
                         id="createacc"
-                        style="display: none; margin-right: 5px;"
+                        style="display: none; margin-right: 10px;"
                         class="btn btn-warning"
                         href="register"
                         >Create New Account</a
                     >
+                    <form action="/showUsers" method="GET">
+                        <button
+                        type="submit"
+                        style="display: none; margin-right: 10px"
+                        class="btn btn-warning"
+                        id = "btnUsers"
+                        >View User Records</button
+                        >
                     <form action="/" method="GET">
                         <button
                             type="submit"
@@ -44,27 +61,31 @@
             </div>
         </nav>
     <body>
-        <div class="row justify-content-center">
-            <div class="col-1"></div>
-            <div class="col-10">
+        <br />
+        <div class="row justify-content-md-center">
+            <div class="col-5 text-center">
                 <form
-                    action="/db"
-                    method="get"
+                action="/db"
+                method="get"
                 >
-                    <select id="responseSelector">
+                    <% if (mytest.length > 1) { %>
+                    <select class="form-select form-select-sm" id="responseSelector" name="responseSelector">
                         <option value="all">View All</option>
                         <% mytest.forEach(response => { %>
                             <option value="<%= response.response_id %>"><%= response.response_id %></option>
                         <% }); %>
                     </select>
-                    <button type="submit" class="btn btn-primary">Find Record</button>
+                    <% }; %>
+                    <button type="submit" class="btn btn-primary"><% if (mytest.length > 1){ %>View Record<%} else {%>Back to All Records<%}%></button>
                 </form>
+            </div>
+        </div>
+        <br />
+        <div class="row justify-content-center">
+            <div class="col-1"></div>
+            <div class="col-10">
             <table
-                style="
-                    width: 100%;
-                    background-color: RGBA(248, 249, 250, var(--bs-bg-opacity, 1));
-                    border: 1px solid black;
-                "
+            class="table table-striped"
                 id="intexDataTable"
             >
                 <thead style="background-color: #24A5DE; color: white">
@@ -176,7 +197,10 @@
             function loggedIn(){
                 if (localStorage.getItem('is_admin').includes("true")) {
                     document.getElementById('createacc').style.display =
-                        'block';}
+                        'block';
+                        document.getElementById('btnUsers').style.display =
+                        'block';
+                    }
 
                 let fName = localStorage.getItem('first_name');
                 let lName = localStorage.getItem('last_name');

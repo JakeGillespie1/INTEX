@@ -1,10 +1,11 @@
 const express = require('express');
+const { userInfo } = require('os');
 
 let app = express();
 
 let path = require('path');
 
-let port = process.env.PORT || 3000;
+let port = process.env.PORT || 3001;
 
 let rds_port = process.env.RDS_PORT || 5432;
 let host = process.env.RDS_HOSTNAME || 'localhost';
@@ -34,9 +35,9 @@ let knex = require('knex')({
 });
 
 app.get('/db', (req, res) => {
-    let selector_id = req.body.responseSelector || 'all';
-
-    if (selector_id == 'all') {
+    let selector_id = req.query.responseSelector || 'all';
+    console.log('HEYHEYHEYHEY HEYHEYHEYHEY', selector_id);
+    if (selector_id == 'all' || selector_id == 'View All') {
         knex.select()
             .from('response')
             .orderBy('response_id', 'desc')
@@ -57,7 +58,8 @@ app.get('/db', (req, res) => {
                     mytest: response,
                 });
             });
-    } else if (selector_id != 'all') {
+    } else {
+        selector_id = parseInt(selector_id);
         knex.select()
             .from('response')
             .orderBy('response_id', 'desc')
@@ -73,7 +75,7 @@ app.get('/db', (req, res) => {
                 '=',
                 'relationship_status.relationship_id'
             )
-            .where(('response_id', selector_id))
+            .where({ response_id: selector_id })
             .then((response) => {
                 res.render(path.join(__dirname + '/views/intexData'), {
                     mytest: response,
@@ -122,6 +124,10 @@ app.get('/testing', (req, res) => {
 
 app.get('/testing2', (req, res) => {
     res.render(path.join(__dirname + '/views/testing2'));
+});
+
+app.get('/resetPassword', (req, res) => {
+    res.render(path.join(__dirname + '/views/resetPassword'));
 });
 
 app.post('/addRecord', (req, res) => {
@@ -287,15 +293,15 @@ app.get('/forgotPW', (req, res) => {
 
 app.post('/updatePW', (req, res) => {
     knex('user')
-        .where('email', req.body.Email)
-        .update({ password: req.body.Password1 })
-        .then(() => {
-            res.render(path.join(__dirname + '/views/testing2'));
-        });
-});
+    .where('email', req.body.nameemail)
+    .update({ password : req.body.Password1})
+    .then(userInfo => {
+        res.render(path.join(__dirname + '/views/testing2'));
+    });
+    });
 
 app.post('/emailPW', (req, res) => {
-    knex('user')
+    knex.select('password', 'email').from('user')
         .where('email', req.body.useremail)
         .then((results) => {
             if (results.length == 0) {
@@ -307,8 +313,25 @@ app.post('/emailPW', (req, res) => {
                     }
                 );
             } else {
-                    res.render(path.join(__dirname + '/views/bridgeToPassword'));
+                res.render(path.join(__dirname + '/views/resetPassword'), {userInfo : results});
             }
+        });
+});
+
+/*Admin Update Users*/
+app.post('/updateUserAdmin', (req, res) => {
+    knex('user')
+    .where('email', req.body.nameemail)
+    .update({ password : req.body.Password1})
+    .then(userInfoAdmin => {
+        res.render(path.join(__dirname + '/views/userData'));
+    });
+    });
+
+app.get('/showUsers', (req, res) => {
+    knex.select('*').from('user')
+        .then((results) => {
+            res.render(path.join(__dirname + '/views/userData'), {userInfoAdmin : results});
         });
 });
 

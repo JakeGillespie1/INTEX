@@ -8,7 +8,7 @@
         />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Change Password</title>
+        <title>User Information</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap icons-->
@@ -27,16 +27,41 @@
         <link href="/css/styles.css" rel="stylesheet" />
     </head>
     <!-- Onload call set up page function -->
-    <body onload="setupPage();">
+    <body onload="loggedIn();">
         <!-- Navigation-->
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
-                <a class="navbar-brand" href="/"
-                    ><img
-                        src="/assets/img/provo welcome.png"
-                        height="100"
-                        alt="Welcome Provo Icon"
-                /></a>
+                <a class="navbar-brand" href="/"><img src="/assets/img/provo welcome.png" height="100" alt="Welcome Provo Icon"></a>
+                <div style="display: flex;">
+                    <a class="btn btn-secondary" href="/"
+                        >Home</a
+                    >
+                    <a class="btn btn-secondary" href="survey"
+                        >Survey</a
+                    >
+                    <a class="btn btn-secondary" href="dashboard"
+                        >Dashboard</a
+                    >
+                    <a
+                        id="createacc"
+                        style="display: none; margin-right: 10px;"
+                        class="btn btn-warning"
+                        href="register"
+                        >Create New Account</a
+                    >
+                    <form action="/" method="GET">
+                        <button
+                            type="submit"
+                            style="display: none"
+                            class="btn btn-primary"
+                            onclick="localStorage.clear();"
+                            id="btnLogout"
+                        ></button>
+                    </form>
+                    <a class="btn btn-primary" href="login" id="loginhref"
+                        >Login</a
+                    >
+                </div>
             </div>
         </nav>
         <!-- Masthead-->
@@ -45,7 +70,7 @@
                 <div class="row justify-content-center">
                     <div class="col-xl-6">
                         <div class="text-center text-white">
-                            <h1 class="mb-5">Change Password Form</h1>
+                            <h1 class="mb-5">User Information Form</h1>
                         </div>
                     </div>
                 </div>
@@ -61,42 +86,41 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="p-5">
-                                        <h1 class="h4 text-gray-900 mb-4" id="pwBroke" style="display: none; color: orange; text-align: center;">
-                                            Error: Passwords do not match
-                                        </h1>
                                         <!-- Input boxes for users. -->
                                         <!-- First and last name input. When a user types their name it will auto-capitalize the first letter. -->
-                                        <form action="/updatePW" method="post">
-                                        <!-- Password inputs. Only password 1 is sent to the server -->
-                                            <input type="hidden" name="nameemail" id="nameemail" value="<%= userInfo[0].email %>">
-                                            <br><br>
-                                            <input class="form-control form-control-user" 
-                                            type="password" 
-                                            id="Password1" 
-                                            placeholder="New Password"
-                                            name="Password1" 
-                                            maxlength="30"
-                                            required>
-                                        <br><br>
-                                            <input class="form-control form-control-user" 
-                                            type="password" 
-                                            id="Password2" 
-                                            placeholder="Confirm New Password"
-                                            maxlength="30"
-                                            required>
-                                        <br><br>
-                                        <p name="Email" id="Email" style="display: none;"></p>
-                                        <!-- Submit button -->
-                                        <button
-                                        type="submit"
-                                        class="btn btn-primary btn-user btn-block"
-                                        onclick="checkPass();"
-                                        id = "btnSub"
+                                        <table
+                                        class="table table-striped"
+                                            style="
+                                                width: 100%;
+                                                background-color: RGBA(248, 249, 250, var(--bs-bg-opacity, 1));
+                                                border: 1px solid black;
+                                            "
+                                            id="userDataTable"
                                         >
-                                        Reset Password
-                                        </button>   
-                                        </body>
-                                        </form>
+                                            <thead style="background-color: #24A5DE; color: white">
+                                                <tr>
+                                                    <th style="text-align: left">UserID</th>
+                                                    <th style="text-align: left">First Name</th>
+                                                    <th style="text-align: left">Last Name</th>
+                                                    <th style="text-align: left">Email Address</th>
+                                                    <th style="text-align: left">Password</th>
+                                                    <th style="text-align: left">Admin Status</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody style="font-family: Arial; font-size: 9pt">
+                                                <% for (let iCount = 0; iCount < userInfoAdmin.length; iCount++) { %>
+                                                <tr>
+                                                    <td><%= userInfoAdmin[iCount].user_id %></td>
+                                                    <td><%= userInfoAdmin[iCount].first_name%></td>
+                                                    <td><%= userInfoAdmin[iCount].last_name %></td>
+                                                    <td><%= userInfoAdmin[iCount].email%></td>
+                                                    <td><%= userInfoAdmin[iCount].password %></td>
+                                                    <td><%= userInfoAdmin[iCount].is_admin %></td>
+                                                </tr>
+                                                <% } %>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                         <hr />
                                     </div>
                                 </div>
@@ -235,34 +259,28 @@
             Page setup includes determining the proper buttons to display based on login information,
             grabbing the current year to display on the copyright,
             and setting up the email error message.*/
-            function setupPage()
-            {
-                let dDate = new Date();
+        /*Confirms admin or logged-in status, grabs the date for the copyright tag*/
+        function loggedIn(){
+            let dDate = new Date();
                     dDate = dDate.getFullYear().toString();
                     document.getElementById("Copyrite").innerHTML = "&copy; Provo City " + dDate +". All Rights Reserved.";
-                    document.getElementById("Email").innerHTML = localStorage.getItem("useremail")
-            }
 
-            /*This function is for email and password validation*/
-            function checkPass(){
-                let sPass1 = document.getElementById("Password1").value;
-                let sPass2 = document.getElementById("Password2").value;
+            if (localStorage.getItem('is_admin').includes("true")) {
+                    document.getElementById('createacc').style.display =
+                        'block';}
 
-                    //Password validation
-                    if (sPass1 !== sPass2)
-                        {
-                            document.getElementById("btnSub").type = "button";
-                            document.getElementById("Password2").value = "";
-                            document.getElementById("pwBroke").style.display = "block";
-                        }
-                        else
-                        {
-                            document.getElementById("btnSub").type = "submit";
-                            document.getElementById("pwBroke").style.display = "none";
-                            document.getElementById("pwsuccess").style.display = "block";
-
-                        }
-            }
+                let fName = localStorage.getItem('first_name');
+                let lName = localStorage.getItem('last_name');
+                if (!fName) {
+                    document.getElementById('btnLogout').style.display = 'none';
+                    document.getElementById('createacc').style.display = 'none';
+                } else {
+                    document.getElementById('loginhref').style.display = 'none';
+                    document.getElementById('btnLogout').textContent =
+                        'Logout ' + fName + ' ' + lName;
+                    document.getElementById('btnLogout').style.display =
+                        'block';}
+        }
         </script>
     </body>
 </html>

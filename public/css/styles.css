@@ -91,17 +91,54 @@
   }
 }
 
-section {
-  text-align: center;
-  background-color: #a9d7e9;
-}
-
 .master-div-style {
   margin: auto;
   width: 800px;
-  background-color: #f3f3f3;
+  background-color: white;
   border-radius: 10px;
   padding: 20px 10px 10px 10px;
+}
+
+.form-rows {
+  position: static;
+  display: block;
+}
+.fields {
+  display: inline-block;
+  text-align: left;
+  width: 40%;
+  vertical-align: top;
+}
+.labels {
+  display: inline-block;
+  text-align: right;
+  width: 50%;
+  padding: 5px;
+  vertical-align: top;
+  margin-top: 10px;
+}
+.input-fields {
+  height: 20px;
+  width: 280px;
+  padding: 5px;
+  margin: 10px;
+  border: 1px solid #c0c0c0;
+  border-radius: 4px;
+}
+.dropdowncustom {
+  height: 35px;
+  width: 200x;
+  padding: 5px;
+  margin: 15px 10px 10px 10px;
+  border: 1px solid #c0c0c0;
+  border-radius: 4px;
+}
+.radio {
+  position: relative;
+  left: -43px;
+  margin-left: 20px;
+  display: block;
+  padding-bottom: 10px;
 }
 
 
@@ -2908,20 +2945,26 @@ textarea.form-control-lg {
 }
 
 .btn-secondary {
-  --bs-btn-color: #fff;
-  --bs-btn-bg: #6c757d;
-  --bs-btn-border-color: #6c757d;
+  --bs-btn-color: rgba(0, 0, 0, 0.55);
+  --bs-btn-bg: #f8f9fa;
+  --bs-btn-border-color: #77BE45;
   --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: #5c636a;
-  --bs-btn-hover-border-color: #565e64;
+  --bs-btn-hover-bg: #77BE45;
+  --bs-btn-hover-border-color: #77BE45;
   --bs-btn-focus-shadow-rgb: 130, 138, 145;
   --bs-btn-active-color: #fff;
   --bs-btn-active-bg: #565e64;
-  --bs-btn-active-border-color: #51585e;
+  --bs-btn-active-border-color: #77BE45;
   --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
   --bs-btn-disabled-color: #fff;
   --bs-btn-disabled-bg: #6c757d;
   --bs-btn-disabled-border-color: #6c757d;
+  color: #77BE45;
+  margin-right: 10px;
+}
+
+#loginbtn1 {
+  margin-right: 0px;
 }
 
 .btn-success {
@@ -6743,6 +6786,11 @@ textarea.form-control-lg {
 .text-bg-light {
   color: #000 !important;
   background-color: RGBA(248, 249, 250, var(--bs-bg-opacity, 1)) !important;
+}
+
+.text-bg-custom {
+  color: #000 !important;
+  background-color: RGBA(36, 165, 222, var(--bs-bg-opacity, 1)) !important;
 }
 
 .text-bg-dark {
@@ -10929,6 +10977,8 @@ textarea.form-control-lg {
 .gender-option input {
   margin-right: 8px; /* Adjust as needed */
 }
+
+
 
 header.masthead {
   position: relative;
