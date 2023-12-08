@@ -103,14 +103,13 @@
                                                     <% }; %>
                                                     <button type="submit" id=btnFilter onclick="storeID();" class="btn btn-primary"><% if (userInfoAdmin.length > 1){ %>View Record<%} else {%>Back to All Records<%}%></button>
                                                 </form>
-                                                <form action="/showUser" method="post">
+                                                <form action="/showUser/<%= userInfoAdmin[0].user_id %>" method="get">
                                                 <% if (userInfoAdmin.length == 1) { %>    
                                                     <button type="submit" id="editUser" class="btn btn-primary">Edit User</button>
                                                 <% }; %>
                                             </div>
                                         </div>
                                         <br />
-                                        <p style="display: none;" id="userid" name="userid"></p>
                                         <table
                                         class="table table-striped"
                                             style="
@@ -304,11 +303,6 @@
                         'Logout ' + fName + ' ' + lName;
                     document.getElementById('btnLogout').style.display =
                         'block';}
-
-            if (localStorage.getItem("userid"))
-            {
-                document.getElementById("userid").innerHTML = localStorage.getItem("userid");
-            }
         }
 
         function editUser(){
