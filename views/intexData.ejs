@@ -133,9 +133,8 @@
                     </tr>
                 </thead>
                 <tbody style="font-family: Arial; font-size: 9pt">
-                    <% let currResponse = ''; for (let iCount = 0; iCount < mytest.length; iCount++) { %>
+                    <% for (let iCount = 0; iCount < mytest.length; iCount++) { %>
                     <tr>
-                        <% if(currResponse != mytest.response_id) { %>
                         <td><%= mytest[iCount].response_id %></td>
                         <td><%= mytest[iCount].date_stamp.toDateString() %></td>
                         <td><%= mytest[iCount].time_stamp %></td>
@@ -159,7 +158,6 @@
                         <td><%= mytest[iCount].frequency_depressed_down %></td>
                         <td><%= mytest[iCount].scale_interest_in_daily_activities %></td>
                         <td><%= mytest[iCount].scale_sleep_issues %></td>
-                        <%  currResponse = mytest.response_id };%>
                         <td><%= mytest[iCount].platform_name %></td>
                         <td><%= mytest[iCount].org_name %></td>
                     </tr>
