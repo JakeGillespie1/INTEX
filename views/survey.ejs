@@ -732,14 +732,16 @@
                             </button>
                             <br />
                         </div>
-                        <p id="submittedSurvey"></p>
                         <script>
                             //this should work
                             function submitSurvey() {
-                                document.getElementById(
-                                    'submittedSurvey'
-                                ).innerHTML = 'Thank you for your response.';
-                                document.getElementById('surveyForm').reset();
+                                if (validateForm()) {
+                                    // Add your logic to submit the survey here
+                                    document.getElementById('submittedSurvey').innerHTML = 'Survey submitted!';
+                                    document.getElementById('surveyForm').reset();
+                                }
+
+                            
                             }
 
                             function validateForm() {
@@ -753,13 +755,6 @@
 
                                 document.getElementById('errorMessage').style.display = 'none';
                                 return true;
-                            }
-
-                            function submitSurvey() {
-                                if (validateForm()) {
-                                    // Add your logic to submit the survey here
-                                    document.getElementById('submittedSurvey').innerHTML = 'Survey submitted!';
-                                }
                             }
                         </script>
                         </form>
