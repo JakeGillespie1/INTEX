@@ -53,6 +53,30 @@ app.get('/db', (req, res) => {
                 '=',
                 'relationship_status.relationship_id'
             )
+            .join(
+                'platform_response',
+                'response.relationship_id',
+                '=',
+                'platform_response.platform_id'
+            )
+            .join(
+                'platform',
+                'platform_response.platform_id',
+                '=',
+                'platform.platform_id'
+            )
+            .join(
+                'organization_response',
+                'response.org_id',
+                '=',
+                'organization_response.org_id'
+            )
+            .join(
+                'organization',
+                'organization_response.org_id',
+                '=',
+                'organization.org_id'
+            )
             .then((response) => {
                 res.render(path.join(__dirname + '/views/intexData'), {
                     mytest: response,
@@ -334,10 +358,13 @@ app.post('/updateUserAdmin', (req, res) => {
 
 /*Select one user*/
 app.get('/showUser', (req, res) => {
-    knex.select('*').from('user')
-    .where('email', req.body.email)
+    knex.select('*')
+        .from('user')
+        .where('email', req.body.email)
         .then((results) => {
-            res.render(path.join(__dirname + '/views/userPage'), {userInfoAdmin : results});
+            res.render(path.join(__dirname + '/views/userPage'), {
+                userInfoAdmin: results,
+            });
         });
 });
 
