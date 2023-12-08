@@ -86,8 +86,26 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="p-5">
-                                        <!-- Input boxes for users. -->
-                                        <!-- First and last name input. When a user types their name it will auto-capitalize the first letter. -->
+                                        <br />
+                                        <div class="row justify-content-md-center">
+                                            <div class="col-5 text-center">
+                                                <form
+                                                action="/db"
+                                                method="get"
+                                                >
+                                                    <% if (userInfoAdmin.length > 1) { %>
+                                                    <select class="form-select form-select-sm" id="responseSelector" name="responseSelector">
+                                                        <option value="all">View All</option>
+                                                        <% mytest.forEach(response => { %>
+                                                            <option value="<%= userInfoAdmin.user_id %>"><%= userInfoAdmin.user_id %></option>
+                                                        <% }); %>
+                                                    </select>
+                                                    <% }; %>
+                                                    <button type="submit" class="btn btn-primary"><% if (userInfoAdmin.length > 1){ %>View Record<%} else {%>Back to All Records<%}%></button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <br />
                                         <table
                                         class="table table-striped"
                                             style="

@@ -319,6 +319,7 @@ app.post('/emailPW', (req, res) => {
 });
 
 /*Admin Update Users*/
+/*Edit one user*/
 app.post('/updateUserAdmin', (req, res) => {
     knex('user')
     .where('email', req.body.nameemail)
@@ -328,6 +329,16 @@ app.post('/updateUserAdmin', (req, res) => {
     });
     });
 
+/*Select one user*/
+app.get('/showUser', (req, res) => {
+    knex.select('*').from('user')
+    .where('email', req.body.)
+        .then((results) => {
+            res.render(path.join(__dirname + '/views/userPage'), {userInfoAdmin : results});
+        });
+});
+
+/*Show all users*/
 app.get('/showUsers', (req, res) => {
     knex.select('*').from('user')
         .then((results) => {
