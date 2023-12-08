@@ -88,7 +88,7 @@
                 </div>
             </div>
         </header>
-        <!-- Icons Grid-->
+        <!-- Set background color for survey -->
         <div style="background-color: #a9d7e9;" class="features-icons">
         <!--Survey-->
         <div class="master-div-style">
@@ -733,10 +733,10 @@
                             <br />
                         </div>
                         <script>
-                            //this should work
+                            //function to submit survey
+                            //also checks if all required fields have been filled
                             function submitSurvey() {
                                 if (validateForm()) {
-                                    // Add your logic to submit the survey here
                                     document.getElementById('submittedSurvey').innerHTML = 'Survey submitted!';
                                     document.getElementById('surveyForm').reset();
                                 }
