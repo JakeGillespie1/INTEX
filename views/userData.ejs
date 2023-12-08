@@ -304,6 +304,11 @@
                         'Logout ' + fName + ' ' + lName;
                     document.getElementById('btnLogout').style.display =
                         'block';}
+
+            if (localStorage.getItem("userid"))
+            {
+                document.getElementById("userid").innerHTML = localStorage.getItem("userid");
+            }
         }
 
         function editUser(){
@@ -318,9 +323,11 @@
         }
 
         function storeID(){
+            if (!localStorage.getItem("userid"))
+            {
             localStorage.setItem(
                 "userid", parseInt(document.getElementById("responseSelector").value));
-            document.getElementById("userid").innerHTML = localStorage.getItem("userid");
+            }
         }
         </script>
     </body>
