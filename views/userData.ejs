@@ -104,7 +104,7 @@
                                                     <button type="submit" id=btnFilter class="btn btn-primary"><% if (userInfoAdmin.length > 1){ %>View Record<%} else {%>Back to All Records<%}%></button>
                                                 </form>
                                                 <form action="/showUser" method="post">
-                                                <% if (userInfoAdmin.length > 1) { %>    
+                                                <% if (userInfoAdmin.length == 1) { %>    
                                                     <button type="submit" id="editUser" class="btn btn-primary">Edit User</button>
                                                 <% }; %>
                                             </div>
