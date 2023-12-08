@@ -389,7 +389,7 @@ app.post('/updateUserAdmin', (req, res) => {
 
 /*Select one user*/
 app.post('/showUser', (req, res) => {
-    console.log(parseInt(req.body.userid));
+    console.log(req.body.userid);
     knex.select('*')
         .from('user')
         .where('user_id', parseInt(req.body.userid))
