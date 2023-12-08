@@ -374,7 +374,7 @@ app.post('/emailPW', (req, res) => {
 /*Edit one user*/
 app.post('/updateUserAdmin', (req, res) => {
     knex('user')
-        .where('user_id', req.body.userID)
+        .where('user_id', parseInt(req.body.userID))
         .update({
             first_name: req.body.FirstName,
             last_name: req.body.LastName,
@@ -391,7 +391,7 @@ app.post('/updateUserAdmin', (req, res) => {
 app.post('/showUser', (req, res) => {
     knex.select('*')
         .from('user')
-        .where('user_id', req.body.userid)
+        .where('user_id', parseInt(req.body.userid))
         .then((results) => {
             res.render(path.join(__dirname + '/views/userPage'), {
                 userInfoAdmin: results,
