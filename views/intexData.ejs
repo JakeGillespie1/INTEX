@@ -111,6 +111,7 @@
                         <th style="text-align: left">Age</th>
                         <th style="text-align: left">Gender</th>
                         <th style="text-align: left">Relationship Description</th>
+                        <th style="text-align: left">Location</th>
                         <th style="text-align: left">Occupation Description</th>
                         <th style="text-align: left">Social Media User</th>
                         <th style="text-align: left">Min Time Online</th>
@@ -129,18 +130,19 @@
                         <th style="text-align: left">Sleep Issues</th>
                         <th style="text-align: left">Platform</th>
                         <th style="text-align: left">Organization</th>
-                        <th style="text-align: left">Location</th>
                     </tr>
                 </thead>
                 <tbody style="font-family: Arial; font-size: 9pt">
-                    <% for (let iCount = 0; iCount < mytest.length; iCount++) { %>
+                    <% let currResponse = ''; for (let iCount = 0; iCount < mytest.length; iCount++) { %>
                     <tr>
+                        <% if(currResponse != response.response_id) { %>
                         <td><%= mytest[iCount].response_id %></td>
                         <td><%= mytest[iCount].date_stamp.toDateString() %></td>
                         <td><%= mytest[iCount].time_stamp %></td>
                         <td><%= mytest[iCount].age %></td>
                         <td><%= mytest[iCount].gender %></td>
                         <td><%= mytest[iCount].relationship_status_desc %></td>
+                        <td><%= mytest[iCount].location %></td>
                         <td><%= mytest[iCount].occupation_desc %></td>
                         <td><%= mytest[iCount].social_media_user %></td>
                         <td><%= mytest[iCount].min_time_online %></td>
@@ -157,9 +159,9 @@
                         <td><%= mytest[iCount].frequency_depressed_down %></td>
                         <td><%= mytest[iCount].scale_interest_in_daily_activities %></td>
                         <td><%= mytest[iCount].scale_sleep_issues %></td>
+                        <%  currResponse = response.response_id };%>
                         <td><%= mytest[iCount].platform_name %></td>
                         <td><%= mytest[iCount].org_name %></td>
-                        <td><%= mytest[iCount].location %></td>
                     </tr>
                     <% } %>
                 </tbody>
