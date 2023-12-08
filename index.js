@@ -36,7 +36,6 @@ let knex = require('knex')({
 
 app.get('/db', (req, res) => {
     let selector_id = req.query.responseSelector || 'all';
-    console.log('HEYHEYHEYHEY HEYHEYHEYHEY', selector_id);
     if (selector_id == 'all' || selector_id == 'View All') {
         knex.select()
             .from('response')
@@ -350,7 +349,9 @@ app.post('/emailPW', (req, res) => {
 app.post('/updateUserAdmin', (req, res) => {
     knex('user')
         .where('email', req.body.nameemail)
-        .update({ password: req.body.Password1 })
+        .update({ 
+            password: req.body.Password1 
+        })
         .then((userInfoAdmin) => {
             res.render(path.join(__dirname + '/views/userData'));
         });
@@ -369,13 +370,28 @@ app.post('/showUser', (req, res) => {
 
 /*Show all users*/
 app.get('/showUsers', (req, res) => {
-    knex.select('*')
-        .from('user')
-        .then((results) => {
-            res.render(path.join(__dirname + '/views/userData'), {
-                userInfoAdmin: results,
+    let selector_id = req.query.responseSelector || 'all';
+    if (selector_id == 'all')
+    {
+        knex.select('*')
+            .from('user')
+            .then((results) => {
+                res.render(path.join(__dirname + '/views/userData'), {
+                    userInfoAdmin: results,
+                });
             });
-        });
+    }
+    else
+    {
+        knex.select('*')
+            .from('user')
+            .where({ user_id: parseInt(selector_id) })
+            .then((results) => {
+                res.render(path.join(__dirname + '/views/userData'), {
+                    userInfoAdmin: results,
+                });
+            });
+    }
 });
 
 app.post('/addUser', (req, res) => {
