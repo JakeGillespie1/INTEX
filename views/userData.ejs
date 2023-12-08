@@ -101,7 +101,10 @@
                                                         <% }); %>
                                                     </select>
                                                     <% }; %>
-                                                    <button type="submit" class="btn btn-primary"><% if (userInfoAdmin.length > 1){ %>View Record<%} else {%>Back to All Records<%}%></button>
+                                                    <button onclick="editUser();" type="submit" id=btnFilter class="btn btn-primary"><% if (userInfoAdmin.length > 1){ %>View Record<%} else {%>Back to All Records<%}%></button>
+                                                    <form action="/showUser" method="post">
+                                                    <button id="editUser" class="btn btn-primary" style="display: none;">Edit User</button>
+                                                    
                                                 </form>
                                             </div>
                                         </div>
@@ -128,7 +131,7 @@
                                             <tbody style="font-family: Arial; font-size: 9pt">
                                                 <% for (let iCount = 0; iCount < userInfoAdmin.length; iCount++) { %>
                                                 <tr>
-                                                    <td><%= userInfoAdmin[iCount].user_id %></td>
+                                                    <td name="user_id"><%= userInfoAdmin[iCount].user_id %></td>
                                                     <td><%= userInfoAdmin[iCount].first_name%></td>
                                                     <td><%= userInfoAdmin[iCount].last_name %></td>
                                                     <td><%= userInfoAdmin[iCount].email%></td>
@@ -139,6 +142,7 @@
                                             </tbody>
                                         </table>
                                     </div>
+                                                    </form>
                                         <hr />
                                     </div>
                                 </div>
@@ -298,6 +302,17 @@
                         'Logout ' + fName + ' ' + lName;
                     document.getElementById('btnLogout').style.display =
                         'block';}
+        }
+
+        function editUser(){
+            if (document.getElementById("btnFilter").innerText.includes("Back to All Records"))
+            {
+                document.getElementById("editUser").style.display = "block";
+            }
+            else
+            {
+                document.getElementById("editUser").style.display = "none";
+            }
         }
         </script>
     </body>
