@@ -105,31 +105,31 @@
             >
                 <thead style="background-color: #24A5DE; color: white">
                     <tr>
-                        <th style="text-align: left">Record Number</th>
+                        <th style="text-align: left">Record</th>
                         <th style="text-align: left">Date</th>
                         <th style="text-align: left">Time</th>
                         <th style="text-align: left">Age</th>
                         <th style="text-align: left">Gender</th>
-                        <th style="text-align: left">Relationship Description</th>
+                        <th style="text-align: left">Relationship</th>
                         <th style="text-align: left">Location</th>
-                        <th style="text-align: left">Occupation Description</th>
-                        <th style="text-align: left">Social Media User</th>
-                        <th style="text-align: left">Min Time Online</th>
-                        <th style="text-align: left">Max Time Online</th>
-                        <th class="tootltip" style="text-align: left"><span class="tooltiptext">Freq Used with Purpose</span></th>
-                        <th style="text-align: left">Freq Distracted while Busy</th>
-                        <th style="text-align: left">Freq Restless while not Online</th>
-                        <th style="text-align: left">Easily Distracted</th>
-                        <th style="text-align: left">Freq Bothered by Worries</th>
-                        <th style="text-align: left">Difficulty Concentrating</th>
-                        <th style="text-align: left">Freq Compared to Successful People</th>
-                        <th style="text-align: left">Feeling about Compared to Successful People</th>
-                        <th style="text-align: left">Seeking Validation Media</th>
-                        <th style="text-align: left">Freq Depressed Down</th>
-                        <th style="text-align: left">Interest Daily Activities</th>
-                        <th style="text-align: left">Sleep Issues</th>
+                        <th style="text-align: left">Occupation</th>
+                        <th style="text-align: left">Social Media </th>
                         <th style="text-align: left">Platform</th>
                         <th style="text-align: left">Organization</th>
+                        <th title="Min Time Online" style="text-align: left">#</th>
+                        <th title="Max Time Online" style="text-align: left">#</th>
+                        <th title="Freq Used with Purpose" style="text-align: left">#</th>
+                        <th title="Freq Distracted while Busy" style="text-align: left">#</th>
+                        <th title="Freq Restless while not Online" style="text-align: left">#</th>
+                        <th title="Easily Distracted" style="text-align: left">#</th>
+                        <th title="Freq Bothered by Worries" style="text-align: left">#</th>
+                        <th title="Difficulty Concentrating" style="text-align: left">#</th>
+                        <th title="Freq Compared to Successful People" style="text-align: left">#</th>
+                        <th title="Feeling about Compared to Successful People" style="text-align: left">#</th>
+                        <th title="Seeking Validation Media" style="text-align: left">#</th>
+                        <th title="Freq Depressed Down" style="text-align: left">#</th>
+                        <th title="Interest Daily Activities" style="text-align: left">#</th>
+                        <th title="Sleep Issues" style="text-align: left">#</th>
                     </tr>
                 </thead>
                 <tbody style="font-family: Arial; font-size: 9pt">
@@ -144,6 +144,8 @@
                         <td><%= mytest[iCount].location %></td>
                         <td><%= mytest[iCount].occupation_desc %></td>
                         <td><%= mytest[iCount].social_media_user %></td>
+                        <td><%= mytest[iCount].platform_name %></td>
+                        <td><%= mytest[iCount].org_name %></td>
                         <td><%= mytest[iCount].min_time_online %></td>
                         <td><%= mytest[iCount].max_time_online %></td>
                         <td><%= mytest[iCount].frequency_used_with_purpose %></td>
@@ -158,8 +160,6 @@
                         <td><%= mytest[iCount].frequency_depressed_or_down %></td>
                         <td><%= mytest[iCount].scale_interest_in_daily_activities %></td>
                         <td><%= mytest[iCount].scale_sleep_issues %></td>
-                        <td><%= mytest[iCount].platform_name %></td>
-                        <td><%= mytest[iCount].org_name %></td>
                     </tr>
                     <% } %>
                 </tbody>
