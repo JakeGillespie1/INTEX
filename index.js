@@ -293,15 +293,16 @@ app.get('/forgotPW', (req, res) => {
 
 app.post('/updatePW', (req, res) => {
     knex('user')
-    .where('email', req.body.nameemail)
-    .update({ password : req.body.Password1})
-    .then(userInfo => {
-        res.render(path.join(__dirname + '/views/testing2'));
-    });
-    });
+        .where('email', req.body.nameemail)
+        .update({ password: req.body.Password1 })
+        .then((userInfo) => {
+            res.render(path.join(__dirname + '/views/testing2'));
+        });
+});
 
 app.post('/emailPW', (req, res) => {
-    knex.select('password', 'email').from('user')
+    knex.select('password', 'email')
+        .from('user')
         .where('email', req.body.useremail)
         .then((results) => {
             if (results.length == 0) {
@@ -313,25 +314,41 @@ app.post('/emailPW', (req, res) => {
                     }
                 );
             } else {
-                res.render(path.join(__dirname + '/views/resetPassword'), {userInfo : results});
+                res.render(path.join(__dirname + '/views/resetPassword'), {
+                    userInfo: results,
+                });
             }
         });
 });
 
 /*Admin Update Users*/
+/*Edit one user*/
 app.post('/updateUserAdmin', (req, res) => {
     knex('user')
-    .where('email', req.body.nameemail)
-    .update({ password : req.body.Password1})
-    .then(userInfoAdmin => {
-        res.render(path.join(__dirname + '/views/userData'));
-    });
-    });
+        .where('email', req.body.nameemail)
+        .update({ password: req.body.Password1 })
+        .then((userInfoAdmin) => {
+            res.render(path.join(__dirname + '/views/userData'));
+        });
+});
 
-app.get('/showUsers', (req, res) => {
+/*Select one user*/
+app.get('/showUser', (req, res) => {
     knex.select('*').from('user')
+    .where('email', req.body.email)
         .then((results) => {
-            res.render(path.join(__dirname + '/views/userData'), {userInfoAdmin : results});
+            res.render(path.join(__dirname + '/views/userPage'), {userInfoAdmin : results});
+        });
+});
+
+/*Show all users*/
+app.get('/showUsers', (req, res) => {
+    knex.select('*')
+        .from('user')
+        .then((results) => {
+            res.render(path.join(__dirname + '/views/userData'), {
+                userInfoAdmin: results,
+            });
         });
 });
 
