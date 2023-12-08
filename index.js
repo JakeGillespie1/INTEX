@@ -83,9 +83,9 @@ app.get('/db', (req, res) => {
             });
     } else {
         selector_id = parseInt(selector_id);
+        knex.select();
         knex.select()
             .from('response')
-            .orderBy('response_id', 'desc')
             .join(
                 'occupation_status',
                 'response.occupation_id',
@@ -98,6 +98,31 @@ app.get('/db', (req, res) => {
                 '=',
                 'relationship_status.relationship_id'
             )
+            .join(
+                'platform_response',
+                'response.response_id',
+                '=',
+                'platform_response.response_id'
+            )
+            .join(
+                'platform',
+                'platform_response.platform_id',
+                '=',
+                'platform.platform_id'
+            )
+            .join(
+                'organization_response',
+                'response.response_id',
+                '=',
+                'organization_response.response_id'
+            )
+            .join(
+                'organization',
+                'organization_response.org_id',
+                '=',
+                'organization.org_id'
+            )
+            .orderBy('response.response_id', 'desc')
             .where({ response_id: selector_id })
             .then((response) => {
                 res.render(path.join(__dirname + '/views/intexData'), {
@@ -359,8 +384,9 @@ app.post('/updateUserAdmin', (req, res) => {
 
 /*Select one user*/
 app.post('/showUser', (req, res) => {
-    knex.select('*').from('user')
-    .where('user_id', req.body.user_id)
+    knex.select('*')
+        .from('user')
+        .where('user_id', req.body.user_id)
         .then((results) => {
             res.render(path.join(__dirname + '/views/userPage'), {
                 userInfoAdmin: results,
