@@ -101,9 +101,16 @@
                                                         <% }); %>
                                                     </select>
                                                     <% }; %>
-                                                    <button onclick="editUser();" type="submit" id=btnFilter class="btn btn-primary"><% if (userInfoAdmin.length > 1){ %>View Record<%} else {%>Back to All Records<%}%></button>
+                                                    <button type="submit" id=btnFilter class="btn btn-primary"><% if (userInfoAdmin.length > 1){ %>View Record<%} else {%>Back to All Records<%}%></button>
                                                     <form action="/showUser" method="post">
-                                                    <button id="editUser" class="btn btn-primary" style="display: none;">Edit User</button>
+                                                    <%if (userInfoAdmin.length == 1) {%>
+                                                    <select class="form-select form-select-sm" id="responseSelector" name="responseSelector">
+                                                        <% userInfoAdmin.forEach(results => { %>
+                                                            <option value="<%= results.user_id %>"><%= results.user_id %></option>
+                                                        <% }); %>
+                                                    </select>
+                                                        <button type="submit" id="editUser" class="btn btn-primary">Edit User</button>
+                                                    <% }; %>
                                                     
                                                 </form>
                                             </div>
