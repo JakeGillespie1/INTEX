@@ -40,7 +40,6 @@ app.get('/db', (req, res) => {
     if (selector_id == 'all' || selector_id == 'View All') {
         knex.select()
             .from('response')
-            .orderBy('response_id', 'desc')
             .join(
                 'occupation_status',
                 'response.occupation_id',
@@ -77,6 +76,7 @@ app.get('/db', (req, res) => {
                 '=',
                 'organization.org_id'
             )
+            .orderBy('response.response_id', 'desc')
             .then((response) => {
                 res.render(path.join(__dirname + '/views/intexData'), {
                     mytest: response,
