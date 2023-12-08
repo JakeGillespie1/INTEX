@@ -97,7 +97,7 @@
                                                     <select class="form-select form-select-sm" id="responseSelector" name="responseSelector">
                                                         <option value="all">View All</option>
                                                         <% userInfoAdmin.forEach(results => { %>
-                                                            <option value="<%= userInfoAdmin.user_id %>"><%= userInfoAdmin.user_id %></option>
+                                                            <option value="<%= results.user_id %>"><%= results.user_id %></option>
                                                         <% }); %>
                                                     </select>
                                                     <% }; %>
