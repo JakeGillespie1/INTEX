@@ -108,11 +108,12 @@
                                                         <% }); %>
                                                     </select>
                                                     <% }; %>
-                                                    <button onclick="editUser();" type="submit" id=btnFilter class="btn btn-primary"><% if (userInfoAdmin.length > 1){ %>View Record<%} else {%>Back to All Records<%}%></button>
-                                                    <form action="/showUser" method="post">
-                                                    <button id="editUser" class="btn btn-primary" style="display: none;">Edit User</button>
-                                                    
+                                                    <button type="submit" id=btnFilter onclick="storeID();" class="btn btn-primary"><% if (userInfoAdmin.length > 1){ %>View Record<%} else {%>Back to All Records<%}%></button>
                                                 </form>
+                                                <form action="/showUser/<%= userInfoAdmin[0].user_id %>" method="get">
+                                                <% if (userInfoAdmin.length == 1) { %>    
+                                                    <button type="submit" id="editUser" class="btn btn-primary">Edit User</button>
+                                                <% }; %>
                                             </div>
                                         </div>
                                         <br />
@@ -138,7 +139,7 @@
                                             <tbody style="font-family: Arial; font-size: 9pt">
                                                 <% for (let iCount = 0; iCount < userInfoAdmin.length; iCount++) { %>
                                                 <tr>
-                                                    <td name="user_id"><%= userInfoAdmin[iCount].user_id %></td>
+                                                    <td id="userId"><%= userInfoAdmin[iCount].user_id %></td>
                                                     <td><%= userInfoAdmin[iCount].first_name%></td>
                                                     <td><%= userInfoAdmin[iCount].last_name %></td>
                                                     <td><%= userInfoAdmin[iCount].email%></td>
@@ -319,6 +320,14 @@
             else
             {
                 document.getElementById("editUser").style.display = "none";
+            }
+        }
+
+        function storeID(){
+            if (!localStorage.getItem("userid"))
+            {
+            localStorage.setItem(
+                "userid", parseInt(document.getElementById("responseSelector").value));
             }
         }
         </script>

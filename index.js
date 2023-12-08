@@ -83,6 +83,7 @@ app.get('/db', (req, res) => {
             });
     } else {
         selector_id = parseInt(selector_id);
+        console.log('HEY', selector_id);
         knex.select();
         knex.select()
             .from('response')
@@ -123,7 +124,7 @@ app.get('/db', (req, res) => {
                 'organization.org_id'
             )
             .orderBy('response.response_id', 'desc')
-            .where({ response_id: selector_id })
+            .where('response.response_id', '=', selector_id)
             .then((response) => {
                 res.render(path.join(__dirname + '/views/intexData'), {
                     mytest: response,
@@ -373,13 +374,13 @@ app.post('/emailPW', (req, res) => {
 /*Edit one user*/
 app.post('/updateUserAdmin', (req, res) => {
     knex('user')
-        .where('user_id', req.body.userID)
-        .update({ 
-            first_name : req.body.FirstName,
-            last_name : req.body.LastName,
-            email : req.body.Email,
+        .where('user_id', parseInt(req.body.userID))
+        .update({
+            first_name: req.body.FirstName,
+            last_name: req.body.LastName,
+            email: req.body.Email,
             password: req.body.Password1,
-            is_admin: req.body.isadmin
+            is_admin: req.body.isadmin,
         })
         .then((userInfoAdmin) => {
             res.render(path.join(__dirname + '/views/testing2'));
@@ -387,10 +388,10 @@ app.post('/updateUserAdmin', (req, res) => {
 });
 
 /*Select one user*/
-app.post('/showUser', (req, res) => {
+app.get('/showUser/:userid', (req, res) => {
     knex.select('*')
         .from('user')
-        .where('user_id', req.body.user_id)
+        .where('user_id', parseInt(req.params.userid))
         .then((results) => {
             res.render(path.join(__dirname + '/views/userPage'), {
                 userInfoAdmin: results,
@@ -401,8 +402,7 @@ app.post('/showUser', (req, res) => {
 /*Show all users*/
 app.get('/showUsers', (req, res) => {
     let selector_id = req.query.responseSelector || 'all';
-    if (selector_id == 'all')
-    {
+    if (selector_id == 'all') {
         knex.select('*')
             .from('user')
             .then((results) => {
@@ -410,9 +410,7 @@ app.get('/showUsers', (req, res) => {
                     userInfoAdmin: results,
                 });
             });
-    }
-    else
-    {
+    } else {
         knex.select('*')
             .from('user')
             .where({ user_id: parseInt(selector_id) })
