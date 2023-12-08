@@ -83,6 +83,7 @@ app.get('/db', (req, res) => {
             });
     } else {
         selector_id = parseInt(selector_id);
+        console.log('HEY', selector_id);
         knex.select();
         knex.select()
             .from('response')
@@ -374,12 +375,12 @@ app.post('/emailPW', (req, res) => {
 app.post('/updateUserAdmin', (req, res) => {
     knex('user')
         .where('user_id', req.body.userID)
-        .update({ 
-            first_name : req.body.FirstName,
-            last_name : req.body.LastName,
-            email : req.body.Email,
+        .update({
+            first_name: req.body.FirstName,
+            last_name: req.body.LastName,
+            email: req.body.Email,
             password: req.body.Password1,
-            is_admin: req.body.isadmin
+            is_admin: req.body.isadmin,
         })
         .then((userInfoAdmin) => {
             res.render(path.join(__dirname + '/views/testing2'));
@@ -401,8 +402,7 @@ app.post('/showUser', (req, res) => {
 /*Show all users*/
 app.get('/showUsers', (req, res) => {
     let selector_id = req.query.responseSelector || 'all';
-    if (selector_id == 'all')
-    {
+    if (selector_id == 'all') {
         knex.select('*')
             .from('user')
             .then((results) => {
@@ -410,9 +410,7 @@ app.get('/showUsers', (req, res) => {
                     userInfoAdmin: results,
                 });
             });
-    }
-    else
-    {
+    } else {
         knex.select('*')
             .from('user')
             .where({ user_id: parseInt(selector_id) })
