@@ -317,14 +317,10 @@
             }
         }
 
-        function updateUserID(){
-            document.getElementById("userid").innerHTML = localStorage.getItem("userid")
-        }
-
         function storeID(){
             localStorage.setItem(
-                "userid", parseInt(document.getElementById("responseSelector").value)
-            );
+                "userid", parseInt(document.getElementById("responseSelector").value));
+            document.getElementById("userid").innerHTML = localStorage.getItem("userid");
         }
         </script>
     </body>
