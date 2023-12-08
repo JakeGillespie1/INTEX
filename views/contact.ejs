@@ -38,6 +38,14 @@
                         href="register"
                         >Create New Account</a
                     >
+                    <form action="/showUsers" method="GET">
+                        <button
+                        type="submit"
+                        style="display: none; margin-right: 10px"
+                        class="btn btn-warning"
+                        id = "btnUsers"
+                        >View User Records</button
+                        >
                     <form action="/" method="GET">
                         <button
                             type="submit"
@@ -178,6 +186,8 @@
 
             if (localStorage.getItem('is_admin').includes("true")) {
                     document.getElementById('createacc').style.display =
+                        'block';
+                    document.getElementById('btnUsers').style.display =
                         'block';}
 
                 let fName = localStorage.getItem('first_name');
