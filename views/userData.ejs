@@ -110,6 +110,7 @@
                                             </div>
                                         </div>
                                         <br />
+                                        <p style="display: none;" id="userid" name="userid"></p>
                                         <table
                                         class="table table-striped"
                                             style="
@@ -132,7 +133,7 @@
                                             <tbody style="font-family: Arial; font-size: 9pt">
                                                 <% for (let iCount = 0; iCount < userInfoAdmin.length; iCount++) { %>
                                                 <tr>
-                                                    <td id="userid" name="userid"><%= userInfoAdmin[iCount].user_id %></td>
+                                                    <td id="userId"><%= userInfoAdmin[iCount].user_id %></td>
                                                     <td><%= userInfoAdmin[iCount].first_name%></td>
                                                     <td><%= userInfoAdmin[iCount].last_name %></td>
                                                     <td><%= userInfoAdmin[iCount].email%></td>
@@ -317,7 +318,7 @@
         }
 
         function updateUserID(){
-            document.getElementById("userid").innerText = localStorage.getItem("userid")
+            document.getElementById("userid").innerHTML = localStorage.getItem("userid")
         }
 
         function storeID(){
