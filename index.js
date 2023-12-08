@@ -374,7 +374,7 @@ app.post('/emailPW', (req, res) => {
 /*Edit one user*/
 app.post('/updateUserAdmin', (req, res) => {
     knex('user')
-        .where('user_id', req.body.userID)
+        .where('user_id', parseInt(req.body.userID))
         .update({
             first_name: req.body.FirstName,
             last_name: req.body.LastName,
